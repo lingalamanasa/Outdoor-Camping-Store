@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Traveler Dashboard – Stackly Outdoor Store</title>
+  <meta name="description" content="View your active gear rentals, booked expeditions, saved wishlist, and adventurer account settings." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- TRAVELER DASHBOARD VIEW -->
+  <div id="page-user-dashboard" class="page-view active" style="display:block;">
+    <div class="dash-layout">
+      
+      <!-- SIDEBAR -->
+      <aside class="dash-sidebar">
+        <div class="dash-sidebar-brand">
+          <a href="user-dashboard.html" class="dash-logo" title="Stackly Dashboard" style="cursor: pointer; display: inline-flex; align-items: center; gap: 10px; text-decoration: none;">
+            <svg width="28" height="28" viewBox="0 0 40 40" fill="none" style="pointer-events: none;">
+              <circle cx="20" cy="20" r="20" fill="url(#userDashLogoGrad)"/>
+              <text x="50%" y="57%" dominant-baseline="middle" text-anchor="middle" font-size="16" fill="white">🏕</text>
+              <defs>
+                <linearGradient id="userDashLogoGrad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#52b788"/>
+                  <stop offset="100%" stop-color="#2d6a4f"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            <span class="logo-text" style="pointer-events: none;">Stack<span class="logo-accent">ly</span></span>
+          </a>
+          <div class="dash-mobile-nav-toggle" onclick="toggleMobileDashNav(this)">
+            <span>Menu</span>
+            <span class="dm-arrow">▼</span>
+          </div>
+        </div>
+        <span class="sidebar-subtitle dash-sidebar-role-disp" style="color:var(--green-300); cursor: pointer;">Traveler Dashboard</span>
+
+        <nav class="sidebar-nav">
+          <a href="#" class="sidebar-link active" id="user-nav-overview" onclick="switchTravelerTab('overview'); return false;">
+            <span class="s-icon">📊</span> Overview
+          </a>
+          <a href="#" class="sidebar-link" id="user-nav-rentals" onclick="switchTravelerTab('rentals'); return false;">
+            <span class="s-icon">🎒</span> My Gear &amp; Rentals
+          </a>
+          <a href="#" class="sidebar-link" id="user-nav-expeditions" onclick="switchTravelerTab('expeditions'); return false;">
+            <span class="s-icon">🏔️</span> Booked Expeditions
+          </a>
+          <a href="#" class="sidebar-link" id="user-nav-wishlist" onclick="switchTravelerTab('wishlist'); return false;">
+            <span class="s-icon">⭐</span> Saved Wishlist
+          </a>
+          <a href="#" class="sidebar-link" id="user-nav-settings" onclick="switchTravelerTab('settings'); return false;">
+            <span class="s-icon">⚙️</span> Account Settings
+          </a>
+
+          <div class="sidebar-divider"></div>
+
+          <a href="index.html" class="sidebar-link logout-link">
+            <span class="s-icon">🚪</span> Logout
+          </a>
+        </nav>
+      </aside>
+
+      <!-- MAIN CONTENT AREA -->
+      <main class="dash-main-content">
+        
+        <!-- TOPBAR -->
+        <header class="dash-topbar">
+          <div class="dash-welcome">
+            <h1 class="dash-title">Welcome back, <span class="dash-user-disp-name">Manasasrinivas Lingala</span></h1>
+            <p class="dash-subtitle">Track your active outdoor gear rentals, upcoming mountain treks, and saved wishlist.</p>
+          </div>
+
+          <div class="dash-user-profile">
+            <div class="user-meta">
+              <span class="u-name dash-user-disp-name">Manasasrinivas Lingala</span>
+              <span class="u-email dash-user-email-disp">sbende1996@gmail.com</span>
+            </div>
+            <div class="u-avatar" style="background:linear-gradient(135deg,var(--green-500),var(--green-700));">🏕️</div>
+          </div>
+        </header>
+
+        <!-- SUBPANEL 1: OVERVIEW -->
+        <div id="user-panel-overview" class="user-subpanel active">
+          
+          <div class="dash-metrics-grid">
+            <div class="dash-card-box metric-box">
+              <div class="d-box-top">
+                <div class="d-icon-pill green">🎒</div>
+                <span class="d-box-label">Active Rentals</span>
+              </div>
+              <div class="d-box-val">3 Items</div>
+              <span class="d-box-trend green">Return by Oct 24</span>
+            </div>
+
+            <div class="dash-card-box metric-box">
+              <div class="d-box-top">
+                <div class="d-icon-pill gold">🏔️</div>
+                <span class="d-box-label">Upcoming Treks</span>
+              </div>
+              <div class="d-box-val">2 Trips</div>
+              <span class="d-box-subtext">Next: Alpine Summit</span>
+            </div>
+
+            <div class="dash-card-box metric-box">
+              <div class="d-box-top">
+                <div class="d-icon-pill cyan">⭐</div>
+                <span class="d-box-label">Trail Rewards</span>
+              </div>
+              <div class="d-box-val">1,250 Pts</div>
+              <span class="d-box-subtext green-text">Gold Explorer Tier</span>
+            </div>
+          </div>
+
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog &amp; Field Guides – Stackly Outdoor Store</title>
+  <meta name="description" content="Read wilderness survival tips, knot-tying guides, campfire recipes, and outdoor adventure stories from certified mountain guides." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== HEADER / NAVBAR ===== -->
+  <header id="navbar" class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo" id="logo-link">
+        <div class="logo-mark">
+          <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="20" cy="20" r="20" fill="url(#logoGrad)"/>
+            <text x="50%" y="57%" dominant-baseline="middle" text-anchor="middle" font-size="18" fill="white">🏕</text>
+            <defs>
+              <linearGradient id="logoGrad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#40916c"/>
+                <stop offset="100%" stop-color="#1a4731"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <span class="logo-text">Stack<span class="logo-accent">ly</span></span>
+      </a>
+
+      <nav class="nav-links" id="nav-links">
+        <a href="index.html" class="nav-link" id="nav-home">Home</a>
+        <a href="about.html" class="nav-link" id="nav-about">About</a>
+        <a href="services.html" class="nav-link" id="nav-services">Services</a>
+        <a href="blog.html" class="nav-link active" id="nav-blog">Blog</a>
+        <a href="contact.html" class="nav-link" id="nav-contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== PAGE CONTENT ===== -->
+  <div id="page-blog" class="page-view active" style="display:block;">
+    <section class="page-hero" style="background-image: linear-gradient(135deg, rgba(10,30,15,0.85) 0%, rgba(20,60,30,0.65) 100%), url('https://images.unsplash.com/photo-1510312305653-8ed496efae75?w=1600&q=80');">
+      <div class="container page-hero-content">
+        <span class="page-badge">📖 Adventure Journal</span>
+        <h1 class="page-title">Stackly Blog</h1>
+        <p class="page-subtitle">Field-tested guides, knot tutorials, campfire recipes, and wilderness survival stories from our guides.</p>
+        <div class="page-hero-stats">
+          <div class="ph-stat"><strong>150+</strong><span>Articles</span></div>
+          <div class="ph-stat"><strong>50K+</strong><span>Monthly Readers</span></div>
+          <div class="ph-stat"><strong>100%</strong><span>Free Guides</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 1: EDITOR'S PICK / FEATURED STORY -->
+    <section class="page-section">
+      <div class="container">
+        <div class="section-header-centered">
+          <span class="section-tag">Section 01</span>
+          <h2 class="section-title">Editor's <span class="accent">Featured Story</span></h2>
+        </div>
+        <div class="featured-blog-card">
+          <div class="fbc-img" style="background-image:url('images/blog_knots_1786948150320.png')"></div>
+          <div class="fbc-content">
+            <span class="blog-category-badge">Camping Essentials</span>
+            <h2>10 Essential Knots Every Outdoor Camper Should Master</h2>
+            <p>Whether you're securing a tent rainfly in 40mph winds or hanging a bear bag in the backcountry, these fundamental knots will save your trip.</p>
+            <div class="fbc-author">
+              <img src="https://i.pravatar.cc/50?img=52" alt="Ryan Torres" class="av-img"/>
+              <div>
+                <strong>Ryan Torres</strong>
+                <span>Mountaineer Lead • 7 min read</span>
+              </div>
+            </div>
+            <a href="#" class="btn-primary sm" onclick="trigger404(event)">Read Full Guide →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: CATEGORY FILTERS -->
+    <section class="page-section bg-alt">
+      <div class="container">
+        <div class="blog-filter-bar">
+          <button class="bf-btn active">All Guides</button>
+          <button class="bf-btn">Camp Cooking</button>
+          <button class="bf-btn">Shelter &amp; Tents</button>
+          <button class="bf-btn">First Aid &amp; Safety</button>
+          <button class="bf-btn">Trail Reviews</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: RECENT JOURNAL ARTICLES GRID -->
+    <section class="page-section">
+      <div class="container">
+        <div class="grid-3">
+          <div class="service-box">
+            <div class="sb-img-wrap">
+              <img src="images/blog_backpack_choose_1786948234186.png" alt="Backpack Sizing" class="sb-img"/>
+            </div>
+            <div class="sb-body">
+              <span class="blog-category-badge">Gear Fitting</span>
+              <h3>How to Choose the Right Backpack Capacity (40L vs 65L vs 85L)</h3>
+              <p>Understanding torso length, load distribution, and seasonal gear weight requirements.</p>
+            </div>
+          </div>
+          <div class="service-box">
+            <div class="sb-img-wrap">
+              <img src="images/blog_campfire_food_1786948481997.png" alt="Campfire Food" class="sb-img"/>
+            </div>
+            <div class="sb-body">
+              <span class="blog-category-badge">Camp Cooking</span>
+              <h3>Cast Iron Campfire Cooking: 5 One-Pot Trail Feasts</h3>
+              <p>Delicious high-protein recipes you can cook over open embers without heavy prep.</p>
+            </div>
+          </div>
+          <div class="service-box">
+            <div class="sb-img-wrap">
+              <img src="images/blog_rain_camping_1786948214603.png" alt="Rain Camping" class="sb-img"/>
+            </div>
+            <div class="sb-body">
+              <span class="blog-category-badge">Wilderness Survival</span>
+              <h3>Staying Dry in Heavy Rain: Advanced Tarp &amp; Tent Setups</h3>
+              <p>Waterproofing techniques, trenching myths, and condensation management tips.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: FREE DOWNLOADABLE FIELD GUIDES -->
+    <section class="page-section bg-alt">
+      <div class="container">
+        <div class="section-header-centered">
+          <span class="section-tag">Section 04</span>
+          <h2 class="section-title">Free Downloadable <span class="accent">PDF Field Manuals</span></h2>
+        </div>
+        <div class="grid-3">
+          <div class="dl-card">
+            <div class="dl-icon">📚</div>
+            <h3>Backcountry Packing Checklist</h3>
+            <p>Complete 3-season gear packing list categorized by weight and essential emergency items.</p>
+            <button class="btn-primary sm" onclick="trigger404(event)">Download PDF (2.4MB)</button>
+          </div>
+          <div class="dl-card">
+            <div class="dl-icon">🧭</div>
+            <h3>Map &amp; Compass Navigation Guide</h3>
+            <p>Step-by-step guide to calculating declination, taking bearings, and triangulation.</p>
+            <button class="btn-primary sm" onclick="trigger404(event)">Download PDF (4.1MB)</button>
+          </div>
+          <div class="dl-card">
+            <div class="dl-icon">🩺</div>
+            <h3>Wilderness First-Aid Quick Reference</h3>
+            <p>Emergency protocols for hypothermia, fractures, snake bites, and dehydration.</p>
+            <button class="btn-primary sm" onclick="trigger404(event)">Download PDF (1.8MB)</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: COMMUNITY PHOTO WALL -->
+    <section class="page-section">
+      <div class="container">
+        <div class="section-header-centered">
+          <span class="section-tag">Section 05</span>
+          <h2 class="section-title">Community <span class="accent">Wilderness Shots</span></h2>
+          <p class="section-desc">Tag #StacklyWild on Instagram to be featured on our community wall.</p>
+        </div>
+        <div class="photo-grid-4">
+          <div class="photo-tile" style="background-image:url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600&q=80')">
+            <span class="photo-tag">📍 Glacier National Park</span>
+          </div>
+          <div class="photo-tile" style="background-image:url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&q=80')">
+            <span class="photo-tag">📍 Swiss Alps</span>
+          </div>
+          <div class="photo-tile" style="background-image:url('https://images.unsplash.com/photo-1510312305653-8ed496efae75?w=600&q=80')">
+            <span class="photo-tag">📍 Yosemite Trail</span>
+          </div>
+          <div class="photo-tile" style="background-image:url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=600&q=80')">
+            <span class="photo-tag">📍 Banff Summit</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer id="footer" class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-top-inner">
+          <div class="footer-brand">
+            <a href="index.html" class="footer-logo-link">
+              <div class="logo-mark">
+                <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="20" cy="20" r="20" fill="url(#footLogoGrad)"/>
+                  <text x="50%" y="57%" dominant-baseline="middle" text-anchor="middle" font-size="18" fill="white">🏕</text>
+                  <defs>
+                    <linearGradient id="footLogoGrad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+                      <stop offset="0%" stop-color="#40916c"/>
+                      <stop offset="100%" stop-color="#1a4731"/>
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </div>
+              <span class="logo-text">Stack<span class="logo-accent">ly</span></span>
+            </a>
+            <p>Your ultimate outdoor and camping destination. Built for wilderness lovers.</p>
+          </div>
+          <div class="footer-newsletter">
+            <h4>Join The Trail Club</h4>
+            <p>Subscribe for expedition guides, exclusive member gear deals, and wilderness tips.</p>
+            <form class="newsletter-form" onsubmit="handleNewsletterSubmit(event)">
+              <input type="email" id="newsletter-email" placeholder="Enter your email" required />
+              <button type="submit" id="newsletter-submit-btn">Subscribe</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Stackly Outdoor Store. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

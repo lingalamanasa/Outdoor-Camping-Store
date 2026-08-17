@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Host Dashboard – Stackly Outdoor Store</title>
+  <meta name="description" content="Manage your hosted property listings, rental gear inventory, reservations, earnings, and host settings." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HOST DASHBOARD VIEW -->
+  <div id="page-dashboard" class="page-view active" style="display:block;">
+    <div class="dash-layout">
+      
+      <!-- SIDEBAR -->
+      <aside class="dash-sidebar">
+        <div class="dash-sidebar-brand">
+          <a href="dashboard.html" class="dash-logo" title="Stackly Dashboard" style="cursor: pointer; display: inline-flex; align-items: center; gap: 10px; text-decoration: none;">
+            <svg width="28" height="28" viewBox="0 0 40 40" fill="none" style="pointer-events: none;">
+              <circle cx="20" cy="20" r="20" fill="url(#dashLogoGrad)"/>
+              <text x="50%" y="57%" dominant-baseline="middle" text-anchor="middle" font-size="16" fill="white">🏕</text>
+              <defs>
+                <linearGradient id="dashLogoGrad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#38bdf8"/>
+                  <stop offset="100%" stop-color="#0284c7"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            <span class="logo-text" style="pointer-events: none;">Stack<span class="logo-accent" style="color:#38bdf8;">ly</span></span>
+          </a>
+          <div class="dash-mobile-nav-toggle" onclick="toggleMobileDashNav(this)">
+            <span>Menu</span>
+            <span class="dm-arrow">▼</span>
+          </div>
+        </div>
+        <span class="sidebar-subtitle dash-sidebar-role-disp" style="cursor: pointer;">Host Dashboard</span>
+
+        <nav class="sidebar-nav">
+          <a href="#" class="sidebar-link active" id="host-nav-overview" onclick="switchHostTab('overview'); return false;">
+            <span class="s-icon">📊</span> Overview
+          </a>
+          <a href="#" class="sidebar-link" id="host-nav-properties" onclick="switchHostTab('properties'); return false;">
+            <span class="s-icon">🏠</span> My Properties &amp; Gear
+          </a>
+          <a href="#" class="sidebar-link" id="host-nav-bookings" onclick="switchHostTab('bookings'); return false;">
+            <span class="s-icon">📅</span> Bookings &amp; Guests
+          </a>
+          <a href="#" class="sidebar-link" id="host-nav-earnings" onclick="switchHostTab('earnings'); return false;">
+            <span class="s-icon">📈</span> Financial Earnings
+          </a>
+          <a href="#" class="sidebar-link" id="host-nav-settings" onclick="switchHostTab('settings'); return false;">
+            <span class="s-icon">⚙️</span> Host Settings
+          </a>
+
+          <div class="sidebar-divider"></div>
+          
+          <a href="index.html" class="sidebar-link logout-link">
+            <span class="s-icon">🚪</span> Logout
+          </a>
+        </nav>
+      </aside>
+
+      <!-- MAIN DASHBOARD CONTENT -->
+      <main class="dash-main-content">
+        
+        <!-- TOP WELCOME BAR -->
+        <header class="dash-topbar">
+          <div class="dash-welcome">
+            <h1 class="dash-title">Welcome back, <span class="dash-user-uname-disp">Manasasrinivas_Lingala</span></h1>
+            <p class="dash-subtitle">Here is what is happening with your hosted properties and gear today.</p>
+          </div>
+
+          <div class="dash-user-profile">
+            <div class="user-meta">
+              <span class="u-name dash-user-uname-disp">Manasasrinivas_Lingala</span>
+              <span class="u-email dash-user-email-disp">sbende1996@gmail.com</span>
+            </div>
+            <div class="u-avatar">👤</div>
+          </div>
+        </header>
+
+        <!-- SUBPANEL 1: OVERVIEW -->
+        <div id="host-panel-overview" class="host-subpanel active">
+          
+          <div class="dash-metrics-grid">
+            
+            <div class="dash-card-box metric-box">
+              <div class="d-box-top">
+                <div class="d-icon-pill blue">💼</div>
+                <span class="d-box-label">Monthly Earnings</span>
+              </div>
+              <div class="d-box-val">$12,450</div>
+              <span class="d-box-trend green">↗ 14% vs last month</span>
+            </div>
+
+            <div class="dash-card-box metric-box">
+              <div class="d-box-top">
+                <div class="d-icon-pill gold">⭐</div>
+                <span class="d-box-label">Avg. Rating</span>
+              </div>
+              <div class="d-box-val">4.95</div>
+              <span class="d-box-subtext">Based on 142 reviews</span>
+            </div>
+
+            <div class="dash-card-box metric-box">
+              <div class="d-box-top">
+                <div class="d-icon-pill cyan">🥇</div>
+                <span class="d-box-label">Host Status</span>
+              </div>
+              <div class="d-box-val">Superhost</div>
+              <span class="d-box-subtext green-text">Top 5% in your region</span>
+            </div>
+
+          </div>
+
+          <div class="dash-cards-trio">
+            
+            <div class="dash-box-card chart-box">
+              <div class="dbc-header">
+                <h3 class="dbc-serif-title">Revenue Overview</h3>
+                <select class="dash-time-select">
+                  <option>Last 6 Months</option>
+                  <option>This Year</option>
+                </select>
+              </div>
+
+              <div class="chart-area-placeholder">
+                <svg width="100%" height="240" viewBox="0 0 600 240" preserveAspectRatio="none">
+                  <defs>
+                    <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.35"/>
+                      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.0"/>
+                    </linearGradient>
+                  </defs>
+                  <path d="M0,190 Q100,170 150,150 T300,50 T450,130 T600,80 L600,240 L0,240 Z" fill="url(#chartGrad)"/>
+                  <path d="M0,190 Q100,170 150,150 T300,50 T450,130 T600,80" fill="none" stroke="#38bdf8" stroke-width="3.5"/>
+
+                  <circle cx="50" cy="190" r="5" fill="#0b0e14" stroke="#38bdf8" stroke-width="3"/>
+                  <circle cx="155" cy="150" r="5" fill="#0b0e14" stroke="#38bdf8" stroke-width="3"/>
+                  <circle cx="260" cy="50" r="6" fill="#38bdf8" stroke="#ffffff" stroke-width="3"/>
+                  <circle cx="450" cy="130" r="5" fill="#0b0e14" stroke="#38bdf8" stroke-width="3"/>
+                  <circle cx="560" cy="110" r="5" fill="#0b0e14" stroke="#38bdf8" stroke-width="3"/>
+
+                  <text x="45" y="230" fill="rgba(255,255,255,0.5)" font-size="12">May</text>
+                  <text x="150" y="230" fill="rgba(255,255,255,0.5)" font-size="12">Jun</text>
+                  <text x="255" y="230" fill="rgba(255,255,255,0.5)" font-size="12">Jul</text>
+                  <text x="350" y="230" fill="rgba(255,255,255,0.5)" font-size="12">Aug</text>
+                  <text x="445" y="230" fill="rgba(255,255,255,0.5)" font-size="12">Sep</text>
+                  <text x="555" y="230" fill="rgba(255,255,255,0.5)" font-size="12">Oct</text>
+                </svg>
+              </div>
+            </div>
+
+            <div class="dash-box-card reservations-box">
+              <div class="dbc-header">
+                <h3 class="dbc-serif-title">Recent Reservations</h3>
+                <a href="#" class="view-all-link" onclick="switchHostTab('bookings'); return false;">View all</a>
+              </div>
+
+              <div class="reservations-list">
+                <div class="res-item-card">
+                  <img src="https://i.pravatar.cc/100?img=47" alt="Sarah Jenkins" class="res-avatar"/>
+                  <div class="res-info">
+                    <h4>Sarah Jenkins</h4>
+                    <p>Villa Treville • Oct 12 - Oct 18</p>
+                  </div>
+                  <span class="res-badge-status">Confirmed</span>
+                </div>
+                <div class="res-item-card">
+                  <img src="https://i.pravatar.cc/100?img=53" alt="Michael Chang" class="res-avatar"/>
+                  <div class="res-info">
+                    <h4>Michael Chang</h4>
+                    <p>Alpine Lodge • Nov 01 - Nov 05</p>
+                  </div>
+                  <span class="res-badge-status">Confirmed</span>
+                </div>
+                <div class="res-item-card">
+                  <img src="https://i.pravatar.cc/100?img=52" alt="Elena Voss" class="res-avatar"/>
+                  <div class="res-info">
+                    <h4>Elena Voss</h4>
+                    <p>Forest Dome • Dec 10 - Dec 14</p>
+                  </div>
+                  <span class="res-badge-status">Confirmed</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

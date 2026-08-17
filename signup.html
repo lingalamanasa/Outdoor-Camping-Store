@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up – Stackly Outdoor &amp; Camping Store</title>
+  <meta name="description" content="Create your free Stackly adventurer account to unlock member-only gear deals, custom trail fitting, and guided expedition bookings." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- DEDICATED SIGNUP PAGE VIEW -->
+  <div id="page-signup" class="page-view active" style="display:block;">
+    <section class="auth-hero-section" style="background-image: linear-gradient(135deg, rgba(12,24,16,0.72) 0%, rgba(5,15,10,0.82) 100%), url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1600&q=80');">
+      <div class="container auth-hero-container">
+        
+        <!-- LEFT: DARK GLASS FORM CARD -->
+        <div class="auth-glass-card">
+          <form class="auth-custom-form" onsubmit="handleSignup(event)">
+            
+            <div class="form-field-group">
+              <label for="sup-fname">👤 FIRST NAME</label>
+              <input type="text" id="sup-fname" class="pill-input" placeholder="Elena" required />
+            </div>
+
+            <div class="form-field-group">
+              <label for="sup-lname">👤 LAST NAME</label>
+              <input type="text" id="sup-lname" class="pill-input" placeholder="Voss" required />
+            </div>
+
+            <div class="form-field-group">
+              <label for="sup-email">✉ EMAIL</label>
+              <input type="email" id="sup-email" class="pill-input" placeholder="you@stackly.store" required />
+            </div>
+
+            <div class="form-field-group">
+              <label for="sup-password">🔒 PASSWORD</label>
+              <div class="pill-input-wrap">
+                <input type="password" id="sup-password" class="pill-input" placeholder="At least 8 characters" required />
+                <button type="button" class="pw-eye-btn" onclick="togglePw('sup-password', this)">👁</button>
+              </div>
+            </div>
+
+            <div class="form-field-group">
+              <label for="sup-role">👤 ROLE</label>
+              <div class="select-pill-wrap">
+                <select id="sup-role" class="pill-input select-pill">
+                  <option value="adventurer">Traveler / Adventurer</option>
+                  <option value="mountaineer">Mountaineer &amp; Guide</option>
+                  <option value="gear-enthusiast">Gear Collector</option>
+                </select>
+              </div>
+            </div>
+
+            <ul class="auth-benefits-list">
+              <li><span class="chk-icon">✓</span> Member-only rates &amp; early access</li>
+              <li><span class="chk-icon">✓</span> Personalised destination guides</li>
+              <li><span class="chk-icon">✓</span> Priority concierge support</li>
+            </ul>
+
+            <label class="auth-checkbox-label">
+              <input type="checkbox" required />
+              <span>I agree to Stackly's <a href="#" onclick="trigger404(event)">Terms of Service</a> and <a href="#" onclick="trigger404(event)">Privacy Policy</a>.</span>
+            </label>
+
+            <button type="submit" class="btn-pill-submit">Create Account →</button>
+            
+            <p class="auth-bottom-switch">Already have an account? <a href="login.html"><strong>Login</strong></a></p>
+          </form>
+        </div>
+
+        <!-- RIGHT: SERIF HERO TYPOGRAPHY -->
+        <div class="auth-hero-info">
+          <a href="index.html" class="logo" style="display:inline-flex; align-items:center; gap:10px; margin-bottom:30px; text-decoration:none;">
+            <div class="logo-mark">
+              <svg width="36" height="36" viewBox="0 0 40 40" fill="none">
+                <circle cx="20" cy="20" r="20" fill="url(#signupLogoGrad)"/>
+                <text x="50%" y="57%" dominant-baseline="middle" text-anchor="middle" font-size="18" fill="white">🏕</text>
+                <defs>
+                  <linearGradient id="signupLogoGrad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#40916c"/>
+                    <stop offset="100%" stop-color="#1a4731"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <span class="logo-text" style="color:#fff; font-size:28px; font-weight:800;">Stack<span class="logo-accent" style="color:var(--green-300);">ly</span></span>
+          </a>
+          <span class="auth-tagline" style="display:block;">JOIN STACKLY</span>
+          <h1 class="auth-serif-title">Begin an<br />extraordinary<br />journey</h1>
+          <p class="auth-serif-desc">Create your account to unlock curated stays, member pricing and moments crafted for you.</p>
+          
+          <div class="auth-pill-badges">
+            <span class="auth-badge-pill">25k+ curated stays</span>
+            <span class="auth-badge-pill">20 destinations</span>
+            <span class="auth-badge-pill">4.9 avg rating</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

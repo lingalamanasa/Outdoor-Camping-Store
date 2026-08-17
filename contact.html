@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us – Stackly Outdoor Store</title>
+  <meta name="description" content="Get in touch with Stackly's outdoor experts, visit our Boulder flagship base camp, view store hours, and ask questions." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== HEADER / NAVBAR ===== -->
+  <header id="navbar" class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo" id="logo-link">
+        <div class="logo-mark">
+          <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="20" cy="20" r="20" fill="url(#logoGrad)"/>
+            <text x="50%" y="57%" dominant-baseline="middle" text-anchor="middle" font-size="18" fill="white">🏕</text>
+            <defs>
+              <linearGradient id="logoGrad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#40916c"/>
+                <stop offset="100%" stop-color="#1a4731"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <span class="logo-text">Stack<span class="logo-accent">ly</span></span>
+      </a>
+
+      <nav class="nav-links" id="nav-links">
+        <a href="index.html" class="nav-link" id="nav-home">Home</a>
+        <a href="about.html" class="nav-link" id="nav-about">About</a>
+        <a href="services.html" class="nav-link" id="nav-services">Services</a>
+        <a href="blog.html" class="nav-link" id="nav-blog">Blog</a>
+        <a href="contact.html" class="nav-link active" id="nav-contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== PAGE CONTENT ===== -->
+  <div id="page-contact" class="page-view active" style="display:block;">
+    <section class="page-hero" style="background-image: linear-gradient(135deg, rgba(10,30,15,0.85) 0%, rgba(20,60,30,0.65) 100%), url('https://images.unsplash.com/photo-1534536281715-e28d76689b4d?w=1600&q=80');">
+      <div class="container page-hero-content">
+        <span class="page-badge">💬 Get In Touch</span>
+        <h1 class="page-title">Contact Stackly</h1>
+        <p class="page-subtitle">Have questions about gear fitting, guided treks, or store hours? Our wilderness team is ready 24/7.</p>
+        <div class="page-hero-stats">
+          <div class="ph-stat"><strong>&lt; 15 Min</strong><span>Response Time</span></div>
+          <div class="ph-stat"><strong>24/7</strong><span>Live Concierge</span></div>
+          <div class="ph-stat"><strong>4 Base</strong><span>Global Hubs</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 1: CONTACT FORM -->
+    <section class="page-section">
+      <div class="container">
+        <div class="contact-form-card">
+          <div class="section-header-centered">
+            <span class="section-tag">Section 01</span>
+            <h2 class="section-title">Send Us A <span class="accent">Message</span></h2>
+          </div>
+          <form class="c-form" onsubmit="handleContactSubmit(event)">
+            <div class="form-row-two">
+              <div class="form-group">
+                <label for="c-name">Full Name</label>
+                <input type="text" id="c-name" placeholder="John Doe" required />
+              </div>
+              <div class="form-group">
+                <label for="c-email">Email Address</label>
+                <input type="email" id="c-email" placeholder="you@example.com" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="c-subject">Subject</label>
+              <select id="c-subject">
+                <option value="gear">Gear Rental Inquiry</option>
+                <option value="expedition">Guided Expedition Booking</option>
+                <option value="repair">Boot Fitting &amp; Repair</option>
+                <option value="general">General Question</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="c-msg">Message</label>
+              <textarea id="c-msg" rows="5" placeholder="How can our guides help you plan your next trip?" required></textarea>
+            </div>
+            <button type="submit" class="btn-primary" id="c-submit-btn">Send Message <span class="btn-arrow">→</span></button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: INTERACTIVE EMBEDDED GOOGLE MAP -->
+    <section class="page-section bg-alt">
+      <div class="container">
+        <div class="section-header-centered">
+          <span class="section-tag">Section 02</span>
+          <h2 class="section-title">Visit Our <span class="accent">Boulder Flagship Base Camp</span></h2>
+          <p class="section-desc">Experience gear in person, try custom boot fitting, and meet our wilderness guides.</p>
+        </div>
+        <div class="map-container-box">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d97968.74235451965!2d-105.3101416972656!3d40.01498560000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876bec23dd3d2f9d%3A0xb36a16c7104b2a30!2sBoulder%2C%20CO%2080301!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" 
+            width="100%" 
+            height="460" 
+            style="border:0; border-radius: 20px; box-shadow: var(--sh-md);" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Stackly Boulder Store Location Map">
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: STORE DETAILS & OPENING HOURS -->
+    <section class="page-section">
+      <div class="container">
+        <div class="section-header-centered">
+          <span class="section-tag">Section 03</span>
+          <h2 class="section-title">Store Details &amp; <span class="accent">Hours</span></h2>
+        </div>
+        <div class="grid-3">
+          <div class="info-card">
+            <div class="ic-icon">📍</div>
+            <h3>Location</h3>
+            <p>123 Adventure Way<br />Boulder, CO 80301, USA</p>
+            <span class="ic-link" onclick="trigger404(event)">Get Driving Directions →</span>
+          </div>
+          <div class="info-card">
+            <div class="ic-icon">🕒</div>
+            <h3>Store Hours</h3>
+            <p>Mon - Sat: 8:00 AM - 8:00 PM<br />Sunday: 9:00 AM - 6:00 PM</p>
+            <span class="ic-status">🟢 Open Today</span>
+          </div>
+          <div class="info-card">
+            <div class="ic-icon">📞</div>
+            <h3>Direct Contact</h3>
+            <p>Phone: +1 (800) 945-3272<br />Email: hello@stackly.store</p>
+            <span class="ic-link" onclick="trigger404(event)">Start Live Chat →</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: FREQUENTLY ASKED QUESTIONS (FAQ) -->
+    <section class="page-section bg-alt">
+      <div class="container">
+        <div class="section-header-centered">
+          <span class="section-tag">Section 04</span>
+          <h2 class="section-title">Frequently Asked <span class="accent">Questions</span></h2>
+        </div>
+        <div class="faq-accordion">
+          <details class="faq-item" open>
+            <summary class="faq-question">How fast is shipping on gear orders?</summary>
+            <div class="faq-answer"><p>We offer free tracked 2-day shipping on all orders over $75 within the USA and Canada. Express overnight shipping is available at checkout.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">What is your 60-day return &amp; exchange policy?</summary>
+            <div class="faq-answer"><p>If your gear doesn't fit or perform as expected, return it unused within 60 days for a 100% full refund or free size exchange. Return shipping labels are pre-paid.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">How does the Stackly Lifetime Warranty work?</summary>
+            <div class="faq-answer"><p>Every tent, pack, and sleeping bag is warrantied against manufacturing defects for life. If a seam tears or a zipper breaks during normal trail use, send it to our repair clinic for free repair.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">Can I rent gear before committing to buy?</summary>
+            <div class="faq-answer"><p>Yes! We offer 3-day and 7-day rental packages for tents, backpacks, and stoves. If you decide to buy the item after your trip, 100% of your rental fee is applied toward the purchase price.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: WORLDWIDE BASE CAMPS -->
+    <section class="page-section">
+      <div class="container">
+        <div class="section-header-centered">
+          <span class="section-tag">Section 05</span>
+          <h2 class="section-title">Worldwide <span class="accent">Regional Base Camps</span></h2>
+        </div>
+        <div class="grid-4">
+          <div class="hub-card">
+            <h4>🇺🇸 Boulder HQ</h4>
+            <p>Colorado, USA</p>
+            <span>Flagship Store &amp; R&amp;D Lab</span>
+          </div>
+          <div class="hub-card">
+            <h4>🇨🇦 Vancouver Hub</h4>
+            <p>British Columbia, Canada</p>
+            <span>Water Sports &amp; Alpine Hub</span>
+          </div>
+          <div class="hub-card">
+            <h4>🇫🇷 Chamonix Base</h4>
+            <p>Alps, France</p>
+            <span>European Expedition Center</span>
+          </div>
+          <div class="hub-card">
+            <h4>🇳🇿 Queenstown Hub</h4>
+            <p>South Island, New Zealand</p>
+            <span>Southern Hemisphere Station</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer id="footer" class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-top-inner">
+          <div class="footer-brand">
+            <a href="index.html" class="footer-logo-link">
+              <div class="logo-mark">
+                <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="20" cy="20" r="20" fill="url(#footLogoGrad)"/>
+                  <text x="50%" y="57%" dominant-baseline="middle" text-anchor="middle" font-size="18" fill="white">🏕</text>
+                  <defs>
+                    <linearGradient id="footLogoGrad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+                      <stop offset="0%" stop-color="#40916c"/>
+                      <stop offset="100%" stop-color="#1a4731"/>
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </div>
+              <span class="logo-text">Stack<span class="logo-accent">ly</span></span>
+            </a>
+            <p>Your ultimate outdoor and camping destination. Built for wilderness lovers.</p>
+          </div>
+          <div class="footer-newsletter">
+            <h4>Join The Trail Club</h4>
+            <p>Subscribe for expedition guides, exclusive member gear deals, and wilderness tips.</p>
+            <form class="newsletter-form" onsubmit="handleNewsletterSubmit(event)">
+              <input type="email" id="newsletter-email" placeholder="Enter your email" required />
+              <button type="submit" id="newsletter-submit-btn">Subscribe</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Stackly Outdoor Store. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

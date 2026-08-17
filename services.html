@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services &amp; Expeditions – Stackly Outdoor Store</title>
+  <meta name="description" content="Explore Stackly's trail-tested gear catalog, guided alpine expeditions, 3D boot fitting, equipment repair, and custom GPX route planning." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== HEADER / NAVBAR ===== -->
+  <header id="navbar" class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo" id="logo-link">
+        <div class="logo-mark">
+          <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="20" cy="20" r="20" fill="url(#logoGrad)"/>
+            <text x="50%" y="57%" dominant-baseline="middle" text-anchor="middle" font-size="18" fill="white">🏕</text>
+            <defs>
+              <linearGradient id="logoGrad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#40916c"/>
+                <stop offset="100%" stop-color="#1a4731"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <span class="logo-text">Stack<span class="logo-accent">ly</span></span>
+      </a>
+
+      <nav class="nav-links" id="nav-links">
+        <a href="index.html" class="nav-link" id="nav-home">Home</a>
+        <a href="about.html" class="nav-link" id="nav-about">About</a>
+        <a href="services.html" class="nav-link active" id="nav-services">Services</a>
+        <a href="blog.html" class="nav-link" id="nav-blog">Blog</a>
+        <a href="contact.html" class="nav-link" id="nav-contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== PAGE CONTENT ===== -->
+  <div id="page-services" class="page-view active" style="display:block;">
+    <section class="page-hero" style="background-image: linear-gradient(135deg, rgba(10,30,15,0.85) 0%, rgba(20,60,30,0.65) 100%), url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1600&q=80');">
+      <div class="container page-hero-content">
+        <span class="page-badge">🎒 Gear, Expeditions &amp; Services</span>
+        <h1 class="page-title">Services &amp; Expeditions</h1>
+        <p class="page-subtitle">From premium gear rentals and custom fitting to guided alpine treks and route planning — we've got you covered.</p>
+        <div class="page-hero-stats">
+          <div class="ph-stat"><strong>2,500+</strong><span>Gear Items</span></div>
+          <div class="ph-stat"><strong>24/7</strong><span>Expert Support</span></div>
+          <div class="ph-stat"><strong>60 Days</strong><span>Risk Free</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 1: FEATURED GEAR CATALOG -->
+    <section class="page-section">
+      <div class="container">
+        <div class="section-header-centered">
+          <span class="section-tag">Section 01</span>
+          <h2 class="section-title">Trail-Tested <span class="accent">Gear Catalog</span></h2>
+          <p class="section-desc">Rent or buy top-tier camping and mountaineering equipment.</p>
+        </div>
+        
+        <div class="products-grid-3">
+          <div class="product-card">
+            <div class="product-img-wrap">
+              <img src="images/product_tent_1786946937685.png" alt="AlpineShield Tent" class="product-real-img" onerror="this.src='https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=600&q=80'"/>
+              <span class="product-badge new">Best Seller</span>
+            </div>
+            <div class="product-info">
+              <span class="product-tag">Tents</span>
+              <h3 class="product-name">AlpineShield 4-Season Tent</h3>
+              <p class="product-desc">Withstands harsh winds &amp; snow. Includes gear loft &amp; rainfly.</p>
+              <div class="product-footer">
+                <span class="product-price">$349</span>
+                <button class="btn-add" onclick="handleAddToCart(event, 'AlpineShield 4-Season Tent')">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-img-wrap">
+              <img src="images/product_backpack_1786947046274.png" alt="TrailMaster Backpack" class="product-real-img" onerror="this.src='https://images.unsplash.com/photo-1551632811-561732d1e306?w=600&q=80'"/>
+              <span class="product-badge sale">-20% OFF</span>
+            </div>
+            <div class="product-info">
+              <span class="product-tag">Backpacks</span>
+              <h3 class="product-name">TrailMaster 65L Pack</h3>
+              <p class="product-desc">Ergonomic internal frame, waterproof fabric &amp; hydration sleeve.</p>
+              <div class="product-footer">
+                <span class="product-price">$219 <s class="old-price">$274</s></span>
+                <button class="btn-add" onclick="handleAddToCart(event, 'TrailMaster 65L Pack')">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-img-wrap">
+              <img src="images/product_boots_1786947530758.png" alt="PeakGrip Boots" class="product-real-img" onerror="this.src='https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80'"/>
+            </div>
+            <div class="product-info">
+              <span class="product-tag">Footwear</span>
+              <h3 class="product-name">PeakGrip Trekking Boots</h3>
+              <p class="product-desc">Gore-Tex waterproof membrane with Vibram high-traction outsole.</p>
+              <div class="product-footer">
+                <span class="product-price">$279</span>
+                <button class="btn-add" onclick="handleAddToCart(event, 'PeakGrip Trekking Boots')">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: GUIDED EXPEDITION PACKAGES -->
+    <section class="page-section bg-alt">
+      <div class="container">
+        <div class="section-header-centered">
+          <span class="section-tag">Section 02</span>
+          <h2 class="section-title">Guided <span class="accent">Expeditions &amp; Tours</span></h2>
+          <p class="section-desc">Join certified wilderness guides on unforgettable outdoor adventures.</p>
+        </div>
+        <div class="grid-4">
+          <div class="tour-card">
+            <div class="tour-badge">3 Days</div>
+            <h3>🏔️ Alpine Summit Trek</h3>
+            <p>Conquer 14,000ft peaks with professional guides. Gear &amp; meals included.</p>
+            <span class="tour-price">$599 / person</span>
+            <button class="btn-primary sm" onclick="handleBookExpedition(event, 'Alpine Summit Trek')">Book Expedition</button>
+          </div>
+          <div class="tour-card featured">
+            <div class="tour-badge gold">2 Days</div>
+            <h3>🚣 Whitewater Kayak</h3>
+            <p>Class III-IV rapids adventure through scenic granite forest canyons.</p>
+            <span class="tour-price">$389 / person</span>
+            <button class="btn-primary sm" onclick="handleBookExpedition(event, 'Whitewater Kayak')">Book Expedition</button>
+          </div>
+          <div class="tour-card">
+            <div class="tour-badge">2 Days</div>
+            <h3>🔥 Wilderness Survival</h3>
+            <p>Learn shelter building, fire craft, foraging and off-grid navigation.</p>
+            <span class="tour-price">$299 / person</span>
+            <button class="btn-primary sm" onclick="handleBookExpedition(event, 'Wilderness Survival')">Book Expedition</button>
+          </div>
+          <div class="tour-card">
+            <div class="tour-badge">Weekend</div>
+            <h3>⛺ Family Forest Camp</h3>
+            <p>Kid-friendly camping experience with stargazing, campfires and nature hikes.</p>
+            <span class="tour-price">$249 / family</span>
+            <button class="btn-primary sm" onclick="handleBookExpedition(event, 'Family Forest Camp')">Book Expedition</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: CUSTOM FITTING & REPAIR SERVICES -->
+    <section class="page-section">
+      <div class="container">
+        <div class="section-header-centered">
+          <span class="section-tag">Section 03</span>
+          <h2 class="section-title">Expert <span class="accent">Fitting &amp; Repair Services</span></h2>
+          <p class="section-desc">Keep your gear performing at peak efficiency season after season.</p>
+        </div>
+        <div class="grid-3">
+          <div class="service-box">
+            <div class="sb-img-wrap">
+              <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80" alt="3D Boot Fitting" class="sb-img"/>
+            </div>
+            <div class="sb-body">
+              <h3>3D Boot Fitting &amp; Insoles</h3>
+              <p>Biomechanical foot scanning and custom heat-molded insoles to prevent blisters on long treks.</p>
+            </div>
+          </div>
+          <div class="service-box">
+            <div class="sb-img-wrap">
+              <img src="https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?w=600&q=80" alt="Tent Waterproofing" class="sb-img"/>
+            </div>
+            <div class="sb-body">
+              <h3>Tent &amp; Gear Waterproofing</h3>
+              <p>Professional DWR re-coating, seam taping, zipper replacement and tear patching services.</p>
+            </div>
+          </div>
+          <div class="service-box">
+            <div class="sb-img-wrap">
+              <img src="https://images.unsplash.com/photo-1622260614153-03223fb72052?w=600&q=80" alt="Pack Weight Balancing" class="sb-img"/>
+            </div>
+            <div class="sb-body">
+              <h3>Pack Weight Balancing</h3>
+              <p>1-on-1 torso measurement and harness tuning to optimize load distribution on 50L+ packs.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: ROUTE PLANNING & GPS MAPPING -->
+    <section class="page-section bg-alt">
+      <div class="container">
+        <div class="section-header-centered">
+          <span class="section-tag">Section 04</span>
+          <h2 class="section-title">Route Planning &amp; <span class="accent">GPS Maps</span></h2>
+          <p class="section-desc">Never trek blind. Get custom GPX tracks and expert weather briefings.</p>
+        </div>
+        <div class="mapping-box">
+          <div class="mb-content">
+            <h3>Custom Trail Logistics &amp; Emergency Plans</h3>
+            <p>Our wilderness guides create custom trail maps tailored to your team's fitness, season, and terrain goals. Includes offline GPX files for Garmin and mobile devices.</p>
+            <ul class="mb-list">
+              <li>✓ Offline GPX route files</li>
+              <li>✓ Water source &amp; camp spot locations</li>
+              <li>✓ Live weather hazard alerts</li>
+              <li>✓ Emergency satellite contact protocol</li>
+            </ul>
+            <button class="btn-primary sm" onclick="handleCustomRoute(event)">Request Custom Route →</button>
+          </div>
+          <div class="mb-card-graphic">
+            <div class="mb-stat-pill">📍 500+ Verified Trails</div>
+            <div class="mb-stat-pill gold">🗺️ GPX Compatible</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: MEMBERSHIP & WARRANTY PERKS -->
+    <section class="page-section">
+      <div class="container">
+        <div class="club-card">
+          <div class="club-info">
+            <span class="section-tag light">Section 05</span>
+            <h2>Join Stackly <span class="accent-light">Adventurers Club</span></h2>
+            <p>Get 15% off gear rentals, free annual boot tune-ups, and early access to limited expedition drops.</p>
+            <button class="btn-primary" onclick="trigger404(event)">Become a Member ($49/yr)</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer id="footer" class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-top-inner">
+          <div class="footer-brand">
+            <a href="index.html" class="footer-logo-link">
+              <div class="logo-mark">
+                <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="20" cy="20" r="20" fill="url(#footLogoGrad)"/>
+                  <text x="50%" y="57%" dominant-baseline="middle" text-anchor="middle" font-size="18" fill="white">🏕</text>
+                  <defs>
+                    <linearGradient id="footLogoGrad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+                      <stop offset="0%" stop-color="#40916c"/>
+                      <stop offset="100%" stop-color="#1a4731"/>
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </div>
+              <span class="logo-text">Stack<span class="logo-accent">ly</span></span>
+            </a>
+            <p>Your ultimate outdoor and camping destination. Built for wilderness lovers.</p>
+          </div>
+          <div class="footer-newsletter">
+            <h4>Join The Trail Club</h4>
+            <p>Subscribe for expedition guides, exclusive member gear deals, and wilderness tips.</p>
+            <form class="newsletter-form" onsubmit="handleNewsletterSubmit(event)">
+              <input type="email" id="newsletter-email" placeholder="Enter your email" required />
+              <button type="submit" id="newsletter-submit-btn">Subscribe</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Stackly Outdoor Store. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
