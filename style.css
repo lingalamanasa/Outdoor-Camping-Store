@@ -1808,110 +1808,116 @@ html, body {
     margin-top: auto !important;
   }
 
-  .dash-layout {
-    background: #070e17 !important;
-    min-height: 100vh !important;
-    display: block !important;
-  }
-  .dash-title.serif-title {
-    font-family: 'Playfair Display', serif !important;
-    font-size: 28px !important;
-    font-weight: 800 !important;
-    color: #ffffff !important;
-    margin-bottom: 8px !important;
-  }
-  .dash-subtitle {
-    font-size: 14px !important;
-    color: rgba(255, 255, 255, 0.65) !important;
-    line-height: 1.5 !important;
-    margin-bottom: 20px !important;
-  }
-  .dash-user-pill-card {
-    background: rgba(255, 255, 255, 0.03) !important;
-    border: 1px solid rgba(255, 255, 255, 0.08) !important;
-    border-radius: 28px !important;
-    padding: 18px 22px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    margin-bottom: 24px !important;
-  }
-  .dup-info {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 4px !important;
-  }
-  .dup-role-tag {
-    font-size: 13px !important;
-    font-weight: 800 !important;
-    color: #c084fc !important;
-    letter-spacing: 1px !important;
-  }
-  .dup-email {
-    font-size: 12.5px !important;
-    color: rgba(255, 255, 255, 0.7) !important;
-  }
-  .dup-badge-gold {
-    font-size: 10px !important;
-    font-weight: 800 !important;
-    color: #fbbf24 !important;
-    letter-spacing: 1.5px !important;
-  }
-  .dup-avatar {
-    width: 44px !important;
-    height: 44px !important;
-    border-radius: 50% !important;
-    background: rgba(56, 189, 248, 0.12) !important;
-    border: 1px solid rgba(56, 189, 248, 0.3) !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-  }
-  .mobile-vertical-stack {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 14px !important;
-  }
-  .metric-row-card {
-    background: #0d1829 !important;
-    border: 1px solid rgba(255, 255, 255, 0.08) !important;
-    border-radius: 20px !important;
-    padding: 18px 20px !important;
-    display: flex !important;
-    align-items: center !important;
-    gap: 16px !important;
-  }
-  .d-icon-circle {
-    width: 44px !important;
-    height: 44px !important;
-    border-radius: 50% !important;
-    background: rgba(192, 132, 252, 0.12) !important;
-    color: #c084fc !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    font-size: 18px !important;
-    flex-shrink: 0 !important;
-  }
-  .d-info {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 2px !important;
-  }
-  .d-lbl {
-    font-size: 13px !important;
-    color: rgba(255, 255, 255, 0.6) !important;
-  }
-  .d-val {
-    font-size: 22px !important;
-    font-weight: 800 !important;
-    color: #ffffff !important;
-  }
-
   .product-card, .tour-card, .feature-card, .review-card, .step-card, .service-box, .dl-card, .info-card, .hub-card {
     border-radius: 20px !important;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06) !important;
   }
+}
+
+/* ===== UNIVERSAL DASHBOARD STYLING (MATCHING SCREENSHOT 1 & 2 ON ALL DEVICES) ===== */
+.dash-layout {
+  background: #070e17;
+  min-height: 100vh;
+}
+.dash-title.serif-title {
+  font-family: 'Playfair Display', serif !important;
+  font-size: 30px !important;
+  font-weight: 800 !important;
+  color: #ffffff !important;
+  margin-bottom: 8px !important;
+}
+.dash-subtitle {
+  font-size: 14px !important;
+  color: rgba(255, 255, 255, 0.65) !important;
+  line-height: 1.5 !important;
+  margin-bottom: 22px !important;
+}
+.dash-user-pill-card {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 28px !important;
+  padding: 18px 24px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  margin-bottom: 24px !important;
+  width: 100% !important;
+  max-width: 580px !important;
+}
+.dup-info {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 4px !important;
+}
+.dup-role-tag {
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  color: #c084fc !important;
+  letter-spacing: 1px !important;
+}
+.dup-email {
+  font-size: 12.5px !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+.dup-badge-gold {
+  font-size: 10px !important;
+  font-weight: 800 !important;
+  color: #fbbf24 !important;
+  letter-spacing: 1.5px !important;
+}
+.dup-avatar {
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 50% !important;
+  background: rgba(56, 189, 248, 0.12) !important;
+  border: 1px solid rgba(56, 189, 248, 0.3) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+.mobile-vertical-stack,
+.dash-cards-trio.mobile-vertical-stack {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 14px !important;
+  width: 100% !important;
+  max-width: 580px !important;
+}
+.metric-row-card {
+  background: #0d1829 !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 20px !important;
+  padding: 18px 20px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 16px !important;
+  width: 100% !important;
+}
+.d-icon-circle {
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 50% !important;
+  background: rgba(192, 132, 252, 0.12) !important;
+  color: #c084fc !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 18px !important;
+  flex-shrink: 0 !important;
+}
+.d-info {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 2px !important;
+}
+.d-lbl {
+  font-size: 13px !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+.d-val {
+  font-size: 22px !important;
+  font-weight: 800 !important;
+  color: #ffffff !important;
 }
 @media(max-width:480px){
   .stats-cards, .footer-mid-inner {
