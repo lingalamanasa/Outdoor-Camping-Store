@@ -1511,10 +1511,25 @@ html, body {
     border-radius: 8px !important;
     background: #0b1528 !important;
   }
+  .hamburger {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    width: 28px !important;
+    height: 20px !important;
+    background: transparent !important;
+    border: none !important;
+    cursor: pointer !important;
+    padding: 0 !important;
+    z-index: 1000000 !important;
+  }
   .hamburger span {
+    display: block !important;
+    width: 100% !important;
+    height: 3px !important;
     background: #0b1528 !important;
-    height: 2.5px !important;
-    width: 24px !important;
+    border-radius: 4px !important;
+    transition: all 0.3s ease !important;
   }
 
   /* 2. FULLSCREEN NAV MENU OVERLAY (SCREENSHOT 2) */
