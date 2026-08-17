@@ -67,52 +67,74 @@
       <!-- MAIN CONTENT AREA -->
       <main class="dash-main-content">
         
-        <!-- TOPBAR -->
+        <!-- TOPBAR (FORMAT MATCHING REFERENCE SCREENSHOT) -->
         <header class="dash-topbar">
-          <div class="dash-welcome">
-            <h1 class="dash-title">Welcome back, <span class="dash-user-disp-name">Manasasrinivas Lingala</span></h1>
+          <div>
+            <h1 class="dash-title serif-title">Welcome back, <span class="dash-user-disp-name">Manasasrinivas Lingala</span></h1>
             <p class="dash-subtitle">Track your active outdoor gear rentals, upcoming mountain treks, and saved wishlist.</p>
           </div>
 
-          <div class="dash-user-profile">
-            <div class="user-meta">
-              <span class="u-name dash-user-disp-name">Manasasrinivas Lingala</span>
-              <span class="u-email dash-user-email-disp">sbende1996@gmail.com</span>
+          <div class="dash-user-pill-card">
+            <div class="dup-info">
+              <span class="dup-role-tag purple-text dash-user-uname-disp">MANASASRINIVAS_LINGALA</span>
+              <span class="dup-email dash-user-email-disp">sbende1996@gmail.com</span>
+              <span class="dup-badge-gold">GOLD EXPLORER MEMBER</span>
             </div>
-            <div class="u-avatar" style="background:linear-gradient(135deg,var(--green-500),var(--green-700));">🏕️</div>
+            <div class="dup-avatar cyan-bg">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00f2fe" stroke-width="2.5">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+            </div>
           </div>
         </header>
 
         <!-- SUBPANEL 1: OVERVIEW -->
         <div id="user-panel-overview" class="user-subpanel active">
           
-          <div class="dash-metrics-grid">
-            <div class="dash-card-box metric-box">
-              <div class="d-box-top">
-                <div class="d-icon-pill green">🎒</div>
-                <span class="d-box-label">Active Rentals</span>
+          <!-- TOP 4 METRIC CARDS (FORMAT MATCHING REFERENCE SCREENSHOT) -->
+          <div class="dash-cards-trio mobile-vertical-stack">
+            
+            <div class="metric-row-card">
+              <div class="d-icon-circle purple">
+                <span class="d-ic">🏔️</span>
               </div>
-              <div class="d-box-val">3 Items</div>
-              <span class="d-box-trend green">Return by Oct 24</span>
+              <div class="d-info">
+                <span class="d-lbl">Completed Expeditions</span>
+                <strong class="d-val">14 Treks</strong>
+              </div>
             </div>
 
-            <div class="dash-card-box metric-box">
-              <div class="d-box-top">
-                <div class="d-icon-pill gold">🏔️</div>
-                <span class="d-box-label">Upcoming Treks</span>
+            <div class="metric-row-card">
+              <div class="d-icon-circle purple">
+                <span class="d-ic">🎒</span>
               </div>
-              <div class="d-box-val">2 Trips</div>
-              <span class="d-box-subtext">Next: Alpine Summit</span>
+              <div class="d-info">
+                <span class="d-lbl">Active Gear Rentals</span>
+                <strong class="d-val">3 Items</strong>
+              </div>
             </div>
 
-            <div class="dash-card-box metric-box">
-              <div class="d-box-top">
-                <div class="d-icon-pill cyan">⭐</div>
-                <span class="d-box-label">Trail Rewards</span>
+            <div class="metric-row-card">
+              <div class="d-icon-circle purple">
+                <span class="d-ic">💎</span>
               </div>
-              <div class="d-box-val">1,250 Pts</div>
-              <span class="d-box-subtext green-text">Gold Explorer Tier</span>
+              <div class="d-info">
+                <span class="d-lbl">Trail Reward Points</span>
+                <strong class="d-val">1,250 Pts</strong>
+              </div>
             </div>
+
+            <div class="metric-row-card">
+              <div class="d-icon-circle white">
+                <span class="d-ic">⭐</span>
+              </div>
+              <div class="d-info">
+                <span class="d-lbl">Saved Wishlist</span>
+                <strong class="d-val">8 Items</strong>
+              </div>
+            </div>
+
           </div>
 
         </div>

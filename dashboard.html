@@ -67,125 +67,71 @@
       <!-- MAIN DASHBOARD CONTENT -->
       <main class="dash-main-content">
         
-        <!-- TOP WELCOME BAR -->
+        <!-- TOP WELCOME BAR (FORMAT MATCHING REFERENCE SCREENSHOT) -->
         <header class="dash-topbar">
-          <div class="dash-welcome">
-            <h1 class="dash-title">Welcome back, <span class="dash-user-uname-disp">Manasasrinivas_Lingala</span></h1>
-            <p class="dash-subtitle">Here is what is happening with your hosted properties and gear today.</p>
+          <div>
+            <h1 class="dash-title serif-title">Welcome back, <span class="dash-user-disp-name">Manasasrinivas Lingala</span></h1>
+            <p class="dash-subtitle">Here is what is happening with your hosted outdoor properties and gear rentals today.</p>
           </div>
 
-          <div class="dash-user-profile">
-            <div class="user-meta">
-              <span class="u-name dash-user-uname-disp">Manasasrinivas_Lingala</span>
-              <span class="u-email dash-user-email-disp">sbende1996@gmail.com</span>
+          <div class="dash-user-pill-card">
+            <div class="dup-info">
+              <span class="dup-role-tag purple-text dash-user-uname-disp">MANASASRINIVAS_LINGALA</span>
+              <span class="dup-email dash-user-email-disp">sbende1996@gmail.com</span>
+              <span class="dup-badge-gold">SUPERHOST EXECUTIVE</span>
             </div>
-            <div class="u-avatar">👤</div>
+            <div class="dup-avatar cyan-bg">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00f2fe" stroke-width="2.5">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+            </div>
           </div>
         </header>
 
         <!-- SUBPANEL 1: OVERVIEW -->
         <div id="host-panel-overview" class="host-subpanel active">
           
-          <div class="dash-metrics-grid">
+          <!-- TOP 4 METRIC CARDS (FORMAT MATCHING REFERENCE SCREENSHOT) -->
+          <div class="dash-cards-trio mobile-vertical-stack">
             
-            <div class="dash-card-box metric-box">
-              <div class="d-box-top">
-                <div class="d-icon-pill blue">💼</div>
-                <span class="d-box-label">Monthly Earnings</span>
+            <div class="metric-row-card">
+              <div class="d-icon-circle purple">
+                <span class="d-ic">💼</span>
               </div>
-              <div class="d-box-val">$12,450</div>
-              <span class="d-box-trend green">↗ 14% vs last month</span>
-            </div>
-
-            <div class="dash-card-box metric-box">
-              <div class="d-box-top">
-                <div class="d-icon-pill gold">⭐</div>
-                <span class="d-box-label">Avg. Rating</span>
-              </div>
-              <div class="d-box-val">4.95</div>
-              <span class="d-box-subtext">Based on 142 reviews</span>
-            </div>
-
-            <div class="dash-card-box metric-box">
-              <div class="d-box-top">
-                <div class="d-icon-pill cyan">🥇</div>
-                <span class="d-box-label">Host Status</span>
-              </div>
-              <div class="d-box-val">Superhost</div>
-              <span class="d-box-subtext green-text">Top 5% in your region</span>
-            </div>
-
-          </div>
-
-          <div class="dash-cards-trio">
-            
-            <div class="dash-box-card chart-box">
-              <div class="dbc-header">
-                <h3 class="dbc-serif-title">Revenue Overview</h3>
-                <select class="dash-time-select">
-                  <option>Last 6 Months</option>
-                  <option>This Year</option>
-                </select>
-              </div>
-
-              <div class="chart-area-placeholder">
-                <svg width="100%" height="240" viewBox="0 0 600 240" preserveAspectRatio="none">
-                  <defs>
-                    <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.35"/>
-                      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.0"/>
-                    </linearGradient>
-                  </defs>
-                  <path d="M0,190 Q100,170 150,150 T300,50 T450,130 T600,80 L600,240 L0,240 Z" fill="url(#chartGrad)"/>
-                  <path d="M0,190 Q100,170 150,150 T300,50 T450,130 T600,80" fill="none" stroke="#38bdf8" stroke-width="3.5"/>
-
-                  <circle cx="50" cy="190" r="5" fill="#0b0e14" stroke="#38bdf8" stroke-width="3"/>
-                  <circle cx="155" cy="150" r="5" fill="#0b0e14" stroke="#38bdf8" stroke-width="3"/>
-                  <circle cx="260" cy="50" r="6" fill="#38bdf8" stroke="#ffffff" stroke-width="3"/>
-                  <circle cx="450" cy="130" r="5" fill="#0b0e14" stroke="#38bdf8" stroke-width="3"/>
-                  <circle cx="560" cy="110" r="5" fill="#0b0e14" stroke="#38bdf8" stroke-width="3"/>
-
-                  <text x="45" y="230" fill="rgba(255,255,255,0.5)" font-size="12">May</text>
-                  <text x="150" y="230" fill="rgba(255,255,255,0.5)" font-size="12">Jun</text>
-                  <text x="255" y="230" fill="rgba(255,255,255,0.5)" font-size="12">Jul</text>
-                  <text x="350" y="230" fill="rgba(255,255,255,0.5)" font-size="12">Aug</text>
-                  <text x="445" y="230" fill="rgba(255,255,255,0.5)" font-size="12">Sep</text>
-                  <text x="555" y="230" fill="rgba(255,255,255,0.5)" font-size="12">Oct</text>
-                </svg>
+              <div class="d-info">
+                <span class="d-lbl">Monthly Revenue</span>
+                <strong class="d-val">$12,450</strong>
               </div>
             </div>
 
-            <div class="dash-box-card reservations-box">
-              <div class="dbc-header">
-                <h3 class="dbc-serif-title">Recent Reservations</h3>
-                <a href="#" class="view-all-link" onclick="switchHostTab('bookings'); return false;">View all</a>
+            <div class="metric-row-card">
+              <div class="d-icon-circle purple">
+                <span class="d-ic">⭐</span>
               </div>
+              <div class="d-info">
+                <span class="d-lbl">Average Rating</span>
+                <strong class="d-val">4.95 ⭐</strong>
+              </div>
+            </div>
 
-              <div class="reservations-list">
-                <div class="res-item-card">
-                  <img src="https://i.pravatar.cc/100?img=47" alt="Sarah Jenkins" class="res-avatar"/>
-                  <div class="res-info">
-                    <h4>Sarah Jenkins</h4>
-                    <p>Villa Treville • Oct 12 - Oct 18</p>
-                  </div>
-                  <span class="res-badge-status">Confirmed</span>
-                </div>
-                <div class="res-item-card">
-                  <img src="https://i.pravatar.cc/100?img=53" alt="Michael Chang" class="res-avatar"/>
-                  <div class="res-info">
-                    <h4>Michael Chang</h4>
-                    <p>Alpine Lodge • Nov 01 - Nov 05</p>
-                  </div>
-                  <span class="res-badge-status">Confirmed</span>
-                </div>
-                <div class="res-item-card">
-                  <img src="https://i.pravatar.cc/100?img=52" alt="Elena Voss" class="res-avatar"/>
-                  <div class="res-info">
-                    <h4>Elena Voss</h4>
-                    <p>Forest Dome • Dec 10 - Dec 14</p>
-                  </div>
-                  <span class="res-badge-status">Confirmed</span>
-                </div>
+            <div class="metric-row-card">
+              <div class="d-icon-circle purple">
+                <span class="d-ic">🎒</span>
+              </div>
+              <div class="d-info">
+                <span class="d-lbl">Active Gear Rentals</span>
+                <strong class="d-val">38 Items</strong>
+              </div>
+            </div>
+
+            <div class="metric-row-card">
+              <div class="d-icon-circle white">
+                <span class="d-ic">🥇</span>
+              </div>
+              <div class="d-info">
+                <span class="d-lbl">Host Tier</span>
+                <strong class="d-val">Superhost</strong>
               </div>
             </div>
 
