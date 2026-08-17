@@ -12,56 +12,69 @@
 </head>
 <body>
 
+  <!-- DRAWER BACKDROP -->
+  <div class="dash-drawer-backdrop" id="dash-drawer-backdrop" onclick="closeDashDrawer()"></div>
+
   <!-- TRAVELER DASHBOARD VIEW -->
   <div id="page-user-dashboard" class="page-view active" style="display:block;">
+    
+    <!-- DASHBOARD MOBILE TOP HEADER (STICKY ON MOBILE VIEW) -->
+    <div class="dash-mobile-top-header">
+      <button class="dash-hamburger-square" onclick="openDashDrawer()" aria-label="Open Navigation Drawer">
+        <span>☰</span>
+      </button>
+      <div class="dash-mobile-header-brand">
+        <div class="logo-mark sm" style="width:28px; height:28px; border-radius:8px; background:#070e17; display:flex; align-items:center; justify-content:center;">
+          <svg width="20" height="20" viewBox="0 0 40 40">
+            <circle cx="20" cy="20" r="20" fill="url(#mobileUserLogoGrad)"/>
+            <text x="50%" y="57%" dominant-baseline="middle" text-anchor="middle" font-size="14" fill="white">🏕</text>
+            <defs>
+              <linearGradient id="mobileUserLogoGrad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#52b788"/>
+                <stop offset="100%" stop-color="#2d6a4f"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="dash-brand-text">
+          <span class="logo-text">STACKLY</span>
+          <span class="purple-subtitle" style="color:var(--green-300);">Traveler Dashboard</span>
+        </div>
+      </div>
+    </div>
+
     <div class="dash-layout">
       
-      <!-- SIDEBAR -->
-      <aside class="dash-sidebar">
-        <div class="dash-sidebar-brand">
-          <a href="user-dashboard.html" class="dash-logo" title="Stackly Dashboard" style="cursor: pointer; display: inline-flex; align-items: center; gap: 10px; text-decoration: none;">
-            <svg width="28" height="28" viewBox="0 0 40 40" fill="none" style="pointer-events: none;">
-              <circle cx="20" cy="20" r="20" fill="url(#userDashLogoGrad)"/>
-              <text x="50%" y="57%" dominant-baseline="middle" text-anchor="middle" font-size="16" fill="white">🏕</text>
-              <defs>
-                <linearGradient id="userDashLogoGrad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
-                  <stop offset="0%" stop-color="#52b788"/>
-                  <stop offset="100%" stop-color="#2d6a4f"/>
-                </linearGradient>
-              </defs>
-            </svg>
-            <span class="logo-text" style="pointer-events: none;">Stack<span class="logo-accent">ly</span></span>
-          </a>
-          <div class="dash-mobile-nav-toggle" onclick="toggleMobileDashNav(this)">
-            <span>Menu</span>
-            <span class="dm-arrow">▼</span>
-          </div>
+      <!-- SIDEBAR DRAWER -->
+      <aside class="dash-sidebar" id="user-dash-sidebar">
+        <div class="drawer-header-row">
+          <button class="dash-drawer-close-btn" onclick="closeDashDrawer()" aria-label="Close Drawer">✕</button>
         </div>
-        <span class="sidebar-subtitle dash-sidebar-role-disp" style="color:var(--green-300); cursor: pointer;">Traveler Dashboard</span>
+        <div class="drawer-category-label" style="color:var(--green-300);">Traveler Dashboard</div>
 
         <nav class="sidebar-nav">
-          <a href="#" class="sidebar-link active" id="user-nav-overview" onclick="switchTravelerTab('overview'); return false;">
+          <a href="#" class="sidebar-link active" id="user-nav-overview" onclick="switchTravelerTab('overview'); closeDashDrawer(); return false;">
             <span class="s-icon">📊</span> Overview
           </a>
-          <a href="#" class="sidebar-link" id="user-nav-rentals" onclick="switchTravelerTab('rentals'); return false;">
+          <a href="#" class="sidebar-link" id="user-nav-rentals" onclick="switchTravelerTab('rentals'); closeDashDrawer(); return false;">
             <span class="s-icon">🎒</span> My Gear &amp; Rentals
           </a>
-          <a href="#" class="sidebar-link" id="user-nav-expeditions" onclick="switchTravelerTab('expeditions'); return false;">
+          <a href="#" class="sidebar-link" id="user-nav-expeditions" onclick="switchTravelerTab('expeditions'); closeDashDrawer(); return false;">
             <span class="s-icon">🏔️</span> Booked Expeditions
           </a>
-          <a href="#" class="sidebar-link" id="user-nav-wishlist" onclick="switchTravelerTab('wishlist'); return false;">
+          <a href="#" class="sidebar-link" id="user-nav-wishlist" onclick="switchTravelerTab('wishlist'); closeDashDrawer(); return false;">
             <span class="s-icon">⭐</span> Saved Wishlist
           </a>
-          <a href="#" class="sidebar-link" id="user-nav-settings" onclick="switchTravelerTab('settings'); return false;">
+          <a href="#" class="sidebar-link" id="user-nav-settings" onclick="switchTravelerTab('settings'); closeDashDrawer(); return false;">
             <span class="s-icon">⚙️</span> Account Settings
           </a>
-
-          <div class="sidebar-divider"></div>
-
-          <a href="index.html" class="sidebar-link logout-link">
-            <span class="s-icon">🚪</span> Logout
-          </a>
         </nav>
+
+        <div class="sidebar-bottom">
+          <a href="index.html" class="sidebar-link logout-link red-logout-card" onclick="closeDashDrawer();">
+            <span class="s-icon">↳</span> Logout
+          </a>
+        </div>
       </aside>
 
       <!-- MAIN CONTENT AREA -->

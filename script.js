@@ -516,3 +516,25 @@ function handleNewsletterSubmit(e) {
 }
 
 function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+
+// ===== DASHBOARD MOBILE SLIDE-OUT DRAWER HANDLERS =====
+function openDashDrawer() {
+  document.querySelectorAll('.dash-sidebar').forEach(s => s.classList.add('drawer-open'));
+  let backdrop = document.getElementById('dash-drawer-backdrop');
+  if (!backdrop) {
+    backdrop = document.createElement('div');
+    backdrop.id = 'dash-drawer-backdrop';
+    backdrop.className = 'dash-drawer-backdrop';
+    backdrop.onclick = closeDashDrawer;
+    document.body.appendChild(backdrop);
+  }
+  backdrop.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeDashDrawer() {
+  document.querySelectorAll('.dash-sidebar').forEach(s => s.classList.remove('drawer-open'));
+  const backdrop = document.getElementById('dash-drawer-backdrop');
+  if (backdrop) backdrop.classList.remove('open');
+  document.body.style.overflow = '';
+}
