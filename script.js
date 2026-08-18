@@ -234,18 +234,8 @@ function handleSearchGear(e) {
 }
 
 function handleMemberSignup(e) {
-  if (e) e.preventDefault();
-  const btn = e.target;
-  const orig = btn.textContent;
-  btn.textContent = '🎉 Membership Activated!';
-  btn.style.background = '#52b788';
-  setTimeout(() => { btn.textContent = orig; btn.style.background = ''; }, 2500);
-  const cartToast = document.getElementById('cart-toast');
-  if (cartToast) {
-    cartToast.innerHTML = `⭐ <strong>Welcome to Stackly VIP Club!</strong> Your $49/yr membership is active.`;
-    cartToast.classList.add('show');
-    setTimeout(() => cartToast.classList.remove('show'), 3500);
-  }
+  if (e && typeof e.preventDefault === 'function') e.preventDefault();
+  openModal('404');
 }
 
 function handleForgotPassword(e) {
