@@ -50,11 +50,43 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
 .navbar.scrolled{background:rgba(10,26,13,.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 2px 32px rgba(0,0,0,.35)}
 .nav-container{max-width:1240px;width:100%;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px}
 
-.logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
-.logo-mark{width:36px;height:36px;border-radius:50%;overflow:hidden;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(64,145,108,.5);transition:transform var(--t),box-shadow var(--t)}
-.logo:hover .logo-mark{transform:rotate(-8deg) scale(1.1);box-shadow:0 4px 20px rgba(64,145,108,.7)}
-.logo-text{font-size:22px;font-weight:800;color:#fff;letter-spacing:-.5px;white-space:nowrap}
-.logo-accent{color:var(--green-300)}
+.logo, #logo-link, .dash-sidebar-brand, .dash-mobile-header-brand, .footer-logo-link {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  flex-shrink: 0 !important;
+  cursor: pointer !important;
+  pointer-events: auto !important;
+  text-decoration: none !important;
+}
+.logo *, #logo-link * {
+  pointer-events: none;
+}
+.logo-mark {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 12px rgba(64,145,108,.5);
+  transition: transform var(--t), box-shadow var(--t);
+}
+.logo:hover .logo-mark {
+  transform: rotate(-8deg) scale(1.1);
+  box-shadow: 0 4px 20px rgba(64,145,108,.7);
+}
+.logo-text {
+  font-size: 22px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -.5px;
+  white-space: nowrap;
+}
+.logo-accent {
+  color: var(--green-300);
+}
 
 .nav-links{display:flex;gap:4px;align-items:center}
 .nav-link{color:rgba(255,255,255,.78);font-size:14px;font-weight:600;padding:8px 16px;border-radius:var(--r-pill);transition:all var(--t);position:relative;white-space:nowrap}

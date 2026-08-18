@@ -105,6 +105,20 @@ window.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // Explicit event listener for main navbar & footer Stackly logo to ensure 100% clickability
+  const mainSiteLogos = document.querySelectorAll('.navbar .logo, #logo-link, .footer-logo-link');
+  mainSiteLogos.forEach(el => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (document.getElementById('page-home')) {
+        switchPage('home');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        window.location.href = 'index.html';
+      }
+    });
+  });
 });
 
 window.addEventListener('hashchange', () => {
