@@ -79,22 +79,28 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   // Explicit event listener for host dashboard logo & brand area
-  const hostLogos = document.querySelectorAll('#page-dashboard .dash-logo, #page-dashboard .dash-sidebar-brand');
+  const hostLogos = document.querySelectorAll('#page-dashboard .dash-logo, #page-dashboard .dash-sidebar-brand, #page-dashboard .dash-mobile-header-brand');
   hostLogos.forEach(el => {
     el.addEventListener('click', (e) => {
       e.preventDefault();
-      switchPage('dashboard');
-      if (typeof switchHostTab === 'function') switchHostTab('overview');
+      if (document.getElementById('page-home')) {
+        switchPage('home');
+      } else {
+        window.location.href = 'index.html';
+      }
     });
   });
 
   // Explicit event listener for traveler dashboard logo & brand area
-  const userLogos = document.querySelectorAll('#page-user-dashboard .dash-logo, #page-user-dashboard .dash-sidebar-brand');
+  const userLogos = document.querySelectorAll('#page-user-dashboard .dash-logo, #page-user-dashboard .dash-sidebar-brand, #page-user-dashboard .dash-mobile-header-brand');
   userLogos.forEach(el => {
     el.addEventListener('click', (e) => {
       e.preventDefault();
-      switchPage('user-dashboard');
-      if (typeof switchTravelerTab === 'function') switchTravelerTab('overview');
+      if (document.getElementById('page-home')) {
+        switchPage('home');
+      } else {
+        window.location.href = 'index.html';
+      }
     });
   });
 });
@@ -109,15 +115,10 @@ window.addEventListener('hashchange', () => {
 // ===== RELOAD / OPEN DASHBOARD LOGO ACTION =====
 function reloadCurrentDashboard(e) {
   if (e) e.preventDefault();
-  
-  if (typeof switchHostTab === 'function') switchHostTab('overview');
-  if (typeof switchTravelerTab === 'function') switchTravelerTab('overview');
-
-  const userDash = document.getElementById('page-user-dashboard');
-  if (userDash && userDash.classList.contains('active')) {
-    switchPage('user-dashboard');
+  if (document.getElementById('page-home')) {
+    switchPage('home');
   } else {
-    switchPage('dashboard');
+    window.location.href = 'index.html';
   }
   return false;
 }
