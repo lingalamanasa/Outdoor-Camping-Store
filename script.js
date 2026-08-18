@@ -78,28 +78,30 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Explicit event listener for host dashboard logo & brand area
-  const hostLogos = document.querySelectorAll('#page-dashboard .dash-logo, #page-dashboard .dash-sidebar-brand, #page-dashboard .dash-mobile-header-brand');
+  // Explicit event listener for host dashboard logo & brand area (returns to Host Dashboard)
+  const hostLogos = document.querySelectorAll('#page-dashboard .dash-logo, #page-dashboard .dash-sidebar-brand, #page-dashboard .dash-mobile-header-brand, #host-dash-sidebar .dash-sidebar-brand');
   hostLogos.forEach(el => {
     el.addEventListener('click', (e) => {
       e.preventDefault();
-      if (document.getElementById('page-home')) {
-        switchPage('home');
+      if (document.getElementById('page-dashboard')) {
+        switchPage('dashboard');
+        if (typeof switchHostTab === 'function') switchHostTab('overview');
       } else {
-        window.location.href = 'index.html';
+        window.location.href = 'dashboard.html';
       }
     });
   });
 
-  // Explicit event listener for traveler dashboard logo & brand area
-  const userLogos = document.querySelectorAll('#page-user-dashboard .dash-logo, #page-user-dashboard .dash-sidebar-brand, #page-user-dashboard .dash-mobile-header-brand');
+  // Explicit event listener for traveler dashboard logo & brand area (returns to Traveler Dashboard)
+  const userLogos = document.querySelectorAll('#page-user-dashboard .dash-logo, #page-user-dashboard .dash-sidebar-brand, #page-user-dashboard .dash-mobile-header-brand, #user-dash-sidebar .dash-sidebar-brand');
   userLogos.forEach(el => {
     el.addEventListener('click', (e) => {
       e.preventDefault();
-      if (document.getElementById('page-home')) {
-        switchPage('home');
+      if (document.getElementById('page-user-dashboard')) {
+        switchPage('user-dashboard');
+        if (typeof switchTravelerTab === 'function') switchTravelerTab('overview');
       } else {
-        window.location.href = 'index.html';
+        window.location.href = 'user-dashboard.html';
       }
     });
   });
@@ -115,8 +117,16 @@ window.addEventListener('hashchange', () => {
 // ===== RELOAD / OPEN DASHBOARD LOGO ACTION =====
 function reloadCurrentDashboard(e) {
   if (e) e.preventDefault();
-  if (document.getElementById('page-home')) {
-    switchPage('home');
+  if (document.getElementById('page-dashboard') && document.getElementById('page-dashboard').classList.contains('active')) {
+    switchPage('dashboard');
+    if (typeof switchHostTab === 'function') switchHostTab('overview');
+  } else if (document.getElementById('page-user-dashboard') && document.getElementById('page-user-dashboard').classList.contains('active')) {
+    switchPage('user-dashboard');
+    if (typeof switchTravelerTab === 'function') switchTravelerTab('overview');
+  } else if (window.location.pathname.includes('dashboard.html')) {
+    window.location.href = 'dashboard.html';
+  } else if (window.location.pathname.includes('user-dashboard.html')) {
+    window.location.href = 'user-dashboard.html';
   } else {
     window.location.href = 'index.html';
   }
