@@ -2,51 +2,45 @@
 
 // ===== PAGE SWITCHER =====
 function switchPage(pageId) {
-  const pages = document.querySelectorAll('.page-view');
-  if (pages.length === 0) return;
-
   const target = document.getElementById(`page-${pageId}`);
   if (target) {
+    const pages = document.querySelectorAll('.page-view');
     pages.forEach(p => p.classList.remove('active'));
     target.classList.add('active');
-  } else if (document.getElementById('page-home')) {
-    pages.forEach(p => p.classList.remove('active'));
-    document.getElementById('page-home').classList.add('active');
-    pageId = 'home';
   } else {
-    // Single standalone page file (e.g. about.html, services.html, etc.)
-    const firstPage = document.querySelector('.page-view');
-    if (firstPage) {
-      firstPage.classList.add('active');
-      const idMatch = firstPage.id.replace('page-', '');
-      if (idMatch) pageId = idMatch;
+    // Navigating from a standalone HTML page (e.g. services.html -> index.html)
+    if (pageId === 'home') {
+      window.location.href = 'index.html';
+    } else {
+      window.location.href = pageId.endsWith('.html') ? pageId : (pageId + '.html');
     }
+    return;
   }
 
-  // Hide top navbar on Dashboard pages as requested
+  // Update active state on navigation links
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.classList.remove('active');
+    const href = link.getAttribute('href');
+    if (href === `#page-${pageId}` || href === `${pageId}.html` || (pageId === 'home' && href === 'index.html')) {
+      link.classList.add('active');
+    }
+  });
+
+  // Hide top navbar on Dashboard pages
   const navbar = document.getElementById('navbar') || document.querySelector('.navbar');
   const noNavbarPages = ['dashboard', 'host-dashboard', 'user-dashboard'];
   if (navbar) {
-    if (noNavbarPages.includes(pageId)) {
-      navbar.style.display = 'none';
-    } else {
-      navbar.style.display = 'block';
-    }
+    navbar.style.display = noNavbarPages.includes(pageId) ? 'none' : 'block';
   }
 
-  // Hide footer on Login, Signup, and Dashboard pages as requested
+  // Hide footer on Login, Signup, and Dashboard pages
   const footer = document.getElementById('footer');
   const noFooterPages = ['login', 'signup', 'dashboard', 'host-dashboard', 'user-dashboard'];
   if (footer) {
-    if (noFooterPages.includes(pageId)) {
-      footer.style.display = 'none';
-    } else {
-      footer.style.display = 'block';
-    }
+    footer.style.display = noFooterPages.includes(pageId) ? 'none' : 'block';
   }
 
   window.scrollTo({ top: 0, behavior: 'instant' });
-
   if (pageId === 'dashboard' || pageId === 'host-dashboard') {
     if (typeof switchHostTab === 'function') switchHostTab('overview');
   }
