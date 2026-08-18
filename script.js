@@ -203,70 +203,24 @@ function switchDashTab(tabId) {
 
 // ===== GENERIC FALLBACK ACTION HANDLER =====
 function trigger404(e) {
-  if (e) e.preventDefault();
-  const btn = e && e.target ? e.target : null;
-  if (btn && btn.textContent) {
-    const orig = btn.textContent;
-    btn.textContent = '✓ Action Completed!';
-    btn.style.background = '#52b788';
-    btn.style.color = '#ffffff';
-    setTimeout(() => { btn.textContent = orig; btn.style.background = ''; btn.style.color = ''; }, 2000);
-  }
-  const cartToast = document.getElementById('cart-toast');
-  if (cartToast) {
-    cartToast.innerHTML = `✨ <strong>Action Completed!</strong> Your request has been processed.`;
-    cartToast.classList.add('show');
-    setTimeout(() => cartToast.classList.remove('show'), 3000);
-  }
+  if (e && typeof e.preventDefault === 'function') e.preventDefault();
+  openModal('404');
 }
 
 // ===== INTERACTIVE BUTTON HANDLERS =====
 function handleAddToCart(e, productName) {
-  if (e) e.preventDefault();
-  const btn = e.target;
-  const orig = btn.textContent;
-  btn.textContent = '✓ Added!';
-  btn.style.background = '#52b788';
-  setTimeout(() => { btn.textContent = orig; btn.style.background = ''; }, 2000);
-  
-  const cartToast = document.getElementById('cart-toast');
-  if (cartToast) {
-    cartToast.innerHTML = `🛒 <strong>"${productName || 'Item'}"</strong> added to your cart!`;
-    cartToast.classList.add('show');
-    setTimeout(() => cartToast.classList.remove('show'), 3000);
-  }
+  if (e && typeof e.preventDefault === 'function') e.preventDefault();
+  openModal('404');
 }
 
 function handleBookExpedition(e, tourTitle) {
-  if (e) e.preventDefault();
-  const btn = e.target;
-  const orig = btn.textContent;
-  btn.textContent = '✓ Reserved!';
-  btn.style.background = '#52b788';
-  setTimeout(() => { btn.textContent = orig; btn.style.background = ''; }, 2000);
-
-  const cartToast = document.getElementById('cart-toast');
-  if (cartToast) {
-    cartToast.innerHTML = `🏔️ Expedition <strong>"${tourTitle || 'Adventure'}"</strong> booked! Guide will contact you soon.`;
-    cartToast.classList.add('show');
-    setTimeout(() => cartToast.classList.remove('show'), 3500);
-  }
+  if (e && typeof e.preventDefault === 'function') e.preventDefault();
+  openModal('404');
 }
 
 function handleCustomRoute(e) {
-  if (e) e.preventDefault();
-  const btn = e.target;
-  const orig = btn.textContent;
-  btn.textContent = '✓ GPX Requested!';
-  btn.style.background = '#52b788';
-  setTimeout(() => { btn.textContent = orig; btn.style.background = ''; }, 2000);
-
-  const cartToast = document.getElementById('cart-toast');
-  if (cartToast) {
-    cartToast.innerHTML = `🗺️ Custom trail route request submitted! Check your email for GPX files.`;
-    cartToast.classList.add('show');
-    setTimeout(() => cartToast.classList.remove('show'), 3500);
-  }
+  if (e && typeof e.preventDefault === 'function') e.preventDefault();
+  openModal('404');
 }
 
 function handleSearchGear(e) {
@@ -359,26 +313,13 @@ function handleSocialAuth(e) {
 }
 
 function handleSocialClick(e, platformName, url) {
-  if (e) e.preventDefault();
-  const cartToast = document.getElementById('cart-toast');
-  if (cartToast) {
-    cartToast.innerHTML = `🌐 <strong>Connecting to Stackly ${platformName || 'Social'}!</strong> Opening official channel...`;
-    cartToast.classList.add('show');
-    setTimeout(() => cartToast.classList.remove('show'), 3000);
-  }
-  if (url) {
-    setTimeout(() => window.open(url, '_blank'), 500);
-  }
+  if (e && typeof e.preventDefault === 'function') e.preventDefault();
+  openModal('404');
 }
 
 function handleSocialPhotoClick(e) {
-  if (e) e.preventDefault();
-  const cartToast = document.getElementById('cart-toast');
-  if (cartToast) {
-    cartToast.innerHTML = `📸 <strong>Instagram Community Photo</strong> opened in high-res lightbox.`;
-    cartToast.classList.add('show');
-    setTimeout(() => cartToast.classList.remove('show'), 3000);
-  }
+  if (e && typeof e.preventDefault === 'function') e.preventDefault();
+  openModal('404');
 }
 
 function handleContactAction(e) {
