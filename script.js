@@ -247,28 +247,13 @@ function handleForgotPassword(e) {
 }
 
 function handleReadGuide(e, title) {
-  if (e) e.preventDefault();
-  const cartToast = document.getElementById('cart-toast');
-  if (cartToast) {
-    cartToast.innerHTML = `📖 <strong>"${title || 'Guide'}"</strong> opened in reader view.`;
-    cartToast.classList.add('show');
-    setTimeout(() => cartToast.classList.remove('show'), 3000);
-  }
+  if (e && typeof e.preventDefault === 'function') e.preventDefault();
+  openModal('404');
 }
 
 function handleGuideDownload(e) {
-  if (e) e.preventDefault();
-  const btn = e.target;
-  const orig = btn.textContent;
-  btn.textContent = '✓ Downloaded!';
-  btn.style.background = '#52b788';
-  setTimeout(() => { btn.textContent = orig; btn.style.background = ''; }, 2000);
-  const cartToast = document.getElementById('cart-toast');
-  if (cartToast) {
-    cartToast.innerHTML = `📥 <strong>Outdoor Guide PDF Downloaded!</strong> File saved to your downloads folder.`;
-    cartToast.classList.add('show');
-    setTimeout(() => cartToast.classList.remove('show'), 3000);
-  }
+  if (e && typeof e.preventDefault === 'function') e.preventDefault();
+  openModal('404');
 }
 
 function handleAddNewListing(e) {
@@ -313,49 +298,28 @@ function handleSocialPhotoClick(e) {
 }
 
 function handleContactAction(e) {
-  if (e) e.preventDefault();
-  const cartToast = document.getElementById('cart-toast');
-  if (cartToast) {
-    cartToast.innerHTML = `💬 <strong>Support Channel Active!</strong> Connecting to Stackly base camp team...`;
-    cartToast.classList.add('show');
-    setTimeout(() => cartToast.classList.remove('show'), 3000);
-  }
+  if (e && typeof e.preventDefault === 'function') e.preventDefault();
+  openModal('404');
 }
 
 function handleTermsClick(e) {
-  if (e) e.preventDefault();
-  alert('Stackly Terms of Service & Privacy Policy: We prioritize explorer privacy and data protection.');
+  if (e && typeof e.preventDefault === 'function') e.preventDefault();
+  openModal('404');
 }
 
 function handleStoreHoursClick(e) {
-  if (e) e.preventDefault();
-  const cartToast = document.getElementById('cart-toast');
-  if (cartToast) {
-    cartToast.innerHTML = `🕒 <strong>Store Open Today!</strong> Hours: Mon-Sat 8AM-8PM, Sun 9AM-6PM. Boulder, CO base camp.`;
-    cartToast.classList.add('show');
-    setTimeout(() => cartToast.classList.remove('show'), 3500);
-  }
+  if (e && typeof e.preventDefault === 'function') e.preventDefault();
+  openModal('404');
 }
 
 function handleDirectionsClick(e) {
-  if (e) e.preventDefault();
-  const cartToast = document.getElementById('cart-toast');
-  if (cartToast) {
-    cartToast.innerHTML = `📍 <strong>Driving Directions Loaded!</strong> 123 Adventure Way, Boulder, CO 80301.`;
-    cartToast.classList.add('show');
-    setTimeout(() => cartToast.classList.remove('show'), 3500);
-  }
-  window.open('https://maps.google.com/?q=123+Adventure+Way+Boulder+CO+80301', '_blank');
+  if (e && typeof e.preventDefault === 'function') e.preventDefault();
+  openModal('404');
 }
 
 function handleLiveChatClick(e) {
-  if (e) e.preventDefault();
-  const cartToast = document.getElementById('cart-toast');
-  if (cartToast) {
-    cartToast.innerHTML = `💬 <strong>Live Chat Connected!</strong> A Stackly gear specialist is now online with you.`;
-    cartToast.classList.add('show');
-    setTimeout(() => cartToast.classList.remove('show'), 3500);
-  }
+  if (e && typeof e.preventDefault === 'function') e.preventDefault();
+  openModal('404');
 }
 
 function handleBlogFilter(e) {
@@ -560,21 +524,8 @@ function handleSignup(e) {
 
 // ===== CONTACT FORM SUBMIT =====
 function handleContactSubmit(e) {
-  e.preventDefault();
-  const btn = document.getElementById('c-submit-btn');
-  const original = btn.innerHTML;
-  btn.textContent = '⏳ Sending Message...';
-  btn.disabled = true;
-  setTimeout(() => {
-    btn.textContent = '✓ Message Sent Successfully!';
-    btn.style.background = '#52b788';
-    setTimeout(() => {
-      btn.innerHTML = original;
-      btn.style.background = '';
-      btn.disabled = false;
-      e.target.reset();
-    }, 2500);
-  }, 1400);
+  if (e && typeof e.preventDefault === 'function') e.preventDefault();
+  openModal('404');
 }
 
 // ===== NAVBAR SCROLL =====
