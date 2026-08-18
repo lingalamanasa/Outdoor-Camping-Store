@@ -744,7 +744,15 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
   height: 100vh;
 }
 .dash-sidebar-brand {
-  margin-bottom: 34px;
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  margin-bottom: 28px !important;
+  padding: 0 4px !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 .dash-logo {
   display: flex;
