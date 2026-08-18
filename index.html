@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=24" />
+  <link rel="stylesheet" href="style.css?v=25" />
 </head>
 <body>
 
@@ -169,10 +169,10 @@
       <h2>Off The Beaten Path</h2>
       <p>This social media channel or page hasn't been mapped yet! Our base camp team is currently setting up camp here.</p>
     </div>
-    <div class="err-404-actions" style="display:flex; flex-direction:column; gap:12px; margin-top:20px;">
-      <button class="btn-primary full-width" onclick="closeModal(); switchPage('home'); window.scrollTo({top:0, behavior:'smooth'});" style="justify-content:center;">Back to Home</button>
-      <button class="btn-outline full-width" onclick="closeModal(); if (window.history.length > 1) { window.history.back(); } else { switchPage('home'); }" style="justify-content:center;">Go Back</button>
-      <button class="btn-outline full-width" onclick="closeModal()" style="opacity:0.75; justify-content:center;">Close Window</button>
+    <div class="err-404-actions" style="display:flex; flex-direction:column; gap:12px; margin-top:20px; width:100%;">
+      <button class="btn-primary full-width" onclick="closeModal(); if (typeof switchPage === 'function') { switchPage('home'); } else { window.location.href='index.html'; } window.scrollTo({top:0, behavior:'smooth'});" style="justify-content:center; border-radius:9999px; padding:14px 20px; font-weight:700;">Back to Home</button>
+      <button class="btn-outline full-width" onclick="closeModal(); if (window.history.length > 1) { window.history.back(); } else { window.location.href='index.html'; }" style="justify-content:center; border-radius:9999px; padding:14px 20px; font-weight:700;">Go Back</button>
+      <button class="btn-outline full-width" onclick="closeModal()" style="opacity:0.75; justify-content:center; border-radius:9999px; padding:12px 20px; font-weight:600;">Close Window</button>
     </div>
   </div>
 
@@ -2835,6 +2835,6 @@
     <span>🛒 Item added to cart!</span>
   </div>
 
-  <script src="script.js?v=24"></script>
+  <script src="script.js?v=25"></script>
 </body>
 </html>

@@ -188,12 +188,56 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
 .switch-btn{background:none;border:none;font-size:13px;font-weight:700;color:var(--green-500);cursor:pointer}
 
 /* 404 Modal Styling */
-.modal-404-box{text-align:center;max-width:440px}
-.err-404-badge{display:inline-block;background:rgba(232,64,64,.12);color:#e84040;font-size:11px;font-weight:800;letter-spacing:1.5px;padding:5px 14px;border-radius:var(--r-pill);margin-bottom:12px}
-.err-404-icon{font-size:3.5rem;margin:10px 0;animation:spinCompass 12s linear infinite}
-@keyframes spinCompass{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
-.err-404-actions{display:flex;flex-direction:column;gap:10px;margin-top:20px}
-.full-width{width:100%;text-align:center}
+.modal-404-box {
+  text-align: center;
+  max-width: 440px;
+  width: 90%;
+  padding: 36px 28px !important;
+  border-radius: 24px !important;
+  background: #ffffff !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3) !important;
+  overflow: hidden !important;
+}
+.err-404-badge {
+  display: inline-block;
+  background: rgba(232, 64, 64, 0.12);
+  color: #e84040;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  padding: 5px 14px;
+  border-radius: 9999px;
+  margin-bottom: 12px;
+}
+.err-404-icon {
+  font-size: 3.5rem;
+  margin: 10px 0;
+  animation: spinCompass 12s linear infinite;
+}
+@keyframes spinCompass {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.err-404-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+  width: 100%;
+}
+.err-404-actions button {
+  width: 100% !important;
+  justify-content: center !important;
+  border-radius: 9999px !important;
+  padding: 14px 20px !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  box-shadow: none !important;
+}
+.full-width {
+  width: 100%;
+  text-align: center;
+}
 
 /* ===== PAGE WRAPPERS & HERO BANNERS ===== */
 .page-wrapper{position:relative;width:100%;overflow:hidden}
