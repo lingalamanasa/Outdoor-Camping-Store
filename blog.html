@@ -94,7 +94,7 @@
                 <span>Mountaineer Lead • 7 min read</span>
               </div>
             </div>
-            <a href="#" class="btn-primary sm" onclick="handleDashboardAction(event)">Read Full Guide →</a>
+            <a href="#" class="btn-primary sm" onclick="handleReadGuide(event, '10 Essential Knots Guide')">Read Full Guide →</a>
           </div>
         </div>
       </div>
@@ -104,11 +104,11 @@
     <section class="page-section bg-alt">
       <div class="container">
         <div class="blog-filter-bar">
-          <button class="bf-btn active">All Guides</button>
-          <button class="bf-btn">Camp Cooking</button>
-          <button class="bf-btn">Shelter &amp; Tents</button>
-          <button class="bf-btn">First Aid &amp; Safety</button>
-          <button class="bf-btn">Trail Reviews</button>
+          <button class="bf-btn active" onclick="handleBlogFilter(event)">All Guides</button>
+          <button class="bf-btn" onclick="handleBlogFilter(event)">Camp Cooking</button>
+          <button class="bf-btn" onclick="handleBlogFilter(event)">Shelter &amp; Tents</button>
+          <button class="bf-btn" onclick="handleBlogFilter(event)">First Aid &amp; Safety</button>
+          <button class="bf-btn" onclick="handleBlogFilter(event)">Trail Reviews</button>
         </div>
       </div>
     </section>
@@ -163,19 +163,19 @@
             <div class="dl-icon">📚</div>
             <h3>Backcountry Packing Checklist</h3>
             <p>Complete 3-season gear packing list categorized by weight and essential emergency items.</p>
-            <button class="btn-primary sm" onclick="handleDashboardAction(event)">Download PDF (2.4MB)</button>
+            <button class="btn-primary sm" onclick="handleGuideDownload(event)">Download PDF (2.4MB)</button>
           </div>
           <div class="dl-card">
             <div class="dl-icon">🧭</div>
             <h3>Map &amp; Compass Navigation Guide</h3>
             <p>Step-by-step guide to calculating declination, taking bearings, and triangulation.</p>
-            <button class="btn-primary sm" onclick="handleDashboardAction(event)">Download PDF (4.1MB)</button>
+            <button class="btn-primary sm" onclick="handleGuideDownload(event)">Download PDF (4.1MB)</button>
           </div>
           <div class="dl-card">
             <div class="dl-icon">🩺</div>
             <h3>Wilderness First-Aid Quick Reference</h3>
             <p>Emergency protocols for hypothermia, fractures, snake bites, and dehydration.</p>
-            <button class="btn-primary sm" onclick="handleDashboardAction(event)">Download PDF (1.8MB)</button>
+            <button class="btn-primary sm" onclick="handleGuideDownload(event)">Download PDF (1.8MB)</button>
           </div>
         </div>
       </div>

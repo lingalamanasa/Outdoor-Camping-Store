@@ -656,13 +656,24 @@ document.querySelectorAll('.bf-btn').forEach(btn => {
 
 // ===== NEWSLETTER =====
 function handleNewsletterSubmit(e) {
-  e.preventDefault();
-  const btn = document.getElementById('newsletter-submit-btn');
-  const emailInput = document.getElementById('newsletter-email');
-  btn.textContent = '🎉 Subscribed!';
-  btn.style.background = '#52b788';
-  emailInput.value = '';
-  setTimeout(() => { btn.textContent = 'Subscribe'; btn.style.background = ''; }, 3000);
+  if (e) e.preventDefault();
+  const form = e ? e.target : null;
+  const btn = form ? form.querySelector('button[type="submit"]') : document.getElementById('newsletter-submit-btn');
+  const emailInput = form ? form.querySelector('input[type="email"]') : document.getElementById('newsletter-email');
+  if (btn) {
+    const orig = btn.textContent;
+    btn.textContent = '🎉 Subscribed!';
+    btn.style.background = '#52b788';
+    btn.style.color = '#ffffff';
+    if (emailInput) emailInput.value = '';
+    setTimeout(() => { btn.textContent = orig; btn.style.background = ''; btn.style.color = ''; }, 3000);
+  }
+  const cartToast = document.getElementById('cart-toast');
+  if (cartToast) {
+    cartToast.innerHTML = `📩 <strong>Subscribed to Stackly!</strong> You'll receive gear drops &amp; trail tips in your inbox.`;
+    cartToast.classList.add('show');
+    setTimeout(() => cartToast.classList.remove('show'), 3500);
+  }
 }
 
 function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
