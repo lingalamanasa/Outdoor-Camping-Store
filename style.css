@@ -782,10 +782,15 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
   background: rgba(255, 255, 255, 0.05);
 }
 .sidebar-link.active {
-  background: rgba(255, 255, 255, 0.08);
-  color: #ffffff;
-  border-left: 3px solid #38bdf8;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  background: rgba(56, 189, 248, 0.14) !important;
+  color: #38bdf8 !important;
+  border-radius: 12px !important;
+  border-left: none !important;
+  font-weight: 700 !important;
+}
+#host-dash-sidebar .sidebar-link.active {
+  background: rgba(192, 132, 252, 0.14) !important;
+  color: #c084fc !important;
 }
 .s-icon {
   font-size: 16px;

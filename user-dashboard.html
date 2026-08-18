@@ -188,33 +188,38 @@
                 </select>
               </div>
 
-              <!-- SMOOTH WAVE CHART SVG (CYAN GLOW GRAPH) -->
+              <!-- SMOOTH WAVE CHART SVG (CYAN GLOW GRAPH WITH Y-AXIS 4, 3, 2 MATCHING SCREENSHOT) -->
               <div style="position:relative; width:100%; height:240px; margin-top:10px;">
                 <svg width="100%" height="100%" viewBox="0 0 600 220" preserveAspectRatio="none" style="overflow:visible;">
                   <defs>
                     <linearGradient id="cyanWaveGrad" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.35"/>
+                      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.4"/>
                       <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.0"/>
                     </linearGradient>
                   </defs>
+
+                  <!-- Y-Axis Labels matching reference screenshot -->
+                  <text x="2" y="48" fill="#64748b" font-size="13" font-weight="600">4</text>
+                  <text x="2" y="118" fill="#64748b" font-size="13" font-weight="600">3</text>
+                  <text x="2" y="188" fill="#64748b" font-size="13" font-weight="600">2</text>
+
                   <!-- Horizontal Grid Lines -->
-                  <line x1="0" y1="40" x2="600" y2="40" stroke="rgba(255,255,255,0.06)" stroke-dasharray="4 4"/>
-                  <line x1="0" y1="90" x2="600" y2="90" stroke="rgba(255,255,255,0.06)" stroke-dasharray="4 4"/>
-                  <line x1="0" y1="140" x2="600" y2="140" stroke="rgba(255,255,255,0.06)" stroke-dasharray="4 4"/>
-                  <line x1="0" y1="190" x2="600" y2="190" stroke="rgba(255,255,255,0.06)"/>
+                  <line x1="25" y1="45" x2="600" y2="45" stroke="rgba(255,255,255,0.06)" stroke-dasharray="4 4"/>
+                  <line x1="25" y1="115" x2="600" y2="115" stroke="rgba(255,255,255,0.06)" stroke-dasharray="4 4"/>
+                  <line x1="25" y1="185" x2="600" y2="185" stroke="rgba(255,255,255,0.06)"/>
 
                   <!-- Filled Wave Gradient -->
-                  <path d="M 0 190 Q 60 170 120 180 T 240 130 T 360 70 T 480 160 T 600 120 L 600 190 L 0 190 Z" fill="url(#cyanWaveGrad)"/>
+                  <path d="M 30 185 C 80 185, 100 120, 140 120 C 180 120, 200 170, 240 170 C 280 170, 300 45, 350 45 C 400 45, 430 185, 470 185 C 510 185, 530 150, 580 150 L 580 185 L 30 185 Z" fill="url(#cyanWaveGrad)"/>
                   
-                  <!-- Wave Line stroke -->
-                  <path d="M 0 190 Q 60 170 120 180 T 240 130 T 360 70 T 480 160 T 600 120" fill="none" stroke="#38bdf8" stroke-width="3" stroke-linecap="round"/>
+                  <!-- Wave Line stroke matching reference curve -->
+                  <path d="M 30 185 C 80 185, 100 120, 140 120 C 180 120, 200 170, 240 170 C 280 170, 300 45, 350 45 C 400 45, 430 185, 470 185 C 510 185, 530 150, 580 150" fill="none" stroke="#38bdf8" stroke-width="3" stroke-linecap="round"/>
 
-                  <!-- Glowing Dot Markers -->
-                  <circle cx="120" cy="180" r="5" fill="#38bdf8" stroke="#111726" stroke-width="2"/>
-                  <circle cx="240" cy="130" r="5" fill="#38bdf8" stroke="#111726" stroke-width="2"/>
-                  <circle cx="360" cy="70" r="6" fill="#38bdf8" stroke="#111726" stroke-width="2"/>
-                  <circle cx="480" cy="160" r="5" fill="#38bdf8" stroke="#111726" stroke-width="2"/>
-                  <circle cx="600" cy="120" r="5" fill="#38bdf8" stroke="#111726" stroke-width="2"/>
+                  <!-- Glowing Dot Markers at peaks & valleys -->
+                  <circle cx="140" cy="120" r="5" fill="#38bdf8" stroke="#111726" stroke-width="2"/>
+                  <circle cx="240" cy="170" r="5" fill="#38bdf8" stroke="#111726" stroke-width="2"/>
+                  <circle cx="350" cy="45" r="6" fill="#38bdf8" stroke="#111726" stroke-width="2"/>
+                  <circle cx="470" cy="185" r="5" fill="#38bdf8" stroke="#111726" stroke-width="2"/>
+                  <circle cx="580" cy="150" r="5" fill="#38bdf8" stroke="#111726" stroke-width="2"/>
                 </svg>
               </div>
             </div>
