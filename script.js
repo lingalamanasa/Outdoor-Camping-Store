@@ -341,6 +341,54 @@ function handleDashboardAction(e, actionName) {
   setTimeout(() => { btn.textContent = orig; }, 1800);
 }
 
+function handleSocialAuth(e) {
+  if (e) e.preventDefault();
+  const cartToast = document.getElementById('cart-toast');
+  if (cartToast) {
+    cartToast.innerHTML = `🔐 <strong>Social Authentication Initiated!</strong> Connected to secure login.`;
+    cartToast.classList.add('show');
+    setTimeout(() => cartToast.classList.remove('show'), 3000);
+  }
+}
+
+function handleSocialPhotoClick(e) {
+  if (e) e.preventDefault();
+  const cartToast = document.getElementById('cart-toast');
+  if (cartToast) {
+    cartToast.innerHTML = `📸 <strong>Instagram Community Photo</strong> opened in high-res lightbox.`;
+    cartToast.classList.add('show');
+    setTimeout(() => cartToast.classList.remove('show'), 3000);
+  }
+}
+
+function handleContactAction(e) {
+  if (e) e.preventDefault();
+  const cartToast = document.getElementById('cart-toast');
+  if (cartToast) {
+    cartToast.innerHTML = `💬 <strong>Support Channel Active!</strong> Connecting to Stackly base camp team...`;
+    cartToast.classList.add('show');
+    setTimeout(() => cartToast.classList.remove('show'), 3000);
+  }
+}
+
+function handleTermsClick(e) {
+  if (e) e.preventDefault();
+  alert('Stackly Terms of Service & Privacy Policy: We prioritize explorer privacy and data protection.');
+}
+
+function handleBlogFilter(e) {
+  if (e) e.preventDefault();
+  const btn = e.target;
+  document.querySelectorAll('.bf-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const cartToast = document.getElementById('cart-toast');
+  if (cartToast) {
+    cartToast.innerHTML = `📚 Filtered stories by <strong>"${btn.textContent}"</strong>.`;
+    cartToast.classList.add('show');
+    setTimeout(() => cartToast.classList.remove('show'), 2500);
+  }
+}
+
 // ===== AUTH MODAL =====
 let activeModal = null;
 

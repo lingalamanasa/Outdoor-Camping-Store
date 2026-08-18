@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=19" />
+  <link rel="stylesheet" href="style.css?v=20" />
 </head>
 <body>
 
@@ -96,8 +96,8 @@
       <button type="submit" class="btn-auth-submit" id="login-submit-btn">Login to Account</button>
       <div class="auth-divider"><span>or continue with</span></div>
       <div class="social-auth-row">
-        <button type="button" class="social-auth-btn" id="google-login" onclick="trigger404(event)"><svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg> Google</button>
-        <button type="button" class="social-auth-btn" id="fb-login" onclick="trigger404(event)"><svg width="18" height="18" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg> Facebook</button>
+        <button type="button" class="social-auth-btn" id="google-login" onclick="handleSocialAuth(event)"><svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg> Google</button>
+        <button type="button" class="social-auth-btn" id="fb-login" onclick="handleSocialAuth(event)"><svg width="18" height="18" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg> Facebook</button>
       </div>
       <p class="auth-switch">Don't have an account? <button type="button" class="switch-btn" onclick="openModal('signup')">Sign Up</button></p>
     </form>
@@ -147,14 +147,14 @@
       <div class="form-group">
         <label class="checkbox-label full-width">
           <input type="checkbox" id="signup-terms" required/>
-          I agree to the <a href="#" class="terms-link" onclick="trigger404(event)">Terms of Service</a> &amp; <a href="#" class="terms-link" onclick="trigger404(event)">Privacy Policy</a>
+          I agree to the <a href="#" class="terms-link" onclick="handleTermsClick(event)">Terms of Service</a> &amp; <a href="#" class="terms-link" onclick="handleTermsClick(event)">Privacy Policy</a>
         </label>
       </div>
       <button type="submit" class="btn-auth-submit green" id="signup-submit-btn">Create My Account</button>
       <div class="auth-divider"><span>or sign up with</span></div>
       <div class="social-auth-row">
-        <button type="button" class="social-auth-btn" id="google-signup" onclick="trigger404(event)"><svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg> Google</button>
-        <button type="button" class="social-auth-btn" id="fb-signup" onclick="trigger404(event)"><svg width="18" height="18" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg> Facebook</button>
+        <button type="button" class="social-auth-btn" id="google-signup" onclick="handleSocialAuth(event)"><svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg> Google</button>
+        <button type="button" class="social-auth-btn" id="fb-signup" onclick="handleSocialAuth(event)"><svg width="18" height="18" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg> Facebook</button>
       </div>
       <p class="auth-switch">Already have an account? <button type="button" class="switch-btn" onclick="openModal('login')">Login</button></p>
     </form>
@@ -261,7 +261,7 @@
             <span class="section-tag">Section 03 • Impact</span>
             <h2 class="section-title">Trusted by <span class="accent">Outdoor Enthusiasts</span> Across the Globe</h2>
             <p class="section-desc">Stackly has been equipping adventurers since 2009. Our curated selection of premium gear has fueled countless expeditions worldwide.</p>
-            <a href="#" class="btn-primary sm" onclick="trigger404(event)">Discover Services <span class="btn-arrow">→</span></a>
+            <a href="services.html" class="btn-primary sm" onclick="switchPage('services'); return false;">Discover Services <span class="btn-arrow">→</span></a>
             <div class="stats-mini-bar">
               <div class="mini-stat"><span class="mini-val" data-target="50">0</span><span class="mini-unit">K+</span><span class="mini-lbl">Happy Campers</span></div>
               <div class="mini-divider"></div>
@@ -1069,7 +1069,7 @@
               <span class="section-tag light">Section 05</span>
               <h2>Join Stackly <span class="accent-light">Adventurers Club</span></h2>
               <p>Get 15% off gear rentals, free annual boot tune-ups, and early access to limited expedition drops.</p>
-              <button class="btn-primary" onclick="trigger404(event)">Become a Member ($49/yr)</button>
+              <button class="btn-primary" onclick="handleMemberSignup(event)">Become a Member ($49/yr)</button>
             </div>
           </div>
         </div>
@@ -1117,7 +1117,7 @@
                   <span>Mountaineer Lead • 7 min read</span>
                 </div>
               </div>
-              <a href="#" class="btn-primary sm" onclick="trigger404(event)">Read Full Guide →</a>
+              <a href="#" class="btn-primary sm" onclick="handleReadGuide(event, '10 Essential Knots Guide')">Read Full Guide →</a>
             </div>
           </div>
         </div>
@@ -1127,11 +1127,11 @@
       <section class="page-section bg-alt" style="padding: 40px 0;">
         <div class="container">
           <div class="blog-filter-bar">
-            <button class="bf-btn active" onclick="trigger404(event)">All Stories</button>
-            <button class="bf-btn" onclick="trigger404(event)">Camping Tips</button>
-            <button class="bf-btn" onclick="trigger404(event)">Gear Reviews</button>
-            <button class="bf-btn" onclick="trigger404(event)">Survival Skills</button>
-            <button class="bf-btn" onclick="trigger404(event)">Camp Kitchen</button>
+            <button class="bf-btn active" onclick="handleBlogFilter(event)">All Stories</button>
+            <button class="bf-btn" onclick="handleBlogFilter(event)">Camping Tips</button>
+            <button class="bf-btn" onclick="handleBlogFilter(event)">Gear Reviews</button>
+            <button class="bf-btn" onclick="handleBlogFilter(event)">Survival Skills</button>
+            <button class="bf-btn" onclick="handleBlogFilter(event)">Camp Kitchen</button>
           </div>
         </div>
       </section>
@@ -1154,7 +1154,7 @@
                 <h4>How to Choose the Perfect Backpack for Multi-Day Treks</h4>
                 <p>Torso sizing, capacity metrics, internal vs external frames explained.</p>
                 <div class="blog-meta"><span>👁 3.4K views</span><span>⏱ 6 min read</span></div>
-                <a href="#" class="blog-link" onclick="trigger404(event)">Read Story →</a>
+                <a href="#" class="blog-link" onclick="handleReadGuide(event, 'Backpack Guide')">Read Story →</a>
               </div>
             </article>
 
@@ -1167,7 +1167,7 @@
                 <h4>Camping in Heavy Rain: Stay Dry &amp; Warm Outdoors</h4>
                 <p>Pro techniques for campsite trenching, tarp geometry, and wet gear drying.</p>
                 <div class="blog-meta"><span>👁 2.1K views</span><span>⏱ 5 min read</span></div>
-                <a href="#" class="blog-link" onclick="trigger404(event)">Read Story →</a>
+                <a href="#" class="blog-link" onclick="handleReadGuide(event, 'Rain Camping Guide')">Read Story →</a>
               </div>
             </article>
 
@@ -1180,7 +1180,7 @@
                 <h4>Best Campfire Meals You Can Cook Under 20 Minutes</h4>
                 <p>High-calorie, light weight gourmet recipes using one camp stove or fire coals.</p>
                 <div class="blog-meta"><span>👁 4.8K views</span><span>⏱ 4 min read</span></div>
-                <a href="#" class="blog-link" onclick="trigger404(event)">Read Story →</a>
+                <a href="#" class="blog-link" onclick="handleReadGuide(event, 'Campfire Meals Guide')">Read Story →</a>
               </div>
             </article>
 
@@ -1203,7 +1203,7 @@
               <div class="dl-body">
                 <h3>Winter Camping Packing List</h3>
                 <p>Complete 4-layer clothing system, stove fuel calculator, sub-zero sleeping setup.</p>
-                <button class="btn-primary sm" onclick="trigger404(event)">Download PDF (Free)</button>
+                <button class="btn-primary sm" onclick="handleGuideDownload(event)">Download PDF (Free)</button>
               </div>
             </div>
             <div class="dl-card">
@@ -1213,7 +1213,7 @@
               <div class="dl-body">
                 <h3>Off-Grid Map Navigation</h3>
                 <p>Watch our 15-minute video tutorial on compass triangulation and reading topo lines.</p>
-                <button class="btn-primary sm" onclick="trigger404(event)">Watch Video Guide</button>
+                <button class="btn-primary sm" onclick="handleGuideDownload(event)">Watch Video Guide</button>
               </div>
             </div>
             <div class="dl-card">
@@ -1223,7 +1223,7 @@
               <div class="dl-body">
                 <h3>Wilderness First-Aid Protocol</h3>
                 <p>Essential steps for treating hypothermia, sprains, and trail injuries in remote areas.</p>
-                <button class="btn-primary sm" onclick="trigger404(event)">Download PDF (Free)</button>
+                <button class="btn-primary sm" onclick="handleGuideDownload(event)">Download PDF (Free)</button>
               </div>
             </div>
           </div>
@@ -1239,10 +1239,10 @@
             <p class="section-desc">Tag #StacklyWild on Instagram to be featured on our campsite wall.</p>
           </div>
           <div class="photo-grid-4">
-            <div class="photo-tile" style="background-image:url('images/category_shelter_1786948578844.png')"><span class="photo-tag" onclick="trigger404(event)">📸 @patagonia_hiker</span></div>
-            <div class="photo-tile" style="background-image:url('images/category_climbing_1786948671403.png')"><span class="photo-tag" onclick="trigger404(event)">📸 @climb_crag</span></div>
-            <div class="photo-tile" style="background-image:url('images/category_water_1786948984970.png')"><span class="photo-tag" onclick="trigger404(event)">📸 @rapid_paddler</span></div>
-            <div class="photo-tile" style="background-image:url('images/product_tent_1786946937685.png')"><span class="photo-tag" onclick="trigger404(event)">📸 @summit_seeker</span></div>
+            <div class="photo-tile" style="background-image:url('images/category_shelter_1786948578844.png')"><span class="photo-tag" onclick="handleSocialPhotoClick(event)">📸 @patagonia_hiker</span></div>
+            <div class="photo-tile" style="background-image:url('images/category_climbing_1786948671403.png')"><span class="photo-tag" onclick="handleSocialPhotoClick(event)">📸 @climb_crag</span></div>
+            <div class="photo-tile" style="background-image:url('images/category_water_1786948984970.png')"><span class="photo-tag" onclick="handleSocialPhotoClick(event)">📸 @rapid_paddler</span></div>
+            <div class="photo-tile" style="background-image:url('images/product_tent_1786946937685.png')"><span class="photo-tag" onclick="handleSocialPhotoClick(event)">📸 @summit_seeker</span></div>
           </div>
         </div>
       </section>
@@ -1350,7 +1350,7 @@
               <div class="ic-icon">📍</div>
               <h3>Location</h3>
               <p>123 Adventure Way<br />Boulder, CO 80301, USA</p>
-              <span class="ic-link" onclick="trigger404(event)">Get Driving Directions →</span>
+              <span class="ic-link" onclick="handleDashboardAction(event)">Get Driving Directions →</span>
             </div>
             <div class="info-card">
               <div class="ic-icon">🕒</div>
@@ -1362,7 +1362,7 @@
               <div class="ic-icon">📞</div>
               <h3>Direct Contact</h3>
               <p>Phone: +1 (800) 945-3272<br />Email: hello@stackly.store</p>
-              <span class="ic-link" onclick="trigger404(event)">Start Live Chat →</span>
+              <span class="ic-link" onclick="handleDashboardAction(event)">Start Live Chat →</span>
             </div>
           </div>
         </div>
@@ -1484,7 +1484,7 @@
 
               <label class="auth-checkbox-label">
                 <input type="checkbox" required />
-                <span>I agree to Stackly's <a href="#" onclick="trigger404(event)">Terms of Service</a> and <a href="#" onclick="trigger404(event)">Privacy Policy</a>.</span>
+                <span>I agree to Stackly's <a href="#" onclick="handleDashboardAction(event)">Terms of Service</a> and <a href="#" onclick="handleTermsClick(event)">Privacy Policy</a>.</span>
               </label>
 
               <button type="submit" class="btn-pill-submit">Create Account →</button>
@@ -1565,7 +1565,7 @@
               </div>
 
               <div class="auth-row-right" style="text-align: right; margin-bottom: 20px;">
-                <a href="#" class="forgot-link" onclick="trigger404(event)" style="font-size: 13px; color: rgba(255,255,255,0.7); text-decoration: none;">Forgot password?</a>
+                <a href="#" class="forgot-link" onclick="handleDashboardAction(event)" style="font-size: 13px; color: rgba(255,255,255,0.7); text-decoration: none;">Forgot password?</a>
               </div>
 
               <button type="submit" class="btn-pill-submit">Login →</button>
@@ -1837,7 +1837,7 @@
             <div class="dash-box-card" style="margin-top: 24px;">
               <div class="dbc-header">
                 <h3 class="dbc-serif-title">My Listed Properties &amp; Rental Equipment</h3>
-                <button class="btn-primary sm" onclick="trigger404(event)">+ Add New Listing</button>
+                <button class="btn-primary sm" onclick="handleDashboardAction(event)">+ Add New Listing</button>
               </div>
 
               <div class="listings-table-container">
@@ -1869,8 +1869,8 @@
                       <td><span class="res-badge-status green">Active 🟢</span></td>
                       <td>
                         <div class="dash-tbl-actions">
-                          <button class="dash-select-pill" onclick="trigger404(event)">Edit</button>
-                          <button class="dash-select-pill" onclick="trigger404(event)">Calendar</button>
+                          <button class="dash-select-pill" onclick="handleDashboardAction(event)">Edit</button>
+                          <button class="dash-select-pill" onclick="handleDashboardAction(event)">Calendar</button>
                         </div>
                       </td>
                     </tr>
@@ -1891,8 +1891,8 @@
                       <td><span class="res-badge-status green">Active 🟢</span></td>
                       <td>
                         <div class="dash-tbl-actions">
-                          <button class="dash-select-pill" onclick="trigger404(event)">Edit</button>
-                          <button class="dash-select-pill" onclick="trigger404(event)">Calendar</button>
+                          <button class="dash-select-pill" onclick="handleDashboardAction(event)">Edit</button>
+                          <button class="dash-select-pill" onclick="handleDashboardAction(event)">Calendar</button>
                         </div>
                       </td>
                     </tr>
@@ -1913,8 +1913,8 @@
                       <td><span class="res-badge-status">Rented Out ⛺</span></td>
                       <td>
                         <div class="dash-tbl-actions">
-                          <button class="dash-select-pill" onclick="trigger404(event)">Track</button>
-                          <button class="dash-select-pill" onclick="trigger404(event)">Manage</button>
+                          <button class="dash-select-pill" onclick="handleDashboardAction(event)">Track</button>
+                          <button class="dash-select-pill" onclick="handleDashboardAction(event)">Manage</button>
                         </div>
                       </td>
                     </tr>
@@ -1932,7 +1932,7 @@
                 <h2>🏠 My Hosted Properties &amp; Gear Inventory</h2>
                 <p>Manage pricing, calendar availability, and photo galleries for all your active listings.</p>
               </div>
-              <button class="btn-primary" onclick="trigger404(event)">+ Add New Property Listing</button>
+              <button class="btn-primary" onclick="handleDashboardAction(event)">+ Add New Property Listing</button>
             </div>
 
             <div class="grid-2" style="margin-top: 24px;">
@@ -1949,9 +1949,9 @@
                   <p style="font-size: 13.5px; color: rgba(255,255,255,0.7); margin-bottom: 16px;">Positano, Italy • 4 Bedrooms • 5 Baths • Heated Infinity Pool &amp; Mountain Bay View.</p>
                   
                   <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                    <button class="btn-primary sm" onclick="trigger404(event)">Edit Details</button>
-                    <button class="btn-outline sm" onclick="trigger404(event)">Calendar Setup 📅</button>
-                    <button class="btn-outline sm" onclick="trigger404(event)">Pricing Strategy</button>
+                    <button class="btn-primary sm" onclick="handleDashboardAction(event)">Edit Details</button>
+                    <button class="btn-outline sm" onclick="handleDashboardAction(event)">Calendar Setup 📅</button>
+                    <button class="btn-outline sm" onclick="handleDashboardAction(event)">Pricing Strategy</button>
                   </div>
                 </div>
               </div>
@@ -1968,9 +1968,9 @@
                   <p style="font-size: 13.5px; color: rgba(255,255,255,0.7); margin-bottom: 16px;">Aspen, CO • 3 Bedrooms • Ski-in Ski-out Access • Stone Fireplace &amp; Sauna.</p>
                   
                   <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                    <button class="btn-primary sm" onclick="trigger404(event)">Edit Details</button>
-                    <button class="btn-outline sm" onclick="trigger404(event)">Calendar Setup 📅</button>
-                    <button class="btn-outline sm" onclick="trigger404(event)">Pricing Strategy</button>
+                    <button class="btn-primary sm" onclick="handleDashboardAction(event)">Edit Details</button>
+                    <button class="btn-outline sm" onclick="handleDashboardAction(event)">Calendar Setup 📅</button>
+                    <button class="btn-outline sm" onclick="handleDashboardAction(event)">Pricing Strategy</button>
                   </div>
                 </div>
               </div>
@@ -1987,9 +1987,9 @@
                   <p style="font-size: 13.5px; color: rgba(255,255,255,0.7); margin-bottom: 16px;">Big Sur, CA • Stargazing Dome • Private Deck • Outdoor Cedar Hot Tub.</p>
                   
                   <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                    <button class="btn-primary sm" onclick="trigger404(event)">Edit Details</button>
-                    <button class="btn-outline sm" onclick="trigger404(event)">Calendar Setup 📅</button>
-                    <button class="btn-outline sm" onclick="trigger404(event)">Pricing Strategy</button>
+                    <button class="btn-primary sm" onclick="handleDashboardAction(event)">Edit Details</button>
+                    <button class="btn-outline sm" onclick="handleDashboardAction(event)">Calendar Setup 📅</button>
+                    <button class="btn-outline sm" onclick="handleDashboardAction(event)">Pricing Strategy</button>
                   </div>
                 </div>
               </div>
@@ -2006,8 +2006,8 @@
                   <p style="font-size: 13.5px; color: rgba(255,255,255,0.7); margin-bottom: 16px;">Technical Gear Rental • Includes 4-person tent, footprint, and hurricane stakes.</p>
                   
                   <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                    <button class="btn-primary sm" onclick="trigger404(event)">Track Shipment 🚚</button>
-                    <button class="btn-outline sm" onclick="trigger404(event)">Inspect Return</button>
+                    <button class="btn-primary sm" onclick="handleDashboardAction(event)">Track Shipment 🚚</button>
+                    <button class="btn-outline sm" onclick="handleDashboardAction(event)">Inspect Return</button>
                   </div>
                 </div>
               </div>
@@ -2036,8 +2036,8 @@
                   <span>Payout Pending</span>
                 </div>
                 <div class="orc-actions">
-                  <button class="btn-primary sm" onclick="trigger404(event)">Message Guest 💬</button>
-                  <button class="btn-outline sm" onclick="trigger404(event)">View Itinerary</button>
+                  <button class="btn-primary sm" onclick="handleDashboardAction(event)">Message Guest 💬</button>
+                  <button class="btn-outline sm" onclick="handleDashboardAction(event)">View Itinerary</button>
                 </div>
               </div>
 
@@ -2053,8 +2053,8 @@
                   <span>Payout Pending</span>
                 </div>
                 <div class="orc-actions">
-                  <button class="btn-primary sm" onclick="trigger404(event)">Message Guest 💬</button>
-                  <button class="btn-outline sm" onclick="trigger404(event)">View Itinerary</button>
+                  <button class="btn-primary sm" onclick="handleDashboardAction(event)">Message Guest 💬</button>
+                  <button class="btn-outline sm" onclick="handleDashboardAction(event)">View Itinerary</button>
                 </div>
               </div>
 
@@ -2070,8 +2070,8 @@
                   <span>Payout Pending</span>
                 </div>
                 <div class="orc-actions">
-                  <button class="btn-primary sm" onclick="trigger404(event)">Message Guest 💬</button>
-                  <button class="btn-outline sm" onclick="trigger404(event)">View Itinerary</button>
+                  <button class="btn-primary sm" onclick="handleDashboardAction(event)">Message Guest 💬</button>
+                  <button class="btn-outline sm" onclick="handleDashboardAction(event)">View Itinerary</button>
                 </div>
               </div>
 
@@ -2106,7 +2106,7 @@
             <div class="dash-box-card" style="margin-top: 24px;">
               <div class="dbc-header">
                 <h3 class="dbc-serif-title">Monthly Payout History</h3>
-                <button class="btn-outline sm" onclick="trigger404(event)">Export Full CSV 📥</button>
+                <button class="btn-outline sm" onclick="handleDashboardAction(event)">Export Full CSV 📥</button>
               </div>
 
               <div class="listings-table-container">
@@ -2465,8 +2465,8 @@
                     </div>
                     <p>Forecast: <strong>14°C Day / -2°C Night</strong> • Wind: 12 mph NW • Avalanche Risk: <strong style="color:var(--green-300);">LOW (Level 1)</strong></p>
                     <div class="tc-actions">
-                      <button class="dash-select-pill" onclick="trigger404(event)">Download GPX Track 🗺️</button>
-                      <button class="dash-select-pill" onclick="trigger404(event)">Ranger Station Live Update</button>
+                      <button class="dash-select-pill" onclick="handleDashboardAction(event)">Download GPX Track 🗺️</button>
+                      <button class="dash-select-pill" onclick="handleDashboardAction(event)">Ranger Station Live Update</button>
                     </div>
                   </div>
 
@@ -2477,8 +2477,8 @@
                     </div>
                     <p>Flow Rate: <strong>340 CFS</strong> • Water Temp: <strong>11°C</strong> • Helmet &amp; Drysuit Required.</p>
                     <div class="tc-actions">
-                      <button class="dash-select-pill" onclick="trigger404(event)">Safety Protocol PDF</button>
-                      <button class="dash-select-pill" onclick="trigger404(event)">River Guide Chat 💬</button>
+                      <button class="dash-select-pill" onclick="handleDashboardAction(event)">Safety Protocol PDF</button>
+                      <button class="dash-select-pill" onclick="handleDashboardAction(event)">River Guide Chat 💬</button>
                     </div>
                   </div>
 
@@ -2492,7 +2492,7 @@
                     <span class="rpb-tag">STORE CREDIT</span>
                     <div class="rpb-val">$48.50</div>
                     <p>4,850 Stackly Member Points ready for instant gear checkout.</p>
-                    <button class="btn-primary sm" style="margin-top: 10px;" onclick="trigger404(event)">Redeem Points →</button>
+                    <button class="btn-primary sm" style="margin-top: 10px;" onclick="handleDashboardAction(event)">Redeem Points →</button>
                   </div>
                   <div class="rpb-card" style="margin-top: 14px;">
                     <span class="rpb-tag">CONCIERGE</span>
@@ -2526,8 +2526,8 @@
                   <p class="rental-return-msg">⏳ Due back in <strong>5 days</strong> (Pre-paid FedEx return label included)</p>
                 </div>
                 <div class="rental-actions">
-                  <button class="btn-primary sm" onclick="trigger404(event)">Extend (+2 Days)</button>
-                  <button class="btn-outline sm" onclick="trigger404(event)">Print Return Label 📄</button>
+                  <button class="btn-primary sm" onclick="handleDashboardAction(event)">Extend (+2 Days)</button>
+                  <button class="btn-outline sm" onclick="handleDashboardAction(event)">Print Return Label 📄</button>
                 </div>
               </div>
 
@@ -2589,8 +2589,8 @@
                   </div>
 
                   <div class="ecb-footer-btns">
-                    <button class="btn-primary sm" onclick="trigger404(event)">Download GPX 🗺️</button>
-                    <button class="btn-outline sm" onclick="trigger404(event)">Message Guide 💬</button>
+                    <button class="btn-primary sm" onclick="handleDashboardAction(event)">Download GPX 🗺️</button>
+                    <button class="btn-outline sm" onclick="handleDashboardAction(event)">Message Guide 💬</button>
                   </div>
                 </div>
               </div>
@@ -2613,8 +2613,8 @@
                   </div>
 
                   <div class="ecb-footer-btns">
-                    <button class="btn-primary sm" onclick="trigger404(event)">Download GPX 🗺️</button>
-                    <button class="btn-outline sm" onclick="trigger404(event)">Message Guide 💬</button>
+                    <button class="btn-primary sm" onclick="handleDashboardAction(event)">Download GPX 🗺️</button>
+                    <button class="btn-outline sm" onclick="handleDashboardAction(event)">Message Guide 💬</button>
                   </div>
                 </div>
               </div>
@@ -2642,7 +2642,7 @@
                   <p class="product-desc">Boils 1L water in 2.5 minutes. Ultra-compact 48g design.</p>
                   <div class="product-footer">
                     <span class="product-price">$69</span>
-                    <button class="btn-add" onclick="trigger404(event)">Move To Cart</button>
+                    <button class="btn-add" onclick="handleAddToCart(event, 'Saved Gear Item')">Move To Cart</button>
                   </div>
                 </div>
               </div>
@@ -2658,7 +2658,7 @@
                   <p class="product-desc">Rechargeable IPX8 waterproof headlamp with red night-vision mode.</p>
                   <div class="product-footer">
                     <span class="product-price">$79</span>
-                    <button class="btn-add" onclick="trigger404(event)">Move To Cart</button>
+                    <button class="btn-add" onclick="handleAddToCart(event, 'Saved Gear Item')">Move To Cart</button>
                   </div>
                 </div>
               </div>
@@ -2674,7 +2674,7 @@
                   <p class="product-desc">Hydrophobic 800-fill goose down insulation with thermal collar.</p>
                   <div class="product-footer">
                     <span class="product-price">$319</span>
-                    <button class="btn-add" onclick="trigger404(event)">Move To Cart</button>
+                    <button class="btn-add" onclick="handleAddToCart(event, 'Saved Gear Item')">Move To Cart</button>
                   </div>
                 </div>
               </div>
@@ -2791,22 +2791,22 @@
           <p>📞 +1 (800) 945-3272</p>
           <p>✉️ hello@stackly.store</p>
           <div class="footer-socials">
-            <a href="#" class="fsocial" onclick="trigger404(event)" title="Instagram" aria-label="Instagram">
+            <a href="#" class="fsocial" onclick="handleSocialAuth(event)" title="Instagram" aria-label="Instagram">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
               </svg>
             </a>
-            <a href="#" class="fsocial" onclick="trigger404(event)" title="Twitter" aria-label="Twitter">
+            <a href="#" class="fsocial" onclick="handleSocialAuth(event)" title="Twitter" aria-label="Twitter">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
               </svg>
             </a>
-            <a href="#" class="fsocial" onclick="trigger404(event)" title="YouTube" aria-label="YouTube">
+            <a href="#" class="fsocial" onclick="handleSocialAuth(event)" title="YouTube" aria-label="YouTube">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
               </svg>
             </a>
-            <a href="#" class="fsocial" onclick="trigger404(event)" title="Facebook" aria-label="Facebook">
+            <a href="#" class="fsocial" onclick="handleSocialAuth(event)" title="Facebook" aria-label="Facebook">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
               </svg>
@@ -2819,9 +2819,9 @@
       <div class="container footer-bottom-inner">
         <p>© 2026 Stackly Outdoor &amp; Camping Store. All rights reserved.</p>
         <div class="footer-bottom-links">
-          <a href="#" onclick="trigger404(event)">Privacy Policy</a>
-          <a href="#" onclick="trigger404(event)">Terms &amp; Conditions</a>
-          <a href="#" onclick="trigger404(event)">Sitemap</a>
+          <a href="#" onclick="handleTermsClick(event)">Privacy Policy</a>
+          <a href="#" onclick="handleTermsClick(event)">Terms &amp; Conditions</a>
+          <a href="#" onclick="handleDashboardAction(event)">Sitemap</a>
         </div>
       </div>
     </div>
@@ -2835,6 +2835,6 @@
     <span>🛒 Item added to cart!</span>
   </div>
 
-  <script src="script.js?v=19"></script>
+  <script src="script.js?v=20"></script>
 </body>
 </html>
