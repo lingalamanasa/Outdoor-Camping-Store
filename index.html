@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=21" />
+  <link rel="stylesheet" href="style.css?v=22" />
 </head>
 <body>
 
@@ -1350,19 +1350,19 @@
               <div class="ic-icon">📍</div>
               <h3>Location</h3>
               <p>123 Adventure Way<br />Boulder, CO 80301, USA</p>
-              <span class="ic-link" onclick="handleDashboardAction(event)">Get Driving Directions →</span>
+              <span class="ic-link" onclick="handleDirectionsClick(event)">Get Driving Directions →</span>
             </div>
             <div class="info-card">
               <div class="ic-icon">🕒</div>
               <h3>Store Hours</h3>
               <p>Mon - Sat: 8:00 AM - 8:00 PM<br />Sunday: 9:00 AM - 6:00 PM</p>
-              <span class="ic-status">🟢 Open Today</span>
+              <span class="ic-status" onclick="handleStoreHoursClick(event)" style="cursor:pointer;" title="Click to check store status">🟢 Open Today</span>
             </div>
             <div class="info-card">
               <div class="ic-icon">📞</div>
               <h3>Direct Contact</h3>
               <p>Phone: +1 (800) 945-3272<br />Email: hello@stackly.store</p>
-              <span class="ic-link" onclick="handleDashboardAction(event)">Start Live Chat →</span>
+              <span class="ic-link" onclick="handleLiveChatClick(event)">Start Live Chat →</span>
             </div>
           </div>
         </div>
@@ -2835,6 +2835,6 @@
     <span>🛒 Item added to cart!</span>
   </div>
 
-  <script src="script.js?v=21"></script>
+  <script src="script.js?v=22"></script>
 </body>
 </html>

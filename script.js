@@ -376,6 +376,37 @@ function handleTermsClick(e) {
   alert('Stackly Terms of Service & Privacy Policy: We prioritize explorer privacy and data protection.');
 }
 
+function handleStoreHoursClick(e) {
+  if (e) e.preventDefault();
+  const cartToast = document.getElementById('cart-toast');
+  if (cartToast) {
+    cartToast.innerHTML = `🕒 <strong>Store Open Today!</strong> Hours: Mon-Sat 8AM-8PM, Sun 9AM-6PM. Boulder, CO base camp.`;
+    cartToast.classList.add('show');
+    setTimeout(() => cartToast.classList.remove('show'), 3500);
+  }
+}
+
+function handleDirectionsClick(e) {
+  if (e) e.preventDefault();
+  const cartToast = document.getElementById('cart-toast');
+  if (cartToast) {
+    cartToast.innerHTML = `📍 <strong>Driving Directions Loaded!</strong> 123 Adventure Way, Boulder, CO 80301.`;
+    cartToast.classList.add('show');
+    setTimeout(() => cartToast.classList.remove('show'), 3500);
+  }
+  window.open('https://maps.google.com/?q=123+Adventure+Way+Boulder+CO+80301', '_blank');
+}
+
+function handleLiveChatClick(e) {
+  if (e) e.preventDefault();
+  const cartToast = document.getElementById('cart-toast');
+  if (cartToast) {
+    cartToast.innerHTML = `💬 <strong>Live Chat Connected!</strong> A Stackly gear specialist is now online with you.`;
+    cartToast.classList.add('show');
+    setTimeout(() => cartToast.classList.remove('show'), 3500);
+  }
+}
+
 function handleBlogFilter(e) {
   if (e) e.preventDefault();
   const btn = e.target;

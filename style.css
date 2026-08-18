@@ -476,7 +476,26 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
 .ic-icon{font-size:2.6rem;margin-bottom:14px}
 .info-card h3{font-size:19px;font-weight:700;margin-bottom:10px}
 .info-card p{font-size:14px;color:var(--muted);line-height:1.65;margin-bottom:14px}
-.ic-link,.ic-status{font-size:13px;font-weight:700;color:var(--green-500)}
+.ic-link, .ic-status {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--green-600);
+  cursor: pointer !important;
+  pointer-events: auto !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: var(--r-pill);
+  background: rgba(45, 106, 79, 0.1);
+  transition: all var(--t);
+  text-decoration: none;
+}
+.ic-link:hover, .ic-status:hover {
+  background: rgba(45, 106, 79, 0.22);
+  transform: translateY(-2px);
+  color: var(--green-700);
+}
 
 /* FAQ Accordion (Contact Section 4) */
 .faq-accordion{max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
