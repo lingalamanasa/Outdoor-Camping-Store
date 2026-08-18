@@ -64,10 +64,10 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
 
 .nav-actions{display:flex;align-items:center;gap:10px;flex-shrink:0}
 .mobile-nav-actions{display:none}
-.btn-login{background:transparent;color:#fff;font-size:14px;font-weight:600;padding:9px 22px;border-radius:var(--r-pill);border:1.5px solid rgba(255,255,255,.35);transition:all var(--t);letter-spacing:.2px}
-.btn-login:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.65);transform:translateY(-1px)}
-.btn-signup{background:linear-gradient(135deg,var(--green-500),var(--green-600));color:#fff;font-size:14px;font-weight:700;padding:9px 22px;border-radius:var(--r-pill);border:none;transition:all var(--t);box-shadow:0 3px 14px rgba(64,145,108,.4);letter-spacing:.2px}
-.btn-signup:hover{transform:translateY(-2px);box-shadow:0 6px 22px rgba(64,145,108,.55)}
+.btn-login{display:inline-flex;align-items:center;justify-content:center;background:transparent;color:#fff;font-size:14px;font-weight:600;padding:9px 22px;border-radius:var(--r-pill);border:1.5px solid rgba(255,255,255,.35);transition:all var(--t);letter-spacing:.2px;cursor:pointer;text-decoration:none}
+.btn-login:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.65);transform:translateY(-1px);color:#fff}
+.btn-signup{display:inline-flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--green-500),var(--green-600));color:#fff;font-size:14px;font-weight:700;padding:9px 22px;border-radius:var(--r-pill);border:none;transition:all var(--t);box-shadow:0 3px 14px rgba(64,145,108,.4);letter-spacing:.2px;cursor:pointer;text-decoration:none}
+.btn-signup:hover{transform:translateY(-2px);box-shadow:0 6px 22px rgba(64,145,108,.55);color:#fff}
 
 .hamburger{display:none;flex-direction:column;gap:5px;padding:4px;cursor:pointer}
 .hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all var(--t)}
@@ -1326,6 +1326,11 @@ html, body {
     flex: 1;
     text-align: center;
     padding: 12px;
+  }
+
+  .nav-actions .btn-login,
+  .nav-actions .btn-signup {
+    display: none;
   }
 
   .hamburger {

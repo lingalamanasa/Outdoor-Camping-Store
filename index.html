@@ -39,14 +39,16 @@
         <a href="#services" class="nav-link"        id="nav-services" onclick="switchPage('services'); return false;">Services</a>
         <a href="#blog"     class="nav-link"        id="nav-blog"     onclick="switchPage('blog'); return false;">Blog</a>
         <a href="#contact"  class="nav-link"        id="nav-contact"  onclick="switchPage('contact'); return false;">Contact</a>
-        <div class="mobile-menu-actions">
-          <button class="btn-mobile-signup" onclick="switchPage('signup'); return false;">Sign up →</button>
-          <button class="btn-mobile-login" onclick="switchPage('login'); return false;">Login</button>
+        <div class="mobile-nav-actions">
+          <button class="btn-signup" onclick="switchPage('signup'); closeMobileMenu(); return false;">Sign up →</button>
+          <button class="btn-login" onclick="switchPage('login'); closeMobileMenu(); return false;">Login</button>
         </div>
       </nav>
 
-      <!-- HAMBURGER -->
+      <!-- RIGHT NAV ACTIONS -->
       <div class="nav-actions">
+        <button class="btn-signup" onclick="switchPage('signup'); return false;">Sign up →</button>
+        <button class="btn-login" onclick="switchPage('login'); return false;">Login</button>
         <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu">
           <span></span><span></span><span></span>
         </button>
