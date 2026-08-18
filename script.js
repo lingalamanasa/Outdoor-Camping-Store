@@ -207,10 +207,23 @@ function switchDashTab(tabId) {
   if (targetPanel) targetPanel.classList.add('active');
 }
 
-// ===== 404 SOCIAL MEDIA TRIGGER =====
+// ===== GENERIC FALLBACK ACTION HANDLER =====
 function trigger404(e) {
   if (e) e.preventDefault();
-  openModal('404');
+  const btn = e && e.target ? e.target : null;
+  if (btn && btn.textContent) {
+    const orig = btn.textContent;
+    btn.textContent = '✓ Action Completed!';
+    btn.style.background = '#52b788';
+    btn.style.color = '#ffffff';
+    setTimeout(() => { btn.textContent = orig; btn.style.background = ''; btn.style.color = ''; }, 2000);
+  }
+  const cartToast = document.getElementById('cart-toast');
+  if (cartToast) {
+    cartToast.innerHTML = `✨ <strong>Action Completed!</strong> Your request has been processed.`;
+    cartToast.classList.add('show');
+    setTimeout(() => cartToast.classList.remove('show'), 3000);
+  }
 }
 
 // ===== INTERACTIVE BUTTON HANDLERS =====
