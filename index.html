@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=14" />
+  <link rel="stylesheet" href="style.css?v=15" />
 </head>
 <body>
 
@@ -170,8 +170,9 @@
       <p>This social media channel or page hasn't been mapped yet! Our base camp team is currently setting up camp here.</p>
     </div>
     <div class="err-404-actions">
-      <button class="btn-primary full-width" onclick="closeModal(); switchPage('home');">Return To Base Camp (Home) →</button>
-      <button class="btn-outline full-width" onclick="closeModal()">Close Window</button>
+      <button class="btn-primary full-width" onclick="closeModal(); if (window.history.length > 1) { window.history.back(); } else { switchPage('home'); }" style="justify-content:center;">← Go Back</button>
+      <button class="btn-outline full-width" onclick="closeModal(); switchPage('home');" style="justify-content:center;">Return To Base Camp (Home) →</button>
+      <button class="btn-outline full-width" onclick="closeModal()" style="opacity:0.75; justify-content:center;">Close Window</button>
     </div>
   </div>
 
@@ -2834,6 +2835,6 @@
     <span>🛒 Item added to cart!</span>
   </div>
 
-  <script src="script.js?v=14"></script>
+  <script src="script.js?v=15"></script>
 </body>
 </html>
