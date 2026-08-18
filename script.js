@@ -463,7 +463,7 @@ window.addEventListener('scroll', () => {
 hamburger?.addEventListener('click', () => {
   const isOpen = navLinksContainer.classList.toggle('open');
   hamburger.classList.toggle('open', isOpen);
-  hamburger.innerHTML = isOpen ? '<span style="font-size:24px; color:#fff; font-weight:700; line-height:1;">✕</span>' : '<span></span><span></span><span></span>';
+  hamburger.innerHTML = isOpen ? '<span style="font-size:22px; color:#ffffff; font-weight:700; line-height:1; display:flex; align-items:center; justify-content:center;">✕</span>' : '<span></span><span></span><span></span>';
 });
 
 // ===== HERO SLIDER (HOME PAGE) =====
