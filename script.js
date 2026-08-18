@@ -364,6 +364,19 @@ function handleSocialAuth(e) {
   }
 }
 
+function handleSocialClick(e, platformName, url) {
+  if (e) e.preventDefault();
+  const cartToast = document.getElementById('cart-toast');
+  if (cartToast) {
+    cartToast.innerHTML = `🌐 <strong>Connecting to Stackly ${platformName || 'Social'}!</strong> Opening official channel...`;
+    cartToast.classList.add('show');
+    setTimeout(() => cartToast.classList.remove('show'), 3000);
+  }
+  if (url) {
+    setTimeout(() => window.open(url, '_blank'), 500);
+  }
+}
+
 function handleSocialPhotoClick(e) {
   if (e) e.preventDefault();
   const cartToast = document.getElementById('cart-toast');
