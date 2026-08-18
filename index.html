@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=27" />
+  <link rel="stylesheet" href="style.css?v=28" />
 </head>
 <body>
 
@@ -163,16 +163,27 @@
   <!-- 404 ERROR MODAL (SOCIAL MEDIA & UNMAPPED TRAILS) -->
   <div class="auth-modal modal-404-box" id="modal-404" role="dialog" aria-modal="true" aria-label="404 Page Not Found">
     <button class="modal-close" onclick="closeModal()" aria-label="Close">✕</button>
-    <div class="modal-header">
+    <div class="err-404-inner">
       <div class="err-404-badge">404 NOT FOUND</div>
-      <div class="err-404-icon">🧭</div>
-      <h2>Off The Beaten Path</h2>
-      <p>This social media channel or page hasn't been mapped yet! Our base camp team is currently setting up camp here.</p>
-    </div>
-    <div class="err-404-actions" style="display:flex; flex-direction:column; gap:12px; margin-top:20px; width:100%;">
-      <button class="btn-primary full-width" onclick="closeModal(); if (typeof switchPage === 'function') { switchPage('home'); } else { window.location.href='index.html'; } window.scrollTo({top:0, behavior:'smooth'});" style="justify-content:center; border-radius:9999px; padding:14px 20px; font-weight:700;">Back to Home</button>
-      <button class="btn-outline full-width" onclick="closeModal(); if (window.history.length > 1) { window.history.back(); } else { window.location.href='index.html'; }" style="justify-content:center; border-radius:9999px; padding:14px 20px; font-weight:700;">Go Back</button>
-      <button class="btn-outline full-width" onclick="closeModal()" style="opacity:0.75; justify-content:center; border-radius:9999px; padding:12px 20px; font-weight:600;">Close Window</button>
+      <div class="err-404-icon-wrap">
+        <div class="err-404-glow"></div>
+        <div class="err-404-icon">🧭</div>
+      </div>
+      <h2 class="err-404-title">Off The Beaten Path</h2>
+      <p class="err-404-desc">This trail or page hasn't been mapped yet! Our base camp team is currently setting up camp here.</p>
+      <div class="err-404-actions">
+        <button class="err-404-btn err-404-btn-primary" onclick="closeModal(); if (typeof switchPage === 'function') { switchPage('home'); } else { window.location.href='index.html'; } window.scrollTo({top:0, behavior:'smooth'});">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          Back to Home
+        </button>
+        <button class="err-404-btn err-404-btn-outline" onclick="closeModal(); if (window.history.length > 1) { window.history.back(); } else { window.location.href='index.html'; }">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          Go Back
+        </button>
+        <button class="err-404-btn err-404-btn-ghost" onclick="closeModal()">
+          Close
+        </button>
+      </div>
     </div>
   </div>
 
@@ -2835,6 +2846,6 @@
     <span>🛒 Item added to cart!</span>
   </div>
 
-  <script src="script.js?v=27"></script>
+  <script src="script.js?v=28"></script>
 </body>
 </html>
