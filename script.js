@@ -257,34 +257,18 @@ function handleGuideDownload(e) {
 }
 
 function handleAddNewListing(e) {
-  if (e) e.preventDefault();
-  const propName = prompt('Enter new property/gear title to list on Stackly:');
-  if (propName) {
-    const cartToast = document.getElementById('cart-toast');
-    if (cartToast) {
-      cartToast.innerHTML = `🏠 <strong>"${propName}"</strong> submitted for host approval!`;
-      cartToast.classList.add('show');
-      setTimeout(() => cartToast.classList.remove('show'), 3500);
-    }
-  }
+  if (e && typeof e.preventDefault === 'function') e.preventDefault();
+  openModal('404');
 }
 
 function handleDashboardAction(e, actionName) {
-  if (e) e.preventDefault();
-  const btn = e.target;
-  const orig = btn.textContent;
-  btn.textContent = `✓ ${actionName || 'Updated'}`;
-  setTimeout(() => { btn.textContent = orig; }, 1800);
+  if (e && typeof e.preventDefault === 'function') e.preventDefault();
+  openModal('404');
 }
 
 function handleSocialAuth(e) {
-  if (e) e.preventDefault();
-  const cartToast = document.getElementById('cart-toast');
-  if (cartToast) {
-    cartToast.innerHTML = `🔐 <strong>Social Authentication Initiated!</strong> Connected to secure login.`;
-    cartToast.classList.add('show');
-    setTimeout(() => cartToast.classList.remove('show'), 3000);
-  }
+  if (e && typeof e.preventDefault === 'function') e.preventDefault();
+  openModal('404');
 }
 
 function handleSocialClick(e, platformName, url) {
