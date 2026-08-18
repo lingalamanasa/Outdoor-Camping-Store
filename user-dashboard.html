@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=10" />
+  <link rel="stylesheet" href="style.css?v=11" />
 </head>
 <body style="background:#070e17 !important; margin:0; padding:0; min-height:100vh;">
 
@@ -23,7 +23,7 @@
       <button class="dash-hamburger-square" onclick="openDashDrawer()" aria-label="Open Navigation Drawer">
         <span>☰</span>
       </button>
-      <a href="user-dashboard.html" class="dash-mobile-header-brand" style="text-decoration:none; cursor:pointer;" title="Traveler Dashboard">
+      <a href="user-dashboard.html" onclick="return reloadCurrentDashboard(event);" class="dash-mobile-header-brand" style="text-decoration:none; cursor:pointer;" title="Traveler Dashboard">
         <div class="logo-mark sm" style="width:28px; height:28px; border-radius:8px; background:#070e17; display:flex; align-items:center; justify-content:center;">
           <svg width="20" height="20" viewBox="0 0 40 40">
             <circle cx="20" cy="20" r="20" fill="url(#mobileUserLogoGrad)"/>
@@ -337,6 +337,6 @@
     </div>
   </div>
 
-  <script src="script.js?v=10"></script>
+  <script src="script.js?v=11"></script>
 </body>
 </html>
