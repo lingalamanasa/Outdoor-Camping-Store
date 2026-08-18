@@ -306,6 +306,23 @@ function handleLiveChatClick(e) {
   openModal('404');
 }
 
+function handleContactLocationClick(e) {
+  if (e && typeof e.preventDefault === 'function') e.preventDefault();
+  if (typeof switchPage === 'function' && document.getElementById('page-contact')) {
+    switchPage('contact');
+    setTimeout(() => {
+      const locationSection = document.querySelector('#page-contact .bg-alt') || document.getElementById('page-contact');
+      if (locationSection) {
+        locationSection.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }, 150);
+  } else {
+    window.location.href = 'contact.html';
+  }
+}
+
 function handleBlogFilter(e) {
   if (e) e.preventDefault();
   const btn = e.target;
