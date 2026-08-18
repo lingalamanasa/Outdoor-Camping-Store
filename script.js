@@ -262,6 +262,85 @@ function handleCustomRoute(e) {
   }
 }
 
+function handleSearchGear(e) {
+  if (e) e.preventDefault();
+  const cartToast = document.getElementById('cart-toast');
+  if (cartToast) {
+    cartToast.innerHTML = `🔍 <strong>Search Filter Applied!</strong> Showing matched outdoor gear &amp; trips.`;
+    cartToast.classList.add('show');
+    setTimeout(() => cartToast.classList.remove('show'), 3000);
+  }
+}
+
+function handleMemberSignup(e) {
+  if (e) e.preventDefault();
+  const btn = e.target;
+  const orig = btn.textContent;
+  btn.textContent = '🎉 Membership Activated!';
+  btn.style.background = '#52b788';
+  setTimeout(() => { btn.textContent = orig; btn.style.background = ''; }, 2500);
+  const cartToast = document.getElementById('cart-toast');
+  if (cartToast) {
+    cartToast.innerHTML = `⭐ <strong>Welcome to Stackly VIP Club!</strong> Your $49/yr membership is active.`;
+    cartToast.classList.add('show');
+    setTimeout(() => cartToast.classList.remove('show'), 3500);
+  }
+}
+
+function handleForgotPassword(e) {
+  if (e) e.preventDefault();
+  const email = prompt('Enter your registered email address to reset password:');
+  if (email) {
+    alert(`A password reset link has been sent to ${email}. Please check your inbox.`);
+  }
+}
+
+function handleReadGuide(e, title) {
+  if (e) e.preventDefault();
+  const cartToast = document.getElementById('cart-toast');
+  if (cartToast) {
+    cartToast.innerHTML = `📖 <strong>"${title || 'Guide'}"</strong> opened in reader view.`;
+    cartToast.classList.add('show');
+    setTimeout(() => cartToast.classList.remove('show'), 3000);
+  }
+}
+
+function handleGuideDownload(e) {
+  if (e) e.preventDefault();
+  const btn = e.target;
+  const orig = btn.textContent;
+  btn.textContent = '✓ Downloaded!';
+  btn.style.background = '#52b788';
+  setTimeout(() => { btn.textContent = orig; btn.style.background = ''; }, 2000);
+  const cartToast = document.getElementById('cart-toast');
+  if (cartToast) {
+    cartToast.innerHTML = `📥 <strong>Outdoor Guide PDF Downloaded!</strong> File saved to your downloads folder.`;
+    cartToast.classList.add('show');
+    setTimeout(() => cartToast.classList.remove('show'), 3000);
+  }
+}
+
+function handleAddNewListing(e) {
+  if (e) e.preventDefault();
+  const propName = prompt('Enter new property/gear title to list on Stackly:');
+  if (propName) {
+    const cartToast = document.getElementById('cart-toast');
+    if (cartToast) {
+      cartToast.innerHTML = `🏠 <strong>"${propName}"</strong> submitted for host approval!`;
+      cartToast.classList.add('show');
+      setTimeout(() => cartToast.classList.remove('show'), 3500);
+    }
+  }
+}
+
+function handleDashboardAction(e, actionName) {
+  if (e) e.preventDefault();
+  const btn = e.target;
+  const orig = btn.textContent;
+  btn.textContent = `✓ ${actionName || 'Updated'}`;
+  setTimeout(() => { btn.textContent = orig; }, 1800);
+}
+
 // ===== AUTH MODAL =====
 let activeModal = null;
 

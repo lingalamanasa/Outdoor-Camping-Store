@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=15" />
+  <link rel="stylesheet" href="style.css?v=16" />
 </head>
 <body>
 
@@ -215,20 +215,20 @@
               <label>DURATION</label>
               <input type="text" placeholder="Trip duration..." />
             </div>
-            <div class="msc-action" onclick="trigger404(event)">
+            <div class="msc-action" onclick="handleSearchGear(event)">
               <span class="msc-icon">🔍</span>
             </div>
           </div>
 
           <div class="hero-cta-row">
-            <a href="#" class="btn-primary" onclick="trigger404(event)">Explore Services &amp; Gear <span class="btn-arrow">→</span></a>
-            <a href="#" class="btn-outline" onclick="trigger404(event)">Our Story</a>
+            <a href="services.html" class="btn-primary" onclick="switchPage('services'); return false;">Explore Services &amp; Gear <span class="btn-arrow">→</span></a>
+            <a href="about.html" class="btn-outline" onclick="switchPage('about'); return false;">Our Story</a>
           </div>
         </div>
         <div class="hero-slide-controls" id="hero-slide-controls">
-          <button class="slide-thumb active" id="slide-btn-0" data-slide="0" aria-label="Slide 1" onclick="trigger404(event)"><span class="slide-label">Forest Camp</span></button>
-          <button class="slide-thumb" id="slide-btn-1" data-slide="1" aria-label="Slide 2" onclick="trigger404(event)"><span class="slide-label">Mountain Trek</span></button>
-          <button class="slide-thumb" id="slide-btn-2" data-slide="2" aria-label="Slide 3" onclick="trigger404(event)"><span class="slide-label">Summit View</span></button>
+          <button class="slide-thumb active" id="slide-btn-0" data-slide="0" aria-label="Slide 1" onclick="goToSlide(0)"><span class="slide-label">Forest Camp</span></button>
+          <button class="slide-thumb" id="slide-btn-1" data-slide="1" aria-label="Slide 2" onclick="goToSlide(1)"><span class="slide-label">Mountain Trek</span></button>
+          <button class="slide-thumb" id="slide-btn-2" data-slide="2" aria-label="Slide 3" onclick="goToSlide(2)"><span class="slide-label">Summit View</span></button>
         </div>
         <div class="hero-scroll-indicator" id="hero-scroll"><div class="scroll-dot"></div></div>
       </section>
@@ -913,7 +913,7 @@
                 <p class="product-desc">Withstands harsh winds &amp; snow. Includes gear loft &amp; rainfly.</p>
                 <div class="product-footer">
                   <span class="product-price">$349</span>
-                  <button class="btn-add">Add to Cart</button>
+                  <button class="btn-add" onclick="handleAddToCart(event, 'AlpineShield 4-Season Tent')">Add to Cart</button>
                 </div>
               </div>
             </div>
@@ -929,7 +929,7 @@
                 <p class="product-desc">Ergonomic internal frame, waterproof fabric &amp; hydration sleeve.</p>
                 <div class="product-footer">
                   <span class="product-price">$219 <s class="old-price">$274</s></span>
-                  <button class="btn-add">Add to Cart</button>
+                  <button class="btn-add" onclick="handleAddToCart(event, 'TrailMaster 65L Pack')">Add to Cart</button>
                 </div>
               </div>
             </div>
@@ -944,7 +944,7 @@
                 <p class="product-desc">Gore-Tex waterproof membrane with Vibram high-traction outsole.</p>
                 <div class="product-footer">
                   <span class="product-price">$279</span>
-                  <button class="btn-add">Add to Cart</button>
+                  <button class="btn-add" onclick="handleAddToCart(event, 'PeakGrip Trekking Boots')">Add to Cart</button>
                 </div>
               </div>
             </div>
@@ -2835,6 +2835,6 @@
     <span>🛒 Item added to cart!</span>
   </div>
 
-  <script src="script.js?v=15"></script>
+  <script src="script.js?v=16"></script>
 </body>
 </html>
