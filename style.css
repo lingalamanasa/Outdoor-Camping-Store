@@ -2114,7 +2114,21 @@ html, body {
   border: 1px solid rgba(64, 145, 108, 0.3);
 }
 
+.dash-mobile-top-header {
+  display: none !important;
+}
+
+.drawer-header-row {
+  display: none !important;
+}
+
 @media (max-width: 1024px) {
+  .dash-mobile-top-header {
+    display: flex !important;
+  }
+  .drawer-header-row {
+    display: flex !important;
+  }
   .dash-metrics-grid-4 {
     grid-template-columns: repeat(2, 1fr);
   }
