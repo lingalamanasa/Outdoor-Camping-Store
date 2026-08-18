@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=18" />
+  <link rel="stylesheet" href="style.css?v=17" />
 </head>
 <body>
 
@@ -169,10 +169,10 @@
       <h2>Off The Beaten Path</h2>
       <p>This social media channel or page hasn't been mapped yet! Our base camp team is currently setting up camp here.</p>
     </div>
-    <div class="err-404-actions" style="display:flex; flex-direction:column; gap:12px; margin-top:20px;">
-      <button class="btn-primary full-width" onclick="closeModal(); if (window.history.length > 1) { window.history.back(); } else { switchPage('home'); }" style="justify-content:center; font-weight:700;">← Go Back</button>
-      <button class="btn-primary full-width" onclick="closeModal(); switchPage('home'); window.scrollTo({top:0, behavior:'smooth'});" style="justify-content:center; background:#2d6a4f !important; color:#ffffff !important; border:1px solid #40916c !important; font-weight:700;">🏠 Back to Home</button>
-      <button class="btn-outline full-width" onclick="closeModal()" style="opacity:0.8; justify-content:center;">Close Window</button>
+    <div class="err-404-actions">
+      <button class="btn-primary full-width" onclick="closeModal(); if (window.history.length > 1) { window.history.back(); } else { switchPage('home'); }" style="justify-content:center;">← Go Back</button>
+      <button class="btn-outline full-width" onclick="closeModal(); switchPage('home'); window.scrollTo({top:0, behavior:'smooth'});" style="justify-content:center;">Back to Home</button>
+      <button class="btn-outline full-width" onclick="closeModal()" style="opacity:0.75; justify-content:center;">Close Window</button>
     </div>
   </div>
 
@@ -2835,6 +2835,6 @@
     <span>🛒 Item added to cart!</span>
   </div>
 
-  <script src="script.js?v=18"></script>
+  <script src="script.js?v=17"></script>
 </body>
 </html>
