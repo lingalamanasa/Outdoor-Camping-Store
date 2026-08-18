@@ -755,18 +755,32 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
 
 /* Team Grid (About Section 4) */
 .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.team-card{background:var(--bg);border-radius:var(--r-lg);border:1.5px solid #eae8e2;overflow:hidden;transition:all var(--t)}
-.team-card:hover,.team-card.active{transform:translateY(-8px);box-shadow:var(--sh-lg);border-color:var(--green-400)}
-.team-card-inner{padding:28px 24px;text-align:left}
-.team-card:hover .team-card-inner,.team-card.active .team-card-inner{background:linear-gradient(160deg,#0e2e1a,#1a4731);color:#fff}
+.team-card{
+  background: linear-gradient(160deg, #0e2e1a 0%, #1a4731 100%) !important;
+  border-radius: var(--r-lg) !important;
+  border: 1.5px solid rgba(82, 183, 136, 0.25) !important;
+  overflow: hidden !important;
+  transition: all var(--t) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15) !important;
+}
+.team-card:hover{
+  transform: translateY(-8px) !important;
+  box-shadow: 0 16px 36px rgba(14, 46, 26, 0.35) !important;
+  border-color: var(--green-400) !important;
+}
+.team-card-inner{
+  padding: 28px 24px;
+  text-align: left;
+  background: transparent !important;
+  color: #ffffff !important;
+}
 .team-avatar-wrap{position:relative;width:80px;height:80px;margin:0 0 16px 0;display:flex;align-items:center;justify-content:flex-start}
 .team-photo{width:76px;height:76px;border-radius:50%;object-fit:cover;border:3px solid var(--green-300)}
-.team-avatar-badge{position:absolute;bottom:0;right:0;width:28px;height:28px;border-radius:50%;background:var(--green-700);display:flex;align-items:center;justify-content:center;font-size:.9rem;box-shadow:0 2px 8px rgba(0,0,0,.3)}
-.team-card h4{font-size:17px;font-weight:700;margin-bottom:4px}
-.team-role{font-size:13px;display:block;margin-bottom:10px;opacity:.75}
-.team-card:hover .team-role,.team-card.active .team-role{color:var(--green-300)}
+.team-avatar-badge{position:absolute;bottom:0;right:0;width:28px;height:28px;border-radius:50%;background:var(--green-700);display:flex;align-items:center;justify-content:center;font-size:.9rem;box-shadow:0 2px 8px rgba(0,0,0,.3);border:2px solid #0e2e1a}
+.team-card h4{font-size:17px;font-weight:700;margin-bottom:4px;color:#ffffff !important}
+.team-role{font-size:13px;display:block;margin-bottom:12px;color:var(--green-300) !important;font-weight:500;opacity:1 !important}
 .team-skills{display:flex;gap:6px;justify-content:flex-start;flex-wrap:wrap}
-.team-skills span{font-size:11px;font-weight:600;padding:3px 9px;border-radius:var(--r-pill);background:rgba(82,183,136,.2);color:var(--green-200)}
+.team-skills span{font-size:11px;font-weight:600;padding:4px 10px;border-radius:var(--r-pill);background:rgba(82,183,136,.22) !important;color:var(--green-200) !important;border:1px solid rgba(82,183,136,.3) !important}
 
 /* Impact Banner (About Section 5) */
 .impact-banner{background:linear-gradient(135deg,var(--green-800),var(--green-900));color:#fff;border-radius:var(--r-xl);padding:60px 48px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
