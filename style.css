@@ -1774,6 +1774,148 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
   margin-bottom: 4px;
 }
 
+/* ===== USER DASHBOARD: GEAR RENTALS CARD & TRACKER ===== */
+.dash-card-box {
+  background: #111823;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 28px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  width: 100%;
+}
+
+.dcb-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.dcb-header h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+.status-pill {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: var(--r-pill);
+  background: rgba(82, 183, 136, 0.15);
+  color: #74c69d;
+  border: 1px solid rgba(82, 183, 136, 0.3);
+}
+
+.rental-detail-row {
+  display: grid;
+  grid-template-columns: 240px 1fr auto;
+  gap: 24px;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 18px;
+  padding: 20px;
+  margin-bottom: 24px;
+}
+.rental-img {
+  width: 240px;
+  height: 160px;
+  border-radius: 14px;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+.rental-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.rental-info h4 {
+  font-size: 17px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+.rental-info p {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+  line-height: 1.5;
+}
+.rental-info p strong {
+  color: #ffffff;
+}
+.rental-return-msg {
+  color: #74c69d !important;
+  font-size: 13.5px !important;
+  font-weight: 500;
+}
+.rental-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 170px;
+}
+.rental-actions button {
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+}
+
+/* TRACKER STEP PROGRESS BAR */
+.tracker-steps {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.t-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+.t-dot {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1.5px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 8px;
+  transition: all var(--t);
+}
+.t-step.done .t-dot {
+  background: rgba(82, 183, 136, 0.2);
+  border-color: #52b788;
+  color: #52b788;
+  font-weight: 800;
+}
+.t-step.active .t-dot {
+  background: #2d6a4f;
+  border-color: #74c69d;
+  color: #ffffff;
+  box-shadow: 0 0 16px rgba(82, 183, 136, 0.6);
+}
+.t-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 2px;
+}
+.t-date {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
 /* ===== PREVENT OVERFLOW & MOBILE MENU STYLING ===== */
 html, body {
   width: 100%;
