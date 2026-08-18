@@ -2086,7 +2086,7 @@ html, body {
     border-color: rgba(255, 255, 255, 0.3) !important;
   }
 
-  /* 2. FULLSCREEN NAV MENU OVERLAY (SCREENSHOT 2) */
+  /* 2. FULLSCREEN NAV MENU OVERLAY */
   .nav-links {
     display: none;
     position: fixed !important;
@@ -2096,56 +2096,105 @@ html, body {
     bottom: 0 !important;
     height: 100vh !important;
     width: 100vw !important;
-    background: #0b172a !important; /* Deep dark navy matching Screenshot 2 */
+    background: radial-gradient(circle at top center, #132a1c 0%, #07150c 100%) !important;
+    backdrop-filter: blur(28px) !important;
+    -webkit-backdrop-filter: blur(28px) !important;
     z-index: 999999 !important;
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
-    padding: 80px 24px 40px !important;
-    gap: 22px !important;
+    padding: 60px 24px 40px !important;
+    gap: 16px !important;
   }
   .nav-links.open {
     display: flex !important;
   }
   .nav-links .nav-link {
-    font-size: 24px !important;
+    font-size: 22px !important;
     font-weight: 700 !important;
-    color: #ffffff !important;
-    padding: 8px 20px !important;
-    border: none !important;
+    color: rgba(255, 255, 255, 0.88) !important;
+    padding: 10px 28px !important;
+    border-radius: 9999px !important;
+    border: 1px solid transparent !important;
     background: transparent !important;
     text-align: center !important;
+    transition: all 0.2s ease !important;
   }
+  .nav-links .nav-link:hover, .nav-links .nav-link.active {
+    color: #ffffff !important;
+    background: rgba(82, 183, 136, 0.15) !important;
+    border-color: rgba(82, 183, 136, 0.35) !important;
+  }
+
+  .mobile-nav-actions,
   .mobile-menu-actions {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
-    gap: 14px !important;
+    gap: 12px !important;
     width: 100% !important;
-    margin-top: 24px !important;
+    max-width: 300px !important;
+    margin-top: 20px !important;
+    padding-top: 18px !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
   }
+
+  .mobile-nav-actions .btn-signup,
+  .mobile-menu-actions .btn-mobile-signup,
   .btn-mobile-signup {
-    background: #c88a08 !important; /* Gold pill button matching Screenshot 2 */
+    width: 100% !important;
+    height: 50px !important;
+    background: linear-gradient(135deg, #2d6a4f 0%, #52b788 100%) !important;
     color: #ffffff !important;
-    font-size: 16.5px !important;
+    font-size: 16px !important;
     font-weight: 700 !important;
-    padding: 15px 40px !important;
-    border-radius: 50px !important;
-    width: min(280px, 85%) !important;
+    padding: 0 24px !important;
+    border-radius: 9999px !important;
     border: none !important;
-    box-shadow: 0 4px 16px rgba(200, 138, 8, 0.4) !important;
+    box-shadow: 0 8px 24px rgba(45, 106, 79, 0.55), inset 0 1px 1px rgba(255, 255, 255, 0.3) !important;
     cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    letter-spacing: 0.3px !important;
+    transition: all 0.25s ease !important;
+    text-decoration: none !important;
   }
+  .mobile-nav-actions .btn-signup:hover,
+  .mobile-menu-actions .btn-mobile-signup:hover,
+  .btn-mobile-signup:hover {
+    background: linear-gradient(135deg, #1b4332 0%, #40916c 100%) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 10px 30px rgba(82, 183, 136, 0.7) !important;
+  }
+
+  .mobile-nav-actions .btn-login,
+  .mobile-menu-actions .btn-mobile-login,
   .btn-mobile-login {
-    background: transparent !important;
+    width: 100% !important;
+    height: 48px !important;
+    background: rgba(255, 255, 255, 0.07) !important;
     color: #ffffff !important;
-    font-size: 16.5px !important;
-    font-weight: 700 !important;
-    padding: 14px 40px !important;
-    border-radius: 50px !important;
-    width: min(280px, 85%) !important;
-    border: 1.5px solid rgba(255, 255, 255, 0.35) !important;
+    font-size: 15.5px !important;
+    font-weight: 600 !important;
+    padding: 0 24px !important;
+    border-radius: 9999px !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.22) !important;
     cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    letter-spacing: 0.2px !important;
+    transition: all 0.25s ease !important;
+    text-decoration: none !important;
+  }
+  .mobile-nav-actions .btn-login:hover,
+  .mobile-menu-actions .btn-mobile-login:hover,
+  .btn-mobile-login:hover {
+    background: rgba(255, 255, 255, 0.14) !important;
+    border-color: rgba(255, 255, 255, 0.45) !important;
+    transform: translateY(-2px) !important;
   }
 
   /* 3. MOBILE HERO & SEARCH CARD (SCREENSHOT 1) */
