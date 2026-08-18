@@ -735,24 +735,26 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
 .dash-sidebar {
   background: #070a0e;
   border-right: 1px solid rgba(255, 255, 255, 0.06);
-  padding: 30px 20px;
+  padding: 28px 20px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   position: sticky;
   top: 0;
   height: 100vh;
+  box-sizing: border-box;
 }
 .dash-sidebar-brand {
   display: flex !important;
   align-items: center !important;
-  gap: 10px !important;
+  gap: 12px !important;
   margin-bottom: 28px !important;
   padding: 0 4px !important;
   text-decoration: none !important;
   cursor: pointer !important;
   visibility: visible !important;
   opacity: 1 !important;
+  flex-shrink: 0 !important;
 }
 .dash-logo {
   display: flex;
@@ -807,6 +809,7 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
   display: flex;
   flex-direction: column;
   gap: 12px;
+  margin-top: auto;
   padding-top: 20px;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
