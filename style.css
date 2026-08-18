@@ -58,9 +58,11 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
   cursor: pointer !important;
   pointer-events: auto !important;
   text-decoration: none !important;
+  position: relative !important;
+  z-index: 99999 !important;
 }
-.logo *, #logo-link * {
-  pointer-events: none;
+.logo *, #logo-link *, .dash-sidebar-brand *, .dash-mobile-header-brand * {
+  pointer-events: none !important;
 }
 .logo-mark {
   width: 36px;
