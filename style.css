@@ -2146,10 +2146,16 @@ html, body {
   .dash-content-row-2col {
     grid-template-columns: 1fr;
   }
+  .dash-featured-grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 640px) {
   .dash-metrics-grid-4 {
+    grid-template-columns: 1fr;
+  }
+  .dash-featured-grid-3 {
     grid-template-columns: 1fr;
   }
   .dash-topbar-flex {
@@ -2160,5 +2166,113 @@ html, body {
     width: 100%;
     justify-content: space-between;
   }
+}
+
+/* ===== ROW 3: FEATURED EXPEDITIONS & PROPERTIES CARDS ===== */
+.dash-featured-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 28px;
+}
+
+.dash-property-card {
+  background: #111726;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.dash-property-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.16);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4);
+}
+
+.dpc-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 160px;
+  overflow: hidden;
+}
+
+.dpc-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.dash-property-card:hover .dpc-img-wrap img {
+  transform: scale(1.06);
+}
+
+.dpc-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(11, 21, 40, 0.88);
+  backdrop-filter: blur(8px);
+  color: #38bdf8;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.purple-badge {
+  color: #c084fc !important;
+  border-color: rgba(192, 132, 252, 0.3) !important;
+}
+
+.dpc-body {
+  padding: 18px 20px;
+}
+
+.dpc-title {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.dpc-location {
+  color: #64748b;
+  font-size: 12px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.dpc-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 12px;
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+.dpc-price {
+  color: #38bdf8;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.purple-price {
+  color: #c084fc !important;
+}
+
+.dpc-rating {
+  color: #ffffff;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
 }
 
