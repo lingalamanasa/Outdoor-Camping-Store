@@ -15,8 +15,8 @@
 }
 
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;font-size:16px}
-body{font-family:var(--font);background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.65}
+html{scroll-behavior:smooth;font-size:16px;background-color:#070e17 !important}
+body{font-family:var(--font);background:#070e17 !important;color:var(--text);overflow-x:hidden;line-height:1.65;min-height:100vh;margin:0;padding:0}
 a{text-decoration:none;color:inherit}
 ul{list-style:none}
 img{display:block;max-width:100%}

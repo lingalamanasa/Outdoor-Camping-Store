@@ -8,15 +8,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=4" />
+  <link rel="stylesheet" href="style.css?v=5" />
 </head>
-<body>
+<body style="background:#070e17 !important; margin:0; padding:0; min-height:100vh;">
 
   <!-- DRAWER BACKDROP -->
   <div class="dash-drawer-backdrop" id="dash-drawer-backdrop" onclick="closeDashDrawer()"></div>
 
   <!-- TRAVELER DASHBOARD VIEW -->
-  <div id="page-user-dashboard" class="page-view active" style="display:block;">
+  <div id="page-user-dashboard" class="page-view active" style="display:block; background:#070e17;">
     
     <!-- DASHBOARD MOBILE TOP HEADER (STICKY ON MOBILE VIEW) -->
     <div class="dash-mobile-top-header">
@@ -37,7 +37,7 @@
           </svg>
         </div>
         <div class="dash-brand-text">
-          <span class="logo-text">STACKLY</span>
+          <span class="logo-text" style="font-size:18px; font-weight:800; color:#fff;">Stack<span class="logo-accent" style="color:#52b788;">ly</span></span>
           <span class="purple-subtitle" style="color:#38bdf8;">Traveller Dashboard</span>
         </div>
       </a>
@@ -51,24 +51,24 @@
           <button class="dash-drawer-close-btn" onclick="closeDashDrawer()" aria-label="Close Drawer">✕</button>
         </div>
         
-        <div class="dash-sidebar-brand" onclick="window.location.href='index.html';" style="cursor:pointer; margin-bottom:28px; padding:0 8px;">
+        <a href="index.html" class="dash-sidebar-brand" style="text-decoration:none; display:block; cursor:pointer; margin-bottom:28px; padding:0 8px;" title="Return to Stackly Home">
           <div style="display:flex; align-items:center; gap:10px;">
-            <div class="logo-mark" style="width:34px; height:34px; border-radius:10px; background:#0b1528; display:flex; align-items:center; justify-content:center;">
-              <svg width="22" height="22" viewBox="0 0 40 40">
+            <div class="logo-mark" style="width:36px; height:36px; border-radius:10px; background:#0b1528; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 10px rgba(82,183,136,0.4);">
+              <svg width="24" height="24" viewBox="0 0 40 40">
                 <circle cx="20" cy="20" r="20" fill="url(#sideUserLogoGrad)"/>
                 <text x="50%" y="57%" dominant-baseline="middle" text-anchor="middle" font-size="16" fill="white">🏕</text>
                 <defs>
                   <linearGradient id="sideUserLogoGrad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
-                    <stop offset="0%" stop-color="#38bdf8"/>
-                    <stop offset="100%" stop-color="#0284c7"/>
+                    <stop offset="0%" stop-color="#52b788"/>
+                    <stop offset="100%" stop-color="#2d6a4f"/>
                   </linearGradient>
                 </defs>
               </svg>
             </div>
-            <span style="font-size:20px; font-weight:800; color:#fff; letter-spacing:-0.5px;">STACKLY</span>
+            <span class="logo-text" style="font-size:22px; font-weight:800; color:#fff; letter-spacing:-0.5px;">Stack<span class="logo-accent" style="color:#52b788;">ly</span></span>
           </div>
-          <div style="font-size:13px; color:#38bdf8; font-weight:700; margin-top:4px; padding-left:2px;">Traveller Dashboard</div>
-        </div>
+          <div style="font-size:12px; color:#38bdf8; font-weight:700; margin-top:4px; padding-left:2px;">Traveller Dashboard</div>
+        </a>
 
         <nav class="sidebar-nav">
           <a href="#" class="sidebar-link active" id="user-nav-overview" onclick="switchTravelerTab('overview'); closeDashDrawer(); return false;">
