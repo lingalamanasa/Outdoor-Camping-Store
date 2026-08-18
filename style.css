@@ -187,24 +187,31 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
 .auth-switch{text-align:center;font-size:13px;color:var(--muted)}
 .switch-btn{background:none;border:none;font-size:13px;font-weight:700;color:var(--green-500);cursor:pointer}
 
-/* 404 Modal Styling — Premium Design */
+/* 404 Modal Styling — Premium Centered Design */
 .modal-404-box {
   text-align: center;
   max-width: 420px;
-  width: 92%;
+  width: min(420px, 92vw);
   padding: 0 !important;
-  border-radius: 28px !important;
+  border-radius: 24px !important;
   background: linear-gradient(165deg, #ffffff 0%, #f8faf8 100%) !important;
-  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(45, 106, 79, 0.08) !important;
-  overflow: visible !important;
-  animation: modal404Enter 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(45, 106, 79, 0.12) !important;
+  overflow: hidden !important;
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) scale(0.95) !important;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
 }
-@keyframes modal404Enter {
-  0% { opacity: 0; transform: scale(0.85) translateY(30px); }
-  100% { opacity: 1; transform: scale(1) translateY(0); }
+.modal-404-box.open {
+  opacity: 1 !important;
+  pointer-events: all !important;
+  transform: translate(-50%, -50%) scale(1) !important;
 }
 .err-404-inner {
-  padding: 40px 32px 32px;
+  padding: 32px 28px 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -213,40 +220,40 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
   display: inline-block;
   background: linear-gradient(135deg, rgba(232, 64, 64, 0.14), rgba(244, 166, 54, 0.12));
   color: #d63031;
-  font-size: 10.5px;
+  font-size: 10px;
   font-weight: 800;
-  letter-spacing: 2px;
-  padding: 6px 18px;
+  letter-spacing: 1.8px;
+  padding: 5px 16px;
   border-radius: 9999px;
-  margin-bottom: 20px;
+  margin-bottom: 14px;
   border: 1px solid rgba(232, 64, 64, 0.15);
 }
 .err-404-icon-wrap {
   position: relative;
-  width: 90px;
-  height: 90px;
+  width: 76px;
+  height: 76px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 14px;
 }
 .err-404-glow {
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(45, 106, 79, 0.15) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(45, 106, 79, 0.2) 0%, transparent 70%);
   animation: glowPulse 3s ease-in-out infinite;
 }
 @keyframes glowPulse {
   0%, 100% { transform: scale(1); opacity: 0.6; }
-  50% { transform: scale(1.25); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 1; }
 }
 .err-404-icon {
-  font-size: 3.2rem;
+  font-size: 2.8rem;
   position: relative;
   z-index: 2;
   animation: spinCompass 12s linear infinite;
-  filter: drop-shadow(0 4px 12px rgba(45, 106, 79, 0.2));
+  filter: drop-shadow(0 4px 10px rgba(45, 106, 79, 0.25));
 }
 @keyframes spinCompass {
   0% { transform: rotate(0deg); }
@@ -254,17 +261,17 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
 }
 .err-404-title {
   font-family: 'Playfair Display', serif;
-  font-size: 26px;
+  font-size: 23px;
   font-weight: 800;
   color: #1a1a1a;
-  margin: 0 0 10px;
+  margin: 0 0 8px;
   letter-spacing: -0.3px;
 }
 .err-404-desc {
-  font-size: 14px;
+  font-size: 13.5px;
   color: #6b7280;
-  line-height: 1.7;
-  margin: 0 0 28px;
+  line-height: 1.55;
+  margin: 0 0 20px;
   max-width: 320px;
 }
 .err-404-actions {
@@ -279,24 +286,25 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
   justify-content: center;
   gap: 8px;
   width: 100%;
-  padding: 14px 20px;
-  border-radius: 14px;
-  font-size: 14.5px;
+  padding: 12px 18px;
+  border-radius: 12px;
+  font-size: 14px;
   font-weight: 700;
   cursor: pointer;
   border: none;
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   font-family: 'Plus Jakarta Sans', sans-serif;
+  text-decoration: none;
 }
 .err-404-btn-primary {
   background: linear-gradient(135deg, #2d6a4f, #40916c);
   color: #ffffff;
-  box-shadow: 0 4px 16px rgba(45, 106, 79, 0.35);
+  box-shadow: 0 4px 14px rgba(45, 106, 79, 0.3);
 }
 .err-404-btn-primary:hover {
   background: linear-gradient(135deg, #1b4332, #2d6a4f);
   transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(45, 106, 79, 0.45);
+  box-shadow: 0 6px 20px rgba(45, 106, 79, 0.4);
 }
 .err-404-btn-outline {
   background: rgba(45, 106, 79, 0.08);
@@ -312,11 +320,11 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
   background: transparent;
   color: #9ca3af;
   font-weight: 600;
-  font-size: 13px;
-  padding: 10px 20px;
+  font-size: 12.5px;
+  padding: 8px 16px;
 }
 .err-404-btn-ghost:hover {
-  color: #6b7280;
+  color: #4b5563;
   background: rgba(0, 0, 0, 0.04);
 }
 .full-width {
