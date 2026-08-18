@@ -480,7 +480,96 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
 .hero-badge{display:inline-block;background:rgba(255,255,255,.12);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.2);color:#fff;font-size:13px;font-weight:600;padding:8px 20px;border-radius:var(--r-pill);margin-bottom:20px;letter-spacing:.5px}
 .hero-title{font-size:clamp(42px,8vw,90px);font-weight:800;color:#fff;line-height:1.05;letter-spacing:-2px;margin-bottom:20px}
 .hero-title-accent{background:linear-gradient(135deg,var(--green-300),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero-desc{color:rgba(255,255,255,.8);font-size:clamp(15px,2vw,18px);max-width:600px;margin:0 auto 36px}
+.hero-desc{color:rgba(255,255,255,.85);font-size:clamp(15px,2vw,18px);max-width:640px;margin:0 auto 28px;line-height:1.6}
+
+/* ===== HERO EXPEDITION SEARCH BAR ===== */
+.hero-search-bar {
+  display: flex;
+  align-items: center;
+  background: rgba(10, 26, 14, 0.82);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1.5px solid rgba(255, 255, 255, 0.24);
+  border-radius: 9999px;
+  padding: 8px 10px 8px 24px;
+  max-width: 780px;
+  width: 100%;
+  margin: 0 auto 32px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(82, 183, 136, 0.18);
+  transition: all var(--t);
+  position: relative;
+  z-index: 5;
+}
+.hero-search-bar:focus-within {
+  background: rgba(10, 26, 14, 0.95);
+  border-color: #52b788;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55), 0 0 0 2px rgba(82, 183, 136, 0.4);
+  transform: translateY(-2px);
+}
+.hsb-field {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 4px 14px;
+  min-width: 0;
+  text-align: left;
+}
+.hsb-label {
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: #52b788;
+  margin-bottom: 3px;
+  text-transform: uppercase;
+  user-select: none;
+  display: block;
+}
+.hsb-input {
+  width: 100% !important;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  color: #ffffff !important;
+  font-size: 14.5px !important;
+  font-weight: 500 !important;
+  font-family: inherit !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  box-shadow: none !important;
+}
+.hsb-input::placeholder {
+  color: rgba(255, 255, 255, 0.65) !important;
+  font-weight: 400 !important;
+}
+.hsb-divider {
+  width: 1px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.2);
+  flex-shrink: 0;
+}
+.hsb-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2d6a4f, #52b788);
+  border: none;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  box-shadow: 0 4px 18px rgba(45, 106, 79, 0.45);
+  transition: all var(--t);
+  margin-left: 6px;
+}
+.hsb-btn:hover {
+  background: linear-gradient(135deg, #1b4332, #40916c);
+  transform: scale(1.08);
+  box-shadow: 0 6px 24px rgba(82, 183, 136, 0.6);
+}
+
 .hero-cta-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
 .hero-slide-controls{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);display:flex;gap:12px;z-index:3}
 .slide-thumb{background:rgba(255,255,255,.1);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.7);font-size:12px;font-weight:600;padding:8px 18px;border-radius:var(--r-pill);transition:all var(--t);cursor:pointer}
@@ -1988,49 +2077,36 @@ html, body {
     color: #d97706 !important;
     font-style: italic !important;
   }
-  .mobile-search-card {
-    display: flex !important;
+  .hero-search-bar {
     flex-direction: column !important;
-    background: #ffffff !important;
     border-radius: 20px !important;
-    overflow: hidden !important;
-    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.2) !important;
-    margin: 28px auto 0 !important;
+    padding: 16px !important;
+    gap: 10px !important;
+    background: rgba(10, 26, 14, 0.92) !important;
+    max-width: 380px !important;
+    margin: 20px auto 28px !important;
+  }
+  .hsb-field {
     width: 100% !important;
-    max-width: 360px !important;
-    text-align: left !important;
+    padding: 2px 6px !important;
   }
-  .msc-field {
-    padding: 14px 18px !important;
-    border-bottom: 1px solid #f1f5f9 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 2px !important;
+  .hsb-divider {
+    width: 100% !important;
+    height: 1px !important;
+    background: rgba(255, 255, 255, 0.12) !important;
   }
-  .msc-field label {
-    font-size: 10px !important;
-    font-weight: 800 !important;
-    letter-spacing: 1.5px !important;
-    color: #64748b !important;
+  .hsb-btn {
+    width: 100% !important;
+    border-radius: 12px !important;
+    height: 44px !important;
+    margin-left: 0 !important;
+    margin-top: 4px !important;
+    gap: 8px !important;
   }
-  .msc-field input {
-    border: none !important;
-    outline: none !important;
-    font-size: 15px !important;
-    color: #0f172a !important;
-    background: transparent !important;
-    font-family: inherit !important;
-  }
-  .msc-action {
-    background: #0f172a !important;
-    padding: 14px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    cursor: pointer !important;
-  }
-  .msc-icon {
-    font-size: 18px !important;
+  .hsb-btn::after {
+    content: 'Search Expeditions';
+    font-size: 13.5px;
+    font-weight: 700;
   }
 
   /* 4. MOBILE DASHBOARD VIEW & SLIDE-OUT DRAWER (SCREENSHOT 1 & 2) */
