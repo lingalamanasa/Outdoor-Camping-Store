@@ -3040,3 +3040,85 @@ html, body {
   font-size: 13px;
 }
 
+/* ===== STRICT DESKTOP DASHBOARD MODE (> 1024px) ===== */
+@media (min-width: 1025px) {
+  .dash-mobile-top-header {
+    display: none !important;
+  }
+  .drawer-header-row,
+  .dash-drawer-close-btn,
+  .dash-drawer-backdrop {
+    display: none !important;
+  }
+  .dash-layout {
+    display: grid !important;
+    grid-template-columns: 260px 1fr !important;
+    min-height: 100vh !important;
+    width: 100% !important;
+  }
+  .dash-sidebar {
+    position: sticky !important;
+    top: 0 !important;
+    left: auto !important;
+    bottom: auto !important;
+    width: 260px !important;
+    max-width: 260px !important;
+    height: 100vh !important;
+    transform: none !important;
+    box-shadow: none !important;
+    z-index: 100 !important;
+    background: #070e17 !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
+    padding: 28px 20px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    box-sizing: border-box !important;
+  }
+  .dash-main-content {
+    padding: 32px 40px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* ===== STRICT MOBILE / TABLET DASHBOARD MODE (<= 1024px) ===== */
+@media (max-width: 1024px) {
+  .dash-mobile-top-header {
+    display: flex !important;
+  }
+  .drawer-header-row {
+    display: flex !important;
+  }
+  .dash-layout {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+  .dash-sidebar {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    bottom: 0 !important;
+    width: 300px !important;
+    max-width: 84vw !important;
+    height: 100vh !important;
+    z-index: 999999 !important;
+    background: #070e17 !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
+    padding: 24px 20px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    transform: translateX(-100%) !important;
+    transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: 20px 0 50px rgba(0, 0, 0, 0.7) !important;
+  }
+  .dash-sidebar.drawer-open {
+    transform: translateX(0) !important;
+  }
+  .dash-main-content {
+    padding: 20px 16px !important;
+  }
+}
+
