@@ -31,16 +31,16 @@ Welcome to **Stackly Outdoor & Camping Store**, a premier, responsive e-commerce
 
 ## 📂 Page Architecture
 
-- [`index.html`](file:///c:/Users/manu1/OneDrive/Desktop/Outdoor%20&%20Camping%20Store/index.html) – Home landing page with dynamic hero slider, expedition search, featured gear, and testimonials.
-- [`about.html`](file:///c:/Users/manu1/OneDrive/Desktop/Outdoor%20&%20Camping%20Store/about.html) – Company history, sustainability mission, team guides, and carbon-neutral milestones.
-- [`services.html`](file:///c:/Users/manu1/OneDrive/Desktop/Outdoor%20&%20Camping%20Store/services.html) – Guided expedition packages, custom route builder, gear rental, and repair depot.
-- [`blog.html`](file:///c:/Users/manu1/OneDrive/Desktop/Outdoor%20&%20Camping%20Store/blog.html) – Field notes, winter camping tips, knot guides, and camp kitchen recipes.
-- [`contact.html`](file:///c:/Users/manu1/OneDrive/Desktop/Outdoor%20&%20Camping%20Store/contact.html) – Flagship base camp location details, interactive contact inquiry form, and FAQ.
-- [`dashboard.html`](file:///c:/Users/manu1/OneDrive/Desktop/Outdoor%20&%20Camping%20Store/dashboard.html) – Host control center for managing camp sites, listings, and equipment rental fleet.
-- [`user-dashboard.html`](file:///c:/Users/manu1/OneDrive/Desktop/Outdoor%20&%20Camping%20Store/user-dashboard.html) – Traveler member dashboard for active rentals, trip itinerary, and wishlist.
-- [`login.html`](file:///c:/Users/manu1/OneDrive/Desktop/Outdoor%20&%20Camping%20Store/login.html) & [`signup.html`](file:///c:/Users/manu1/OneDrive/Desktop/Outdoor%20&%20Camping%20Store/signup.html) – Adventurer authentication views.
-- [`style.css`](file:///c:/Users/manu1/OneDrive/Desktop/Outdoor%20&%20Camping%20Store/style.css) – Complete design system and mobile responsive stylesheet.
-- [`script.js`](file:///c:/Users/manu1/OneDrive/Desktop/Outdoor%20&%20Camping%20Store/script.js) – Interactive handlers, mobile hamburger menu controllers, and page routing.
+- [`index.html`](./index.html) – Home landing page with dynamic hero slider, expedition search, featured gear, and testimonials.
+- [`about.html`](./about.html) – Company history, sustainability mission, team guides, and carbon-neutral milestones.
+- [`services.html`](./services.html) – Guided expedition packages, custom route builder, gear rental, and repair depot.
+- [`blog.html`](./blog.html) – Field notes, winter camping tips, knot guides, and camp kitchen recipes.
+- [`contact.html`](./contact.html) – Flagship base camp location details, interactive contact inquiry form, and FAQ.
+- [`dashboard.html`](./dashboard.html) – Host control center for managing camp sites, listings, and equipment rental fleet.
+- [`user-dashboard.html`](./user-dashboard.html) – Traveler member dashboard for active rentals, trip itinerary, and wishlist.
+- [`login.html`](./login.html) & [`signup.html`](./signup.html) – Adventurer authentication views.
+- [`style.css`](./style.css) – Complete design system and mobile responsive stylesheet.
+- [`script.js`](./script.js) – Interactive handlers, mobile hamburger menu controllers, and page routing.
 
 ---
 
