@@ -18,53 +18,47 @@
   <!-- TRAVELER DASHBOARD VIEW -->
   <div id="page-user-dashboard" class="page-view active" style="display:block; background:#070e17;">
     
-    <!-- DASHBOARD MOBILE TOP HEADER (STICKY ON MOBILE VIEW) -->
+    <!-- DASHBOARD MOBILE TOP HEADER (MATCHING SCREENSHOT 1) -->
     <div class="dash-mobile-top-header">
       <button class="dash-hamburger-square" onclick="openDashDrawer()" aria-label="Open Navigation Drawer">
-        <span>☰</span>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="4" y1="6" x2="20" y2="6"></line>
+          <line x1="4" y1="12" x2="20" y2="12"></line>
+          <line x1="4" y1="18" x2="20" y2="18"></line>
+        </svg>
       </button>
       <a href="user-dashboard.html" onclick="return reloadCurrentDashboard(event);" class="dash-mobile-header-brand" style="text-decoration:none; cursor:pointer;" title="Traveler Dashboard">
-        <div class="logo-mark sm" style="width:28px; height:28px; border-radius:8px; background:#070e17; display:flex; align-items:center; justify-content:center;">
-          <svg width="20" height="20" viewBox="0 0 40 40">
-            <circle cx="20" cy="20" r="20" fill="url(#mobileUserLogoGrad)"/>
-            <path d="M20 9L7 29H33L20 9Z" fill="#ffffff" opacity="0.95"/>
-            <path d="M20 15L13 29H27L20 15Z" fill="#2d6a4f"/>
-            <path d="M20 20L16 29H24L20 20Z" fill="#ffffff"/>
-            <defs>
-              <linearGradient id="mobileUserLogoGrad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stop-color="#52b788"/>
-                <stop offset="100%" stop-color="#2d6a4f"/>
-              </linearGradient>
-            </defs>
+        <div class="dash-logo-icon-purple">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c084fc" stroke-width="2.2" stroke-linecap="round">
+            <path d="M4 7C8 5.5 16 5.5 20 7"/>
+            <path d="M4 12C8 10.5 16 10.5 20 12"/>
+            <path d="M4 17C8 15.5 16 15.5 20 17"/>
           </svg>
         </div>
         <div class="dash-brand-text">
-          <span class="logo-text" style="font-size:18px; font-weight:800; color:#fff;">Stack<span class="logo-accent" style="color:#52b788;">ly</span></span>
+          <span class="logo-text" style="font-size:16px; font-weight:800; color:#ffffff; letter-spacing:0.8px; text-transform:uppercase;">STACKLY</span>
+          <span class="purple-subtitle" style="font-size:11px; font-weight:700; color:#c084fc;">Enterprise Executive Dashboard</span>
         </div>
       </a>
     </div>
 
     <div class="dash-layout">
       
-      <!-- SIDEBAR DRAWER -->
+      <!-- SIDEBAR DRAWER (MATCHING SCREENSHOT 2) -->
       <aside class="dash-sidebar" id="user-dash-sidebar">
         <!-- STACKLY BRAND LOGO -->
         <a href="user-dashboard.html" onclick="return reloadCurrentDashboard(event);" class="dash-sidebar-brand" style="text-decoration:none; display:flex; align-items:center; gap:10px; margin-bottom:28px; padding:0 4px; cursor:pointer;" title="Traveler Dashboard">
-          <div class="logo-mark" style="width:38px; height:38px; border-radius:10px; background:#0b1528; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 10px rgba(82,183,136,0.4); flex-shrink:0;">
-            <svg width="24" height="24" viewBox="0 0 40 40">
-              <circle cx="20" cy="20" r="20" fill="url(#sideUserLogoGradVisible)"/>
-              <path d="M20 9L7 29H33L20 9Z" fill="#ffffff" opacity="0.95"/>
-              <path d="M20 15L13 29H27L20 15Z" fill="#2d6a4f"/>
-              <path d="M20 20L16 29H24L20 20Z" fill="#ffffff"/>
-              <defs>
-                <linearGradient id="sideUserLogoGradVisible" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
-                  <stop offset="0%" stop-color="#52b788"/>
-                  <stop offset="100%" stop-color="#2d6a4f"/>
-                </linearGradient>
-              </defs>
+          <div class="dash-logo-icon-purple" style="width:36px; height:36px; border-radius:10px; background:#1e1035; border:1px solid rgba(192,132,252,0.35); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c084fc" stroke-width="2.2" stroke-linecap="round">
+              <path d="M4 7C8 5.5 16 5.5 20 7"/>
+              <path d="M4 12C8 10.5 16 10.5 20 12"/>
+              <path d="M4 17C8 15.5 16 15.5 20 17"/>
             </svg>
           </div>
-          <span class="logo-text" style="font-size:24px; font-weight:800; color:#ffffff !important; letter-spacing:-0.5px;">Stack<span class="logo-accent" style="color:#52b788 !important;">ly</span></span>
+          <div class="dash-brand-text">
+            <span class="logo-text" style="font-size:18px; font-weight:800; color:#ffffff !important; letter-spacing:0.8px; text-transform:uppercase;">STACKLY</span>
+            <span class="purple-subtitle" style="font-size:11px; font-weight:700; color:#c084fc;">Enterprise Executive Dashboard</span>
+          </div>
         </a>
 
         <div class="drawer-header-row">
@@ -73,24 +67,25 @@
 
         <nav class="sidebar-nav">
           <a href="#" class="sidebar-link active" id="user-nav-overview" onclick="switchTravelerTab('overview'); closeDashDrawer(); return false;">
-            <span class="s-icon">⊞</span> Overview
+            <span class="s-icon">📊</span> Overview
           </a>
-          <a href="#" class="sidebar-link" id="user-nav-trips" onclick="switchTravelerTab('trips'); closeDashDrawer(); return false;">
-            <span class="s-icon">✈</span> My Trips
+          <a href="#" class="sidebar-link" id="user-nav-rentals" onclick="switchTravelerTab('rentals'); closeDashDrawer(); return false;">
+            <span class="s-icon">🎒</span> My Gear &amp; Rentals
           </a>
-          <a href="#" class="sidebar-link" id="user-nav-stays" onclick="switchTravelerTab('stays'); closeDashDrawer(); return false;">
-            <span class="s-icon">♡</span> Saved Stays
+          <a href="#" class="sidebar-link" id="user-nav-expeditions" onclick="switchTravelerTab('expeditions'); closeDashDrawer(); return false;">
+            <span class="s-icon">🏔️</span> Booked Expeditions
           </a>
-          <a href="#" class="sidebar-link" id="user-nav-payments" onclick="switchTravelerTab('payments'); closeDashDrawer(); return false;">
-            <span class="s-icon">💳</span> Payments
+          <a href="#" class="sidebar-link" id="user-nav-wishlist" onclick="switchTravelerTab('wishlist'); closeDashDrawer(); return false;">
+            <span class="s-icon">⭐</span> Saved Wishlist
           </a>
           <a href="#" class="sidebar-link" id="user-nav-settings" onclick="switchTravelerTab('settings'); closeDashDrawer(); return false;">
-            <span class="s-icon">⚙</span> Settings
+            <span class="s-icon">⚙️</span> Account Settings
           </a>
         </nav>
 
         <div class="sidebar-bottom">
-          <a href="index.html" class="sidebar-link" style="color:#f87171;">
+          <div class="sidebar-divider" style="border-top: 1px solid rgba(255,255,255,0.08); margin: 20px 0 14px;"></div>
+          <a href="index.html" class="sidebar-link" style="color:#f87171; font-weight:700;">
             <span class="s-icon">↳</span> Logout
           </a>
         </div>

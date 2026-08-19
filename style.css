@@ -2465,12 +2465,12 @@ html, body {
     font-weight: 700;
   }
 
-  /* 4. MOBILE DASHBOARD VIEW & SLIDE-OUT DRAWER (SCREENSHOT 1 & 2) */
+  /* 4. MOBILE DASHBOARD VIEW & SLIDE-OUT DRAWER (MATCHING SCREENSHOT 1 & 2) */
   .dash-mobile-top-header {
     display: flex !important;
     align-items: center !important;
-    gap: 14px !important;
-    padding: max(14px, env(safe-area-inset-top, 14px)) 20px 14px 20px !important;
+    gap: 12px !important;
+    padding: max(12px, env(safe-area-inset-top, 12px)) 16px 12px 16px !important;
     background: #070e17 !important;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
     position: sticky !important;
@@ -2480,18 +2480,23 @@ html, body {
   }
   
   .dash-hamburger-square {
-    width: 42px !important;
-    height: 42px !important;
+    width: 44px !important;
+    height: 44px !important;
     border-radius: 12px !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
-    background: rgba(255, 255, 255, 0.04) !important;
+    border: 1px solid rgba(255, 255, 255, 0.16) !important;
+    background: #0e1726 !important;
     color: #ffffff !important;
-    font-size: 20px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     cursor: pointer !important;
     flex-shrink: 0 !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+    transition: all 0.2s ease !important;
+  }
+  .dash-hamburger-square:hover, .dash-hamburger-square:active {
+    background: #16243d !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
   }
 
   .dash-mobile-header-brand {
@@ -2500,25 +2505,42 @@ html, body {
     gap: 10px !important;
   }
 
+  .dash-logo-icon-purple {
+    width: 34px !important;
+    height: 34px !important;
+    border-radius: 9px !important;
+    background: #1e1035 !important;
+    border: 1px solid rgba(192, 132, 252, 0.35) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+    box-shadow: 0 2px 10px rgba(192, 132, 252, 0.25) !important;
+  }
+
   .dash-brand-text {
     display: flex !important;
     flex-direction: column !important;
   }
 
   .dash-brand-text .logo-text {
-    font-size: 18px !important;
+    font-size: 16px !important;
     font-weight: 800 !important;
     color: #ffffff !important;
-    letter-spacing: 0.5px !important;
+    letter-spacing: 0.8px !important;
+    text-transform: uppercase !important;
+    line-height: 1.2 !important;
   }
 
   .dash-brand-text .purple-subtitle {
     font-size: 11px !important;
     font-weight: 700 !important;
     color: #c084fc !important;
+    line-height: 1.2 !important;
+    margin-top: 1px !important;
   }
 
-  /* Slide-out Drawer Sidebar on Mobile (Screenshot 1) */
+  /* Slide-out Drawer Sidebar on Mobile (Matching Screenshot 2) */
   .dash-sidebar {
     position: fixed !important;
     top: 0 !important;
@@ -2564,15 +2586,6 @@ html, body {
     cursor: pointer !important;
   }
 
-  .drawer-category-label {
-    font-size: 12px !important;
-    font-weight: 800 !important;
-    color: #c084fc !important;
-    text-transform: uppercase !important;
-    letter-spacing: 1px !important;
-    margin-bottom: 16px !important;
-  }
-
   .dash-sidebar .sidebar-nav {
     display: flex !important;
     flex-direction: column !important;
@@ -2583,32 +2596,58 @@ html, body {
   .sidebar-link {
     font-size: 15px !important;
     font-weight: 600 !important;
-    color: rgba(255, 255, 255, 0.8) !important;
-    border-radius: 16px !important;
-    padding: 14px 18px !important;
+    color: #e2e8f0 !important;
+    border-radius: 14px !important;
+    padding: 13px 18px !important;
     display: flex !important;
     align-items: center !important;
-    gap: 12px !important;
+    gap: 14px !important;
+    text-decoration: none !important;
     transition: all 0.2s ease !important;
   }
 
-  .sidebar-link.active {
-    background: rgba(192, 132, 252, 0.15) !important;
-    color: #c084fc !important;
-    font-weight: 700 !important;
+  .sidebar-link .s-icon {
+    font-size: 18px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 24px !important;
   }
 
-  .red-logout-card {
-    border: 1px solid rgba(239, 68, 68, 0.4) !important;
-    background: rgba(239, 68, 68, 0.08) !important;
+  .sidebar-link:hover {
+    background: rgba(255, 255, 255, 0.08) !important;
+    color: #ffffff !important;
+  }
+
+  .sidebar-link.active {
+    background: #0f2938 !important;
+    color: #38bdf8 !important;
+    font-weight: 700 !important;
+    box-shadow: inset 0 0 0 1px rgba(56, 189, 248, 0.28) !important;
+  }
+
+  .sidebar-divider {
+    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+    margin: 20px 0 14px !important;
+  }
+
+  .red-logout-card,
+  .sidebar-link[style*="f87171"] {
     color: #f87171 !important;
-    border-radius: 16px !important;
-    padding: 14px 18px !important;
     font-weight: 700 !important;
     display: flex !important;
     align-items: center !important;
-    gap: 10px !important;
-    margin-top: auto !important;
+    gap: 12px !important;
+    padding: 12px 18px !important;
+    border-radius: 14px !important;
+    text-decoration: none !important;
+    transition: all 0.2s ease !important;
+  }
+  .red-logout-card:hover,
+  .sidebar-link[style*="f87171"]:hover {
+    background: rgba(239, 68, 68, 0.08) !important;
+    color: #ef4444 !important;
+    transform: translateX(3px) !important;
   }
 
   .product-card, .tour-card, .feature-card, .review-card, .step-card, .service-box, .dl-card, .info-card, .hub-card {
