@@ -529,24 +529,71 @@ function handleContactSubmit(e) {
   openModal('404');
 }
 
-// ===== NAVBAR SCROLL =====
-const navbar = document.getElementById('navbar');
-const hamburger = document.getElementById('hamburger-btn');
-const navLinksContainer = document.getElementById('nav-links');
-
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 60);
-  document.getElementById('scroll-top-btn')?.classList.toggle('visible', window.scrollY > 400);
-});
-
+// ===== NAVBAR SCROLL & MOBILE MENU =====
 const HAMBURGER_OPEN_SVG = `<svg class="hamburger-icon-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`;
 const HAMBURGER_CLOSED_SVG = `<svg class="hamburger-icon-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>`;
 
-hamburger?.addEventListener('click', () => {
-  const isOpen = navLinksContainer.classList.toggle('open');
-  hamburger.classList.toggle('open', isOpen);
-  hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-  hamburger.innerHTML = isOpen ? HAMBURGER_OPEN_SVG : HAMBURGER_CLOSED_SVG;
+function initMobileMenu() {
+  const hamburgerBtns = document.querySelectorAll('.hamburger, #hamburger-btn');
+  const navLinksContainer = document.getElementById('nav-links');
+
+  hamburgerBtns.forEach(hamburger => {
+    hamburger.onclick = function(e) {
+      e.stopPropagation();
+      if (!navLinksContainer) return;
+      const isOpen = navLinksContainer.classList.toggle('open');
+      hamburgerBtns.forEach(btn => {
+        btn.classList.toggle('open', isOpen);
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        btn.innerHTML = isOpen ? HAMBURGER_OPEN_SVG : HAMBURGER_CLOSED_SVG;
+      });
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    };
+  });
+
+  if (navLinksContainer) {
+    navLinksContainer.querySelectorAll('a, button').forEach(item => {
+      item.addEventListener('click', () => {
+        closeMobileMenu();
+      });
+    });
+  }
+}
+
+function closeMobileMenu() {
+  const navLinksContainer = document.getElementById('nav-links');
+  const hamburgerBtns = document.querySelectorAll('.hamburger, #hamburger-btn');
+  if (navLinksContainer) navLinksContainer.classList.remove('open');
+  hamburgerBtns.forEach(btn => {
+    btn.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.innerHTML = HAMBURGER_CLOSED_SVG;
+  });
+  document.body.style.overflow = '';
+}
+
+// Global click outside to close mobile nav
+document.addEventListener('click', (e) => {
+  const navLinksContainer = document.getElementById('nav-links');
+  const hamburger = document.getElementById('hamburger-btn');
+  if (navLinksContainer && navLinksContainer.classList.contains('open')) {
+    if (!navLinksContainer.contains(e.target) && !hamburger?.contains(e.target)) {
+      closeMobileMenu();
+    }
+  }
+});
+
+// Initialize on DOM load and immediately
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initMobileMenu);
+} else {
+  initMobileMenu();
+}
+
+window.addEventListener('scroll', () => {
+  const navbar = document.getElementById('navbar') || document.querySelector('.navbar');
+  if (navbar) navbar.classList.toggle('scrolled', window.scrollY > 60);
+  document.getElementById('scroll-top-btn')?.classList.toggle('visible', window.scrollY > 400);
 });
 
 // ===== HERO SLIDER (HOME PAGE) =====

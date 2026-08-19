@@ -1960,8 +1960,9 @@ html, body {
   
   /* Home Page Navigation Bar Mobile */
   .navbar {
-    height: 70px;
-    padding: 0 16px;
+    height: auto !important;
+    min-height: 74px !important;
+    padding: max(14px, env(safe-area-inset-top, 14px)) 20px 14px 20px !important;
   }
 
   .nav-links {
@@ -2001,21 +2002,6 @@ html, body {
     background: var(--green-700);
     border-color: var(--green-500);
     color: #ffffff;
-  }
-
-  .mobile-nav-actions {
-    display: flex;
-    gap: 10px;
-    margin-top: 12px;
-    padding-top: 14px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-  }
-
-  .mobile-nav-actions .btn-login,
-  .mobile-nav-actions .btn-signup {
-    flex: 1;
-    text-align: center;
-    padding: 12px;
   }
 
   .nav-actions .btn-login,
@@ -2258,19 +2244,39 @@ html, body {
 
   /* ===== EXACT STYLING FOR REFERENCE SCREENSHOTS 1, 2, AND 3 ===== */
   
-  /* 1. TOP NAVBAR (SCREENSHOT 1 & 2) */
+  /* 1. TOP NAVBAR (MOBILE OPTIMIZED WITH SAFE AREA GAP) */
   .navbar {
-    height: 64px !important;
-    padding: 0 16px !important;
+    height: auto !important;
+    min-height: 74px !important;
+    padding: max(14px, env(safe-area-inset-top, 14px)) 20px 14px 20px !important;
     background: #ffffff !important;
     border-bottom: 1px solid #e5e7eb !important;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.04) !important;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    box-sizing: border-box !important;
+  }
+  .navbar .nav-container {
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+  }
+  .navbar .logo {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    flex-shrink: 0 !important;
+    margin: 0 !important;
   }
   .navbar .logo-text {
     color: #0b1528 !important;
     font-family: 'Plus Jakarta Sans', sans-serif !important;
     font-weight: 800 !important;
-    font-size: 20px !important;
+    font-size: 21px !important;
     letter-spacing: 0.5px !important;
   }
   .navbar .logo-accent {
@@ -2278,22 +2284,35 @@ html, body {
     font-weight: 800 !important;
   }
   .navbar .logo-mark {
-    border-radius: 8px !important;
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 10px !important;
     background: transparent !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .navbar .nav-actions {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0 !important;
+    margin: 0 !important;
   }
   .hamburger {
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    width: 42px !important;
-    height: 42px !important;
-    border-radius: 10px !important;
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 12px !important;
     background: #0b1528 !important;
     border: 1px solid rgba(255, 255, 255, 0.18) !important;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25) !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28) !important;
     padding: 0 !important;
     cursor: pointer !important;
     z-index: 1000000 !important;
+    flex-shrink: 0 !important;
+    transition: all var(--t) !important;
   }
   .hamburger span {
     display: block !important;
@@ -2352,70 +2371,80 @@ html, body {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
-    gap: 12px !important;
+    gap: 14px !important;
     width: 100% !important;
-    max-width: 300px !important;
-    margin-top: 20px !important;
-    padding-top: 18px !important;
-    border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+    max-width: 320px !important;
+    margin-top: 28px !important;
+    padding-top: 24px !important;
+    border-top: 1px solid rgba(82, 183, 136, 0.22) !important;
+    box-shadow: 0 -1px 12px rgba(82, 183, 136, 0.15) !important;
+    position: relative !important;
   }
 
   .mobile-nav-actions .btn-signup,
   .mobile-menu-actions .btn-mobile-signup,
   .btn-mobile-signup {
     width: 100% !important;
-    height: 50px !important;
-    background: linear-gradient(135deg, #2d6a4f 0%, #52b788 100%) !important;
+    height: 52px !important;
+    background: linear-gradient(135deg, #1f4e38 0%, #2d6a4f 40%, #52b788 100%) !important;
     color: #ffffff !important;
     font-size: 16px !important;
     font-weight: 700 !important;
     padding: 0 24px !important;
     border-radius: 9999px !important;
-    border: none !important;
-    box-shadow: 0 8px 24px rgba(45, 106, 79, 0.55), inset 0 1px 1px rgba(255, 255, 255, 0.3) !important;
+    border: 1px solid rgba(255, 255, 255, 0.35) !important;
+    box-shadow: 0 8px 26px rgba(45, 106, 79, 0.55), inset 0 1px 2px rgba(255, 255, 255, 0.4) !important;
     cursor: pointer !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     gap: 8px !important;
-    letter-spacing: 0.3px !important;
-    transition: all 0.25s ease !important;
+    letter-spacing: 0.4px !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
     text-decoration: none !important;
   }
   .mobile-nav-actions .btn-signup:hover,
+  .mobile-nav-actions .btn-signup:active,
   .mobile-menu-actions .btn-mobile-signup:hover,
   .btn-mobile-signup:hover {
-    background: linear-gradient(135deg, #1b4332 0%, #40916c 100%) !important;
-    transform: translateY(-2px) !important;
-    box-shadow: 0 10px 30px rgba(82, 183, 136, 0.7) !important;
+    background: linear-gradient(135deg, #163d2b 0%, #245841 40%, #40916c 100%) !important;
+    transform: translateY(-2px) scale(1.02) !important;
+    box-shadow: 0 12px 34px rgba(82, 183, 136, 0.7), inset 0 1px 3px rgba(255, 255, 255, 0.6) !important;
+    color: #ffffff !important;
   }
 
   .mobile-nav-actions .btn-login,
   .mobile-menu-actions .btn-mobile-login,
   .btn-mobile-login {
     width: 100% !important;
-    height: 48px !important;
-    background: rgba(255, 255, 255, 0.07) !important;
+    height: 50px !important;
+    background: rgba(255, 255, 255, 0.09) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
     color: #ffffff !important;
     font-size: 15.5px !important;
-    font-weight: 600 !important;
+    font-weight: 700 !important;
     padding: 0 24px !important;
     border-radius: 9999px !important;
-    border: 1.5px solid rgba(255, 255, 255, 0.22) !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.3) !important;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.15) !important;
     cursor: pointer !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    letter-spacing: 0.2px !important;
-    transition: all 0.25s ease !important;
+    letter-spacing: 0.3px !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
     text-decoration: none !important;
   }
   .mobile-nav-actions .btn-login:hover,
+  .mobile-nav-actions .btn-login:active,
   .mobile-menu-actions .btn-mobile-login:hover,
   .btn-mobile-login:hover {
-    background: rgba(255, 255, 255, 0.14) !important;
-    border-color: rgba(255, 255, 255, 0.45) !important;
-    transform: translateY(-2px) !important;
+    background: rgba(255, 255, 255, 0.18) !important;
+    border-color: #52b788 !important;
+    color: #ffffff !important;
+    transform: translateY(-2px) scale(1.02) !important;
+    box-shadow: 0 8px 24px rgba(82, 183, 136, 0.35) !important;
   }
 
   /* 3. MOBILE HERO & SEARCH CARD (SCREENSHOT 1) */
@@ -2478,7 +2507,7 @@ html, body {
     display: flex !important;
     align-items: center !important;
     gap: 14px !important;
-    padding: 14px 18px !important;
+    padding: max(14px, env(safe-area-inset-top, 14px)) 20px 14px 20px !important;
     background: #070e17 !important;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
     position: sticky !important;
