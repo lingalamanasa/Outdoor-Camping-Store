@@ -211,17 +211,17 @@ function trigger404(e) {
 // ===== INTERACTIVE BUTTON HANDLERS =====
 function handleAddToCart(e, productName) {
   if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  openModal('404');
+  trigger404(e);
 }
 
 function handleBookExpedition(e, tourTitle) {
   if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  openModal('404');
+  trigger404(e);
 }
 
 function handleCustomRoute(e) {
   if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  openModal('404');
+  trigger404(e);
 }
 
 // ===== BLOG CATEGORY FILTER HANDLER =====
@@ -410,47 +410,47 @@ function handleAddNewListing(e) {
 
 function handleDashboardAction(e, actionName) {
   if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  openModal('404');
+  trigger404(e);
 }
 
 function handleSocialAuth(e) {
   if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  openModal('404');
+  trigger404(e);
 }
 
 function handleSocialClick(e, platformName, url) {
   if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  openModal('404');
+  trigger404(e);
 }
 
 function handleSocialPhotoClick(e) {
   if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  openModal('404');
+  trigger404(e);
 }
 
 function handleContactAction(e) {
   if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  openModal('404');
+  trigger404(e);
 }
 
 function handleTermsClick(e) {
   if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  openModal('404');
+  trigger404(e);
 }
 
 function handleStoreHoursClick(e) {
   if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  openModal('404');
+  trigger404(e);
 }
 
 function handleDirectionsClick(e) {
   if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  openModal('404');
+  trigger404(e);
 }
 
 function handleLiveChatClick(e) {
   if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  openModal('404');
+  trigger404(e);
 }
 
 function handleContactLocationClick(e) {
