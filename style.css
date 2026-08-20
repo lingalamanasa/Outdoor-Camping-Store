@@ -98,7 +98,7 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
   gap: 20px;
 }
 
-.logo, #logo-link, .dash-sidebar-brand, .dash-mobile-header-brand, .footer-logo-link {
+.logo, #logo-link, .dash-sidebar-brand, .dash-mobile-header-brand, .footer-logo-link, .header-logo-link {
   display: flex !important;
   align-items: center !important;
   gap: 10px !important;
@@ -111,6 +111,30 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
 }
 .logo *, #logo-link *, .dash-sidebar-brand *, .dash-mobile-header-brand * {
   pointer-events: none !important;
+}
+.brand-logo-img, .header-logo, .header-logo-img {
+  height: 38px;
+  width: auto;
+  max-width: 160px;
+  object-fit: contain;
+  filter: brightness(0) invert(1) drop-shadow(0 2px 8px rgba(0,0,0,0.3));
+  transition: transform var(--t), filter var(--t);
+  display: block;
+}
+.brand-logo-img.dark-version, .dash-sidebar-brand .brand-logo-img.dark-version {
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.1));
+}
+.footer-logo-img {
+  height: 36px;
+  width: auto;
+  max-width: 150px;
+  object-fit: contain;
+  filter: brightness(0) invert(1) drop-shadow(0 2px 8px rgba(0,0,0,0.4));
+  transition: transform var(--t);
+  display: block;
+}
+.logo:hover .brand-logo-img, .header-logo-link:hover .brand-logo-img, .footer-logo-link:hover .footer-logo-img {
+  transform: scale(1.04);
 }
 .logo-mark {
   width: 38px;
