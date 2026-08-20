@@ -223,6 +223,68 @@ function handleCustomRoute(e) {
   openModal('404');
 }
 
+// ===== BLOG CATEGORY FILTER HANDLER =====
+function handleBlogFilter(e, category) {
+  if (e && typeof e.preventDefault === 'function') e.preventDefault();
+  const btn = e ? (e.currentTarget || e.target) : null;
+  const filterVal = category || (btn ? btn.textContent.trim().toLowerCase() : 'all');
+
+  // Update active state on buttons
+  document.querySelectorAll('.bf-btn').forEach(b => {
+    b.classList.remove('active');
+  });
+  if (btn) {
+    btn.classList.add('active');
+  } else {
+    document.querySelectorAll('.bf-btn').forEach(b => {
+      const txt = b.textContent.trim().toLowerCase();
+      if (txt.includes(filterVal) || (filterVal === 'all' && (txt.includes('all') || txt.includes('stories')))) {
+        b.classList.add('active');
+      }
+    });
+  }
+
+  // Filter blog cards
+  const cards = document.querySelectorAll('.blog-card, #page-blog .service-box');
+  cards.forEach(card => {
+    const cardCat = (card.getAttribute('data-category') || card.querySelector('.blog-category-badge')?.textContent || card.textContent).toLowerCase();
+    
+    let isMatch = false;
+    if (filterVal.includes('all')) {
+      isMatch = true;
+    } else if (filterVal.includes('camping') || filterVal.includes('tips') || filterVal.includes('shelter')) {
+      isMatch = cardCat.includes('camping') || cardCat.includes('tips') || cardCat.includes('shelter') || cardCat.includes('essentials');
+    } else if (filterVal.includes('gear') || filterVal.includes('review') || filterVal.includes('guide')) {
+      isMatch = cardCat.includes('gear') || cardCat.includes('review') || cardCat.includes('guide') || cardCat.includes('fitting');
+    } else if (filterVal.includes('survival') || filterVal.includes('skills') || filterVal.includes('safety') || filterVal.includes('aid')) {
+      isMatch = cardCat.includes('survival') || cardCat.includes('first aid') || cardCat.includes('safety') || cardCat.includes('skills');
+    } else if (filterVal.includes('kitchen') || filterVal.includes('cooking') || filterVal.includes('food') || filterVal.includes('meals')) {
+      isMatch = cardCat.includes('kitchen') || cardCat.includes('cook') || cardCat.includes('food') || cardCat.includes('meal');
+    }
+
+    if (isMatch) {
+      card.style.display = '';
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(12px)';
+      setTimeout(() => {
+        card.style.transition = 'all 0.28s ease';
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+      }, 20);
+    } else {
+      card.style.display = 'none';
+    }
+  });
+
+  // Smooth scroll to latest articles section header if triggered by user click
+  const targetHeader = document.querySelector('#page-blog .section-header-centered') || document.querySelector('.blog-card');
+  if (targetHeader && e) {
+    const yOffset = -90;
+    const y = targetHeader.getBoundingClientRect().top + window.pageYOffset + yOffset;
+    window.scrollTo({ top: y, behavior: 'smooth' });
+  }
+}
+
 let _searchToastTimer = null;
 
 function clearSearchError() {

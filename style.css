@@ -3467,4 +3467,44 @@ html, body {
   transform: translateY(0) scale(0.98) !important;
 }
 
+/* ===== BLOG CATEGORY FILTER BAR ===== */
+.blog-filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 0 auto;
+}
+
+.bf-btn {
+  background: #ffffff;
+  border: 1.5px solid rgba(15, 23, 42, 0.14);
+  color: #334155;
+  padding: 10px 22px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.bf-btn:hover {
+  border-color: #1b4332;
+  color: #1b4332;
+  background: #f0fdf4;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(27, 67, 50, 0.12);
+}
+
+.bf-btn.active {
+  background: #1b4332 !important;
+  color: #ffffff !important;
+  border-color: #1b4332 !important;
+  box-shadow: 0 4px 14px rgba(27, 67, 50, 0.28) !important;
+  transform: translateY(-2px);
+}
+
+
 

@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=54" />
+  <link rel="stylesheet" href="style.css?v=74" />
 </head>
 <body>
 
@@ -101,14 +101,14 @@
     </section>
 
     <!-- SECTION 2: CATEGORY FILTERS -->
-    <section class="page-section bg-alt">
+    <section class="page-section bg-alt" style="padding: 40px 0;">
       <div class="container">
         <div class="blog-filter-bar">
-          <button class="bf-btn active" onclick="handleBlogFilter(event)">All Guides</button>
-          <button class="bf-btn" onclick="handleBlogFilter(event)">Camp Cooking</button>
-          <button class="bf-btn" onclick="handleBlogFilter(event)">Shelter &amp; Tents</button>
-          <button class="bf-btn" onclick="handleBlogFilter(event)">First Aid &amp; Safety</button>
-          <button class="bf-btn" onclick="handleBlogFilter(event)">Trail Reviews</button>
+          <button class="bf-btn active" onclick="handleBlogFilter(event)">All Stories</button>
+          <button class="bf-btn" onclick="handleBlogFilter(event)">Camping Tips</button>
+          <button class="bf-btn" onclick="handleBlogFilter(event)">Gear Reviews</button>
+          <button class="bf-btn" onclick="handleBlogFilter(event)">Survival Skills</button>
+          <button class="bf-btn" onclick="handleBlogFilter(event)">Camp Kitchen</button>
         </div>
       </div>
     </section>
@@ -116,37 +116,88 @@
     <!-- SECTION 3: RECENT JOURNAL ARTICLES GRID -->
     <section class="page-section">
       <div class="container">
+        <div class="section-header-centered">
+          <span class="section-tag">Section 03</span>
+          <h2 class="section-title">Latest <span class="accent">Trail Articles</span></h2>
+        </div>
         <div class="grid-3">
-          <div class="service-box">
-            <div class="sb-img-wrap">
-              <img src="images/blog_backpack_choose_1786948234186.png" alt="Backpack Sizing" class="sb-img"/>
+          <article class="blog-card" data-category="gear-reviews">
+            <div class="blog-img-wrap">
+              <img src="images/blog_backpack_choose_1786948234186.png" alt="Backpack Sizing" class="blog-real-img"/>
+              <span class="blog-category-badge">Gear Reviews</span>
             </div>
-            <div class="sb-body">
-              <span class="blog-category-badge">Gear Fitting</span>
-              <h3>How to Choose the Right Backpack Capacity (40L vs 65L vs 85L)</h3>
+            <div class="blog-info">
+              <h4>How to Choose the Right Backpack Capacity (40L vs 65L vs 85L)</h4>
               <p>Understanding torso length, load distribution, and seasonal gear weight requirements.</p>
+              <div class="blog-meta"><span>👁 3.4K views</span><span>⏱ 6 min read</span></div>
+              <a href="#" class="blog-link" onclick="handleReadGuide(event, 'Backpack Guide')">Read Story →</a>
             </div>
-          </div>
-          <div class="service-box">
-            <div class="sb-img-wrap">
-              <img src="images/blog_campfire_food_1786948481997.png" alt="Campfire Food" class="sb-img"/>
+          </article>
+
+          <article class="blog-card" data-category="camp-kitchen">
+            <div class="blog-img-wrap">
+              <img src="images/blog_campfire_food_1786948481997.png" alt="Campfire Food" class="blog-real-img"/>
+              <span class="blog-category-badge">Camp Kitchen</span>
             </div>
-            <div class="sb-body">
-              <span class="blog-category-badge">Camp Cooking</span>
-              <h3>Cast Iron Campfire Cooking: 5 One-Pot Trail Feasts</h3>
+            <div class="blog-info">
+              <h4>Cast Iron Campfire Cooking: 5 One-Pot Trail Feasts</h4>
               <p>Delicious high-protein recipes you can cook over open embers without heavy prep.</p>
+              <div class="blog-meta"><span>👁 4.8K views</span><span>⏱ 4 min read</span></div>
+              <a href="#" class="blog-link" onclick="handleReadGuide(event, 'Campfire Cooking Guide')">Read Story →</a>
             </div>
-          </div>
-          <div class="service-box">
-            <div class="sb-img-wrap">
-              <img src="images/blog_rain_camping_1786948214603.png" alt="Rain Camping" class="sb-img"/>
+          </article>
+
+          <article class="blog-card" data-category="survival-skills">
+            <div class="blog-img-wrap">
+              <img src="images/blog_rain_camping_1786948214603.png" alt="Rain Camping" class="blog-real-img"/>
+              <span class="blog-category-badge">Survival Skills</span>
             </div>
-            <div class="sb-body">
-              <span class="blog-category-badge">Wilderness Survival</span>
-              <h3>Staying Dry in Heavy Rain: Advanced Tarp &amp; Tent Setups</h3>
+            <div class="blog-info">
+              <h4>Staying Dry in Heavy Rain: Advanced Tarp &amp; Tent Setups</h4>
               <p>Waterproofing techniques, trenching myths, and condensation management tips.</p>
+              <div class="blog-meta"><span>👁 2.1K views</span><span>⏱ 5 min read</span></div>
+              <a href="#" class="blog-link" onclick="handleReadGuide(event, 'Rain Camping Guide')">Read Story →</a>
             </div>
-          </div>
+          </article>
+
+          <article class="blog-card" data-category="camping-tips">
+            <div class="blog-img-wrap">
+              <img src="images/blog_knots_1786948150320.png" alt="Camping Knots & Tips" class="blog-real-img"/>
+              <span class="blog-category-badge">Camping Tips</span>
+            </div>
+            <div class="blog-info">
+              <h4>10 Essential Knots Every Outdoor Camper Should Master</h4>
+              <p>Secure tent guylines in 40mph winds and hang bear canisters with ease.</p>
+              <div class="blog-meta"><span>👁 5.2K views</span><span>⏱ 7 min read</span></div>
+              <a href="#" class="blog-link" onclick="handleReadGuide(event, 'Essential Knots Guide')">Read Story →</a>
+            </div>
+          </article>
+
+          <article class="blog-card" data-category="camping-tips">
+            <div class="blog-img-wrap">
+              <img src="https://images.unsplash.com/photo-1510312305653-8ed496efae75?w=600&q=80" alt="Sub-Zero Camping Tips" class="blog-real-img"/>
+              <span class="blog-category-badge">Camping Tips</span>
+            </div>
+            <div class="blog-info">
+              <h4>How to Sleep Warm in Sub-Zero Tent Temperatures</h4>
+              <p>R-value sleep pads, thermal liners, and pre-sleep hydration strategies.</p>
+              <div class="blog-meta"><span>👁 3.9K views</span><span>⏱ 5 min read</span></div>
+              <a href="#" class="blog-link" onclick="handleReadGuide(event, 'Sub-Zero Sleep Guide')">Read Story →</a>
+            </div>
+          </article>
+
+          <article class="blog-card" data-category="gear-reviews">
+            <div class="blog-img-wrap">
+              <img src="images/product_tent_1786946937685.png" alt="Tent Gear Review" class="blog-real-img"/>
+              <span class="blog-category-badge">Gear Reviews</span>
+            </div>
+            <div class="blog-info">
+              <h4>2026 Trail Test: Top 5 Ultralight 4-Season Tents</h4>
+              <p>Comprehensive storm resistance, weight-to-space ratios, and snow load tests.</p>
+              <div class="blog-meta"><span>👁 4.1K views</span><span>⏱ 8 min read</span></div>
+              <a href="#" class="blog-link" onclick="handleReadGuide(event, 'Ultralight Tents Review')">Read Story →</a>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -268,6 +319,6 @@
     <span>🛒 Item added to cart!</span>
   </div>
 
-  <script src="script.js?v=54"></script>
+  <script src="script.js?v=74"></script>
 </body>
 </html>
