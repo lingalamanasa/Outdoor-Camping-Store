@@ -23,23 +23,25 @@
         <img src="assets/logo.webp" alt="Stackly Logo" class="brand-logo-img header-logo" id="nav-logo-img" />
       </a>
 
-      <!-- NAV LINKS (PAGE SWITCHER) -->
-      <nav class="nav-links" id="nav-links">
-        <a href="#home"     class="nav-link active" id="nav-home"     onclick="switchPage('home'); return false;">Home</a>
-        <a href="#about"    class="nav-link"        id="nav-about"    onclick="switchPage('about'); return false;">About</a>
-        <a href="#services" class="nav-link"        id="nav-services" onclick="switchPage('services'); return false;">Services</a>
-        <a href="#blog"     class="nav-link"        id="nav-blog"     onclick="switchPage('blog'); return false;">Blog</a>
-        <a href="#contact"  class="nav-link"        id="nav-contact"  onclick="switchPage('contact'); return false;">Contact</a>
+      <!-- NAV LINKS -->
+      <nav class="main-nav" id="main-nav">
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html" class="nav-link active" id="nav-home">Products</a></li>
+          <li><a href="services.html" class="nav-link" id="nav-services">Solutions</a></li>
+          <li><a href="about.html" class="nav-link" id="nav-about">Integration</a></li>
+          <li><a href="blog.html" class="nav-link" id="nav-blog">Blog</a></li>
+          <li><a href="contact.html" class="nav-link" id="nav-contact">Contact</a></li>
+        </ul>
         <div class="mobile-nav-actions">
-          <button class="btn-signup" onclick="switchPage('signup'); closeMobileMenu(); return false;">Sign up →</button>
-          <button class="btn-login" onclick="switchPage('login'); closeMobileMenu(); return false;">Login</button>
+          <a href="signup.html" class="btn-signup">Sign up →</a>
+          <a href="login.html" class="btn-login">Login</a>
         </div>
       </nav>
 
       <!-- RIGHT NAV ACTIONS -->
       <div class="nav-actions">
-        <button class="btn-signup" onclick="switchPage('signup'); return false;">Sign up →</button>
-        <button class="btn-login" onclick="switchPage('login'); return false;">Login</button>
+        <a href="signup.html" class="btn-signup">Sign up →</a>
+        <a href="login.html" class="btn-login">Login</a>
         <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu">
           <svg class="hamburger-icon-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -179,62 +181,33 @@
     </form>
   </div>
 
-  <!-- 404 ERROR MODAL (ULTRA LUXURY BACKCOUNTRY EXPEDITION THEME) -->
+  <!-- 404 ERROR MODAL (EDITORIAL LUXURY THEME) -->
   <div class="auth-modal modal-404-box" id="modal-404" role="dialog" aria-modal="true" aria-label="404 Page Not Found">
     <button class="modal-close" onclick="closeModal()" aria-label="Close">✕</button>
     <div class="err-404-container">
-      
-      <!-- Top Holographic Altitude Pill -->
-      <div class="err-404-top-bar">
-        <span class="err-404-pulse-dot"></span>
-        <span class="err-404-status-text">UNCHARTED BACKCOUNTRY · 9,420 FT</span>
-      </div>
-
-      <!-- Center Animated Compass & Giant 404 Watermark -->
-      <div class="err-404-hero-visual">
-        <div class="err-404-watermark">404</div>
-        <div class="err-404-radar-ring"></div>
-        <div class="err-404-radar-ring outer"></div>
-        <div class="err-404-compass-disc">
-          <svg class="compass-svg" width="68" height="68" viewBox="0 0 100 100" fill="none">
-            <circle cx="50" cy="50" r="46" stroke="rgba(82, 183, 136, 0.4)" stroke-width="2" stroke-dasharray="4 4"/>
-            <circle cx="50" cy="50" r="38" stroke="rgba(255, 255, 255, 0.2)" stroke-width="1.5"/>
-            <!-- Compass Rose Needle -->
-            <polygon points="50,16 57,50 50,46" fill="#ef4444"/>
-            <polygon points="50,16 43,50 50,46" fill="#f87171"/>
-            <polygon points="50,84 57,50 50,54" fill="#3b82f6"/>
-            <polygon points="50,84 43,50 50,54" fill="#60a5fa"/>
-            <!-- East / West Points -->
-            <polygon points="84,50 50,57 54,50" fill="#9ca3af"/>
-            <polygon points="16,50 50,43 46,50" fill="#9ca3af"/>
-            <circle cx="50" cy="50" r="4" fill="#ffffff"/>
-          </svg>
-        </div>
-      </div>
-
-      <div class="err-404-coords-badge">
-        <span>📍 GPS: 40°01'18"N · 105°16'48"W</span>
-      </div>
-
-      <h2 class="err-404-headline">Off The Beaten Path</h2>
-      <p class="err-404-lead">
-        You've wandered into an unmapped wilderness trail. Our satellite guide is standing by to navigate you back to base camp safely.
+      <h1 class="err-404-number">404</h1>
+      <h2 class="err-404-heading">Page Not Found</h2>
+      <p class="err-404-desc">
+        Oops! The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.
       </p>
 
-      <!-- Primary Action Buttons -->
-      <div class="err-404-actions-stack">
-        <button class="err-404-btn-main" onclick="closeModal(); if (typeof switchPage === 'function') { switchPage('home'); } else { window.location.href='index.html'; } window.scrollTo({top:0, behavior:'smooth'});">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-          Return to Base Camp
-          <span class="btn-shine"></span>
-        </button>
+      <div class="err-404-actions">
+        <a href="index.html" class="err-404-btn-home" onclick="closeModal(); if (typeof switchPage === 'function') { switchPage('home'); } else { window.location.href='index.html'; } window.scrollTo({top:0, behavior:'smooth'}); return false;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+          <span>Back to Home</span>
+        </a>
 
-        <button class="err-404-btn-sub" onclick="closeModal(); if (window.history.length > 1) { window.history.back(); } else { window.location.href='index.html'; }">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
-          Retrace Steps (Go Back)
+        <button type="button" class="err-404-btn-back" onclick="closeModal(); if (window.history.length > 1) { window.history.back(); } else { window.location.href='index.html'; }">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="19" y1="12" x2="5" y2="12"/>
+            <polyline points="12 19 5 12 12 5"/>
+          </svg>
+          <span>Go Back</span>
         </button>
       </div>
-
     </div>
   </div>
 
@@ -2850,7 +2823,7 @@
           <p style="cursor:pointer;" onclick="handleContactLocationClick(event)" title="View Store Details & Hours">📞 +1 (800) 945-3272</p>
           <p style="cursor:pointer;" onclick="openModal('404');">✉️ hello@stackly.store</p>
           <div class="footer-socials">
-            <a href="#" onclick="openModal('404'); return false;" class="fsocial" title="GitHub" aria-label="GitHub">
+            <a href="https://github.com/lingalamanasa/Outdoor-Camping-Store" target="_blank" class="fsocial" title="GitHub" aria-label="GitHub">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
               </svg>

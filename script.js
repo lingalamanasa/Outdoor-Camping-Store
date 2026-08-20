@@ -493,7 +493,12 @@ function openModal(type) {
   closeModal(false);
   const backdrop = document.getElementById('modal-backdrop');
   const modal = document.getElementById(`modal-${type}`);
-  if (!modal || !backdrop) return;
+  if (!modal || !backdrop) {
+    if (type === '404') {
+      window.location.href = '404.html';
+    }
+    return;
+  }
   backdrop.classList.add('open');
   modal.classList.add('open');
   activeModal = type;
