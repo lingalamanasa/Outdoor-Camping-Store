@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=56" />
+  <link rel="stylesheet" href="style.css?v=58" />
 </head>
 <body>
 
@@ -1658,11 +1658,11 @@
     </div>
 
     <!-- =====================================================
-         8. HOST DASHBOARD VIEW (FULLY INTERACTIVE & ENHANCED)
+         8. TRAVELLER DASHBOARD VIEW (MATCHING REFERENCE IMAGE 1 & 3)
     ===================================================== -->
     <div id="page-dashboard" class="page-view">
       
-      <!-- DASHBOARD MOBILE TOP HEADER (MATCHING SCREENSHOT 1) -->
+      <!-- DASHBOARD MOBILE TOP HEADER (MATCHING REFERENCE IMAGE 3) -->
       <div class="dash-mobile-top-header">
         <button class="dash-hamburger-square" onclick="openDashDrawer()" aria-label="Open Navigation Drawer">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -1671,9 +1671,9 @@
             <line x1="4" y1="18" x2="20" y2="18"></line>
           </svg>
         </button>
-        <div class="dash-mobile-header-brand" onclick="switchPage('dashboard'); switchHostTab('overview'); return false;" style="cursor:pointer;" title="Host Dashboard">
+        <div class="dash-mobile-header-brand" onclick="switchPage('dashboard'); return false;" style="cursor:pointer;" title="Traveller Dashboard">
           <div class="dash-logo-icon-purple">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c084fc" stroke-width="2.2" stroke-linecap="round">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.2" stroke-linecap="round">
               <path d="M4 7C8 5.5 16 5.5 20 7"/>
               <path d="M4 12C8 10.5 16 10.5 20 12"/>
               <path d="M4 17C8 15.5 16 15.5 20 17"/>
@@ -1681,19 +1681,19 @@
           </div>
           <div class="dash-brand-text">
             <span class="logo-text" style="font-size:16px; font-weight:800; color:#ffffff; letter-spacing:0.8px; text-transform:uppercase;">STACKLY</span>
-            <span class="purple-subtitle" style="font-size:11px; font-weight:700; color:#c084fc;">Enterprise Executive Dashboard</span>
+            <span class="purple-subtitle" style="font-size:11px; font-weight:700; color:#38bdf8;">Traveller Dashboard</span>
           </div>
         </div>
       </div>
 
       <div class="dash-layout">
         
-        <!-- SIDEBAR DRAWER (MATCHING SCREENSHOT 2) -->
+        <!-- SIDEBAR DRAWER (MATCHING REFERENCE IMAGE 1 & 4) -->
         <aside class="dash-sidebar" id="host-dash-sidebar">
           <!-- STACKLY BRAND LOGO -->
-          <a href="#" class="dash-sidebar-brand" onclick="switchPage('dashboard'); switchHostTab('overview'); return false;" style="text-decoration:none; display:flex; align-items:center; gap:10px; margin-bottom:28px; padding:0 4px; cursor:pointer;" title="Host Dashboard">
-            <div class="dash-logo-icon-purple" style="width:36px; height:36px; border-radius:10px; background:#1e1035; border:1px solid rgba(192,132,252,0.35); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c084fc" stroke-width="2.2" stroke-linecap="round">
+          <a href="#" class="dash-sidebar-brand" onclick="switchPage('dashboard'); return false;" style="text-decoration:none; display:flex; align-items:center; gap:10px; margin-bottom:28px; padding:0 4px; cursor:pointer;" title="Traveller Dashboard">
+            <div class="dash-logo-icon-purple" style="width:36px; height:36px; border-radius:10px; background:#0f2938; border:1px solid rgba(56,189,248,0.35); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.2" stroke-linecap="round">
                 <path d="M4 7C8 5.5 16 5.5 20 7"/>
                 <path d="M4 12C8 10.5 16 10.5 20 12"/>
                 <path d="M4 17C8 15.5 16 15.5 20 17"/>
@@ -1701,7 +1701,7 @@
             </div>
             <div class="dash-brand-text">
               <span class="logo-text" style="font-size:18px; font-weight:800; color:#ffffff !important; letter-spacing:0.8px; text-transform:uppercase;">STACKLY</span>
-              <span class="purple-subtitle" style="font-size:11px; font-weight:700; color:#c084fc;">Enterprise Executive Dashboard</span>
+              <span class="purple-subtitle" style="font-size:11px; font-weight:700; color:#38bdf8;">Traveller Dashboard</span>
             </div>
           </a>
 
@@ -1710,20 +1710,20 @@
           </div>
 
           <nav class="sidebar-nav">
-            <a href="#" class="sidebar-link active" id="host-nav-overview" onclick="switchHostTab('overview'); closeDashDrawer(); return false;">
-              <span class="s-icon">📊</span> Overview
+            <a href="#" class="sidebar-link active" id="host-nav-overview" onclick="closeDashDrawer(); return false;">
+              <span class="s-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg></span> Overview
             </a>
-            <a href="#" class="sidebar-link" id="host-nav-properties" onclick="switchHostTab('properties'); closeDashDrawer(); return false;">
-              <span class="s-icon">🎒</span> My Gear &amp; Rentals
+            <a href="#" class="sidebar-link" id="host-nav-properties" onclick="closeDashDrawer(); return false;">
+              <span class="s-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3.5c-.5-.5-2.5 0-4 1.5L13.5 8.5 5.3 6.7c-.7-.1-1.3.1-1.7.6l-1.2 1.4c-.4.4-.3 1.1.2 1.4l5.3 3.5-3.5 3.5-2.3-.8c-.4-.1-.8 0-1.1.3l-.6.6c-.3.3-.3.8 0 1.1l3.5 3.5c.3.3.8.3 1.1 0l.6-.6c.3-.3.4-.7.3-1.1l-.8-2.3 3.5-3.5 3.5 5.3c.3.5 1 .6 1.4.2l1.4-1.2c.5-.4.7-1 .6-1.7z"></path></svg></span> My Trips
             </a>
-            <a href="#" class="sidebar-link" id="host-nav-bookings" onclick="switchHostTab('bookings'); closeDashDrawer(); return false;">
-              <span class="s-icon">🏔️</span> Booked Expeditions
+            <a href="#" class="sidebar-link" id="host-nav-bookings" onclick="closeDashDrawer(); return false;">
+              <span class="s-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></span> Saved Stays
             </a>
-            <a href="#" class="sidebar-link" id="host-nav-earnings" onclick="switchHostTab('earnings'); closeDashDrawer(); return false;">
-              <span class="s-icon">⭐</span> Saved Wishlist
+            <a href="#" class="sidebar-link" id="host-nav-earnings" onclick="closeDashDrawer(); return false;">
+              <span class="s-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg></span> Payments
             </a>
-            <a href="#" class="sidebar-link" id="host-nav-settings" onclick="switchHostTab('settings'); closeDashDrawer(); return false;">
-              <span class="s-icon">⚙️</span> Account Settings
+            <a href="#" class="sidebar-link" id="host-nav-settings" onclick="closeDashDrawer(); return false;">
+              <span class="s-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></span> Settings
             </a>
           </nav>
 
@@ -1738,20 +1738,20 @@
         <!-- MAIN CONTENT CONTAINER -->
         <div class="dash-main-content" style="padding:32px 36px;">
           
-          <!-- TOP WELCOME BAR (MATCHING REFERENCE SCREENSHOT) -->
+          <!-- TOP WELCOME BAR (MATCHING REFERENCE IMAGE 1) -->
           <header class="dash-topbar-flex">
             <div>
               <h1 class="dash-title serif-title">Welcome back, <span class="dash-user-disp-name">Manasasrinivas_Lingala</span></h1>
-              <p class="dash-subtitle">Here is what is happening with your hosted properties and outdoor gear rentals today.</p>
+              <p class="dash-subtitle">Ready for your next extraordinary journey?</p>
             </div>
 
             <div class="dash-user-pill-badge">
               <div class="dup-details">
-                <span class="dup-name dash-user-uname-disp" style="color:#c084fc;">MANASASRINIVAS LINGALA</span>
-                <span class="dup-email-muted dash-user-email-disp">sbende1996@gmail.com</span>
+                <span class="dup-name dash-user-uname-disp" style="color:#38bdf8;">MANASASRINIVAS_LINGALA</span>
+                <span class="dup-email-muted dash-user-email-disp">lingalamanasa123@gmail.com</span>
               </div>
-              <div class="dup-avatar-circle" style="background:#241938; color:#c084fc; border-color:rgba(192, 132, 252, 0.3);">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c084fc" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <div class="dup-avatar-circle" style="background:#112233; color:#38bdf8; border-color:rgba(56, 189, 248, 0.4);">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
                   <circle cx="12" cy="7" r="4"/>
                 </svg>
@@ -1759,149 +1759,144 @@
             </div>
           </header>
 
-          <!-- HOST SUBPANEL 1: OVERVIEW (ACTIVE BY DEFAULT) -->
+          <!-- HOST SUBPANEL 1: OVERVIEW (MATCHING REFERENCE IMAGE 1) -->
           <div class="host-subpanel active" id="host-panel-overview">
             
-            <!-- TOP 4 METRIC CARDS (MATCHING REFERENCE SCREENSHOT) -->
+            <!-- TOP 4 METRIC CARDS (MATCHING REFERENCE IMAGE 1) -->
             <div class="dash-metrics-grid-4">
               
-              <!-- CARD 1: MONTHLY REVENUE -->
+              <!-- CARD 1: TOTAL TRIPS -->
               <div class="metric-card-box">
                 <div class="mc-top-row">
-                  <div class="mc-icon-badge" style="color:#c084fc;">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><line x1="12" y1="11" x2="12" y2="17"></line><line x1="9" y1="14" x2="15" y2="14"></line></svg>
+                  <div class="mc-icon-badge" style="color:#38bdf8;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg>
                   </div>
-                  <span class="mc-label">Monthly Revenue</span>
+                  <span class="mc-label">Total Trips</span>
                 </div>
-                <div class="mc-val">$12,450</div>
+                <div class="mc-val">24</div>
               </div>
 
-              <!-- CARD 2: AVERAGE RATING -->
+              <!-- CARD 2: COUNTRIES -->
               <div class="metric-card-box">
                 <div class="mc-top-row">
-                  <div class="mc-icon-badge" style="color:#c084fc;">
+                  <div class="mc-icon-badge" style="color:#38bdf8;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                  </div>
+                  <span class="mc-label">Countries</span>
+                </div>
+                <div class="mc-val">12</div>
+              </div>
+
+              <!-- CARD 3: REWARD POINTS -->
+              <div class="metric-card-box">
+                <div class="mc-top-row">
+                  <div class="mc-icon-badge" style="color:#38bdf8;">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
                   </div>
-                  <span class="mc-label">Average Rating</span>
+                  <span class="mc-label">Reward Points</span>
                 </div>
-                <div class="mc-val">4.95 ⭐</div>
+                <div class="mc-val">8,450</div>
               </div>
 
-              <!-- CARD 3: ACTIVE LISTINGS -->
-              <div class="metric-card-box">
-                <div class="mc-top-row">
-                  <div class="mc-icon-badge" style="color:#c084fc;">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                  </div>
-                  <span class="mc-label">Active Listings</span>
-                </div>
-                <div class="mc-val">18</div>
-              </div>
-
-              <!-- CARD 4: NEXT BOOKING (FEATURED CARD) -->
-              <div class="metric-card-box featured-dark" style="background:#231738; border-color:rgba(192, 132, 252, 0.3);">
+              <!-- CARD 4: NEXT FLIGHT (FEATURED CARD) -->
+              <div class="metric-card-box featured-dark" style="background:#192438; border-color:rgba(56, 189, 248, 0.25);">
                 <div class="mc-top-row">
                   <div class="mc-icon-badge white-bg">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0b1528" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0b1528" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3.5c-.5-.5-2.5 0-4 1.5L13.5 8.5 5.3 6.7c-.7-.1-1.3.1-1.7.6l-1.2 1.4c-.4.4-.3 1.1.2 1.4l5.3 3.5-3.5 3.5-2.3-.8c-.4-.1-.8 0-1.1.3l-.6.6c-.3.3-.3.8 0 1.1l3.5 3.5c.3.3.8.3 1.1 0l.6-.6c.3-.3.4-.7.3-1.1l-.8-2.3 3.5-3.5 3.5 5.3c.3.5 1 .6 1.4.2l1.4-1.2c.5-.4.7-1 .6-1.7z"></path></svg>
                   </div>
-                  <span class="mc-label">Next Guest Check-in</span>
+                  <span class="mc-label">Next Flight</span>
                 </div>
                 <div>
-                  <div class="mc-val" style="margin-top:10px;">Lake Tahoe Cabin</div>
-                  <div class="mc-subtext" style="color:#c084fc;">In 2 days</div>
+                  <div class="mc-val" style="margin-top:10px;">Paris (CDG)</div>
+                  <div class="mc-subtext" style="color:#38bdf8;">In 14 days</div>
                 </div>
               </div>
 
             </div>
 
-            <!-- MIDDLE GRID: CHART + RECENT RESERVATIONS -->
+            <!-- MIDDLE GRID: TRAVEL ACTIVITY CHART + RECENT BOOKINGS (MATCHING REFERENCE IMAGE 1) -->
             <div class="dash-content-grid">
               
-              <!-- REVENUE CHART CARD -->
+              <!-- TRAVEL ACTIVITY CHART CARD -->
               <div class="dash-box-card chart-box">
                 <div class="dbc-header">
-                  <h3 class="dbc-serif-title">Revenue Overview</h3>
+                  <h3 class="dbc-serif-title">Travel Activity</h3>
                   <select class="dash-select-pill">
+                    <option>This Year</option>
                     <option>Last 6 Months</option>
                     <option>Last 12 Months</option>
-                    <option>This Year</option>
                   </select>
                 </div>
 
                 <div class="chart-wrapper">
-                  <svg class="revenue-svg-chart" viewBox="0 0 600 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <svg class="revenue-svg-chart" viewBox="0 0 600 220" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <defs>
-                      <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="240" gradientUnits="userSpaceOnUse">
+                      <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="220" gradientUnits="userSpaceOnUse">
                         <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.35"/>
                         <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.0"/>
                       </linearGradient>
                     </defs>
 
-                    <line x1="40" y1="30" x2="580" y2="30" stroke="rgba(255,255,255,0.06)" stroke-dasharray="4 4"/>
-                    <line x1="40" y1="70" x2="580" y2="70" stroke="rgba(255,255,255,0.06)" stroke-dasharray="4 4"/>
-                    <line x1="40" y1="110" x2="580" y2="110" stroke="rgba(255,255,255,0.06)" stroke-dasharray="4 4"/>
-                    <line x1="40" y1="150" x2="580" y2="150" stroke="rgba(255,255,255,0.06)" stroke-dasharray="4 4"/>
-                    <line x1="40" y1="190" x2="580" y2="190" stroke="rgba(255,255,255,0.06)" stroke-dasharray="4 4"/>
+                    <!-- Y-Axis Labels matching reference screenshot -->
+                    <text x="5" y="48" fill="#64748b" font-size="13" font-weight="600">4</text>
+                    <text x="5" y="118" fill="#64748b" font-size="13" font-weight="600">3</text>
+                    <text x="5" y="188" fill="#64748b" font-size="13" font-weight="600">2</text>
 
-                    <text x="5" y="34" fill="rgba(255,255,255,0.4)" font-size="11">$15k</text>
-                    <text x="5" y="74" fill="rgba(255,255,255,0.4)" font-size="11">$14k</text>
-                    <text x="5" y="114" fill="rgba(255,255,255,0.4)" font-size="11">$13k</text>
-                    <text x="5" y="154" fill="rgba(255,255,255,0.4)" font-size="11">$12k</text>
-                    <text x="5" y="194" fill="rgba(255,255,255,0.4)" font-size="11">$10k</text>
+                    <!-- Horizontal Grid Lines -->
+                    <line x1="30" y1="45" x2="600" y2="45" stroke="rgba(255,255,255,0.06)" stroke-dasharray="4 4"/>
+                    <line x1="30" y1="115" x2="600" y2="115" stroke="rgba(255,255,255,0.06)" stroke-dasharray="4 4"/>
+                    <line x1="30" y1="185" x2="600" y2="185" stroke="rgba(255,255,255,0.06)"/>
 
-                    <path d="M50 190 Q 150 150, 260 50 T 450 130 T 560 110 L 560 210 L 50 210 Z" fill="url(#chartGrad)"/>
-                    <path d="M50 190 Q 150 150, 260 50 T 450 130 T 560 110" fill="none" stroke="#38bdf8" stroke-width="3" stroke-linecap="round"/>
+                    <!-- Filled Wave Gradient -->
+                    <path d="M 30 185 C 80 185, 100 120, 140 120 C 180 120, 200 170, 240 170 C 280 170, 300 45, 350 45 C 400 45, 430 185, 470 185 C 510 185, 530 150, 580 150 L 580 185 L 30 185 Z" fill="url(#chartGrad)"/>
+                    
+                    <!-- Wave Line stroke matching reference curve -->
+                    <path d="M 30 185 C 80 185, 100 120, 140 120 C 180 120, 200 170, 240 170 C 280 170, 300 45, 350 45 C 400 45, 430 185, 470 185 C 510 185, 530 150, 580 150" fill="none" stroke="#38bdf8" stroke-width="3" stroke-linecap="round"/>
 
-                    <circle cx="50" cy="190" r="5" fill="#0b0e14" stroke="#38bdf8" stroke-width="3"/>
-                    <circle cx="155" cy="150" r="5" fill="#0b0e14" stroke="#38bdf8" stroke-width="3"/>
-                    <circle cx="260" cy="50" r="6" fill="#38bdf8" stroke="#ffffff" stroke-width="3"/>
-                    <circle cx="450" cy="130" r="5" fill="#0b0e14" stroke="#38bdf8" stroke-width="3"/>
-                    <circle cx="560" cy="110" r="5" fill="#0b0e14" stroke="#38bdf8" stroke-width="3"/>
-
-                    <text x="45" y="230" fill="rgba(255,255,255,0.5)" font-size="12">May</text>
-                    <text x="150" y="230" fill="rgba(255,255,255,0.5)" font-size="12">Jun</text>
-                    <text x="255" y="230" fill="rgba(255,255,255,0.5)" font-size="12">Jul</text>
-                    <text x="350" y="230" fill="rgba(255,255,255,0.5)" font-size="12">Aug</text>
-                    <text x="445" y="230" fill="rgba(255,255,255,0.5)" font-size="12">Sep</text>
-                    <text x="555" y="230" fill="rgba(255,255,255,0.5)" font-size="12">Oct</text>
+                    <!-- Glowing Dot Markers at peaks & valleys -->
+                    <circle cx="140" cy="120" r="5" fill="#38bdf8" stroke="#111726" stroke-width="2"/>
+                    <circle cx="240" cy="170" r="5" fill="#38bdf8" stroke="#111726" stroke-width="2"/>
+                    <circle cx="350" cy="45" r="6" fill="#38bdf8" stroke="#111726" stroke-width="2"/>
+                    <circle cx="470" cy="185" r="5" fill="#38bdf8" stroke="#111726" stroke-width="2"/>
+                    <circle cx="580" cy="150" r="5" fill="#38bdf8" stroke="#111726" stroke-width="2"/>
                   </svg>
                 </div>
               </div>
 
-              <!-- RECENT RESERVATIONS CARD -->
+              <!-- RECENT BOOKINGS CARD (MATCHING REFERENCE IMAGE 1) -->
               <div class="dash-box-card reservations-box">
                 <div class="dbc-header">
-                  <h3 class="dbc-serif-title">Recent Reservations</h3>
-                  <a href="#" class="view-all-link" onclick="switchHostTab('bookings'); return false;">View all</a>
+                  <h3 class="dbc-serif-title">Recent Bookings</h3>
+                  <a href="#" class="view-all-link" onclick="return false;">View all</a>
                 </div>
 
                 <div class="reservations-list">
                   
                   <div class="res-item-card">
-                    <img src="https://i.pravatar.cc/100?img=47" alt="Sarah Jenkins" class="res-avatar"/>
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=200&q=80" alt="Le Bristol Paris" class="res-avatar" style="border-radius:12px; object-fit:cover; width:52px; height:52px;"/>
                     <div class="res-info">
-                      <h4>Sarah Jenkins</h4>
-                      <p>Villa Treville • Oct 12 - Oct 18</p>
+                      <h4>Le Bristol Paris</h4>
+                      <p>Oct 12 - Oct 18</p>
                     </div>
-                    <span class="res-badge-status">Confirmed</span>
+                    <span class="res-badge-status" style="background:rgba(56,189,248,0.15); color:#38bdf8; border:1px solid rgba(56,189,248,0.3);">Upcoming</span>
                   </div>
 
                   <div class="res-item-card">
-                    <img src="https://i.pravatar.cc/100?img=53" alt="Michael Chang" class="res-avatar"/>
+                    <img src="https://images.unsplash.com/photo-1502784444187-359ac186c5bb?w=200&q=80" alt="Zermatt Alpine Lodge" class="res-avatar" style="border-radius:12px; object-fit:cover; width:52px; height:52px;"/>
                     <div class="res-info">
-                      <h4>Michael Chang</h4>
-                      <p>Alpine Lodge • Nov 01 - Nov 05</p>
+                      <h4>Zermatt Alpine Lodge</h4>
+                      <p>Nov 04 - Nov 10</p>
                     </div>
-                    <span class="res-badge-status">Confirmed</span>
+                    <span class="res-badge-status" style="background:rgba(56,189,248,0.15); color:#38bdf8; border:1px solid rgba(56,189,248,0.3);">Upcoming</span>
                   </div>
 
                   <div class="res-item-card">
-                    <img src="https://i.pravatar.cc/100?img=52" alt="Elena Voss" class="res-avatar"/>
+                    <img src="https://images.unsplash.com/photo-1510312305653-8ed496efae75?w=200&q=80" alt="Patagonia Trek Camp" class="res-avatar" style="border-radius:12px; object-fit:cover; width:52px; height:52px;"/>
                     <div class="res-info">
-                      <h4>Elena Voss</h4>
-                      <p>Forest Dome • Dec 10 - Dec 14</p>
+                      <h4>Patagonia Trek Camp</h4>
+                      <p>Dec 10 - Dec 18</p>
                     </div>
-                    <span class="res-badge-status">Confirmed</span>
+                    <span class="res-badge-status" style="background:rgba(56,189,248,0.15); color:#38bdf8; border:1px solid rgba(56,189,248,0.3);">Upcoming</span>
                   </div>
 
                 </div>
@@ -1909,48 +1904,25 @@
 
             </div>
 
-            <!-- SECTION 3: MY LISTED PROPERTIES & RENTAL GEAR TABLE -->
+            <!-- SECTION 3: MY BOOKED GEAR & TRIPS -->
             <div class="dash-box-card" style="margin-top: 24px;">
               <div class="dbc-header">
-                <h3 class="dbc-serif-title">My Listed Properties &amp; Rental Equipment</h3>
-                <button class="btn-primary sm" onclick="handleDashboardAction(event)">+ Add New Listing</button>
+                <h3 class="dbc-serif-title">My Booked Trips &amp; Expeditions</h3>
+                <button class="btn-primary sm" onclick="switchPage('services');">+ Explore More Trips</button>
               </div>
 
               <div class="listings-table-container">
                 <table class="dash-table">
                   <thead>
                     <tr>
-                      <th>Property / Gear Title</th>
-                      <th>Rate</th>
-                      <th>Occupancy</th>
-                      <th>Monthly Revenue</th>
+                      <th>Trip / Expedition</th>
+                      <th>Destination</th>
+                      <th>Duration</th>
                       <th>Status</th>
                       <th>Actions</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>
-                        <div class="table-prop-info">
-                          <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=100&q=80" class="prop-thumb" alt="Villa Treville"/>
-                          <div>
-                            <strong>Villa Treville</strong>
-                            <span>Positano, Italy • Luxury Stay</span>
-                          </div>
-                        </div>
-                      </td>
-                      <td><strong>$450</strong> / night</td>
-                      <td><span class="occ-pill green">94% Occupied</span></td>
-                      <td><strong style="color: #34d399;">$6,300.00</strong></td>
-                      <td><span class="res-badge-status green">Active 🟢</span></td>
-                      <td>
-                        <div class="dash-tbl-actions">
-                          <button class="dash-select-pill" onclick="handleDashboardAction(event)">Edit</button>
-                          <button class="dash-select-pill" onclick="handleDashboardAction(event)">Calendar</button>
-                        </div>
-                      </td>
-                    </tr>
-
                     <tr>
                       <td>
                         <div class="table-prop-info">
@@ -2304,12 +2276,12 @@
 
       <div class="dash-layout">
         
-        <!-- SIDEBAR DRAWER (MATCHING SCREENSHOT 2) -->
+        <!-- SIDEBAR DRAWER (MATCHING REFERENCE IMAGE 1 & 4) -->
         <aside class="dash-sidebar" id="user-dash-sidebar">
           <!-- STACKLY BRAND LOGO -->
-          <a href="#" class="dash-sidebar-brand" onclick="switchPage('user-dashboard'); switchTravelerTab('overview'); return false;" style="text-decoration:none; display:flex; align-items:center; gap:10px; margin-bottom:28px; padding:0 4px; cursor:pointer;" title="Traveler Dashboard">
-            <div class="dash-logo-icon-purple" style="width:36px; height:36px; border-radius:10px; background:#1e1035; border:1px solid rgba(192,132,252,0.35); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c084fc" stroke-width="2.2" stroke-linecap="round">
+          <a href="#" class="dash-sidebar-brand" onclick="switchPage('user-dashboard'); return false;" style="text-decoration:none; display:flex; align-items:center; gap:10px; margin-bottom:28px; padding:0 4px; cursor:pointer;" title="Traveller Dashboard">
+            <div class="dash-logo-icon-purple" style="width:36px; height:36px; border-radius:10px; background:#0f2938; border:1px solid rgba(56,189,248,0.35); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.2" stroke-linecap="round">
                 <path d="M4 7C8 5.5 16 5.5 20 7"/>
                 <path d="M4 12C8 10.5 16 10.5 20 12"/>
                 <path d="M4 17C8 15.5 16 15.5 20 17"/>
@@ -2317,7 +2289,7 @@
             </div>
             <div class="dash-brand-text">
               <span class="logo-text" style="font-size:18px; font-weight:800; color:#ffffff !important; letter-spacing:0.8px; text-transform:uppercase;">STACKLY</span>
-              <span class="purple-subtitle" style="font-size:11px; font-weight:700; color:#c084fc;">Enterprise Executive Dashboard</span>
+              <span class="purple-subtitle" style="font-size:11px; font-weight:700; color:#38bdf8;">Traveller Dashboard</span>
             </div>
           </a>
 
@@ -2326,20 +2298,20 @@
           </div>
 
           <nav class="sidebar-nav">
-            <a href="#" class="sidebar-link active" id="user-nav-overview" onclick="switchTravelerTab('overview'); closeDashDrawer(); return false;">
-              <span class="s-icon">📊</span> Overview
+            <a href="#" class="sidebar-link active" id="user-nav-overview" onclick="closeDashDrawer(); return false;">
+              <span class="s-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg></span> Overview
             </a>
-            <a href="#" class="sidebar-link" id="user-nav-rentals" onclick="switchTravelerTab('rentals'); closeDashDrawer(); return false;">
-              <span class="s-icon">🎒</span> My Gear &amp; Rentals
+            <a href="#" class="sidebar-link" id="user-nav-rentals" onclick="closeDashDrawer(); return false;">
+              <span class="s-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3.5c-.5-.5-2.5 0-4 1.5L13.5 8.5 5.3 6.7c-.7-.1-1.3.1-1.7.6l-1.2 1.4c-.4.4-.3 1.1.2 1.4l5.3 3.5-3.5 3.5-2.3-.8c-.4-.1-.8 0-1.1.3l-.6.6c-.3.3-.3.8 0 1.1l3.5 3.5c.3.3.8.3 1.1 0l.6-.6c.3-.3.4-.7.3-1.1l-.8-2.3 3.5-3.5 3.5 5.3c.3.5 1 .6 1.4.2l1.4-1.2c.5-.4.7-1 .6-1.7z"></path></svg></span> My Trips
             </a>
-            <a href="#" class="sidebar-link" id="user-nav-expeditions" onclick="switchTravelerTab('expeditions'); closeDashDrawer(); return false;">
-              <span class="s-icon">🏔️</span> Booked Expeditions
+            <a href="#" class="sidebar-link" id="user-nav-expeditions" onclick="closeDashDrawer(); return false;">
+              <span class="s-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></span> Saved Stays
             </a>
-            <a href="#" class="sidebar-link" id="user-nav-wishlist" onclick="switchTravelerTab('wishlist'); closeDashDrawer(); return false;">
-              <span class="s-icon">⭐</span> Saved Wishlist
+            <a href="#" class="sidebar-link" id="user-nav-wishlist" onclick="closeDashDrawer(); return false;">
+              <span class="s-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg></span> Payments
             </a>
-            <a href="#" class="sidebar-link" id="user-nav-settings" onclick="switchTravelerTab('settings'); closeDashDrawer(); return false;">
-              <span class="s-icon">⚙️</span> Account Settings
+            <a href="#" class="sidebar-link" id="user-nav-settings" onclick="closeDashDrawer(); return false;">
+              <span class="s-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></span> Settings
             </a>
           </nav>
 
@@ -2354,7 +2326,7 @@
         <!-- MAIN CONTENT CONTAINER -->
         <div class="dash-main-content" style="padding:32px 36px;">
           
-          <!-- TOPBAR (MATCHING REFERENCE SCREENSHOT) -->
+          <!-- TOPBAR (MATCHING REFERENCE IMAGE 1) -->
           <header class="dash-topbar-flex">
             <div>
               <h1 class="dash-title serif-title">Welcome back, <span class="dash-user-disp-name">Manasasrinivas_Lingala</span></h1>
@@ -2363,10 +2335,10 @@
 
             <div class="dash-user-pill-badge">
               <div class="dup-details">
-                <span class="dup-name dash-user-uname-disp">MANASASRINIVAS LINGALA</span>
-                <span class="dup-email-muted dash-user-email-disp">sbende1996@gmail.com</span>
+                <span class="dup-name dash-user-uname-disp" style="color:#38bdf8;">MANASASRINIVAS_LINGALA</span>
+                <span class="dup-email-muted dash-user-email-disp">lingalamanasa123@gmail.com</span>
               </div>
-              <div class="dup-avatar-circle">
+              <div class="dup-avatar-circle" style="background:#112233; color:#38bdf8; border-color:rgba(56, 189, 248, 0.4);">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
                   <circle cx="12" cy="7" r="4"/>
@@ -2378,13 +2350,13 @@
           <!-- TRAVELER SUBPANEL 1: OVERVIEW -->
           <div class="user-subpanel active" id="user-panel-overview">
             
-            <!-- TOP 4 METRIC CARDS (MATCHING REFERENCE SCREENSHOT) -->
+            <!-- TOP 4 METRIC CARDS (MATCHING REFERENCE IMAGE 1) -->
             <div class="dash-metrics-grid-4">
               
               <!-- CARD 1: TOTAL TRIPS -->
               <div class="metric-card-box">
                 <div class="mc-top-row">
-                  <div class="mc-icon-badge">
+                  <div class="mc-icon-badge" style="color:#38bdf8;">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg>
                   </div>
                   <span class="mc-label">Total Trips</span>
@@ -2395,7 +2367,7 @@
               <!-- CARD 2: COUNTRIES -->
               <div class="metric-card-box">
                 <div class="mc-top-row">
-                  <div class="mc-icon-badge">
+                  <div class="mc-icon-badge" style="color:#38bdf8;">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
                   </div>
                   <span class="mc-label">Countries</span>
@@ -2406,7 +2378,7 @@
               <!-- CARD 3: REWARD POINTS -->
               <div class="metric-card-box">
                 <div class="mc-top-row">
-                  <div class="mc-icon-badge">
+                  <div class="mc-icon-badge" style="color:#38bdf8;">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
                   </div>
                   <span class="mc-label">Reward Points</span>
@@ -2415,7 +2387,7 @@
               </div>
 
               <!-- CARD 4: NEXT FLIGHT (FEATURED DARK CARD) -->
-              <div class="metric-card-box featured-dark">
+              <div class="metric-card-box featured-dark" style="background:#192438; border-color:rgba(56, 189, 248, 0.25);">
                 <div class="mc-top-row">
                   <div class="mc-icon-badge white-bg">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0b1528" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3.5c-.5-.5-2.5 0-4 1.5L13.5 8.5 5.3 6.7c-.7-.1-1.3.1-1.7.6l-1.2 1.4c-.4.4-.3 1.1.2 1.4l5.3 3.5-3.5 3.5-2.3-.8c-.4-.1-.8 0-1.1.3l-.6.6c-.3.3-.3.8 0 1.1l3.5 3.5c.3.3.8.3 1.1 0l.6-.6c.3-.3.4-.7.3-1.1l-.8-2.3 3.5-3.5 3.5 5.3c.3.5 1 .6 1.4.2l1.4-1.2c.5-.4.7-1 .6-1.7z"></path></svg>
@@ -2424,99 +2396,95 @@
                 </div>
                 <div>
                   <div class="mc-val" style="margin-top:10px;">Paris (CDG)</div>
-                  <div class="mc-subtext">In 14 days</div>
+                  <div class="mc-subtext" style="color:#38bdf8;">In 14 days</div>
                 </div>
               </div>
 
             </div>
 
-            <!-- MIDDLE GRID: MILES CHART + RESERVATIONS -->
+            <!-- MIDDLE GRID: TRAVEL ACTIVITY CHART + RECENT BOOKINGS (MATCHING REFERENCE IMAGE 1) -->
             <div class="dash-content-grid">
               
-              <!-- MILES HIKED CHART CARD -->
+              <!-- TRAVEL ACTIVITY CHART CARD -->
               <div class="dash-box-card chart-box">
                 <div class="dbc-header">
-                  <h3 class="dbc-serif-title">Miles Hiked Overview</h3>
+                  <h3 class="dbc-serif-title">Travel Activity</h3>
                   <select class="dash-select-pill">
-                    <option>2026 Season</option>
-                    <option>2025 Season</option>
+                    <option>This Year</option>
+                    <option>Last 6 Months</option>
+                    <option>Last 12 Months</option>
                   </select>
                 </div>
 
                 <div class="chart-wrapper">
-                  <svg class="revenue-svg-chart" viewBox="0 0 600 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <svg class="revenue-svg-chart" viewBox="0 0 600 220" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <defs>
-                      <linearGradient id="userChartGrad" x1="0" y1="0" x2="0" y2="240" gradientUnits="userSpaceOnUse">
-                        <stop offset="0%" stop-color="#52b788" stop-opacity="0.35"/>
-                        <stop offset="100%" stop-color="#52b788" stop-opacity="0.0"/>
+                      <linearGradient id="userChartGrad" x1="0" y1="0" x2="0" y2="220" gradientUnits="userSpaceOnUse">
+                        <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.35"/>
+                        <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.0"/>
                       </linearGradient>
                     </defs>
 
-                    <line x1="40" y1="30" x2="580" y2="30" stroke="rgba(255,255,255,0.06)" stroke-dasharray="4 4"/>
-                    <line x1="40" y1="70" x2="580" y2="70" stroke="rgba(255,255,255,0.06)" stroke-dasharray="4 4"/>
-                    <line x1="40" y1="110" x2="580" y2="110" stroke="rgba(255,255,255,0.06)" stroke-dasharray="4 4"/>
-                    <line x1="40" y1="150" x2="580" y2="150" stroke="rgba(255,255,255,0.06)" stroke-dasharray="4 4"/>
-                    <line x1="40" y1="190" x2="580" y2="190" stroke="rgba(255,255,255,0.06)" stroke-dasharray="4 4"/>
+                    <!-- Y-Axis Labels matching reference screenshot -->
+                    <text x="5" y="48" fill="#64748b" font-size="13" font-weight="600">4</text>
+                    <text x="5" y="118" fill="#64748b" font-size="13" font-weight="600">3</text>
+                    <text x="5" y="188" fill="#64748b" font-size="13" font-weight="600">2</text>
 
-                    <text x="5" y="34" fill="rgba(255,255,255,0.4)" font-size="11">150 mi</text>
-                    <text x="5" y="74" fill="rgba(255,255,255,0.4)" font-size="11">120 mi</text>
-                    <text x="5" y="114" fill="rgba(255,255,255,0.4)" font-size="11">90 mi</text>
-                    <text x="5" y="154" fill="rgba(255,255,255,0.4)" font-size="11">60 mi</text>
-                    <text x="5" y="194" fill="rgba(255,255,255,0.4)" font-size="11">30 mi</text>
+                    <!-- Horizontal Grid Lines -->
+                    <line x1="30" y1="45" x2="600" y2="45" stroke="rgba(255,255,255,0.06)" stroke-dasharray="4 4"/>
+                    <line x1="30" y1="115" x2="600" y2="115" stroke="rgba(255,255,255,0.06)" stroke-dasharray="4 4"/>
+                    <line x1="30" y1="185" x2="600" y2="185" stroke="rgba(255,255,255,0.06)"/>
 
-                    <path d="M50 170 Q 150 130, 260 60 T 450 100 T 560 80 L 560 210 L 50 210 Z" fill="url(#userChartGrad)"/>
-                    <path d="M50 170 Q 150 130, 260 60 T 450 100 T 560 80" fill="none" stroke="#52b788" stroke-width="3" stroke-linecap="round"/>
+                    <!-- Filled Wave Gradient -->
+                    <path d="M 30 185 C 80 185, 100 120, 140 120 C 180 120, 200 170, 240 170 C 280 170, 300 45, 350 45 C 400 45, 430 185, 470 185 C 510 185, 530 150, 580 150 L 580 185 L 30 185 Z" fill="url(#userChartGrad)"/>
+                    
+                    <!-- Wave Line stroke matching reference curve -->
+                    <path d="M 30 185 C 80 185, 100 120, 140 120 C 180 120, 200 170, 240 170 C 280 170, 300 45, 350 45 C 400 45, 430 185, 470 185 C 510 185, 530 150, 580 150" fill="none" stroke="#38bdf8" stroke-width="3" stroke-linecap="round"/>
 
-                    <circle cx="50" cy="170" r="5" fill="#0b0e14" stroke="#52b788" stroke-width="3"/>
-                    <circle cx="155" cy="130" r="5" fill="#0b0e14" stroke="#52b788" stroke-width="3"/>
-                    <circle cx="260" cy="60" r="6" fill="#52b788" stroke="#ffffff" stroke-width="3"/>
-                    <circle cx="450" cy="100" r="5" fill="#0b0e14" stroke="#52b788" stroke-width="3"/>
-                    <circle cx="560" cy="80" r="5" fill="#0b0e14" stroke="#52b788" stroke-width="3"/>
-
-                    <text x="45" y="230" fill="rgba(255,255,255,0.5)" font-size="12">May</text>
-                    <text x="150" y="230" fill="rgba(255,255,255,0.5)" font-size="12">Jun</text>
-                    <text x="255" y="230" fill="rgba(255,255,255,0.5)" font-size="12">Jul</text>
-                    <text x="350" y="230" fill="rgba(255,255,255,0.5)" font-size="12">Aug</text>
-                    <text x="445" y="230" fill="rgba(255,255,255,0.5)" font-size="12">Sep</text>
-                    <text x="555" y="230" fill="rgba(255,255,255,0.5)" font-size="12">Oct</text>
+                    <!-- Glowing Dot Markers at peaks & valleys -->
+                    <circle cx="140" cy="120" r="5" fill="#38bdf8" stroke="#111726" stroke-width="2"/>
+                    <circle cx="240" cy="170" r="5" fill="#38bdf8" stroke="#111726" stroke-width="2"/>
+                    <circle cx="350" cy="45" r="6" fill="#38bdf8" stroke="#111726" stroke-width="2"/>
+                    <circle cx="470" cy="185" r="5" fill="#38bdf8" stroke="#111726" stroke-width="2"/>
+                    <circle cx="580" cy="150" r="5" fill="#38bdf8" stroke="#111726" stroke-width="2"/>
                   </svg>
                 </div>
               </div>
 
-              <!-- ACTIVE RENTALS & TRIP RESERVATIONS CARD -->
+              <!-- RECENT BOOKINGS CARD (MATCHING REFERENCE IMAGE 1) -->
               <div class="dash-box-card reservations-box">
                 <div class="dbc-header">
-                  <h3 class="dbc-serif-title">Active Gear &amp; Trips</h3>
-                  <a href="#" class="view-all-link" onclick="switchTravelerTab('rentals'); return false;">View all</a>
+                  <h3 class="dbc-serif-title">Recent Bookings</h3>
+                  <a href="#" class="view-all-link" onclick="return false;">View all</a>
                 </div>
 
                 <div class="reservations-list">
                   
                   <div class="res-item-card">
-                    <img src="images/product_tent_1786946937685.png" alt="AlpineShield Tent" class="res-avatar"/>
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=200&q=80" alt="Le Bristol Paris" class="res-avatar" style="border-radius:12px; object-fit:cover; width:52px; height:52px;"/>
                     <div class="res-info">
-                      <h4>AlpineShield 4-Season Tent</h4>
-                      <p>Rental #RN-90412 • Due Aug 22</p>
+                      <h4>Le Bristol Paris</h4>
+                      <p>Oct 12 - Oct 18</p>
                     </div>
-                    <span class="res-badge-status green">On Trail</span>
+                    <span class="res-badge-status" style="background:rgba(56,189,248,0.15); color:#38bdf8; border:1px solid rgba(56,189,248,0.3);">Upcoming</span>
                   </div>
 
                   <div class="res-item-card">
-                    <img src="images/category_shelter_1786948578844.png" alt="Alpine Summit Trek" class="res-avatar"/>
+                    <img src="https://images.unsplash.com/photo-1502784444187-359ac186c5bb?w=200&q=80" alt="Zermatt Alpine Lodge" class="res-avatar" style="border-radius:12px; object-fit:cover; width:52px; height:52px;"/>
                     <div class="res-info">
-                      <h4>Alpine Summit Trek</h4>
-                      <p>3 Days • Sept 14 - Sept 17</p>
+                      <h4>Zermatt Alpine Lodge</h4>
+                      <p>Nov 04 - Nov 10</p>
                     </div>
-                    <span class="res-badge-status">Confirmed</span>
+                    <span class="res-badge-status" style="background:rgba(56,189,248,0.15); color:#38bdf8; border:1px solid rgba(56,189,248,0.3);">Upcoming</span>
                   </div>
 
                   <div class="res-item-card">
-                    <img src="images/category_water_1786948984970.png" alt="Whitewater Kayak" class="res-avatar"/>
+                    <img src="https://images.unsplash.com/photo-1510312305653-8ed496efae75?w=200&q=80" alt="Patagonia Trek Camp" class="res-avatar" style="border-radius:12px; object-fit:cover; width:52px; height:52px;"/>
                     <div class="res-info">
-                      <h4>Whitewater Kayak Canyon</h4>
-                      <p>2 Days • Oct 02 - Oct 04</p>
+                      <h4>Patagonia Trek Camp</h4>
+                      <p>Dec 10 - Dec 18</p>
                     </div>
-                    <span class="res-badge-status">Reserved</span>
+                    <span class="res-badge-status" style="background:rgba(56,189,248,0.15); color:#38bdf8; border:1px solid rgba(56,189,248,0.3);">Upcoming</span>
                   </div>
 
                 </div>
@@ -2913,6 +2881,6 @@
     <span>🛒 Item added to cart!</span>
   </div>
 
-  <script src="script.js?v=56"></script>
+  <script src="script.js?v=58"></script>
 </body>
 </html>
