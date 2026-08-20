@@ -695,6 +695,11 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
 .p-name{font-size:16px;font-weight:800;color:var(--text);opacity:.55}
 
 .stats-section{padding:96px 0;background:var(--bg);position:relative;overflow:hidden}
+/* Fix text visibility — stats-section has light (#f5f2ec) background */
+.stats-section .section-title{color:var(--text) !important}
+.stats-section .section-title .accent{color:var(--green-600) !important}
+.stats-section .section-desc{color:var(--muted) !important}
+.stats-section .section-tag{color:var(--green-600);background:rgba(45,106,79,.12);border-color:rgba(45,106,79,.25)}
 .stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
 .stats-mini-bar{display:flex;gap:0;margin-top:32px;background:#fff;border-radius:var(--r-lg);padding:20px 24px;box-shadow:var(--sh-sm);border:1px solid #eae8e2}
 .mini-stat{flex:1;text-align:center}

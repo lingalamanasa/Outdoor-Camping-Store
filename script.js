@@ -680,3 +680,62 @@ function closeDashDrawer() {
   if (backdrop) backdrop.classList.remove('open');
   document.body.style.overflow = '';
 }
+
+// ===== COUNTER ANIMATION (mini-stat numbers count up on scroll) =====
+(function initCounterAnimation() {
+  function animateCounter(el, target, duration) {
+    const start = performance.now();
+    function update(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      // Ease-out cubic
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(eased * target);
+      if (progress < 1) requestAnimationFrame(update);
+      else el.textContent = target;
+    }
+    requestAnimationFrame(update);
+  }
+
+  function runCounters() {
+    document.querySelectorAll('.mini-val[data-target]').forEach(el => {
+      if (el.dataset.animated) return;
+      el.dataset.animated = 'true';
+      animateCounter(el, parseInt(el.dataset.target, 10), 1800);
+    });
+  }
+
+  // Use IntersectionObserver to trigger when stats bar enters viewport
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        runCounters();
+        observer.disconnect();
+      }
+    });
+  }, { threshold: 0.3 });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const bar = document.querySelector('.stats-mini-bar');
+    if (bar) observer.observe(bar);
+    else runCounters(); // fallback: run immediately if already visible
+  });
+
+  // Also trigger on page switch (SPA navigation)
+  const origSwitch = window.switchPage;
+  if (typeof origSwitch === 'function') {
+    window.switchPage = function(pageId) {
+      origSwitch(pageId);
+      if (pageId === 'home') {
+        setTimeout(() => {
+          document.querySelectorAll('.mini-val[data-target]').forEach(el => delete el.dataset.animated);
+          const bar = document.querySelector('.stats-mini-bar');
+          if (bar) {
+            const rect = bar.getBoundingClientRect();
+            if (rect.top < window.innerHeight) runCounters();
+          }
+        }, 400);
+      }
+    };
+  }
+})();
