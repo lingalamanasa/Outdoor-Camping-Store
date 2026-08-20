@@ -11,104 +11,334 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=75" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: #f1f5f9;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    /* ===== CARD WRAPPER ===== */
+    .auth-wrapper {
+      width: 100%;
+      max-width: 1080px;
+      min-height: 700px;
+      display: flex;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+    }
+
+    /* ===== LEFT HERO PANEL ===== */
+    .auth-hero {
+      width: 45%;
+      flex-shrink: 0;
+      position: relative;
+      background-image:
+        linear-gradient(180deg, rgba(0,0,0,0.06) 0%, rgba(0,0,0,0.72) 100%),
+        url('https://images.unsplash.com/photo-1551836022-deb4988cc6c0?w=900&q=80');
+      background-size: cover;
+      background-position: center top;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 44px 38px;
+      color: #fff;
+    }
+    .auth-hero h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.28;
+      margin-bottom: 12px;
+    }
+    .auth-hero p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.82);
+      line-height: 1.6;
+    }
+
+    /* ===== RIGHT FORM PANEL ===== */
+    .auth-form-panel {
+      flex: 1;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      padding: 36px 52px 40px;
+      overflow-y: auto;
+    }
+
+    /* TOP ROW */
+    .auth-form-toprow {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 32px;
+    }
+    .btn-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #475569;
+      text-decoration: none;
+      background: #fff;
+      transition: all 0.18s;
+    }
+    .btn-back:hover { background: #f8fafc; border-color: #cbd5e1; color: #1e293b; }
+    .auth-brand {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      text-decoration: none;
+    }
+    .auth-brand img { height: 28px; width: auto; }
+    .auth-brand-name { font-size: 15px; font-weight: 800; color: #0f172a; letter-spacing: 0.4px; }
+
+    /* FORM BODY */
+    .auth-form-body { flex: 1; }
+    .auth-form-body h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: #0f172a;
+      text-align: center;
+      margin-bottom: 6px;
+    }
+    .auth-subtitle {
+      font-size: 13.5px;
+      color: #64748b;
+      text-align: center;
+      margin-bottom: 26px;
+    }
+
+    /* FORM FIELDS */
+    .form-group { margin-bottom: 16px; }
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 7px;
+    }
+    .required-star { color: #991b1b; margin-left: 2px; }
+    .input-field {
+      width: 100%;
+      background: #f8fafc;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 12px 16px;
+      font-size: 14px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: #0f172a;
+      outline: none;
+      transition: border-color 0.18s;
+      appearance: none;
+    }
+    .input-field:focus { border-color: #1e293b; background: #fff; }
+    .input-field::placeholder { color: #94a3b8; }
+    .pw-wrap { position: relative; }
+    .pw-toggle {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #94a3b8;
+      font-size: 17px;
+      display: flex;
+      align-items: center;
+    }
+    .select-wrap { position: relative; }
+    .select-wrap::after {
+      content: '▾';
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #64748b;
+      font-size: 12px;
+      pointer-events: none;
+    }
+
+    /* TERMS ROW */
+    .terms-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 22px;
+      margin-top: 4px;
+    }
+    .terms-row input[type="checkbox"] { accent-color: #991b1b; width: 15px; height: 15px; flex-shrink: 0; margin-top: 2px; }
+    .terms-row label {
+      font-size: 13px;
+      color: #475569;
+      cursor: pointer;
+      line-height: 1.5;
+    }
+    .terms-row label a { color: #991b1b; text-decoration: none; font-weight: 600; }
+    .terms-row label a:hover { text-decoration: underline; }
+
+    /* SUBMIT BUTTON */
+    .btn-create {
+      width: 100%;
+      background: #0f172a;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 14px;
+      font-size: 15px;
+      font-weight: 700;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-bottom: 20px;
+    }
+    .btn-create:hover { background: #1e293b; }
+
+    /* SWITCH LINK */
+    .auth-switch {
+      text-align: center;
+      font-size: 13.5px;
+      color: #64748b;
+    }
+    .auth-switch a {
+      font-weight: 700;
+      color: #991b1b;
+      text-decoration: none;
+      margin-left: 4px;
+    }
+    .auth-switch a:hover { text-decoration: underline; }
+
+    /* RESPONSIVE */
+    @media (max-width: 880px) {
+      .auth-hero { display: none; }
+      .auth-form-panel { padding: 30px 28px; }
+    }
+    @media (max-width: 480px) {
+      body { padding: 0; }
+      .auth-wrapper { border-radius: 0; }
+      .auth-form-panel { padding: 24px 20px; }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- DEDICATED SIGNUP PAGE VIEW -->
-  <div id="page-signup" class="page-view active" style="display:block;">
-    <section class="auth-hero-section" style="background-image: linear-gradient(135deg, rgba(12,24,16,0.72) 0%, rgba(5,15,10,0.82) 100%), url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1600&q=80');">
-      <div class="container auth-hero-container">
-        
-        <!-- LEFT: DARK GLASS FORM CARD -->
-        <div class="auth-glass-card">
-          <form class="auth-custom-form" onsubmit="handleSignup(event)">
-            
-            <div class="form-field-group">
-              <label for="sup-fname">👤 FIRST NAME</label>
-              <input type="text" id="sup-fname" class="pill-input" placeholder="Elena" required />
-            </div>
+  <div class="auth-wrapper">
 
-            <div class="form-field-group">
-              <label for="sup-lname">👤 LAST NAME</label>
-              <input type="text" id="sup-lname" class="pill-input" placeholder="Voss" required />
-            </div>
+    <!-- LEFT HERO -->
+    <div class="auth-hero">
+      <h2>Start your journey<br />with Stackly.</h2>
+      <p>Build your outdoor adventure story or find the perfect gear for your team.</p>
+    </div>
 
-            <div class="form-field-group">
-              <label for="sup-email">✉ EMAIL</label>
-              <input type="email" id="sup-email" class="pill-input" placeholder="you@stackly.store" required />
-            </div>
+    <!-- RIGHT FORM -->
+    <div class="auth-form-panel">
 
-            <div class="form-field-group">
-              <label for="sup-password">🔒 PASSWORD</label>
-              <div class="pill-input-wrap">
-                <input type="password" id="sup-password" class="pill-input" placeholder="At least 8 characters" required />
-                <button type="button" class="pw-eye-btn" onclick="togglePw('sup-password', this)">👁</button>
-              </div>
-            </div>
-
-            <!-- CUSTOM ROLE SELECTION SHEET -->
-            <div class="form-field-group" style="margin-top:14px;">
-              <label style="font-size:11px; font-weight:800; letter-spacing:1px; color:#a78bfa; margin-bottom:8px; display:block;">💼 SELECT ROLE</label>
-              <div class="role-sheet-container">
-                <label class="role-radio-item selected" onclick="selectRoleRadio(this)">
-                  <span class="role-radio-label">👤 User</span>
-                  <input type="radio" name="user_role" value="user" checked />
-                  <span class="custom-radio-circle"></span>
-                </label>
-                <label class="role-radio-item" onclick="selectRoleRadio(this)">
-                  <span class="role-radio-label">⚙️ Admin</span>
-                  <input type="radio" name="user_role" value="admin" />
-                  <span class="custom-radio-circle"></span>
-                </label>
-              </div>
-            </div>
- 
-            <div class="auth-form-terms">
-              <input type="checkbox" id="sup-terms" required checked />
-              <label for="sup-terms">I agree to Stackly's <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</label>
-            </div>
- 
-            <button type="submit" class="btn-primary auth-submit-btn" style="background:#cbd5e1; color:#0f172a; font-weight:800;">Create Account →</button>
-            <a href="index.html" class="btn-primary auth-submit-btn" style="display: block; text-align: center; text-decoration: none; margin-top: 10px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: #fff;">Back to Home</a>
-
-            <div class="auth-divider"><span>OR CONTINUE WITH</span></div>
-
-            <div class="social-auth-row">
-              <button type="button" class="social-auth-btn" onclick="socialAuth('google')">
-                <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#ea4335" d="M12 5c1.6 0 3 .6 4.1 1.6l3.1-3.1C17.3 1.7 14.8 1 12 1 7.4 1 3.5 3.6 1.6 7.4l3.7 2.9C6.2 7.3 8.8 5 12 5z"/><path fill="#4285f4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.5c-.3 1.5-1.1 2.8-2.4 3.7l3.7 2.9c2.2-2 3.7-5 3.7-8.8z"/><path fill="#fbbc05" d="M5.3 14.8c-.2-.7-.4-1.5-.4-2.3s.2-1.6.4-2.3L1.6 7.4C.6 9.4 0 10.6 0 12s.6 2.6 1.6 4.6l3.7-1.8z"/><path fill="#34a853" d="M12 23c3.2 0 6-1.1 8-3l-3.7-2.9c-1.1.7-2.5 1.2-4.3 1.2-3.2 0-5.8-2.3-6.7-5.3L1.6 16C3.5 19.8 7.4 23 12 23z"/></svg>
-                Google
-              </button>
-              <button type="button" class="social-auth-btn" onclick="socialAuth('apple')">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="#000"><path d="M18.7 19.5c-.8 1.2-1.7 2.4-3 2.4-1.3 0-1.7-.8-3.2-.8-1.5 0-2 .8-3.2.8-1.3 0-2.3-1.2-3.1-2.4-1.7-2.4-3-6.8-1.2-9.9.9-1.5 2.5-2.5 4.2-2.5 1.3 0 2.5.9 3.3.9.8 0 2.3-1.1 3.9-1 1.6.1 3.1.7 4 2-3.5 2.1-2.9 6.8.6 8.3-.7 1.7-1.6 3.4-2.3 4.3zM15.5 6.4c.7-.9 1.2-2.1 1-3.4-1.1.1-2.4.8-3.1 1.6-.6.8-1.2 2-1 3.2 1.3.1 2.5-.5 3.1-1.4z"/></svg>
-                Apple
-              </button>
-            </div>
-            
-            <p class="auth-bottom-switch">Already have an account? <a href="login.html"><strong>Login</strong></a></p>
-          </form>
-        </div>
-
-        <!-- RIGHT: SERIF HERO TYPOGRAPHY -->
-        <div class="auth-hero-info">
-          <a href="index.html" class="logo header-logo-link" onclick="window.location.href='index.html'; return false;" style="display:inline-flex; align-items:center; margin-bottom:30px; text-decoration:none; cursor:pointer;">
-            <img src="assets/logo.webp" alt="Stackly Logo" class="brand-logo-img" style="height:38px; width:auto;" />
-          </a>
-          <span class="auth-tagline" style="display:block;">JOIN STACKLY</span>
-          <h1 class="auth-serif-title">Begin an<br />extraordinary<br />journey</h1>
-          <p class="auth-serif-desc">Create your account to unlock curated stays, member pricing and moments crafted for you.</p>
-          
-          <div class="auth-pill-badges">
-            <span class="auth-badge-pill">25k+ curated stays</span>
-            <span class="auth-badge-pill">20 destinations</span>
-            <span class="auth-badge-pill">4.9 avg rating</span>
-          </div>
-        </div>
-
+      <!-- TOP ROW -->
+      <div class="auth-form-toprow">
+        <a href="index.html" class="btn-back">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          Back to Home
+        </a>
+        <a href="index.html" class="auth-brand">
+          <img src="assets/logo.webp" alt="Stackly" />
+          <span class="auth-brand-name">STACKLY</span>
+        </a>
       </div>
-    </section>
+
+      <!-- FORM BODY -->
+      <div class="auth-form-body">
+        <h3>Create your own account</h3>
+        <p class="auth-subtitle">Stackly is here to support your outdoor needs every step of the way.</p>
+
+        <form onsubmit="handleSignup(event)">
+
+          <div class="form-group">
+            <label for="sup-fname">Name <span class="required-star">*</span></label>
+            <input type="text" id="sup-fname" class="input-field" placeholder="Enter your full name" required />
+          </div>
+
+          <div class="form-group">
+            <label for="sup-email">Email <span class="required-star">*</span></label>
+            <input type="email" id="sup-email" class="input-field" placeholder="name@company.com" required />
+          </div>
+
+          <div class="form-group">
+            <label for="sup-password">Password <span class="required-star">*</span></label>
+            <div class="pw-wrap">
+              <input type="password" id="sup-password" class="input-field" placeholder="••••••••" required style="padding-right: 46px;" />
+              <button type="button" class="pw-toggle" onclick="togglePw('sup-password', this)">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="sup-repassword">Re-enter password <span class="required-star">*</span></label>
+            <div class="pw-wrap">
+              <input type="password" id="sup-repassword" class="input-field" placeholder="••••••••" required style="padding-right: 46px;" />
+              <button type="button" class="pw-toggle" onclick="togglePw('sup-repassword', this)">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="sup-role">Role <span class="required-star">*</span></label>
+            <div class="select-wrap">
+              <select id="sup-role" name="user_role" class="input-field" required style="padding-right: 38px;">
+                <option value="">Select your role</option>
+                <option value="user">User</option>
+                <option value="admin">Admin</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="terms-row">
+            <input type="checkbox" id="sup-terms" required />
+            <label for="sup-terms">I have read and agree to the <a href="#" onclick="trigger404(event)">Terms and conditions</a></label>
+          </div>
+
+          <button type="submit" class="btn-create">Create account</button>
+
+          <p class="auth-switch">Already have an account?<a href="login.html">Login</a></p>
+
+        </form>
+      </div>
+
+    </div>
   </div>
 
-  <script src="script.js?v=70"></script>
+  <script src="script.js?v=80"></script>
+  <script>
+    function togglePw(id, btn) {
+      const input = document.getElementById(id);
+      if (!input) return;
+      if (input.type === 'password') {
+        input.type = 'text';
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>';
+      } else {
+        input.type = 'password';
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>';
+      }
+    }
+    function trigger404(e) {
+      if (e && e.preventDefault) e.preventDefault();
+      const p = window.location.pathname;
+      window.location.href = p.includes('/html/') ? '404.html' : 'html/404.html';
+    }
+  </script>
 </body>
 </html>

@@ -697,15 +697,13 @@ function selectRoleRadio(labelEl) {
 function handleSignup(e) {
   e.preventDefault();
   const btn = e.target.querySelector('button[type="submit"]') || document.getElementById('signup-submit-btn');
-  const fnameInput = document.getElementById('sup-fname') || e.target.querySelector('input[placeholder*="First"], input[type="text"]');
-  const lnameInput = document.getElementById('sup-lname');
+  const fnameInput = document.getElementById('sup-fname') || e.target.querySelector('input[type="text"]');
   const emailInput = document.getElementById('sup-email') || e.target.querySelector('input[type="email"]');
-  const roleRadio = e.target.querySelector('input[name="user_role"]:checked') || document.querySelector('input[name="user_role"]:checked');
-  const roleInput = roleRadio || document.getElementById('sup-role') || e.target.querySelector('select');
+  const roleInput = document.getElementById('sup-role') || e.target.querySelector('select');
   
   let fullName = '';
   if (fnameInput && fnameInput.value) {
-    fullName = fnameInput.value + (lnameInput && lnameInput.value ? ' ' + lnameInput.value : '');
+    fullName = fnameInput.value;
   }
 
   const selectedRole = roleInput ? (roleInput.value || '').toLowerCase() : '';

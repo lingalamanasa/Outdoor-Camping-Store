@@ -11,79 +11,378 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=75" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: #f1f5f9;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    /* ===== CARD WRAPPER ===== */
+    .auth-wrapper {
+      width: 100%;
+      max-width: 1080px;
+      min-height: 640px;
+      display: flex;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+    }
+
+    /* ===== LEFT HERO PANEL ===== */
+    .auth-hero {
+      width: 45%;
+      flex-shrink: 0;
+      position: relative;
+      background-image:
+        linear-gradient(180deg, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.72) 100%),
+        url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=900&q=80');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 44px 38px;
+      color: #fff;
+    }
+    .auth-hero h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.28;
+      margin-bottom: 12px;
+    }
+    .auth-hero p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.82);
+      line-height: 1.6;
+    }
+
+    /* ===== RIGHT FORM PANEL ===== */
+    .auth-form-panel {
+      flex: 1;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      padding: 36px 52px 40px;
+    }
+
+    /* TOP ROW */
+    .auth-form-toprow {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 36px;
+    }
+    .btn-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #475569;
+      text-decoration: none;
+      background: #fff;
+      transition: all 0.18s;
+    }
+    .btn-back:hover { background: #f8fafc; border-color: #cbd5e1; color: #1e293b; }
+    .auth-brand {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      text-decoration: none;
+    }
+    .auth-brand img { height: 28px; width: auto; }
+    .auth-brand-name { font-size: 15px; font-weight: 800; color: #0f172a; letter-spacing: 0.4px; }
+
+    /* FORM BODY */
+    .auth-form-body { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+    .auth-form-body h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 30px;
+      font-weight: 700;
+      color: #0f172a;
+      text-align: center;
+      margin-bottom: 6px;
+    }
+    .auth-subtitle {
+      font-size: 13.5px;
+      color: #64748b;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    /* FORM FIELDS */
+    .form-group { margin-bottom: 18px; }
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 7px;
+    }
+    .required-star { color: #991b1b; margin-left: 2px; }
+    .input-field {
+      width: 100%;
+      background: #f8fafc;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 12px 16px;
+      font-size: 14px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: #0f172a;
+      outline: none;
+      transition: border-color 0.18s;
+      appearance: none;
+    }
+    .input-field:focus { border-color: #1e293b; background: #fff; }
+    .input-field::placeholder { color: #94a3b8; }
+    .pw-wrap { position: relative; }
+    .pw-toggle {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #94a3b8;
+      font-size: 17px;
+      display: flex;
+      align-items: center;
+    }
+    .select-wrap { position: relative; }
+    .select-wrap::after {
+      content: '▾';
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #64748b;
+      font-size: 12px;
+      pointer-events: none;
+    }
+
+    /* OPTIONS ROW */
+    .auth-options-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 22px;
+      margin-top: 2px;
+    }
+    .check-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13.5px;
+      color: #475569;
+      cursor: pointer;
+      font-weight: 500;
+    }
+    .check-label input[type="checkbox"] { accent-color: #991b1b; width: 15px; height: 15px; }
+    .forgot-link {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #991b1b;
+      text-decoration: none;
+    }
+    .forgot-link:hover { text-decoration: underline; }
+
+    /* SUBMIT BUTTON */
+    .btn-sign-in {
+      width: 100%;
+      background: #0f172a;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 14px;
+      font-size: 15px;
+      font-weight: 700;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-bottom: 20px;
+    }
+    .btn-sign-in:hover { background: #1e293b; }
+
+    /* DIVIDER */
+    .divider-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .divider-row::before, .divider-row::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #e2e8f0;
+    }
+    .divider-row span { font-size: 12px; color: #94a3b8; font-weight: 500; white-space: nowrap; }
+
+    /* SOCIAL BUTTONS */
+    .social-row { display: flex; gap: 12px; margin-bottom: 24px; }
+    .btn-social {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: #fff;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 12px 10px;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #1e293b;
+      cursor: pointer;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      transition: all 0.18s;
+    }
+    .btn-social:hover { background: #f8fafc; border-color: #cbd5e1; }
+
+    /* SWITCH LINK */
+    .auth-switch {
+      text-align: center;
+      font-size: 13.5px;
+      color: #64748b;
+    }
+    .auth-switch a {
+      font-weight: 700;
+      color: #991b1b;
+      text-decoration: none;
+      margin-left: 4px;
+    }
+    .auth-switch a:hover { text-decoration: underline; }
+
+    /* RESPONSIVE */
+    @media (max-width: 880px) {
+      .auth-hero { display: none; }
+      .auth-form-panel { padding: 30px 28px; }
+    }
+    @media (max-width: 480px) {
+      body { padding: 0; }
+      .auth-wrapper { border-radius: 0; }
+      .auth-form-panel { padding: 24px 20px; }
+    }
+  </style>
 </head>
 <body>
 
-  <div class="auth-page-wrapper">
-    <div class="auth-glass-card">
-      
-      <div class="auth-grid-split">
-        
-        <!-- LEFT: SERIF HERO TYPOGRAPHY -->
-        <div class="auth-hero-info">
-          <a href="index.html" class="logo header-logo-link" onclick="window.location.href='index.html'; return false;" style="display:inline-flex; align-items:center; margin-bottom:30px; text-decoration:none; cursor:pointer;">
-            <img src="assets/logo.webp" alt="Stackly Logo" class="brand-logo-img" style="height:38px; width:auto;" />
-          </a>
-          <span class="auth-tagline" style="display:block;">WELCOME BACK</span>
-          <h1 class="auth-serif-title">Begin an<br />extraordinary<br />journey</h1>
-          <p class="auth-serif-desc">Login to your account to continue managing curated stays, accessing member pricing, and reliving moments crafted for you.</p>
-          
-          <div class="auth-pill-badges">
-            <span class="auth-badge-pill">25k+ curated stays</span>
-            <span class="auth-badge-pill">20 destinations</span>
-            <span class="auth-badge-pill">4.9 avg rating</span>
-          </div>
-        </div>
+  <div class="auth-wrapper">
 
-        <!-- RIGHT: DARK GLASS FORM CARD -->
-        <div class="auth-glass-card">
-          <form class="auth-custom-form" onsubmit="handleLogin(event)">
-            
-            <div class="form-field-group">
-              <label for="lin-email">✉ EMAIL</label>
-              <input type="email" id="lin-email" class="pill-input" placeholder="you@stackly.store" required />
-            </div>
+    <!-- LEFT HERO -->
+    <div class="auth-hero">
+      <h2>Find your next outdoor<br />adventure with confidence.</h2>
+      <p>Join thousands of adventurers and outdoor enthusiasts already exploring with Stackly.</p>
+    </div>
 
-            <div class="form-field-group">
-              <label for="lin-uname">👤 USERNAME (OPTIONAL)</label>
-              <input type="text" id="lin-uname" class="pill-input" placeholder="NAME" />
-            </div>
+    <!-- RIGHT FORM -->
+    <div class="auth-form-panel">
 
-            <div class="form-field-group">
-              <label for="lin-password">🔒 PASSWORD</label>
-              <div class="pill-input-wrap">
-                <input type="password" id="lin-password" class="pill-input" placeholder="At least 8 characters" required />
-                <button type="button" class="pw-eye-btn" onclick="togglePw('lin-password', this)">👁</button>
-              </div>
-            </div>
-
-            <div class="form-field-group">
-              <label for="lin-role">👤 ROLE</label>
-              <div class="select-pill-wrap">
-                <select id="lin-role" class="pill-input select-pill" required>
-                  <option value="">Select your role</option>
-                  <option value="user">User</option>
-                  <option value="admin">Admin</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="auth-row-right" style="text-align: right; margin-bottom: 20px;">
-              <a href="#" class="forgot-link" onclick="handleDashboardAction(event)" style="font-size: 13px; color: rgba(255,255,255,0.7); text-decoration: none;">Forgot password?</a>
-            </div>
-
-            <button type="submit" class="btn-pill-submit">Login →</button>
-            <a href="index.html" class="btn-pill-submit" style="display: block; text-align: center; text-decoration: none; margin-top: 10px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);">Back to Home</a>
-            
-            <p class="auth-bottom-switch">Don't have an account? <a href="signup.html"><strong>Sign up</strong></a></p>
-          </form>
-        </div>
-
+      <!-- TOP ROW -->
+      <div class="auth-form-toprow">
+        <a href="index.html" class="btn-back">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          Back to Home
+        </a>
+        <a href="index.html" class="auth-brand">
+          <img src="assets/logo.webp" alt="Stackly" />
+          <span class="auth-brand-name">STACKLY</span>
+        </a>
       </div>
-    </section>
+
+      <!-- FORM BODY -->
+      <div class="auth-form-body">
+        <h3>Welcome back</h3>
+        <p class="auth-subtitle">Enter your credentials to access your dashboard.</p>
+
+        <form onsubmit="handleLogin(event)">
+
+          <div class="form-group">
+            <label for="lin-email">Email <span class="required-star">*</span></label>
+            <input type="email" id="lin-email" class="input-field" placeholder="you@stackly.store" required />
+          </div>
+
+          <div class="form-group">
+            <label for="lin-password">Password <span class="required-star">*</span></label>
+            <div class="pw-wrap">
+              <input type="password" id="lin-password" class="input-field" placeholder="••••••••" required style="padding-right: 46px;" />
+              <button type="button" class="pw-toggle" onclick="togglePw('lin-password', this)">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="lin-role">Role <span class="required-star">*</span></label>
+            <div class="select-wrap">
+              <select id="lin-role" class="input-field" required style="padding-right: 38px;">
+                <option value="">Select your role</option>
+                <option value="user">User</option>
+                <option value="admin">Admin</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="auth-options-row">
+            <label class="check-label">
+              <input type="checkbox" checked />
+              Remember me
+            </label>
+            <a href="#" class="forgot-link" onclick="trigger404(event)">Forgot password?</a>
+          </div>
+
+          <button type="submit" class="btn-sign-in">Sign in</button>
+
+          <div class="divider-row"><span>Or continue with</span></div>
+
+          <div class="social-row">
+            <button type="button" class="btn-social" onclick="trigger404(event)">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 16 3.01 11.53 4.8 8.41c.88-1.54 2.48-2.51 4.21-2.54 1.3-.02 2.53.88 3.33.88.8 0 2.27-1.07 3.82-.91 1.63.07 3.1.66 4.05 1.98-3.44 2.05-2.89 6.72.63 8.16-.69 1.74-1.57 3.47-2.3 4.57zM15.47 6.38c.68-.83 1.14-1.99.98-3.18-1.01.04-2.24.67-2.96 1.51-.62.72-1.16 1.89-.99 3.06 1.13.09 2.28-.55 2.97-1.39z"/></svg>
+              Apple
+            </button>
+            <button type="button" class="btn-social" onclick="trigger404(event)">
+              <svg width="16" height="16" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+              Google
+            </button>
+          </div>
+
+          <p class="auth-switch">Don't have an account?<a href="signup.html">Create account</a></p>
+
+        </form>
+      </div>
+
+    </div>
   </div>
 
-  <script src="script.js?v=70"></script>
+  <script src="script.js?v=80"></script>
+  <script>
+    function togglePw(id, btn) {
+      const input = document.getElementById(id);
+      if (!input) return;
+      if (input.type === 'password') {
+        input.type = 'text';
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>';
+      } else {
+        input.type = 'password';
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>';
+      }
+    }
+    function trigger404(e) {
+      if (e && e.preventDefault) e.preventDefault();
+      const p = window.location.pathname;
+      window.location.href = p.includes('/html/') ? '404.html' : 'html/404.html';
+    }
+  </script>
 </body>
 </html>
