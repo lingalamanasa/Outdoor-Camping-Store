@@ -263,13 +263,7 @@ function handleAddNewListing(e) {
 
 function handleDashboardAction(e, actionName) {
   if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  // Sitemap: show quick page map via toast
-  const cartToast = document.getElementById('cart-toast');
-  if (cartToast) {
-    cartToast.innerHTML = `🗺️ <strong>Sitemap:</strong> Home &bull; About &bull; Services &bull; Blog &bull; Contact &bull; Login &bull; Sign Up`;
-    cartToast.classList.add('show');
-    setTimeout(() => cartToast.classList.remove('show'), 4000);
-  }
+  openModal('404');
 }
 
 function handleSocialAuth(e) {
@@ -278,13 +272,8 @@ function handleSocialAuth(e) {
 }
 
 function handleSocialClick(e, platformName, url) {
-  // Allow the anchor's natural href to open in new tab (do NOT preventDefault)
-  const cartToast = document.getElementById('cart-toast');
-  if (cartToast) {
-    cartToast.innerHTML = `🔗 Opening <strong>${platformName}</strong>...`;
-    cartToast.classList.add('show');
-    setTimeout(() => cartToast.classList.remove('show'), 2500);
-  }
+  if (e && typeof e.preventDefault === 'function') e.preventDefault();
+  openModal('404');
 }
 
 function handleSocialPhotoClick(e) {
@@ -299,13 +288,7 @@ function handleContactAction(e) {
 
 function handleTermsClick(e) {
   if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  const label = e && e.target ? e.target.textContent.trim() : 'Policy';
-  const cartToast = document.getElementById('cart-toast');
-  if (cartToast) {
-    cartToast.innerHTML = `📄 <strong>${label}</strong> — Full document coming soon. Contact us at hello@stackly.store for details.`;
-    cartToast.classList.add('show');
-    setTimeout(() => cartToast.classList.remove('show'), 4000);
-  }
+  openModal('404');
 }
 
 function handleStoreHoursClick(e) {
