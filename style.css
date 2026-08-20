@@ -691,17 +691,17 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
 .hsb-error-msg {
   display: none;
   color: #ef4444;
-  font-size: 13.5px;
+  font-size: 14px;
   font-weight: 600;
   text-align: center;
-  margin-top: -16px;
+  margin-top: -18px;
   margin-bottom: 24px;
   letter-spacing: 0.2px;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9), 0 0 12px rgba(239, 68, 68, 0.3);
   animation: hsbFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 .hsb-error-msg.visible {
-  display: block;
+  display: block !important;
 }
 @keyframes hsbFadeIn {
   from { opacity: 0; transform: translateY(-6px); }

@@ -303,13 +303,15 @@ function handleSearchGear(e) {
   }, 3200);
 }
 
-// Auto-attach listeners to clear error on input
+// Auto-attach listeners to clear error only when user types
 document.addEventListener('DOMContentLoaded', () => {
   ['hsb-what', 'hsb-where', 'hsb-duration'].forEach(id => {
     const el = document.getElementById(id);
     if (el) {
-      el.addEventListener('input', clearSearchError);
-      el.addEventListener('focus', clearSearchError);
+      el.addEventListener('input', () => {
+        const val = el.value.trim();
+        if (val) clearSearchError();
+      });
     }
   });
 });
