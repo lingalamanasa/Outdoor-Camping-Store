@@ -3452,3 +3452,19 @@ html, body {
   }
 }
 
+/* ===== INTERACTIVE STAT PILLS ===== */
+.mb-stat-pill {
+  cursor: pointer !important;
+  transition: all 0.22s ease !important;
+  user-select: none;
+}
+.mb-stat-pill:hover {
+  transform: translateY(-3px) scale(1.03) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35) !important;
+  filter: brightness(1.2) !important;
+}
+.mb-stat-pill:active {
+  transform: translateY(0) scale(0.98) !important;
+}
+
+
