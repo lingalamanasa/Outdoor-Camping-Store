@@ -1014,6 +1014,8 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
   display:block;
   margin:0 auto;
 }
+.footer-email-link{text-decoration:none;cursor:pointer}
+.footer-email-link:hover{color:var(--green-300)!important}
 .footer-bottom{padding:22px 0}
 .footer-bottom-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
 .footer-bottom p{font-size:13px;opacity:.5}
@@ -3122,3 +3124,21 @@ html, body {
   }
 }
 
+/* ===== DASHBOARD SUB-PANEL VISIBILITY ===== */
+.user-subpanel,
+.host-subpanel {
+  display: none;
+}
+
+.user-subpanel.active,
+.host-subpanel.active {
+  display: block;
+}
+
+/* Dashboard settings form responsive at mobile */
+@media (max-width: 560px) {
+  .user-subpanel [style*="grid-template-columns:1fr 1fr"],
+  .host-subpanel [style*="grid-template-columns:1fr 1fr"] {
+    grid-template-columns: 1fr;
+  }
+}

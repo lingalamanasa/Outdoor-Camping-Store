@@ -1,8 +1,9 @@
 # 🌲 Stackly – Outdoor & Camping Store
 
-[![GitHub Repository](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/lingalamanasa/Outdoor-Camping-Store)
-[![Live Website](https://img.shields.io/badge/Live%20Website-GitHub%20Pages-2d6a4f?style=for-the-badge&logo=googlechrome&logoColor=white)](https://lingalamanasa.github.io/Outdoor-Camping-Store/)
-[![Built with HTML5 / CSS3 / JS](https://img.shields.io/badge/Stack-HTML5%20%7C%20CSS3%20%7C%20Vanilla%20JS-52b788?style=for-the-badge)](https://lingalamanasa.github.io/Outdoor-Camping-Store/)
+[![GitHub Repository](https://img.shields.io/badge/GitHub-lingalamanasa%2FOutdoor--Camping--Store-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/lingalamanasa/Outdoor-Camping-Store)
+[![Live Website](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-2d6a4f?style=for-the-badge&logo=googlechrome&logoColor=white)](https://lingalamanasa.github.io/Outdoor-Camping-Store/)
+[![Stack](https://img.shields.io/badge/Stack-HTML5%20%7C%20CSS3%20%7C%20Vanilla%20JS-52b788?style=for-the-badge&logo=html5&logoColor=white)](https://lingalamanasa.github.io/Outdoor-Camping-Store/)
+[![License](https://img.shields.io/badge/License-All%20Rights%20Reserved-red?style=for-the-badge)](https://github.com/lingalamanasa/Outdoor-Camping-Store)
 
 Welcome to **Stackly Outdoor & Camping Store**, a premier, responsive e-commerce web platform designed for outdoor adventurers, mountaineers, and wilderness explorers.
 
