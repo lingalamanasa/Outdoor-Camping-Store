@@ -3239,6 +3239,43 @@ html, body {
   display: block;
 }
 
+/* ===== MOBILE/DESKTOP FINE-TUNED SPECIFIC OVERRIDES (MATCHING ALL 4 REFERENCE IMAGES) ===== */
+@media (max-width: 768px) {
+  .dash-topbar-flex {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 16px !important;
+    margin-bottom: 24px !important;
+  }
+  .dash-topbar-flex > div:first-child {
+    width: 100%;
+  }
+  .dash-title {
+    font-size: 26px !important;
+    line-height: 1.25 !important;
+  }
+  .dash-subtitle {
+    font-size: 13.5px !important;
+    line-height: 1.45 !important;
+    color: #94a3b8 !important;
+  }
+  .dash-user-pill-badge {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    justify-content: space-between !important;
+    padding: 14px 20px !important;
+    border-radius: 22px !important;
+  }
+  .dash-metrics-grid-4 {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+  .dash-content-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+}
+
 /* Dashboard settings form responsive at mobile */
 @media (max-width: 560px) {
   .user-subpanel [style*="grid-template-columns:1fr 1fr"],
