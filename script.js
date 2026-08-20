@@ -57,6 +57,12 @@ function switchPage(pageId) {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
+  // Prevent SPA navigation on dedicated login and signup pages
+  const path = window.location.pathname.toLowerCase();
+  if (path.endsWith('login.html') || path.endsWith('signup.html')) {
+    // Allow the page to load normally without SPA interference
+    return;
+  }
   const hash = window.location.hash.replace('#', '');
   if (hash && document.getElementById(`page-${hash}`)) {
     switchPage(hash);
@@ -71,6 +77,7 @@ window.addEventListener('DOMContentLoaded', () => {
       switchPage('home');
     }
   }
+});
 
   // Explicit event listener for host dashboard logo & brand area (returns to Host Dashboard)
   const hostLogos = document.querySelectorAll('#page-dashboard .dash-logo, #page-dashboard .dash-sidebar-brand, #page-dashboard .dash-mobile-header-brand, #host-dash-sidebar .dash-sidebar-brand');
