@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=26" />
+  <link rel="stylesheet" href="style.css?v=56" />
 </head>
 <body style="background:#070e17 !important; margin:0; padding:0; min-height:100vh;">
 
@@ -44,49 +44,38 @@
 
     <div class="dash-layout">
       
-      <!-- SIDEBAR DRAWER (MATCHING SCREENSHOT 2) -->
+      <!-- SIDEBAR DRAWER (MATCHING REFERENCE IMAGE 4) -->
       <aside class="dash-sidebar" id="host-dash-sidebar">
-        <!-- STACKLY BRAND LOGO -->
-        <a href="dashboard.html" onclick="return reloadCurrentDashboard(event);" class="dash-sidebar-brand" style="text-decoration:none; display:flex; align-items:center; gap:10px; margin-bottom:28px; padding:0 4px; cursor:pointer;" title="Host Dashboard">
-          <div class="dash-logo-icon-purple" style="width:36px; height:36px; border-radius:10px; background:#1e1035; border:1px solid rgba(192,132,252,0.35); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c084fc" stroke-width="2.2" stroke-linecap="round">
-              <path d="M4 7C8 5.5 16 5.5 20 7"/>
-              <path d="M4 12C8 10.5 16 10.5 20 12"/>
-              <path d="M4 17C8 15.5 16 15.5 20 17"/>
-            </svg>
-          </div>
-          <div class="dash-brand-text">
-            <span class="logo-text" style="font-size:18px; font-weight:800; color:#ffffff !important; letter-spacing:0.8px; text-transform:uppercase;">STACKLY</span>
-            <span class="purple-subtitle" style="font-size:11px; font-weight:700; color:#c084fc;">Enterprise Executive Dashboard</span>
-          </div>
-        </a>
-
-        <div class="drawer-header-row">
-          <button class="dash-drawer-close-btn" onclick="closeDashDrawer()" aria-label="Close Drawer">✕</button>
+        <div class="drawer-header-row" style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px;">
+          <button class="dash-drawer-close-btn" onclick="closeDashDrawer()" aria-label="Close Drawer" style="width:38px; height:38px; border-radius:10px; border:1px solid rgba(255,255,255,0.15); background:#151d2f; color:#ffffff; font-size:16px; display:flex; align-items:center; justify-content:center; cursor:pointer;">✕</button>
         </div>
 
-        <nav class="sidebar-nav">
-          <a href="#" class="sidebar-link active" id="host-nav-overview" onclick="switchHostTab('overview'); closeDashDrawer(); return false;">
-            <span class="s-icon">📊</span> Overview
+        <!-- STACKLY BRAND LOGO -->
+        <a href="dashboard.html" onclick="return reloadCurrentDashboard(event);" class="dash-sidebar-brand" style="text-decoration:none; display:flex; flex-direction:column; gap:4px; margin-bottom:24px; padding:0 4px; cursor:pointer;" title="Supply Chain Dashboard">
+          <span class="purple-subtitle" style="font-size:13px; font-weight:700; color:#c084fc; letter-spacing:0.2px;">Supply Chain Dashboard</span>
+        </a>
+
+        <nav class="sidebar-nav" style="display:flex; flex-direction:column; gap:6px;">
+          <a href="#" class="sidebar-link active" id="host-nav-overview" onclick="switchHostTab('overview'); closeDashDrawer(); return false;" style="background:#1b1531; color:#c084fc; border-radius:14px; padding:12px 16px; font-weight:700; display:flex; align-items:center; gap:12px; text-decoration:none;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg> Overview
           </a>
-          <a href="#" class="sidebar-link" id="host-nav-properties" onclick="switchHostTab('properties'); closeDashDrawer(); return false;">
-            <span class="s-icon">🎒</span> My Gear &amp; Rentals
+          <a href="#" class="sidebar-link" id="host-nav-properties" onclick="switchHostTab('properties'); closeDashDrawer(); return false;" style="color:#cbd5e1; border-radius:14px; padding:12px 16px; font-weight:500; display:flex; align-items:center; gap:12px; text-decoration:none;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg> My Shipments
           </a>
-          <a href="#" class="sidebar-link" id="host-nav-bookings" onclick="switchHostTab('bookings'); closeDashDrawer(); return false;">
-            <span class="s-icon">🏔️</span> Booked Expeditions
+          <a href="#" class="sidebar-link" id="host-nav-bookings" onclick="switchHostTab('bookings'); closeDashDrawer(); return false;" style="color:#cbd5e1; border-radius:14px; padding:12px 16px; font-weight:500; display:flex; align-items:center; gap:12px; text-decoration:none;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> Saved Hubs
           </a>
-          <a href="#" class="sidebar-link" id="host-nav-earnings" onclick="switchHostTab('earnings'); closeDashDrawer(); return false;">
-            <span class="s-icon">⭐</span> Saved Wishlist
+          <a href="#" class="sidebar-link" id="host-nav-earnings" onclick="switchHostTab('earnings'); closeDashDrawer(); return false;" style="color:#cbd5e1; border-radius:14px; padding:12px 16px; font-weight:500; display:flex; align-items:center; gap:12px; text-decoration:none;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg> Operations
           </a>
-          <a href="#" class="sidebar-link" id="host-nav-settings" onclick="switchHostTab('settings'); closeDashDrawer(); return false;">
-            <span class="s-icon">⚙️</span> Account Settings
+          <a href="#" class="sidebar-link" id="host-nav-settings" onclick="switchHostTab('settings'); closeDashDrawer(); return false;" style="color:#cbd5e1; border-radius:14px; padding:12px 16px; font-weight:500; display:flex; align-items:center; gap:12px; text-decoration:none;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg> Settings
           </a>
         </nav>
 
-        <div class="sidebar-bottom">
-          <div class="sidebar-divider" style="border-top: 1px solid rgba(255,255,255,0.08); margin: 20px 0 14px;"></div>
-          <a href="index.html" class="sidebar-link" style="color:#f87171; font-weight:700;">
-            <span class="s-icon">↳</span> Logout
+        <div class="sidebar-bottom" style="margin-top:auto; padding-top:20px;">
+          <a href="index.html" class="sidebar-link red-logout-card" style="background:#170f1a; border:1px solid rgba(239,68,68,0.3); color:#f87171 !important; font-weight:700; display:flex; align-items:center; gap:12px; padding:13px 18px; border-radius:14px; text-decoration:none;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2.2" stroke-linecap="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg> Logout
           </a>
         </div>
       </aside>
@@ -94,20 +83,21 @@
       <!-- MAIN CONTENT CONTAINER -->
       <main class="dash-main-content" style="padding:32px 36px;">
         
-        <!-- TOPBAR (MATCHING REFERENCE SCREENSHOT) -->
+        <!-- TOPBAR (MATCHING REFERENCE IMAGE 3) -->
         <header class="dash-topbar-flex">
           <div>
-            <h1 class="dash-title serif-title">Welcome back, <span class="dash-user-disp-name">manu</span></h1>
-            <p class="dash-subtitle">Here is what is happening with your hosted properties and outdoor gear rentals today.</p>
+            <h1 class="dash-title serif-title">Welcome back, <span class="dash-user-disp-name">LINGALA MANASA</span></h1>
+            <p class="dash-subtitle">Ready to evaluate strategic costs, total supply chain margin, and carbon footprints?</p>
           </div>
 
-          <div class="dash-user-pill-badge">
-            <div class="dup-details">
-              <span class="dup-name dash-user-uname-disp" style="color:#c084fc;">MANU</span>
-              <span class="dup-email-muted dash-user-email-disp">lingalamanasa123@gmail.com</span>
+          <div class="dash-user-pill-badge" style="background:#111726; border:1px solid rgba(192,132,252,0.25); border-radius:24px; padding:12px 20px;">
+            <div class="dup-details" style="text-align:left;">
+              <span class="dup-name dash-user-uname-disp" style="color:#c084fc; font-weight:800;">LINGALA MANASA</span>
+              <span class="dup-email-muted dash-user-email-disp" style="color:#94a3b8; font-size:12px;">lingalamanasa123@gmail.com</span>
+              <span class="dup-role-badge dash-user-role-disp" style="color:#eab308; font-size:10.5px; font-weight:800; letter-spacing:0.8px; margin-top:2px;">ENTERPRISE EXECUTIVE</span>
             </div>
-            <div class="dup-avatar-circle" style="background:#241836; border-color:rgba(192,132,252,0.3); color:#c084fc;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c084fc" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <div class="dup-avatar-circle" style="background:#1e1430; border-color:rgba(192,132,252,0.4); color:#38bdf8; margin-left:14px;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
                 <circle cx="12" cy="7" r="4"/>
               </svg>
@@ -118,54 +108,40 @@
         <!-- HOST SUBPANEL 1: OVERVIEW -->
         <div class="user-subpanel active" id="host-panel-overview">
           
-          <!-- TOP 4 METRIC CARDS (MATCHING REFERENCE SCREENSHOT) -->
-          <div class="dash-metrics-grid-4">
+          <!-- TOP METRIC CARDS (MATCHING REFERENCE IMAGE 3) -->
+          <div class="dash-metrics-grid-4" style="grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));">
             
-            <!-- CARD 1: MONTHLY REVENUE -->
-            <div class="metric-card-box">
-              <div class="mc-top-row">
-                <div class="mc-icon-badge" style="color:#c084fc;">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            <!-- CARD 1: OPERATING MARGIN -->
+            <div class="metric-card-box" style="background:#111726; border:1px solid rgba(255,255,255,0.08); border-radius:22px; padding:22px;">
+              <div class="mc-top-row" style="display:flex; align-items:center; gap:12px;">
+                <div class="mc-icon-badge" style="width:42px; height:42px; border-radius:50%; background:#24163b; color:#c084fc; display:flex; align-items:center; justify-content:center;">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c084fc" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
                 </div>
-                <span class="mc-label">Monthly Revenue</span>
+                <span class="mc-label" style="font-size:14px; color:#94a3b8; font-weight:500;">Operating Margin</span>
               </div>
-              <div class="mc-val">$12,450</div>
+              <div class="mc-val" style="font-size:32px; font-weight:800; color:#ffffff; margin-top:12px;">24.6%</div>
             </div>
 
-            <!-- CARD 2: AVERAGE RATING -->
-            <div class="metric-card-box">
-              <div class="mc-top-row">
-                <div class="mc-icon-badge" style="color:#c084fc;">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            <!-- CARD 2: TOTAL CO2 REDUCTION -->
+            <div class="metric-card-box" style="background:#111726; border:1px solid rgba(255,255,255,0.08); border-radius:22px; padding:22px;">
+              <div class="mc-top-row" style="display:flex; align-items:center; gap:12px;">
+                <div class="mc-icon-badge" style="width:42px; height:42px; border-radius:50%; background:#24163b; color:#c084fc; display:flex; align-items:center; justify-content:center;">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c084fc" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg>
                 </div>
-                <span class="mc-label">Average Rating</span>
+                <span class="mc-label" style="font-size:14px; color:#94a3b8; font-weight:500;">Total CO2 Reduction</span>
               </div>
-              <div class="mc-val">4.95 ⭐</div>
+              <div class="mc-val" style="font-size:32px; font-weight:800; color:#ffffff; margin-top:12px;">124 Tons</div>
             </div>
 
-            <!-- CARD 3: ACTIVE LISTINGS -->
-            <div class="metric-card-box">
-              <div class="mc-top-row">
-                <div class="mc-icon-badge" style="color:#c084fc;">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            <!-- CARD 3: QUARTERLY SAVINGS -->
+            <div class="metric-card-box" style="background:#111726; border:1px solid rgba(255,255,255,0.08); border-radius:22px; padding:22px;">
+              <div class="mc-top-row" style="display:flex; align-items:center; gap:12px;">
+                <div class="mc-icon-badge" style="width:42px; height:42px; border-radius:50%; background:#24163b; color:#c084fc; display:flex; align-items:center; justify-content:center;">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c084fc" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
                 </div>
-                <span class="mc-label">Active Listings</span>
+                <span class="mc-label" style="font-size:14px; color:#94a3b8; font-weight:500;">Quarterly Savings</span>
               </div>
-              <div class="mc-val">18</div>
-            </div>
-
-            <!-- CARD 4: NEXT GUEST CHECK-IN (FEATURED DARK PURPLE CARD) -->
-            <div class="metric-card-box featured-dark" style="background:#241836; border-color:rgba(192,132,252,0.35);">
-              <div class="mc-top-row">
-                <div class="mc-icon-badge white-bg">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0b1528" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                </div>
-                <span class="mc-label">Next Guest Check-in</span>
-              </div>
-              <div>
-                <div class="mc-val" style="margin-top:10px;">Lake Tahoe Cabin</div>
-                <div class="mc-subtext" style="color:#c084fc;">In 2 days</div>
-              </div>
+              <div class="mc-val" style="font-size:32px; font-weight:800; color:#ffffff; margin-top:12px;">$1.2M</div>
             </div>
 
           </div>
@@ -322,10 +298,251 @@
 
         </div>
 
+        <!-- HOST SUBPANEL 2: MY GEAR & RENTALS (HOST INVENTORY) -->
+        <div class="host-subpanel" id="host-panel-properties">
+          <h2 style="color:#fff; font-size:26px; font-weight:800; font-family:'Playfair Display',serif; margin-bottom:4px;">🎒 Gear Inventory &amp; Rental Fleet</h2>
+          <p style="color:#64748b; font-size:14px; margin-bottom:28px;">Manage your outdoor gear listings, rental pricing, and equipment availability.</p>
+
+          <div style="display:flex; justify-content:flex-end; margin-bottom:20px;">
+            <button onclick="trigger404(event)" style="background:#c084fc; color:#0b1528; font-size:13px; font-weight:700; padding:11px 22px; border-radius:999px; border:none; cursor:pointer;">+ Add New Item</button>
+          </div>
+
+          <!-- GEAR ITEM 1 -->
+          <div style="background:#111726; border:1px solid rgba(255,255,255,0.07); border-radius:20px; padding:24px; margin-bottom:16px; display:flex; align-items:flex-start; gap:20px; flex-wrap:wrap;">
+            <img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=300&q=80" alt="AlpineShield Tent" style="width:120px; height:90px; object-fit:cover; border-radius:14px; flex-shrink:0;" />
+            <div style="flex:1; min-width:200px;">
+              <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px; flex-wrap:wrap;">
+                <h3 style="color:#fff; font-size:17px; font-weight:700;">AlpineShield 4-Season Tent (4-Person)</h3>
+                <span style="background:rgba(52,183,136,0.18); color:#52b788; border:1px solid rgba(52,183,136,0.3); font-size:11px; font-weight:700; padding:4px 12px; border-radius:20px;">Available</span>
+              </div>
+              <div style="display:flex; gap:24px; flex-wrap:wrap; margin-bottom:12px;">
+                <div><div style="color:#64748b; font-size:12px; margin-bottom:2px;">Daily Rate</div><div style="color:#c084fc; font-size:16px; font-weight:700;">$85 / day</div></div>
+                <div><div style="color:#64748b; font-size:12px; margin-bottom:2px;">Total Rentals</div><div style="color:#fff; font-size:16px; font-weight:700;">47</div></div>
+                <div><div style="color:#64748b; font-size:12px; margin-bottom:2px;">Rating</div><div style="color:#fff; font-size:16px; font-weight:700;">⭐ 4.97</div></div>
+                <div><div style="color:#64748b; font-size:12px; margin-bottom:2px;">Revenue (All Time)</div><div style="color:#c084fc; font-size:16px; font-weight:700;">$3,995</div></div>
+              </div>
+              <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                <button onclick="trigger404(event)" style="background:#241836; color:#c084fc; font-size:13px; font-weight:700; padding:9px 20px; border-radius:999px; border:1px solid rgba(192,132,252,0.3); cursor:pointer;">Edit Listing</button>
+                <button onclick="trigger404(event)" style="background:#172033; color:#fff; font-size:13px; font-weight:700; padding:9px 20px; border-radius:999px; border:1px solid rgba(255,255,255,0.12); cursor:pointer;">Manage Calendar</button>
+                <button onclick="trigger404(event)" style="background:rgba(239,68,68,0.1); color:#f87171; font-size:13px; font-weight:700; padding:9px 20px; border-radius:999px; border:1px solid rgba(239,68,68,0.25); cursor:pointer;">Delist</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- GEAR ITEM 2 -->
+          <div style="background:#111726; border:1px solid rgba(255,255,255,0.07); border-radius:20px; padding:24px; margin-bottom:16px; display:flex; align-items:flex-start; gap:20px; flex-wrap:wrap;">
+            <img src="https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?w=300&q=80" alt="Osprey Pack" style="width:120px; height:90px; object-fit:cover; border-radius:14px; flex-shrink:0;" />
+            <div style="flex:1; min-width:200px;">
+              <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px; flex-wrap:wrap;">
+                <h3 style="color:#fff; font-size:17px; font-weight:700;">Osprey Aether 70L Pack (Set of 3)</h3>
+                <span style="background:rgba(192,132,252,0.18); color:#c084fc; border:1px solid rgba(192,132,252,0.3); font-size:11px; font-weight:700; padding:4px 12px; border-radius:20px;">2 Rented Out</span>
+              </div>
+              <div style="display:flex; gap:24px; flex-wrap:wrap; margin-bottom:12px;">
+                <div><div style="color:#64748b; font-size:12px; margin-bottom:2px;">Daily Rate</div><div style="color:#c084fc; font-size:16px; font-weight:700;">$45 / day</div></div>
+                <div><div style="color:#64748b; font-size:12px; margin-bottom:2px;">Total Rentals</div><div style="color:#fff; font-size:16px; font-weight:700;">83</div></div>
+                <div><div style="color:#64748b; font-size:12px; margin-bottom:2px;">Rating</div><div style="color:#fff; font-size:16px; font-weight:700;">⭐ 4.92</div></div>
+                <div><div style="color:#64748b; font-size:12px; margin-bottom:2px;">Revenue (All Time)</div><div style="color:#c084fc; font-size:16px; font-weight:700;">$3,735</div></div>
+              </div>
+              <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                <button onclick="trigger404(event)" style="background:#241836; color:#c084fc; font-size:13px; font-weight:700; padding:9px 20px; border-radius:999px; border:1px solid rgba(192,132,252,0.3); cursor:pointer;">Edit Listing</button>
+                <button onclick="trigger404(event)" style="background:#172033; color:#fff; font-size:13px; font-weight:700; padding:9px 20px; border-radius:999px; border:1px solid rgba(255,255,255,0.12); cursor:pointer;">Manage Calendar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- HOST SUBPANEL 3: BOOKED EXPEDITIONS (GUEST BOOKINGS) -->
+        <div class="host-subpanel" id="host-panel-bookings">
+          <h2 style="color:#fff; font-size:26px; font-weight:800; font-family:'Playfair Display',serif; margin-bottom:4px;">🏔️ Guest Bookings &amp; Reservations</h2>
+          <p style="color:#64748b; font-size:14px; margin-bottom:28px;">Manage upcoming guest reservations, send messages, and confirm check-ins.</p>
+
+          <!-- BOOKING 1 -->
+          <div style="background:#111726; border:1px solid rgba(255,255,255,0.07); border-radius:20px; overflow:hidden; margin-bottom:20px;">
+            <div style="background:linear-gradient(135deg, #1e1035, #241836); padding:20px 24px; border-bottom:1px solid rgba(192,132,252,0.15); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
+              <div style="display:flex; align-items:center; gap:14px;">
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&q=80" alt="Sarah Jenkins" style="width:48px; height:48px; border-radius:50%; object-fit:cover; border:2px solid rgba(192,132,252,0.4);" />
+                <div>
+                  <div style="color:#fff; font-size:16px; font-weight:700;">Sarah Jenkins</div>
+                  <div style="color:#94a3b8; font-size:13px;">sarah.j@email.com • ⭐ 4.9 Guest Rating</div>
+                </div>
+              </div>
+              <span style="background:rgba(192,132,252,0.18); color:#c084fc; border:1px solid rgba(192,132,252,0.3); font-size:12px; font-weight:700; padding:6px 16px; border-radius:20px;">Confirmed</span>
+            </div>
+            <div style="padding:24px;">
+              <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(160px, 1fr)); gap:16px; margin-bottom:20px;">
+                <div><div style="color:#64748b; font-size:12px; margin-bottom:4px;">Property</div><div style="color:#fff; font-size:14px; font-weight:700;">Lake Tahoe Cabin</div></div>
+                <div><div style="color:#64748b; font-size:12px; margin-bottom:4px;">Check-in</div><div style="color:#fff; font-size:14px; font-weight:700;">Oct 12, 2026</div></div>
+                <div><div style="color:#64748b; font-size:12px; margin-bottom:4px;">Check-out</div><div style="color:#fff; font-size:14px; font-weight:700;">Oct 18, 2026</div></div>
+                <div><div style="color:#64748b; font-size:12px; margin-bottom:4px;">Payout</div><div style="color:#c084fc; font-size:14px; font-weight:700;">$2,450.00</div></div>
+              </div>
+              <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                <button onclick="trigger404(event)" style="background:#c084fc; color:#0b1528; font-size:13px; font-weight:700; padding:10px 22px; border-radius:999px; border:none; cursor:pointer;">Message Guest</button>
+                <button onclick="trigger404(event)" style="background:#172033; color:#fff; font-size:13px; font-weight:700; padding:10px 22px; border-radius:999px; border:1px solid rgba(255,255,255,0.12); cursor:pointer;">View Booking Details</button>
+                <button onclick="trigger404(event)" style="background:rgba(239,68,68,0.1); color:#f87171; font-size:13px; font-weight:700; padding:10px 22px; border-radius:999px; border:1px solid rgba(239,68,68,0.25); cursor:pointer; margin-left:auto;">Cancel Reservation</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- BOOKING 2 -->
+          <div style="background:#111726; border:1px solid rgba(255,255,255,0.07); border-radius:20px; overflow:hidden;">
+            <div style="background:linear-gradient(135deg, #1e1035, #241836); padding:20px 24px; border-bottom:1px solid rgba(192,132,252,0.15); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
+              <div style="display:flex; align-items:center; gap:14px;">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80" alt="Michael Chang" style="width:48px; height:48px; border-radius:50%; object-fit:cover; border:2px solid rgba(192,132,252,0.4);" />
+                <div>
+                  <div style="color:#fff; font-size:16px; font-weight:700;">Michael Chang</div>
+                  <div style="color:#94a3b8; font-size:13px;">m.chang@email.com • ⭐ 4.8 Guest Rating</div>
+                </div>
+              </div>
+              <span style="background:rgba(192,132,252,0.18); color:#c084fc; border:1px solid rgba(192,132,252,0.3); font-size:12px; font-weight:700; padding:6px 16px; border-radius:20px;">Confirmed</span>
+            </div>
+            <div style="padding:24px;">
+              <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(160px, 1fr)); gap:16px; margin-bottom:20px;">
+                <div><div style="color:#64748b; font-size:12px; margin-bottom:4px;">Property</div><div style="color:#fff; font-size:14px; font-weight:700;">Yosemite Eco Dome</div></div>
+                <div><div style="color:#64748b; font-size:12px; margin-bottom:4px;">Check-in</div><div style="color:#fff; font-size:14px; font-weight:700;">Nov 01, 2026</div></div>
+                <div><div style="color:#64748b; font-size:12px; margin-bottom:4px;">Check-out</div><div style="color:#fff; font-size:14px; font-weight:700;">Nov 05, 2026</div></div>
+                <div><div style="color:#64748b; font-size:12px; margin-bottom:4px;">Payout</div><div style="color:#c084fc; font-size:14px; font-weight:700;">$1,890.00</div></div>
+              </div>
+              <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                <button onclick="trigger404(event)" style="background:#c084fc; color:#0b1528; font-size:13px; font-weight:700; padding:10px 22px; border-radius:999px; border:none; cursor:pointer;">Message Guest</button>
+                <button onclick="trigger404(event)" style="background:#172033; color:#fff; font-size:13px; font-weight:700; padding:10px 22px; border-radius:999px; border:1px solid rgba(255,255,255,0.12); cursor:pointer;">View Booking Details</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- HOST SUBPANEL 4: SAVED WISHLIST (HOST) -->
+        <div class="host-subpanel" id="host-panel-earnings">
+          <h2 style="color:#fff; font-size:26px; font-weight:800; font-family:'Playfair Display',serif; margin-bottom:4px;">⭐ Saved &amp; Pinned Items</h2>
+          <p style="color:#64748b; font-size:14px; margin-bottom:28px;">Equipment and properties you've saved for future fleet expansion.</p>
+
+          <div class="dash-featured-grid-3">
+            <!-- SAVED ITEM 1 -->
+            <div class="dash-property-card">
+              <div class="dpc-img-wrap">
+                <img src="https://images.unsplash.com/photo-1484804959297-65e7c19d7c9f?w=600&q=80" alt="Solar Power Station" />
+                <span class="dpc-badge purple-badge">⭐ Pinned</span>
+              </div>
+              <div class="dpc-body">
+                <div class="dpc-title">Jackery Solar Generator 1000W</div>
+                <div class="dpc-location">📍 Camping Power Equipment</div>
+                <div class="dpc-meta">
+                  <span class="dpc-price purple-price">$999</span>
+                  <button onclick="trigger404(event)" style="background:#241836; color:#c084fc; font-size:12px; font-weight:700; padding:7px 14px; border-radius:999px; border:1px solid rgba(192,132,252,0.3); cursor:pointer;">Add to Fleet</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- SAVED ITEM 2 -->
+            <div class="dash-property-card">
+              <div class="dpc-img-wrap">
+                <img src="https://images.unsplash.com/photo-1508193638397-1c4234db14d8?w=600&q=80" alt="Satellite Communicator" />
+                <span class="dpc-badge purple-badge">⭐ Pinned</span>
+              </div>
+              <div class="dpc-body">
+                <div class="dpc-title">Garmin inReach Mini 2 (10-Pack)</div>
+                <div class="dpc-location">📍 Safety Equipment</div>
+                <div class="dpc-meta">
+                  <span class="dpc-price purple-price">$3,490</span>
+                  <button onclick="trigger404(event)" style="background:#241836; color:#c084fc; font-size:12px; font-weight:700; padding:7px 14px; border-radius:999px; border:1px solid rgba(192,132,252,0.3); cursor:pointer;">Add to Fleet</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- SAVED ITEM 3 -->
+            <div class="dash-property-card">
+              <div class="dpc-img-wrap">
+                <img src="https://images.unsplash.com/photo-1455541504462-57ebb2a9cec1?w=600&q=80" alt="Camp Kitchen Set" />
+                <span class="dpc-badge purple-badge">⭐ Pinned</span>
+              </div>
+              <div class="dpc-body">
+                <div class="dpc-title">MSR Camp Kitchen Bundle (6-Person)</div>
+                <div class="dpc-location">📍 Camp Kitchen Gear</div>
+                <div class="dpc-meta">
+                  <span class="dpc-price purple-price">$449</span>
+                  <button onclick="trigger404(event)" style="background:#241836; color:#c084fc; font-size:12px; font-weight:700; padding:7px 14px; border-radius:999px; border:1px solid rgba(192,132,252,0.3); cursor:pointer;">Add to Fleet</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- FINANCIAL SUMMARY -->
+          <div style="background:#241836; border:1px solid rgba(192,132,252,0.2); border-radius:20px; padding:28px; margin-top:28px;">
+            <h3 style="color:#fff; font-size:18px; font-weight:700; margin-bottom:20px;">💰 Financial Performance &amp; Payout Summary</h3>
+            <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(160px, 1fr)); gap:16px; margin-bottom:24px;">
+              <div><div style="color:#64748b; font-size:12px; margin-bottom:4px;">Gross Payouts (All Time)</div><div style="color:#c084fc; font-size:22px; font-weight:800;">$64,820</div></div>
+              <div><div style="color:#64748b; font-size:12px; margin-bottom:4px;">This Month</div><div style="color:#fff; font-size:22px; font-weight:800;">$12,450</div></div>
+              <div><div style="color:#64748b; font-size:12px; margin-bottom:4px;">Pending Payout</div><div style="color:#52b788; font-size:22px; font-weight:800;">$3,210</div></div>
+              <div><div style="color:#64748b; font-size:12px; margin-bottom:4px;">Next Transfer</div><div style="color:#fff; font-size:22px; font-weight:800;">Aug 25</div></div>
+            </div>
+            <button onclick="trigger404(event)" style="background:#c084fc; color:#0b1528; font-size:14px; font-weight:700; padding:12px 28px; border-radius:999px; border:none; cursor:pointer;">View Full Payout Report →</button>
+          </div>
+        </div>
+
+        <!-- HOST SUBPANEL 5: ACCOUNT SETTINGS -->
+        <div class="host-subpanel" id="host-panel-settings">
+          <h2 style="color:#fff; font-size:26px; font-weight:800; font-family:'Playfair Display',serif; margin-bottom:4px;">⚙️ Host Profile &amp; Settings</h2>
+          <p style="color:#64748b; font-size:14px; margin-bottom:28px;">Configure automated guest messages, payout schedule, and bank details.</p>
+
+          <div style="background:#1a1035; border:1px solid rgba(192,132,252,0.15); border-radius:20px; padding:32px; max-width:720px;">
+            <!-- PROFILE SECTION -->
+            <div style="display:flex; align-items:center; gap:18px; margin-bottom:28px; flex-wrap:wrap;">
+              <div style="width:64px; height:64px; border-radius:50%; background:#241836; display:flex; align-items:center; justify-content:center; flex-shrink:0; border:2px solid rgba(192,132,252,0.4);">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c084fc" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </div>
+              <div>
+                <div style="color:#fff; font-size:16px; font-weight:700; margin-bottom:2px;" class="dash-user-disp-name">manu</div>
+                <div style="color:#64748b; font-size:13px;" class="dash-user-email-disp">lingalamanasa123@gmail.com</div>
+              </div>
+              <button onclick="trigger404(event)" style="margin-left:auto; background:rgba(192,132,252,0.12); color:#c084fc; font-size:13px; font-weight:700; padding:9px 20px; border-radius:999px; border:1px solid rgba(192,132,252,0.3); cursor:pointer;">Change Photo</button>
+            </div>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:20px;">
+              <div>
+                <label style="display:block; color:#e2e8f0; font-size:13px; font-weight:600; margin-bottom:6px;">Host Name</label>
+                <input type="text" value="manu" class="dash-user-disp-name" style="width:100%; background:#111726; border:1px solid rgba(192,132,252,0.2); color:#fff; padding:12px 16px; border-radius:12px; font-size:14px; outline:none; font-family:inherit;" />
+              </div>
+              <div>
+                <label style="display:block; color:#e2e8f0; font-size:13px; font-weight:600; margin-bottom:6px;">Email Address</label>
+                <input type="email" value="lingalamanasa123@gmail.com" class="dash-user-email-disp" style="width:100%; background:#111726; border:1px solid rgba(192,132,252,0.2); color:#fff; padding:12px 16px; border-radius:12px; font-size:14px; outline:none; font-family:inherit;" />
+              </div>
+            </div>
+
+            <!-- AUTO MESSAGE SETTINGS -->
+            <div style="border-top:1px solid rgba(192,132,252,0.1); padding-top:20px; margin-bottom:20px;">
+              <div style="color:#c084fc; font-size:14px; font-weight:700; margin-bottom:12px;">💬 Automated Guest Messaging</div>
+              <div style="margin-bottom:12px;">
+                <label style="display:block; color:#e2e8f0; font-size:13px; font-weight:600; margin-bottom:6px;">Check-in Welcome Message</label>
+                <textarea rows="3" style="width:100%; background:#111726; border:1px solid rgba(192,132,252,0.2); color:#fff; padding:12px 16px; border-radius:12px; font-size:13px; outline:none; font-family:inherit; resize:vertical; line-height:1.5;">Welcome to your stay! Check-in after 3 PM. WiFi: StacklyGuest / Pass: outdoor2026. Enjoy your adventure! 🏕️</textarea>
+              </div>
+            </div>
+
+            <!-- BANK / PAYOUT -->
+            <div style="border-top:1px solid rgba(192,132,252,0.1); padding-top:20px; margin-bottom:24px;">
+              <div style="color:#c084fc; font-size:14px; font-weight:700; margin-bottom:12px;">🏦 Payout Settings</div>
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+                <div>
+                  <label style="display:block; color:#e2e8f0; font-size:13px; font-weight:600; margin-bottom:6px;">Bank Name</label>
+                  <input type="text" value="Chase Bank" style="width:100%; background:#111726; border:1px solid rgba(192,132,252,0.2); color:#fff; padding:12px 16px; border-radius:12px; font-size:14px; outline:none; font-family:inherit;" />
+                </div>
+                <div>
+                  <label style="display:block; color:#e2e8f0; font-size:13px; font-weight:600; margin-bottom:6px;">Payout Frequency</label>
+                  <select style="width:100%; background:#111726; border:1px solid rgba(192,132,252,0.2); color:#fff; padding:12px 16px; border-radius:12px; font-size:14px; outline:none; font-family:inherit; cursor:pointer;">
+                    <option>Weekly (Every Monday)</option>
+                    <option>Bi-Weekly</option>
+                    <option>Monthly</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <button onclick="trigger404(event)" style="background:#c084fc; color:#0b1528; font-size:15px; font-weight:700; padding:14px 34px; border-radius:999px; border:none; cursor:pointer; transition:all 0.2s; box-shadow:0 4px 16px rgba(192,132,252,0.4);" onmouseover="this.style.background='#d8b4fe'; this.style.transform='translateY(-2px)';" onmouseout="this.style.background='#c084fc'; this.style.transform='';">Save Changes ✓</button>
+          </div>
+        </div>
+
       </main>
     </div>
   </div>
 
-  <script src="script.js?v=26"></script>
+  <script src="script.js?v=56"></script>
 </body>
 </html>

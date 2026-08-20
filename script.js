@@ -565,21 +565,32 @@ function handleLogin(e) {
   }
 }
 
+function selectRoleRadio(labelEl) {
+  if (!labelEl) return;
+  const container = labelEl.closest('.role-sheet-container') || document;
+  container.querySelectorAll('.role-radio-item').forEach(item => item.classList.remove('selected'));
+  labelEl.classList.add('selected');
+  const radio = labelEl.querySelector('input[type="radio"]');
+  if (radio) radio.checked = true;
+}
+
 function handleSignup(e) {
   e.preventDefault();
   const btn = e.target.querySelector('button[type="submit"]') || document.getElementById('signup-submit-btn');
   const fnameInput = document.getElementById('sup-fname') || e.target.querySelector('input[placeholder*="First"], input[type="text"]');
   const lnameInput = document.getElementById('sup-lname');
   const emailInput = document.getElementById('sup-email') || e.target.querySelector('input[type="email"]');
-  const roleInput = document.getElementById('sup-role') || e.target.querySelector('select');
+  const roleRadio = e.target.querySelector('input[name="user_role"]:checked') || document.querySelector('input[name="user_role"]:checked');
+  const roleInput = roleRadio || document.getElementById('sup-role') || e.target.querySelector('select');
   
   let fullName = '';
   if (fnameInput && fnameInput.value) {
     fullName = fnameInput.value + (lnameInput && lnameInput.value ? ' ' + lnameInput.value : '');
   }
 
-  const selectedRole = roleInput ? roleInput.value : '';
-  const targetPage = (selectedRole === 'adventurer' || selectedRole === 'traveler') ? 'user-dashboard' : 'dashboard';
+  const selectedRole = roleInput ? roleInput.value : 'Enterprise Executive';
+  const isTraveller = selectedRole.toLowerCase().includes('traveller') || selectedRole.toLowerCase().includes('traveler') || selectedRole.toLowerCase().includes('adventurer');
+  const targetPage = isTraveller ? 'user-dashboard' : 'dashboard';
 
   if (btn) {
     const origText = btn.textContent;
@@ -597,13 +608,21 @@ function handleSignup(e) {
         if (fullName) updateDashboardName(fullName, emailInput ? emailInput.value : '', selectedRole);
         closeModal();
         e.target.reset();
-        switchPage(targetPage);
+        if (window.location.pathname.includes('signup.html')) {
+          window.location.href = isTraveller ? 'user-dashboard.html' : 'dashboard.html';
+        } else {
+          switchPage(targetPage);
+        }
       }, 1000);
     }, 1000);
   } else {
     if (fullName) updateDashboardName(fullName, emailInput ? emailInput.value : '', selectedRole);
     closeModal();
-    switchPage(targetPage);
+    if (window.location.pathname.includes('signup.html')) {
+      window.location.href = isTraveller ? 'user-dashboard.html' : 'dashboard.html';
+    } else {
+      switchPage(targetPage);
+    }
   }
 }
 

@@ -1088,15 +1088,76 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
   align-items: center;
 }
 .auth-glass-card {
-  background: rgba(22, 28, 24, 0.72);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 32px;
-  padding: 44px 38px;
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
-  width: 100%;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 28px;
+  padding: 36px 32px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.55);
 }
+
+/* Custom Role Selection Sheet Matching Reference Screenshot 2 */
+.role-sheet-container {
+  background: #141b2d;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  padding: 6px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.role-radio-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 11px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.role-radio-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+.role-radio-item.selected {
+  background: rgba(192, 132, 252, 0.12);
+}
+.role-radio-label {
+  font-size: 15px;
+  font-weight: 500;
+  color: #e2e8f0;
+}
+.role-radio-item.selected .role-radio-label {
+  color: #ffffff;
+  font-weight: 600;
+}
+.role-radio-item input[type="radio"] {
+  display: none !important;
+}
+.custom-radio-circle {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+.role-radio-item.selected .custom-radio-circle,
+.role-radio-item input[type="radio"]:checked + .custom-radio-circle {
+  border-color: #c084fc;
+}
+.role-radio-item.selected .custom-radio-circle::after,
+.role-radio-item input[type="radio"]:checked + .custom-radio-circle::after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #c084fc;
+}
+
 .auth-hero-info {
   color: #ffffff;
 }

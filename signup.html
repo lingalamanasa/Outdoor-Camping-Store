@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=6" />
+  <link rel="stylesheet" href="style.css?v=56" />
 </head>
 <body>
 
@@ -44,12 +44,44 @@
               </div>
             </div>
 
-            <div class="auth-form-terms">
-              <input type="checkbox" id="sup-terms" required />
-              <label for="sup-terms">I agree to Stackly's <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+            <!-- CUSTOM ROLE SELECTION SHEET MATCHING REFERENCE IMAGE 2 -->
+            <div class="form-field-group" style="margin-top:14px;">
+              <label style="font-size:11px; font-weight:800; letter-spacing:1px; color:#a78bfa; margin-bottom:8px; display:block;">💼 SELECT ROLE</label>
+              <div class="role-sheet-container">
+                <label class="role-radio-item" onclick="selectRoleRadio(this)">
+                  <span class="role-radio-label">Supply Chain Leader</span>
+                  <input type="radio" name="user_role" value="Supply Chain Leader" />
+                  <span class="custom-radio-circle"></span>
+                </label>
+                <label class="role-radio-item" onclick="selectRoleRadio(this)">
+                  <span class="role-radio-label">Supply Chain Manager</span>
+                  <input type="radio" name="user_role" value="Supply Chain Manager" />
+                  <span class="custom-radio-circle"></span>
+                </label>
+                <label class="role-radio-item" onclick="selectRoleRadio(this)">
+                  <span class="role-radio-label">Logistics Director</span>
+                  <input type="radio" name="user_role" value="Logistics Director" />
+                  <span class="custom-radio-circle"></span>
+                </label>
+                <label class="role-radio-item" onclick="selectRoleRadio(this)">
+                  <span class="role-radio-label">Warehouse Admin</span>
+                  <input type="radio" name="user_role" value="Warehouse Admin" />
+                  <span class="custom-radio-circle"></span>
+                </label>
+                <label class="role-radio-item selected" onclick="selectRoleRadio(this)">
+                  <span class="role-radio-label">Enterprise Executive</span>
+                  <input type="radio" name="user_role" value="Enterprise Executive" checked />
+                  <span class="custom-radio-circle"></span>
+                </label>
+              </div>
             </div>
 
-            <button type="submit" class="btn-primary auth-submit-btn">Create Account →</button>
+            <div class="auth-form-terms">
+              <input type="checkbox" id="sup-terms" required checked />
+              <label for="sup-terms">I agree to Stackly's <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</label>
+            </div>
+
+            <button type="submit" class="btn-primary auth-submit-btn" style="background:#cbd5e1; color:#0f172a; font-weight:800;">Create Account →</button>
 
             <div class="auth-divider"><span>OR CONTINUE WITH</span></div>
 
@@ -102,6 +134,6 @@
     </section>
   </div>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=56"></script>
 </body>
 </html>
