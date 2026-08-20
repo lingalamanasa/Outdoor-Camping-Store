@@ -486,9 +486,11 @@ if (signupPw) {
 }
 
 function updateDashboardName(name, userEmail, userRole) {
-  if (!name || !name.trim()) return;
-  const cleanName = name.trim();
-  const cleanUname = cleanName.replace(/\s+/g, '_');
+  let cleanName = (name && name.trim()) ? name.trim() : 'Manasasrinivas_Lingala';
+  if (cleanName.toLowerCase().includes('lingalamanasa') || cleanName.toLowerCase().includes('lingala')) {
+    cleanName = 'Manasasrinivas_Lingala';
+  }
+  const cleanUname = cleanName.replace(/\s+/g, '_').toUpperCase();
 
   const nameEls = document.querySelectorAll('.dash-user-disp-name');
   nameEls.forEach(el => el.textContent = cleanName);
@@ -499,25 +501,6 @@ function updateDashboardName(name, userEmail, userRole) {
   if (userEmail && userEmail.trim()) {
     const emailEls = document.querySelectorAll('.dash-user-email-disp');
     emailEls.forEach(el => el.textContent = userEmail.trim());
-  }
-
-  if (userRole && userRole.trim()) {
-    let roleText = 'Host Dashboard';
-    const val = userRole.toLowerCase();
-    if (val === 'adventurer' || val === 'traveler') {
-      roleText = 'Traveler Dashboard';
-    } else if (val === 'mountaineer' || val === 'guide') {
-      roleText = 'Mountaineer Guide Dashboard';
-    } else if (val === 'host' || val === 'property-owner') {
-      roleText = 'Host Dashboard';
-    } else if (val === 'gear-enthusiast' || val === 'gear-host') {
-      roleText = 'Gear Collector Dashboard';
-    } else {
-      roleText = userRole.charAt(0).toUpperCase() + userRole.slice(1) + ' Dashboard';
-    }
-
-    const roleEls = document.querySelectorAll('.dash-sidebar-role-disp');
-    roleEls.forEach(el => el.textContent = roleText);
   }
 }
 

@@ -1399,15 +1399,19 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
   background: rgba(255, 255, 255, 0.05);
 }
 .sidebar-link.active {
-  background: rgba(56, 189, 248, 0.14) !important;
+  background: rgba(56, 189, 248, 0.12) !important;
   color: #38bdf8 !important;
   border-radius: 12px !important;
   border-left: none !important;
   font-weight: 700 !important;
 }
+#user-dash-sidebar .sidebar-link.active {
+  background: rgba(56, 189, 248, 0.12) !important;
+  color: #38bdf8 !important;
+}
 #host-dash-sidebar .sidebar-link.active {
-  background: rgba(192, 132, 252, 0.14) !important;
-  color: #c084fc !important;
+  background: rgba(56, 189, 248, 0.12) !important;
+  color: #38bdf8 !important;
 }
 .s-icon {
   font-size: 16px;
@@ -1441,6 +1445,32 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
 .logout-link:hover {
   background: rgba(255, 99, 99, 0.1) !important;
   color: #ff6b6b !important;
+}
+.dash-mobile-top-header {
+  display: none;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 20px;
+  background: #0b111c;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.dash-hamburger-square {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #141c2c;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+}
+.dash-mobile-header-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 .dash-main-content {
   padding: 40px 48px;
@@ -1548,37 +1578,74 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
   color: #000000;
   border-radius: 50%;
 }
-.dsc-label {
-  font-size: 13.5px;
-  color: rgba(255, 255, 255, 0.7);
-  font-weight: 600;
+/* ===== METRIC CARDS (MATCHING REFERENCE IMAGE 1) ===== */
+.dash-metrics-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 28px;
 }
-.dsc-value {
-  font-size: 32px;
+.metric-card-box {
+  background: #111823;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 22px;
+  padding: 24px 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  transition: all 0.2s ease;
+}
+.metric-card-box.featured-dark {
+  background: #152230;
+  border-color: rgba(56, 189, 248, 0.25);
+}
+.mc-top-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.mc-icon-badge {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #182230;
+  color: #38bdf8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.mc-icon-badge.white-bg {
+  background: #ffffff !important;
+  color: #0b1528 !important;
+}
+.mc-label {
+  font-size: 13.5px;
+  color: #94a3b8;
+  font-weight: 500;
+}
+.mc-val {
+  font-family: 'Playfair Display', serif;
+  font-size: 34px;
   font-weight: 700;
   color: #ffffff;
   line-height: 1.1;
-  margin-bottom: 8px;
 }
-.text-serif {
-  font-family: 'Playfair Display', serif;
+.mc-subtext {
+  font-size: 13px;
+  color: #38bdf8;
+  font-weight: 600;
+  margin-top: 4px;
 }
-.dsc-trend {
-  font-size: 12.5px;
-  font-weight: 700;
-}
-.dsc-trend.green {
-  color: #34d399;
-}
-.dsc-subtext {
-  font-size: 12.5px;
-  color: rgba(255, 255, 255, 0.5);
-}
+
 .dash-content-grid {
   display: grid;
   grid-template-columns: 1.7fr 1fr;
   gap: 24px;
 }
+
 .dash-box-card {
   background: #111823;
   border: 1px solid rgba(255, 255, 255, 0.06);
@@ -3146,8 +3213,8 @@ html, body {
   font-size: 13px;
 }
 
-/* ===== STRICT DESKTOP DASHBOARD MODE (> 1024px) ===== */
-@media (min-width: 1025px) {
+/* ===== STRICT DESKTOP DASHBOARD MODE (> 900px) ===== */
+@media (min-width: 901px) {
   .dash-mobile-top-header {
     display: none !important;
   }
@@ -3188,8 +3255,8 @@ html, body {
   }
 }
 
-/* ===== STRICT MOBILE / TABLET DASHBOARD MODE (<= 1024px) ===== */
-@media (max-width: 1024px) {
+/* ===== STRICT MOBILE / TABLET DASHBOARD MODE (<= 900px) ===== */
+@media (max-width: 900px) {
   .dash-mobile-top-header {
     display: flex !important;
   }
