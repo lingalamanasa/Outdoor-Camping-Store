@@ -204,7 +204,8 @@ function switchDashTab(tabId) {
 // ===== GENERIC FALLBACK ACTION HANDLER =====
 function trigger404(e) {
   if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  openModal('404');
+  const target = window.location.pathname.includes('/html/') ? '404.html' : 'html/404.html';
+  window.location.href = target;
 }
 
 // ===== INTERACTIVE BUTTON HANDLERS =====
@@ -486,6 +487,11 @@ function handleBlogFilter(e) {
 let activeModal = null;
 
 function openModal(type) {
+  if (type === '404') {
+    const target = window.location.pathname.includes('/html/') ? '404.html' : 'html/404.html';
+    window.location.href = target;
+    return;
+  }
   if (type === 'login' || type === 'signup') {
     switchPage(type);
     return;
@@ -493,12 +499,7 @@ function openModal(type) {
   closeModal(false);
   const backdrop = document.getElementById('modal-backdrop');
   const modal = document.getElementById(`modal-${type}`);
-  if (!modal || !backdrop) {
-    if (type === '404') {
-      window.location.href = '404.html';
-    }
-    return;
-  }
+  if (!modal || !backdrop) return;
   backdrop.classList.add('open');
   modal.classList.add('open');
   activeModal = type;
