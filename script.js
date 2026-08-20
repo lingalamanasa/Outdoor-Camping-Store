@@ -576,8 +576,15 @@ function handleLogin(e) {
     userName = userName.charAt(0).toUpperCase() + userName.slice(1);
   }
 
-  const selectedRole = roleInput ? roleInput.value : '';
-  const targetPage = (selectedRole === 'adventurer' || selectedRole === 'traveler') ? 'user-dashboard' : 'dashboard';
+  const selectedRole = roleInput ? roleInput.value.toLowerCase() : '';
+  let targetUrl = 'index.html#dashboard';
+  if (selectedRole.includes('mountaineer') || selectedRole.includes('guide')) {
+    targetUrl = 'mountaineer-dashboard.html';
+  } else if (selectedRole.includes('gear')) {
+    targetUrl = 'gear-dashboard.html';
+  } else {
+    targetUrl = 'index.html#dashboard';
+  }
 
   if (btn) {
     const origText = btn.textContent;
@@ -594,14 +601,21 @@ function handleLogin(e) {
         btn.disabled = false;
         if (userName) updateDashboardName(userName, emailInput ? emailInput.value : '', selectedRole);
         closeModal();
-        e.target.reset();
-        switchPage(targetPage);
-      }, 1000);
-    }, 1000);
+        if (targetUrl.includes('.html') && !targetUrl.startsWith('index.html')) {
+          window.location.href = targetUrl;
+        } else {
+          switchPage('dashboard');
+        }
+      }, 800);
+    }, 800);
   } else {
     if (userName) updateDashboardName(userName, emailInput ? emailInput.value : '', selectedRole);
     closeModal();
-    switchPage(targetPage);
+    if (targetUrl.includes('.html') && !targetUrl.startsWith('index.html')) {
+      window.location.href = targetUrl;
+    } else {
+      switchPage('dashboard');
+    }
   }
 }
 
@@ -628,16 +642,22 @@ function handleSignup(e) {
     fullName = fnameInput.value + (lnameInput && lnameInput.value ? ' ' + lnameInput.value : '');
   }
 
-  const selectedRole = roleInput ? roleInput.value : 'Enterprise Executive';
-  const isTraveller = selectedRole.toLowerCase().includes('traveller') || selectedRole.toLowerCase().includes('traveler') || selectedRole.toLowerCase().includes('adventurer');
-  const targetPage = isTraveller ? 'user-dashboard' : 'dashboard';
+  const selectedRole = roleInput ? (roleInput.value || '').toLowerCase() : '';
+  let targetUrl = 'index.html#dashboard';
+  if (selectedRole.includes('mountaineer') || selectedRole.includes('guide')) {
+    targetUrl = 'mountaineer-dashboard.html';
+  } else if (selectedRole.includes('gear')) {
+    targetUrl = 'gear-dashboard.html';
+  } else {
+    targetUrl = 'index.html#dashboard';
+  }
 
   if (btn) {
     const origText = btn.textContent;
     btn.textContent = '⏳ Creating Account...';
     btn.disabled = true;
     setTimeout(() => {
-      btn.textContent = '🎉 Account Created!';
+      btn.textContent = '✓ Account Created!';
       btn.style.background = '#52b788';
       btn.style.color = '#ffffff';
       setTimeout(() => {
@@ -647,21 +667,20 @@ function handleSignup(e) {
         btn.disabled = false;
         if (fullName) updateDashboardName(fullName, emailInput ? emailInput.value : '', selectedRole);
         closeModal();
-        e.target.reset();
-        if (window.location.pathname.includes('signup.html')) {
-          window.location.href = isTraveller ? 'user-dashboard.html' : 'dashboard.html';
+        if (targetUrl.includes('.html') && !targetUrl.startsWith('index.html')) {
+          window.location.href = targetUrl;
         } else {
-          switchPage(targetPage);
+          switchPage('dashboard');
         }
-      }, 1000);
-    }, 1000);
+      }, 800);
+    }, 800);
   } else {
     if (fullName) updateDashboardName(fullName, emailInput ? emailInput.value : '', selectedRole);
     closeModal();
-    if (window.location.pathname.includes('signup.html')) {
-      window.location.href = isTraveller ? 'user-dashboard.html' : 'dashboard.html';
+    if (targetUrl.includes('.html') && !targetUrl.startsWith('index.html')) {
+      window.location.href = targetUrl;
     } else {
-      switchPage(targetPage);
+      switchPage('dashboard');
     }
   }
 }

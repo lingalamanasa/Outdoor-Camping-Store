@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=68" />
+  <link rel="stylesheet" href="style.css?v=70" />
 </head>
 <body style="background:#070e17 !important; margin:0; padding:0; min-height:100vh;">
 
@@ -89,6 +89,14 @@
       <!-- MAIN CONTENT CONTAINER -->
       <main class="dash-main-content" style="padding:32px 36px;">
         
+        <!-- DASHBOARD MODE SWITCHER BAR -->
+        <div class="dash-role-switch-bar">
+          <label>Dashboard Mode:</label>
+          <button class="dash-role-pill-btn active traveler" onclick="return false;">🌍 Traveler</button>
+          <button class="dash-role-pill-btn mountaineer" onclick="window.location.href='mountaineer-dashboard.html';">🏔️ Mountaineer</button>
+          <button class="dash-role-pill-btn gear" onclick="window.location.href='gear-dashboard.html';">🎒 Gear Collector</button>
+        </div>
+
         <!-- TOPBAR (MATCHING REFERENCE SCREENSHOT) -->
         <header class="dash-topbar-flex">
           <div>
@@ -592,6 +600,6 @@
     </div>
   </div>
 
-  <script src="script.js?v=68"></script>
+  <script src="script.js?v=70"></script>
 </body>
 </html>

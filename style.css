@@ -3297,16 +3297,109 @@ html, body {
 
 /* ===== DASHBOARD SUB-PANEL VISIBILITY ===== */
 .user-subpanel,
-.host-subpanel {
+.host-subpanel,
+.mount-subpanel,
+.gear-subpanel,
+.dash-subpanel {
   display: none;
 }
 
 .user-subpanel.active,
-.host-subpanel.active {
+.host-subpanel.active,
+.mount-subpanel.active,
+.gear-subpanel.active,
+.dash-subpanel.active {
   display: block;
+  animation: dashFade 0.25s ease;
 }
 
-/* ===== MOBILE/DESKTOP FINE-TUNED SPECIFIC OVERRIDES (MATCHING ALL 4 REFERENCE IMAGES) ===== */
+@keyframes dashFade {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== ROLE SWITCHER BAR ===== */
+.dash-role-switch-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 6px 14px;
+  border-radius: 40px;
+  margin-bottom: 24px;
+  width: fit-content;
+}
+.dash-role-switch-bar label {
+  font-size: 12px;
+  color: #94a3b8;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.dash-role-pill-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  color: #94a3b8;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.dash-role-pill-btn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.06);
+}
+.dash-role-pill-btn.active.traveler {
+  background: rgba(56, 189, 248, 0.16);
+  border-color: rgba(56, 189, 248, 0.4);
+  color: #38bdf8;
+}
+.dash-role-pill-btn.active.mountaineer {
+  background: rgba(52, 211, 153, 0.16);
+  border-color: rgba(52, 211, 153, 0.4);
+  color: #34d399;
+}
+.dash-role-pill-btn.active.gear {
+  background: rgba(251, 191, 36, 0.16);
+  border-color: rgba(251, 191, 36, 0.4);
+  color: #fbbf24;
+}
+
+/* ===== MOUNTAINEER DASHBOARD ACCENTS ===== */
+.theme-mountaineer .sidebar-link.active {
+  background: rgba(52, 211, 153, 0.14) !important;
+  color: #34d399 !important;
+}
+.theme-mountaineer .mc-icon-badge {
+  color: #34d399 !important;
+}
+.theme-mountaineer .mc-subtext {
+  color: #34d399 !important;
+}
+.theme-mountaineer .featured-dark {
+  background: #0f231e !important;
+  border-color: rgba(52, 211, 153, 0.3) !important;
+}
+
+/* ===== GEAR COLLECTOR DASHBOARD ACCENTS ===== */
+.theme-gear .sidebar-link.active {
+  background: rgba(251, 191, 36, 0.14) !important;
+  color: #fbbf24 !important;
+}
+.theme-gear .mc-icon-badge {
+  color: #fbbf24 !important;
+}
+.theme-gear .mc-subtext {
+  color: #fbbf24 !important;
+}
+.theme-gear .featured-dark {
+  background: #231b0f !important;
+  border-color: rgba(251, 191, 36, 0.3) !important;
+}
+
+/* ===== MOBILE/DESKTOP FINE-TUNED SPECIFIC OVERRIDES ===== */
 @media (max-width: 768px) {
   .dash-topbar-flex {
     flex-direction: column !important;
@@ -3341,12 +3434,21 @@ html, body {
     grid-template-columns: 1fr !important;
     gap: 16px !important;
   }
+  .dash-role-switch-bar {
+    width: 100%;
+    flex-wrap: wrap;
+    border-radius: 18px;
+    padding: 10px;
+  }
 }
 
 /* Dashboard settings form responsive at mobile */
 @media (max-width: 560px) {
   .user-subpanel [style*="grid-template-columns:1fr 1fr"],
-  .host-subpanel [style*="grid-template-columns:1fr 1fr"] {
+  .host-subpanel [style*="grid-template-columns:1fr 1fr"],
+  .mount-subpanel [style*="grid-template-columns:1fr 1fr"],
+  .gear-subpanel [style*="grid-template-columns:1fr 1fr"] {
     grid-template-columns: 1fr;
   }
 }
+

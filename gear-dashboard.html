@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gear Collector Dashboard | Stackly Outdoor Store</title>
+  <meta name="description" content="Gear Collector Dashboard - Manage outdoor gear fleet, rental inventory, condition inspections, and equipment revenue." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=70" />
+</head>
+<body class="theme-gear" style="background:#070e17 !important; margin:0; padding:0; min-height:100vh;">
+
+  <!-- DASHBOARD MOBILE TOP HEADER -->
+  <div class="dash-mobile-top-header">
+    <button class="dash-hamburger-square" onclick="openDashDrawer()" aria-label="Open Drawer">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round"><line x1="4" y1="6" x2="20" y2="6"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="18" x2="20" y2="18"></line></svg>
+    </button>
+    <div class="dash-mobile-header-brand" onclick="window.location.href='index.html';" style="cursor:pointer;">
+      <span class="logo-text" style="font-size:17px; font-weight:800; color:#ffffff; letter-spacing:0.8px;">STACKLY</span>
+      <span style="font-size:11px; font-weight:700; color:#fbbf24;">Gear Collector</span>
+    </div>
+  </div>
+
+  <div class="dash-layout">
+    
+    <!-- SIDEBAR DRAWER -->
+    <aside class="dash-sidebar" id="gear-dash-sidebar">
+      <a href="index.html" class="dash-sidebar-brand" style="text-decoration:none; display:flex; align-items:center; gap:10px; margin-bottom:28px; padding:0 4px; cursor:pointer;" title="STACKLY">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2.6" stroke-linecap="round">
+          <path d="M4 7C8 5.5 16 5.5 20 7"/>
+          <path d="M4 12C8 10.5 16 10.5 20 12"/>
+          <path d="M4 17C8 15.5 16 15.5 20 17"/>
+        </svg>
+        <span class="logo-text" style="font-size:19px; font-weight:800; color:#ffffff !important; letter-spacing:1px; text-transform:uppercase;">STACKLY</span>
+      </a>
+
+      <div class="drawer-header-row">
+        <button class="dash-drawer-close-btn" onclick="closeDashDrawer()" aria-label="Close Drawer">✕</button>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="#" class="sidebar-link active" onclick="switchGearTab('overview', event); return false;">
+          <span class="s-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg></span> Overview
+        </a>
+        <a href="#" class="sidebar-link" onclick="switchGearTab('inventory', event); return false;">
+          <span class="s-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg></span> Gear Inventory
+        </a>
+        <a href="#" class="sidebar-link" onclick="switchGearTab('rentals', event); return false;">
+          <span class="s-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></span> Active Rentals
+        </a>
+        <a href="#" class="sidebar-link" onclick="switchGearTab('revenue', event); return false;">
+          <span class="s-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg></span> Rental Payouts
+        </a>
+        <a href="#" class="sidebar-link" onclick="switchGearTab('settings', event); return false;">
+          <span class="s-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></span> Settings
+        </a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="sidebar-divider" style="border-top: 1px solid rgba(255,255,255,0.08); margin: 20px 0 14px;"></div>
+        <a href="index.html" class="sidebar-link logout-link" style="color:#94a3b8 !important; font-weight:600; display:flex; align-items:center; gap:12px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg> Logout
+        </a>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="dash-main-content" style="padding:32px 36px;">
+      
+      <!-- DASHBOARD SWITCHER BAR -->
+      <div class="dash-role-switch-bar">
+        <label>Dashboard Mode:</label>
+        <button class="dash-role-pill-btn traveler" onclick="window.location.href='index.html#dashboard';">🌍 Traveler</button>
+        <button class="dash-role-pill-btn mountaineer" onclick="window.location.href='mountaineer-dashboard.html';">🏔️ Mountaineer</button>
+        <button class="dash-role-pill-btn active gear" onclick="return false;">🎒 Gear Collector</button>
+      </div>
+
+      <!-- TOP WELCOME BAR -->
+      <header class="dash-topbar-flex">
+        <div>
+          <h1 class="dash-title serif-title">Welcome back, <span class="dash-user-disp-name">Jordan Miller</span></h1>
+          <p class="dash-subtitle">Managing premium outdoor equipment fleet, technical gear rentals &amp; returns.</p>
+        </div>
+
+        <div class="dash-user-pill-badge" style="border-color:rgba(251,191,36,0.35);">
+          <div class="dup-details">
+            <span class="dup-name" style="color:#fbbf24; font-weight:800;">JORDAN_MILLER (PRO GEAR HOST)</span>
+            <span class="dup-email-muted">jordan.gear@stackly.store</span>
+          </div>
+          <div class="dup-avatar-circle" style="background:#261a08; color:#fbbf24; border-color:rgba(251,191,36,0.5);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+          </div>
+        </div>
+      </header>
+
+      <!-- SUBPANEL 1: OVERVIEW -->
+      <div class="gear-subpanel active" id="gear-panel-overview">
+        <!-- 4 METRIC CARDS -->
+        <div class="dash-metrics-grid-4">
+          <div class="metric-card-box">
+            <div class="mc-top-row">
+              <div class="mc-icon-badge" style="color:#fbbf24;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+              </div>
+              <span class="mc-label">Active Gear Listed</span>
+            </div>
+            <div class="mc-val">48</div>
+          </div>
+
+          <div class="metric-card-box">
+            <div class="mc-top-row">
+              <div class="mc-icon-badge" style="color:#fbbf24;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </div>
+              <span class="mc-label">Total Completed Rentals</span>
+            </div>
+            <div class="mc-val">182</div>
+          </div>
+
+          <div class="metric-card-box">
+            <div class="mc-top-row">
+              <div class="mc-icon-badge" style="color:#fbbf24;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+              </div>
+              <span class="mc-label">Total Equipment Value</span>
+            </div>
+            <div class="mc-val">$38,400</div>
+          </div>
+
+          <div class="metric-card-box featured-dark">
+            <div class="mc-top-row">
+              <div class="mc-icon-badge white-bg">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#78350f" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+              </div>
+              <span class="mc-label">Monthly Rental Revenue</span>
+            </div>
+            <div>
+              <div class="mc-val" style="margin-top:10px;">$6,850</div>
+              <div class="mc-subtext" style="color:#fbbf24;">↗ 18% vs last month</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2-COLUMN LOWER GRID -->
+        <div class="dash-content-grid">
+          <!-- RENTAL REVENUE CHART -->
+          <div class="dash-box-card">
+            <div class="dbc-header">
+              <h3 class="dbc-serif-title">Gear Rental Revenue &amp; Demand</h3>
+              <select class="dash-select-pill">
+                <option>This Season (2026)</option>
+                <option>All Time</option>
+              </select>
+            </div>
+            <div class="chart-wrapper">
+              <svg viewBox="0 0 700 240" class="revenue-svg-chart" style="width:100%; height:auto; overflow:visible;">
+                <defs>
+                  <linearGradient id="gearGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.45"/>
+                    <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.0"/>
+                  </linearGradient>
+                </defs>
+                <line x1="40" y1="50" x2="680" y2="50" stroke="rgba(255,255,255,0.06)" stroke-dasharray="4 4" />
+                <line x1="40" y1="120" x2="680" y2="120" stroke="rgba(255,255,255,0.06)" stroke-dasharray="4 4" />
+                <line x1="40" y1="190" x2="680" y2="190" stroke="rgba(255,255,255,0.06)" stroke-dasharray="4 4" />
+                <text x="15" y="55" fill="#64748b" font-size="12" font-weight="700">$8k</text>
+                <text x="15" y="125" fill="#64748b" font-size="12" font-weight="700">$5k</text>
+                <text x="15" y="195" fill="#64748b" font-size="12" font-weight="700">$2k</text>
+                <path d="M 60 190 Q 140 160, 200 110 T 340 60 T 480 140 T 640 70 L 640 190 L 60 190 Z" fill="url(#gearGrad)"/>
+                <path d="M 60 190 Q 140 160, 200 110 T 340 60 T 480 140 T 640 70" fill="none" stroke="#fbbf24" stroke-width="3.5" stroke-linecap="round"/>
+                <circle cx="200" cy="110" r="5" fill="#070e17" stroke="#fbbf24" stroke-width="3"/>
+                <circle cx="340" cy="60" r="6" fill="#fbbf24" stroke="#ffffff" stroke-width="2"/>
+                <circle cx="480" cy="140" r="5" fill="#070e17" stroke="#fbbf24" stroke-width="3"/>
+                <circle cx="640" cy="70" r="5" fill="#070e17" stroke="#fbbf24" stroke-width="3"/>
+              </svg>
+            </div>
+          </div>
+
+          <!-- ACTIVE GEAR OUT ON TRAIL -->
+          <div class="dash-box-card">
+            <div class="dbc-header">
+              <h3 class="dbc-serif-title">Active Rented Gear</h3>
+              <a href="#" style="color:#fbbf24; font-size:13px; font-weight:700;">View all</a>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:14px;">
+              <div class="res-item-card">
+                <img src="images/product_tent_1786946937685.png" alt="Tent" class="res-avatar" style="border-radius:12px; width:52px; height:52px; object-fit:cover;" />
+                <div class="res-info">
+                  <h4>AlpineShield 4-Season Tent</h4>
+                  <p>Due: Aug 24 • Rented to Mark S.</p>
+                </div>
+                <span class="res-badge-status" style="background:rgba(251,191,36,0.15); color:#fbbf24; border:1px solid rgba(251,191,36,0.3);">On Trail ⛺</span>
+              </div>
+
+              <div class="res-item-card">
+                <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?w=200&q=80" alt="Backpack" class="res-avatar" style="border-radius:12px; width:52px; height:52px; object-fit:cover;" />
+                <div class="res-info">
+                  <h4>Osprey 75L Expedition Pack</h4>
+                  <p>Due: Aug 28 • Rented to Sarah L.</p>
+                </div>
+                <span class="res-badge-status" style="background:rgba(52,211,153,0.15); color:#34d399; border:1px solid rgba(52,211,153,0.3);">Dispatched 🚚</span>
+              </div>
+
+              <div class="res-item-card">
+                <img src="https://images.unsplash.com/photo-1522163182402-834f871fd851?w=200&q=80" alt="Climbing Harness" class="res-avatar" style="border-radius:12px; width:52px; height:52px; object-fit:cover;" />
+                <div class="res-info">
+                  <h4>Black Diamond Ice Axe Set</h4>
+                  <p>Due: Sep 02 • Rented to Dave P.</p>
+                </div>
+                <span class="res-badge-status" style="background:rgba(251,191,36,0.15); color:#fbbf24; border:1px solid rgba(251,191,36,0.3);">On Trail ⛏️</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SUBPANEL 2: GEAR INVENTORY -->
+      <div class="gear-subpanel" id="gear-panel-inventory">
+        <div class="dash-panel-header" style="display:flex; justify-content:space-between; align-items:center;">
+          <div>
+            <h2>🎒 Outdoor Equipment Inventory Fleet</h2>
+            <p>Maintain equipment health, inspection certificates, and day-rate rental pricing.</p>
+          </div>
+          <button class="btn-primary" onclick="openModal('404');">+ Add New Gear Item</button>
+        </div>
+        <div class="dash-box-card" style="margin-top:24px;">
+          <table class="dash-table">
+            <thead>
+              <tr>
+                <th>Equipment Name</th>
+                <th>Category</th>
+                <th>Condition</th>
+                <th>Daily Rate</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>AlpineShield 4-Season Tent</strong></td>
+                <td>Shelter / Expedition</td>
+                <td><span class="occ-pill green">Grade A+ (Pristine)</span></td>
+                <td><strong style="color:#fbbf24;">$85/day</strong></td>
+                <td><span class="res-badge-status gold">Rented Out</span></td>
+              </tr>
+              <tr>
+                <td><strong>Garmin inReach Explorer+</strong></td>
+                <td>GPS / Satellite Comms</td>
+                <td><span class="occ-pill green">Inspected ✓</span></td>
+                <td><strong style="color:#fbbf24;">$35/day</strong></td>
+                <td><span class="res-badge-status green">Available 🟢</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- SUBPANEL 3: RENTALS -->
+      <div class="gear-subpanel" id="gear-panel-rentals">
+        <div class="dash-panel-header">
+          <h2>📦 Active Rentals &amp; Return Inspections</h2>
+          <p>Generate return shipping labels and confirm deposit refunds upon gear inspection.</p>
+        </div>
+        <div class="dash-box-card" style="margin-top:24px;">
+          <table class="dash-table">
+            <thead>
+              <tr>
+                <th>Rental ID</th>
+                <th>Renter Name</th>
+                <th>Gear Items</th>
+                <th>Return Date</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>#RN-90412</td>
+                <td>Mark Stevenson</td>
+                <td>AlpineShield Tent (4P)</td>
+                <td>Aug 24, 2026</td>
+                <td><button class="dash-select-pill" onclick="openModal('404')">Track Return 🚚</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- SUBPANEL 4: REVENUE -->
+      <div class="gear-subpanel" id="gear-panel-revenue">
+        <div class="dash-panel-header">
+          <h2>💵 Gear Rental Payouts &amp; Deposit Balances</h2>
+          <p>Total Net Payouts Received: <strong>$34,250.00</strong></p>
+        </div>
+        <div class="dash-box-card" style="margin-top:24px;">
+          <table class="dash-table">
+            <thead>
+              <tr>
+                <th>Period</th>
+                <th>Total Rentals</th>
+                <th>Platform Fee</th>
+                <th>Net Payout</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>July 2026</td>
+                <td>42 Rentals</td>
+                <td>5% ($320)</td>
+                <td><strong style="color:#fbbf24;">$6,080.00</strong></td>
+              </tr>
+              <tr>
+                <td>June 2026</td>
+                <td>38 Rentals</td>
+                <td>5% ($280)</td>
+                <td><strong style="color:#fbbf24;">$5,320.00</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- SUBPANEL 5: SETTINGS -->
+      <div class="gear-subpanel" id="gear-panel-settings">
+        <div class="dash-panel-header">
+          <h2>⚙️ Gear Fleet Host Settings</h2>
+          <p>Manage security deposit requirements, automated cleaning fee policies, and payout bank accounts.</p>
+        </div>
+        <div class="dash-box-card" style="margin-top:24px; max-width:600px;">
+          <div style="display:flex; flex-direction:column; gap:16px;">
+            <div>
+              <label style="color:#94a3b8; font-size:13px; font-weight:700;">Host / Collector Name</label>
+              <input type="text" value="Jordan Miller" style="width:100%; padding:12px 16px; border-radius:12px; background:#070e17; border:1px solid rgba(255,255,255,0.15); color:#fff; margin-top:6px; box-sizing:border-box;" />
+            </div>
+            <div>
+              <label style="color:#94a3b8; font-size:13px; font-weight:700;">Security Deposit Hold (%)</label>
+              <input type="text" value="25% of Equipment Value" style="width:100%; padding:12px 16px; border-radius:12px; background:#070e17; border:1px solid rgba(255,255,255,0.15); color:#fff; margin-top:6px; box-sizing:border-box;" />
+            </div>
+            <button class="btn-primary" onclick="trigger404(event)" style="background:#f59e0b; border:none; color:#000; font-weight:800;">Save Collector Settings</button>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="script.js?v=70"></script>
+  <script>
+    function switchGearTab(tabName, evt) {
+      if (evt) evt.preventDefault();
+      closeDashDrawer();
+      document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
+      if (evt && evt.currentTarget) evt.currentTarget.classList.add('active');
+      document.querySelectorAll('.gear-subpanel').forEach(p => p.classList.remove('active'));
+      const target = document.getElementById('gear-panel-' + tabName);
+      if (target) target.classList.add('active');
+    }
+  </script>
+</body>
+</html>
