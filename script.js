@@ -223,15 +223,45 @@ function handleCustomRoute(e) {
   openModal('404');
 }
 
+let _searchToastTimer = null;
 function handleSearchGear(e) {
   if (e) e.preventDefault();
   const cartToast = document.getElementById('cart-toast');
-  if (cartToast) {
-    cartToast.innerHTML = `🔍 <strong>Search Filter Applied!</strong> Showing matched outdoor gear &amp; trips.`;
-    cartToast.classList.add('show');
-    setTimeout(() => cartToast.classList.remove('show'), 3000);
+  if (!cartToast) return;
+
+  // Clear any existing hide-timer so repeated clicks always re-trigger the toast
+  if (_searchToastTimer) {
+    clearTimeout(_searchToastTimer);
+    _searchToastTimer = null;
   }
+
+  const what     = (document.getElementById('hsb-what')?.value || '').trim();
+  const where    = (document.getElementById('hsb-where')?.value || '').trim();
+  const duration = (document.getElementById('hsb-duration')?.value || '').trim();
+
+  let msg = '🔍 <strong>Search Applied!</strong> ';
+  if (what || where || duration) {
+    const parts = [];
+    if (what)     parts.push(`<em>${what}</em>`);
+    if (where)    parts.push(`near <em>${where}</em>`);
+    if (duration) parts.push(`for <em>${duration}</em>`);
+    msg += 'Showing results for ' + parts.join(' ') + '.';
+  } else {
+    msg += 'Showing all outdoor gear &amp; trips.';
+  }
+
+  cartToast.innerHTML = msg;
+  cartToast.classList.remove('show');
+  // Force reflow so the transition re-fires even on repeated clicks
+  void cartToast.offsetWidth;
+  cartToast.classList.add('show');
+
+  _searchToastTimer = setTimeout(() => {
+    cartToast.classList.remove('show');
+    _searchToastTimer = null;
+  }, 3200);
 }
+
 
 function handleMemberSignup(e) {
   if (e && typeof e.preventDefault === 'function') e.preventDefault();
