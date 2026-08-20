@@ -676,6 +676,43 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
   box-shadow: 0 6px 24px rgba(82, 183, 136, 0.6);
 }
 
+/* Error validation states matching reference design */
+.hero-search-bar.has-error {
+  border-color: #ef4444 !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45), 0 0 0 2px rgba(239, 68, 68, 0.4) !important;
+  animation: hsbShake 0.4s ease;
+}
+.hsb-field.has-error .hsb-input {
+  border-bottom: 2px solid #ef4444 !important;
+}
+.hsb-field.has-error .hsb-label {
+  color: #ef4444 !important;
+}
+.hsb-error-msg {
+  display: none;
+  color: #ef4444;
+  font-size: 13.5px;
+  font-weight: 600;
+  text-align: center;
+  margin-top: -16px;
+  margin-bottom: 24px;
+  letter-spacing: 0.2px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+  animation: hsbFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.hsb-error-msg.visible {
+  display: block;
+}
+@keyframes hsbFadeIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes hsbShake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-6px); }
+  40%, 80% { transform: translateX(6px); }
+}
+
 .hero-cta-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
 .hero-slide-controls{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);display:flex;gap:12px;z-index:3}
 .slide-thumb{background:rgba(255,255,255,.1);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.7);font-size:12px;font-weight:600;padding:8px 18px;border-radius:var(--r-pill);transition:all var(--t);cursor:pointer}

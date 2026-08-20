@@ -224,35 +224,76 @@ function handleCustomRoute(e) {
 }
 
 let _searchToastTimer = null;
-function handleSearchGear(e) {
-  if (e) e.preventDefault();
-  const cartToast = document.getElementById('cart-toast');
-  if (!cartToast) return;
 
-  // Clear any existing hide-timer so repeated clicks always re-trigger the toast
+function clearSearchError() {
+  const errorMsg = document.getElementById('hsb-error-msg');
+  const searchBar = document.getElementById('hero-search-bar');
+  if (errorMsg) errorMsg.classList.remove('visible');
+  if (searchBar) searchBar.classList.remove('has-error');
+  document.querySelectorAll('.hsb-field').forEach(f => f.classList.remove('has-error'));
+}
+
+function handleSearchGear(e) {
+  if (e && typeof e.preventDefault === 'function') e.preventDefault();
+
+  const whatInput     = document.getElementById('hsb-what');
+  const whereInput    = document.getElementById('hsb-where');
+  const durationInput = document.getElementById('hsb-duration');
+  const errorMsg      = document.getElementById('hsb-error-msg');
+  const searchBar     = document.getElementById('hero-search-bar');
+  const fieldWhere    = document.getElementById('hsb-field-where') || whereInput?.closest('.hsb-field');
+  const fieldWhat     = document.getElementById('hsb-field-what') || whatInput?.closest('.hsb-field');
+
+  const what     = (whatInput?.value || '').trim();
+  const where    = (whereInput?.value || '').trim();
+  const duration = (durationInput?.value || '').trim();
+
+  // If user clicks without entering input, show error matching reference image
+  if (!what && !where && !duration) {
+    if (errorMsg) {
+      errorMsg.textContent = 'Please enter a valid destination.';
+      errorMsg.classList.add('visible');
+    }
+    if (searchBar) {
+      searchBar.classList.remove('has-error');
+      void searchBar.offsetWidth; // trigger reflow for shake animation
+      searchBar.classList.add('has-error');
+    }
+    if (fieldWhere) fieldWhere.classList.add('has-error');
+    if (fieldWhat) fieldWhat.classList.add('has-error');
+    if (whereInput) {
+      whereInput.focus();
+    } else if (whatInput) {
+      whatInput.focus();
+    }
+    return;
+  }
+
+  // Clear any active error state
+  clearSearchError();
+
+  let cartToast = document.getElementById('cart-toast');
+  if (!cartToast) {
+    cartToast = document.createElement('div');
+    cartToast.id = 'cart-toast';
+    cartToast.className = 'cart-toast';
+    document.body.appendChild(cartToast);
+  }
+
+  // Clear any existing hide-timer so repeated clicks always re-trigger
   if (_searchToastTimer) {
     clearTimeout(_searchToastTimer);
     _searchToastTimer = null;
   }
 
-  const what     = (document.getElementById('hsb-what')?.value || '').trim();
-  const where    = (document.getElementById('hsb-where')?.value || '').trim();
-  const duration = (document.getElementById('hsb-duration')?.value || '').trim();
-
-  let msg = '🔍 <strong>Search Applied!</strong> ';
-  if (what || where || duration) {
-    const parts = [];
-    if (what)     parts.push(`<em>${what}</em>`);
-    if (where)    parts.push(`near <em>${where}</em>`);
-    if (duration) parts.push(`for <em>${duration}</em>`);
-    msg += 'Showing results for ' + parts.join(' ') + '.';
-  } else {
-    msg += 'Showing all outdoor gear &amp; trips.';
-  }
+  const parts = [];
+  if (what)     parts.push(`<em>${what}</em>`);
+  if (where)    parts.push(`near <em>${where}</em>`);
+  if (duration) parts.push(`for <em>${duration}</em>`);
+  const msg = `🔍 <strong>Search Applied!</strong> Showing results for ${parts.join(' ')}.`;
 
   cartToast.innerHTML = msg;
   cartToast.classList.remove('show');
-  // Force reflow so the transition re-fires even on repeated clicks
   void cartToast.offsetWidth;
   cartToast.classList.add('show');
 
@@ -261,6 +302,17 @@ function handleSearchGear(e) {
     _searchToastTimer = null;
   }, 3200);
 }
+
+// Auto-attach listeners to clear error on input
+document.addEventListener('DOMContentLoaded', () => {
+  ['hsb-what', 'hsb-where', 'hsb-duration'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.addEventListener('input', clearSearchError);
+      el.addEventListener('focus', clearSearchError);
+    }
+  });
+});
 
 
 function handleMemberSignup(e) {
@@ -667,24 +719,39 @@ document.querySelectorAll('.bf-btn').forEach(btn => {
 
 // ===== NEWSLETTER =====
 function handleNewsletterSubmit(e) {
-  if (e) e.preventDefault();
-  const form = e ? e.target : null;
+  if (e && typeof e.preventDefault === 'function') e.preventDefault();
+  const form = e ? (e.target.tagName === 'FORM' ? e.target : e.target.closest('form')) : document.getElementById('newsletter-form');
   const btn = form ? form.querySelector('button[type="submit"]') : document.getElementById('newsletter-submit-btn');
   const emailInput = form ? form.querySelector('input[type="email"]') : document.getElementById('newsletter-email');
+  
+  const emailVal = emailInput ? emailInput.value.trim() : '';
+  if (!emailVal) {
+    if (emailInput) emailInput.focus();
+    return false;
+  }
+
   if (btn) {
     const orig = btn.textContent;
     btn.textContent = '🎉 Subscribed!';
     btn.style.background = '#52b788';
     btn.style.color = '#ffffff';
     if (emailInput) emailInput.value = '';
-    setTimeout(() => { btn.textContent = orig; btn.style.background = ''; btn.style.color = ''; }, 3000);
+    setTimeout(() => { btn.textContent = orig; btn.style.background = ''; btn.style.color = ''; }, 3500);
   }
-  const cartToast = document.getElementById('cart-toast');
-  if (cartToast) {
-    cartToast.innerHTML = `📩 <strong>Subscribed to Stackly!</strong> You'll receive gear drops &amp; trail tips in your inbox.`;
-    cartToast.classList.add('show');
-    setTimeout(() => cartToast.classList.remove('show'), 3500);
+
+  let cartToast = document.getElementById('cart-toast');
+  if (!cartToast) {
+    cartToast = document.createElement('div');
+    cartToast.id = 'cart-toast';
+    cartToast.className = 'cart-toast';
+    document.body.appendChild(cartToast);
   }
+  cartToast.innerHTML = `📩 <strong>Subscribed to Stackly!</strong> Confirmation sent to <em>${emailVal}</em>.`;
+  cartToast.classList.remove('show');
+  void cartToast.offsetWidth;
+  cartToast.classList.add('show');
+  setTimeout(() => cartToast.classList.remove('show'), 3500);
+  return false;
 }
 
 function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }

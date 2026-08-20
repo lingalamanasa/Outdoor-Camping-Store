@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=50" />
+  <link rel="stylesheet" href="style.css?v=52" />
 </head>
 <body>
 
@@ -246,27 +246,28 @@
           
           <!-- HERO EXPEDITION SEARCH BAR -->
           <div class="hero-search-bar" id="hero-search-bar">
-            <div class="hsb-field">
+            <div class="hsb-field" id="hsb-field-what">
               <span class="hsb-label">WHAT</span>
-              <input type="text" class="hsb-input" id="hsb-what" placeholder="Gear, tents, boots..." />
+              <input type="text" class="hsb-input" id="hsb-what" placeholder="Gear, tents, boots..." autocomplete="off" />
             </div>
             <div class="hsb-divider"></div>
-            <div class="hsb-field">
+            <div class="hsb-field" id="hsb-field-where">
               <span class="hsb-label">WHERE</span>
-              <input type="text" class="hsb-input" id="hsb-where" placeholder="Trail, peak, park..." />
+              <input type="text" class="hsb-input" id="hsb-where" placeholder="Trail, peak, park..." autocomplete="off" />
             </div>
             <div class="hsb-divider"></div>
-            <div class="hsb-field">
+            <div class="hsb-field" id="hsb-field-duration">
               <span class="hsb-label">DURATION</span>
-              <input type="text" class="hsb-input" id="hsb-duration" placeholder="Weekend, 3-5 days..." />
+              <input type="text" class="hsb-input" id="hsb-duration" placeholder="Weekend, 3-5 days..." autocomplete="off" />
             </div>
-            <button class="hsb-btn" onclick="handleSearchGear(event)" aria-label="Search Gear">
+            <button class="hsb-btn" id="hsb-search-btn" onclick="handleSearchGear(event)" aria-label="Search Gear">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="11" cy="11" r="8"></circle>
                 <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
               </svg>
             </button>
           </div>
+          <div class="hsb-error-msg" id="hsb-error-msg">Please enter a valid destination.</div>
 
           <div class="hero-cta-row">
             <a href="#" class="btn-primary" onclick="openModal('404'); return false;">Explore Services &amp; Gear <span class="btn-arrow">→</span></a>
@@ -2882,6 +2883,6 @@
     <span>🛒 Item added to cart!</span>
   </div>
 
-  <script src="script.js?v=49"></script>
+  <script src="script.js?v=52"></script>
 </body>
 </html>
