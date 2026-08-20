@@ -504,6 +504,63 @@ function updateDashboardName(name, userEmail, userRole) {
   }
 }
 
+function switchDashTab(tabName, evt) {
+  if (evt) { evt.preventDefault(); }
+
+  // 1. Close mobile drawer if open
+  closeDashDrawer();
+
+  // 2. Map each tab to ALL possible panel IDs across every page
+  const panelMap = {
+    'overview': ['host-panel-overview', 'user-panel-overview'],
+    'trips':    ['host-panel-properties', 'user-panel-rentals'],
+    'saved':    ['host-panel-bookings', 'user-panel-expeditions'],
+    'payments': ['host-panel-earnings', 'user-panel-wishlist'],
+    'settings': ['host-panel-settings', 'user-panel-settings']
+  };
+
+  const targetPanels = panelMap[tabName] || panelMap['overview'];
+
+  // 3. Remove active from ALL sidebar links, then add to clicked one
+  document.querySelectorAll('.dash-sidebar .sidebar-link').forEach(link => {
+    link.classList.remove('active');
+  });
+  // Mark links whose onclick contains this tabName as active
+  document.querySelectorAll('.sidebar-link').forEach(link => {
+    const oc = link.getAttribute('onclick') || '';
+    if (oc.includes("'" + tabName + "'")) {
+      link.classList.add('active');
+    }
+  });
+
+  // 4. Hide ALL subpanels
+  document.querySelectorAll('.host-subpanel, .user-subpanel').forEach(panel => {
+    panel.classList.remove('active');
+    panel.style.display = 'none';
+  });
+
+  // 5. Show the matching panels
+  targetPanels.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.classList.add('active');
+      el.style.display = 'block';
+    }
+  });
+
+  // 6. Scroll to top
+  const mc = document.querySelector('.page-view.active .dash-main-content') || document.querySelector('.dash-main-content');
+  if (mc) { mc.scrollTop = 0; }
+}
+
+function switchHostTab(tabName, evt) {
+  switchDashTab(tabName, evt);
+}
+
+function switchTravelerTab(tabName, evt) {
+  switchDashTab(tabName, evt);
+}
+
 function handleLogin(e) {
   e.preventDefault();
   const btn = e.target.querySelector('button[type="submit"]') || document.getElementById('login-submit-btn');
