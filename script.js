@@ -989,3 +989,69 @@ function closeDashDrawer() {
     };
   }
 })();
+
+// ===== ADVANCED SCROLL REVEAL & STATS OBSERVER (2026 UPDATE) =====
+(function initScrollAnimations() {
+  function handleScrollAnimation() {
+    const reveals = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right');
+    const windowHeight = window.innerHeight;
+
+    reveals.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top <= windowHeight * 0.88) {
+        el.classList.add('revealed');
+      }
+    });
+
+    // Stat counter animation
+    document.querySelectorAll('.stat-counter-number[data-count]').forEach(counter => {
+      const rect = counter.getBoundingClientRect();
+      if (rect.top <= windowHeight * 0.9 && !counter.dataset.animated) {
+        counter.dataset.animated = 'true';
+        const target = parseFloat(counter.dataset.count);
+        const prefix = counter.dataset.prefix || '';
+        const suffix = counter.dataset.suffix || '';
+        const duration = 2000;
+        const start = performance.now();
+
+        function updateCounter(now) {
+          const elapsed = now - start;
+          const progress = Math.min(elapsed / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          const current = Math.round(eased * target);
+          counter.textContent = prefix + current.toLocaleString() + suffix;
+          if (progress < 1) {
+            requestAnimationFrame(updateCounter);
+          } else {
+            counter.textContent = prefix + target.toLocaleString() + suffix;
+          }
+        }
+        requestAnimationFrame(updateCounter);
+      }
+    });
+
+    // Timeline line progress animation
+    const timeline = document.querySelector('.timeline-wrapper');
+    if (timeline) {
+      const lineProg = timeline.querySelector('.timeline-line-progress');
+      const nodes = timeline.querySelectorAll('.timeline-node-item');
+      const rect = timeline.getBoundingClientRect();
+      if (rect.top <= windowHeight * 0.8) {
+        if (lineProg) lineProg.style.height = '100%';
+        nodes.forEach((node, idx) => {
+          setTimeout(() => {
+            node.classList.add('node-active');
+            const box = node.querySelector('.timeline-node-box');
+            if (box) box.classList.add('revealed');
+          }, idx * 280);
+        });
+      }
+    }
+  }
+
+  window.addEventListener('scroll', handleScrollAnimation, { passive: true });
+  window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(handleScrollAnimation, 150);
+  });
+})();
+
