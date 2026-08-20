@@ -2,17 +2,25 @@
 
 // ===== PAGE SWITCHER =====
 function switchPage(pageId) {
+  const currentPath = window.location.pathname.toLowerCase();
+  const isHomePage = currentPath.endsWith('index.html') || currentPath.endsWith('/') || currentPath.endsWith('/outdoor-camping-store');
+  
   const target = document.getElementById(`page-${pageId}`);
   if (target) {
     const pages = document.querySelectorAll('.page-view');
     pages.forEach(p => p.classList.remove('active'));
     target.classList.add('active');
   } else {
-    // Navigating from a standalone HTML page (e.g. services.html -> index.html)
+    // If navigating to home and already on home, do nothing
     if (pageId === 'home') {
-      window.location.href = 'index.html';
-    } else {
-      window.location.href = pageId.endsWith('.html') ? pageId : (pageId + '.html');
+      if (!isHomePage) {
+        window.location.href = 'index.html';
+      }
+    } else if (pageId && pageId !== '') {
+      const targetUrl = pageId.endsWith('.html') ? pageId : (pageId + '.html');
+      if (!currentPath.endsWith(targetUrl.toLowerCase())) {
+        window.location.href = targetUrl;
+      }
     }
     return;
   }
@@ -57,24 +65,21 @@ function switchPage(pageId) {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-  // Prevent SPA navigation on dedicated login and signup pages
   const path = window.location.pathname.toLowerCase();
-  if (path.endsWith('login.html') || path.endsWith('signup.html')) {
-    // Allow the page to load normally without SPA interference
+  // If we are on dedicated standalone pages, do not perform hash/SPA rerouting
+  if (path.endsWith('login.html') || path.endsWith('signup.html') || path.endsWith('dashboard.html') || path.endsWith('user-dashboard.html')) {
     return;
   }
+
   const hash = window.location.hash.replace('#', '');
   if (hash && document.getElementById(`page-${hash}`)) {
     switchPage(hash);
   } else {
-    // Auto-detect the page element present on the current HTML file
     const currentPageView = document.querySelector('.page-view.active') || document.querySelector('.page-view');
     if (currentPageView) {
       currentPageView.classList.add('active');
       const pageId = currentPageView.id.replace('page-', '');
       switchPage(pageId);
-    } else {
-      switchPage('home');
     }
   }
 
