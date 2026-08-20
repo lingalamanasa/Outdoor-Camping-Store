@@ -1447,7 +1447,7 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
   color: #ff6b6b !important;
 }
 .dash-mobile-top-header {
-  display: none;
+  display: none !important;
   align-items: center;
   gap: 14px;
   padding: 12px 20px;
