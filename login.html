@@ -61,11 +61,10 @@
             <div class="form-field-group">
               <label for="lin-role">👤 ROLE</label>
               <div class="select-pill-wrap">
-                <select id="lin-role" class="pill-input select-pill">
+                <select id="lin-role" class="pill-input select-pill" required>
                   <option value="">Select your role</option>
-                  <option value="adventurer">Traveler / Adventurer</option>
-                  <option value="mountaineer">Mountaineer &amp; Guide</option>
-                  <option value="gear-enthusiast">Gear Collector</option>
+                  <option value="user">User</option>
+                  <option value="admin">Admin</option>
                 </select>
               </div>
             </div>
@@ -75,6 +74,7 @@
             </div>
 
             <button type="submit" class="btn-pill-submit">Login →</button>
+            <a href="index.html" class="btn-pill-submit" style="display: block; text-align: center; text-decoration: none; margin-top: 10px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);">Back to Home</a>
             
             <p class="auth-bottom-switch">Don't have an account? <a href="signup.html"><strong>Sign up</strong></a></p>
           </form>

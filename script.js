@@ -645,13 +645,11 @@ function handleLogin(e) {
   }
 
   const selectedRole = roleInput ? roleInput.value.toLowerCase() : '';
-  let targetUrl = 'index.html#dashboard';
-  if (selectedRole.includes('mountaineer') || selectedRole.includes('guide')) {
-    targetUrl = 'mountaineer-dashboard.html';
-  } else if (selectedRole.includes('gear')) {
-    targetUrl = 'gear-dashboard.html';
+  let targetUrl = 'user-dashboard.html';
+  if (selectedRole === 'admin') {
+    targetUrl = 'dashboard.html';
   } else {
-    targetUrl = 'index.html#dashboard';
+    targetUrl = 'user-dashboard.html';
   }
 
   if (btn) {
@@ -711,13 +709,11 @@ function handleSignup(e) {
   }
 
   const selectedRole = roleInput ? (roleInput.value || '').toLowerCase() : '';
-  let targetUrl = 'index.html#dashboard';
-  if (selectedRole.includes('mountaineer') || selectedRole.includes('guide')) {
-    targetUrl = 'mountaineer-dashboard.html';
-  } else if (selectedRole.includes('gear')) {
-    targetUrl = 'gear-dashboard.html';
+  let targetUrl = 'user-dashboard.html';
+  if (selectedRole === 'admin') {
+    targetUrl = 'dashboard.html';
   } else {
-    targetUrl = 'index.html#dashboard';
+    targetUrl = 'user-dashboard.html';
   }
 
   if (btn) {
