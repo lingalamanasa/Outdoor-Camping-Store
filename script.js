@@ -445,7 +445,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function handleMemberSignup(e) {
   if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  openModal('404');
+  showAppToast('Welcome to Stackly Adventurers Club! 15% discount applied.', 'fa-solid fa-crown');
+}
+
+function handlePillClick(e, name) {
+  if (e && typeof e.preventDefault === 'function') e.preventDefault();
+  const label = name || 'Trail Information';
+  showAppToast(`${label} loaded successfully!`, 'fa-solid fa-map-location-dot');
 }
 
 function handleForgotPassword(e) {
@@ -458,12 +464,13 @@ function handleForgotPassword(e) {
 
 function handleReadGuide(e, title) {
   if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  openModal('404');
+  const guideTitle = title || 'Wilderness Guide';
+  showAppToast(`Loading article: ${guideTitle}...`, 'fa-solid fa-book-open');
 }
 
 function handleGuideDownload(e) {
   if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  openModal('404');
+  showAppToast('Downloading offline field guide PDF (2.4MB)...', 'fa-solid fa-file-pdf');
 }
 
 function handleAddNewListing(e) {
