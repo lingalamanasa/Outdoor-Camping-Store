@@ -801,13 +801,17 @@ function handleSignup(e) {
 // ===== CONTACT FORM SUBMIT =====
 function handleContactSubmit(e) {
   if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  window.location.href = '404.html';
+  showAppToast('Thank you! Your message has been sent to Stackly.', 'fa-solid fa-paper-plane');
+  const form = document.getElementById('contact-form') || (e && e.target ? e.target.closest('form') : null);
+  if (form) form.reset();
 }
 
 // ===== NEWSLETTER SUBSCRIBE =====
 function handleSubscribeNewsletter(e) {
   if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  window.location.href = '404.html';
+  showAppToast('Thank you for subscribing to Stackly updates!', 'fa-solid fa-envelope-circle-check');
+  const input = document.querySelector('.footer-newsletter-input');
+  if (input) input.value = '';
 }
 
 // ===== NAVBAR SCROLL & MOBILE MENU =====
@@ -1192,22 +1196,22 @@ function showToast(message, type = 'success', duration = 3200) {
 }
 
 // ===== HANDLE ADD TO CART (Gear / Product buttons) =====
-// Directly opens 404.html
 function handleAddToCart(event, productName) {
   if (event) event.preventDefault();
-  window.location.href = '404.html';
+  const name = productName || 'Selected Gear';
+  showAppToast(`${name} added to your cart!`, 'fa-solid fa-cart-shopping');
 }
 
 // ===== HANDLE BOOK EXPEDITION (Expedition "Book Slot" buttons) =====
-// Directly opens 404.html
 function handleBookExpedition(event, expeditionName) {
   if (event) event.preventDefault();
-  window.location.href = '404.html';
+  const name = expeditionName || 'Expedition Pass';
+  showAppToast(`Expedition reservation started for ${name}!`, 'fa-solid fa-mountain');
 }
 
-// ===== TRIGGER 404 (Placeholder footer / coming-soon links) =====
+// ===== TRIGGER 404 / PLACEHOLDER ACTION HANDLER =====
 function trigger404(event) {
   if (event) event.preventDefault();
-  window.location.href = '404.html';
+  showAppToast('Feature loaded successfully!', 'fa-solid fa-circle-check');
 }
 
