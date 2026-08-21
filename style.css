@@ -3635,9 +3635,9 @@ html, body {
   opacity: 1 !important;
 }
 
-.reveal-up.revealed:not(.hang-card):not(.heritage-float-card):not(.journey-float-card),
-.reveal-left.revealed:not(.hang-card):not(.heritage-float-card):not(.journey-float-card),
-.reveal-right.revealed:not(.hang-card):not(.heritage-float-card):not(.journey-float-card) {
+.reveal-up.revealed:not(.hang-card):not(.slide-card):not(.heritage-float-card):not(.journey-float-card),
+.reveal-left.revealed:not(.hang-card):not(.slide-card):not(.heritage-float-card):not(.journey-float-card),
+.reveal-right.revealed:not(.hang-card):not(.slide-card):not(.heritage-float-card):not(.journey-float-card) {
   transform: translate(0, 0) !important;
 }
 
@@ -4067,6 +4067,72 @@ html, body {
 .hang-anim-3:hover,
 .hang-anim-4:hover {
   animation-play-state: paused !important;
+}
+
+/* ===== REUSABLE SLIDING / GLIDING ANIMATIONS ===== */
+@keyframes slideGlide1 {
+  0%   { transform: translateX(0); }
+  25%  { transform: translateX(16px); }
+  50%  { transform: translateX(-12px); }
+  75%  { transform: translateX(6px); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes slideGlide2 {
+  0%   { transform: translateX(0); }
+  25%  { transform: translateX(-18px); }
+  50%  { transform: translateX(14px); }
+  75%  { transform: translateX(-8px); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes slideGlide3 {
+  0%   { transform: translateX(0); }
+  25%  { transform: translateX(14px); }
+  50%  { transform: translateX(-16px); }
+  75%  { transform: translateX(8px); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes slideGlide4 {
+  0%   { transform: translateX(0); }
+  25%  { transform: translateX(-16px); }
+  50%  { transform: translateX(12px); }
+  75%  { transform: translateX(-6px); }
+  100% { transform: translateX(0); }
+}
+
+.slide-card {
+  position: relative;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  will-change: transform;
+}
+
+.slide-anim-1 {
+  animation: slideGlide1 5.0s ease-in-out infinite !important;
+}
+
+.slide-anim-2 {
+  animation: slideGlide2 5.6s ease-in-out infinite 0.4s !important;
+}
+
+.slide-anim-3 {
+  animation: slideGlide3 5.2s ease-in-out infinite 0.8s !important;
+}
+
+.slide-anim-4 {
+  animation: slideGlide4 5.8s ease-in-out infinite 1.2s !important;
+}
+
+/* Pause sliding animation and lift with glowing effect on hover */
+.slide-anim-1:hover,
+.slide-anim-2:hover,
+.slide-anim-3:hover,
+.slide-anim-4:hover {
+  animation-play-state: paused !important;
+  transform: translateY(-8px) scale(1.02) !important;
+  box-shadow: 0 20px 40px rgba(14, 46, 26, 0.45), 0 0 20px rgba(82, 183, 136, 0.25) !important;
+  border-color: var(--green-400) !important;
 }
 
 /* ===== HERITAGE FLOATING CARDS (HOME SECTION 6) ===== */
