@@ -4299,122 +4299,110 @@ html, body {
 }
 
 /* ===== CONTACT SPLIT FORM (MATCHING USER SCREENSHOT) ===== */
+.contact-split-section {
+  background: #ffffff !important;
+  padding: 80px 0 !important;
+  color: #111827 !important;
+}
 .contact-split-header {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
   gap: 30px;
-  margin-bottom: 36px;
+  margin-bottom: 40px;
   flex-wrap: wrap;
 }
 .contact-split-title {
   font-family: 'Playfair Display', serif !important;
   font-size: 38px !important;
-  font-weight: 800 !important;
-  color: #ffffff !important;
-  line-height: 1.18 !important;
+  font-weight: 700 !important;
+  color: #111827 !important;
+  line-height: 1.25 !important;
   margin: 0 !important;
+  letter-spacing: -0.5px !important;
 }
 .contact-split-desc {
-  font-size: 15px !important;
-  color: #94a3b8 !important;
-  max-width: 480px !important;
+  font-size: 14.5px !important;
+  color: #4b5563 !important;
+  max-width: 440px !important;
   line-height: 1.6 !important;
   margin: 0 !important;
 }
 .contact-split-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 36px;
+  gap: 32px;
   align-items: stretch;
 }
 .contact-form-container-box {
-  background: #0e1420;
-  border-radius: 28px;
-  padding: 38px 34px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.45);
+  background: #161922;
+  border-radius: 24px;
+  padding: 40px 36px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 .c-field-group {
-  margin-bottom: 16px;
+  margin-bottom: 20px;
   display: flex;
   flex-direction: column;
 }
 .c-field-label {
-  font-size: 14px;
-  font-weight: 700;
+  font-size: 13.5px;
+  font-weight: 600;
   color: #ffffff;
   margin-bottom: 8px;
   display: block;
 }
 .c-field-input {
   width: 100%;
-  background: #171f2c;
-  border: 1.5px solid #9d174d;
-  border-radius: 12px;
+  background: #202534;
+  border: 1px solid #2e3547;
+  border-radius: 10px;
   padding: 13px 18px;
   color: #ffffff;
   font-size: 14px;
   font-family: inherit;
   outline: none;
   transition: all 0.25s ease;
-  box-shadow: 0 0 10px rgba(157, 23, 77, 0.2);
 }
 .c-field-input:focus {
-  border-color: #f43f5e;
-  box-shadow: 0 0 16px rgba(244, 63, 94, 0.45);
-  background: #1b2434;
+  border-color: #881337;
+  box-shadow: 0 0 0 3px rgba(136, 19, 55, 0.25);
+  background: #23293a;
 }
 .c-field-input::placeholder {
-  color: #64748b;
+  color: #6b7280;
   font-size: 13.5px;
 }
 .c-field-textarea {
   resize: vertical;
-  min-height: 110px;
-}
-.c-field-error {
-  font-size: 12px;
-  color: #fb7185;
-  margin-top: 6px;
-  font-weight: 500;
-  display: block;
+  min-height: 120px;
 }
 .btn-send-message {
   background: linear-gradient(135deg, #881337 0%, #9f1239 100%);
   color: #ffffff;
-  border: 1px solid #be185d;
+  border: none;
   border-radius: 9999px;
-  padding: 12px 38px;
-  font-size: 15.5px;
+  padding: 12px 42px;
+  font-size: 15px;
   font-weight: 700;
   cursor: pointer;
-  box-shadow: 0 6px 20px rgba(159, 18, 57, 0.45);
+  box-shadow: 0 6px 20px rgba(136, 19, 55, 0.35);
   transition: all 0.25s ease;
   display: inline-block;
-  margin: 8px auto 10px;
+  margin: 10px auto 0;
 }
 .btn-send-message:hover {
   background: linear-gradient(135deg, #9f1239 0%, #be185d 100%);
   transform: translateY(-2px);
-  box-shadow: 0 10px 28px rgba(190, 24, 93, 0.6);
-}
-.c-mandatory-note {
-  font-size: 12.5px;
-  color: #fb7185;
-  margin-top: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
+  box-shadow: 0 10px 28px rgba(159, 18, 57, 0.45);
 }
 .contact-image-container-box {
-  border-radius: 28px;
+  border-radius: 24px;
   overflow: hidden;
-  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
   position: relative;
   min-height: 520px;
 }
@@ -4423,14 +4411,14 @@ html, body {
   height: 100%;
   object-fit: cover;
   display: block;
-  border-radius: 28px;
+  border-radius: 24px;
 }
 @media (max-width: 900px) {
   .contact-split-grid {
     grid-template-columns: 1fr;
   }
   .contact-image-container-box {
-    min-height: 340px;
+    min-height: 360px;
   }
 }
 
