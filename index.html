@@ -13,7 +13,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
   <!-- FONT AWESOME 6 ICONS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="style.css?v=137" />
+  <link rel="stylesheet" href="style.css?v=140" />
 </head>
 <body>
 
@@ -536,96 +536,91 @@
       </div>
     </section>
 
-    <!-- =====================================================
-         8. WILDERNESS DISPATCH / NEWSLETTER CTA
+    <!-- ====================================================    <!-- =====================================================
+         8. PRE-FOOTER CTA BANNER (MATCHING SCREENSHOT)
     ===================================================== -->
-    <section style="background: linear-gradient(135deg, #1b4332 0%, #081c15 100%); padding: 80px 24px; color: #ffffff; text-align: center;">
-      <div style="max-width: 720px; margin: 0 auto;" class="reveal-up">
-        <div style="width: 60px; height: 60px; border-radius: 50%; background: rgba(82, 183, 136, 0.2); color: #52b788; display: flex; align-items: center; justify-content: center; font-size: 24px; margin: 0 auto 20px;">
-          <i class="fa-solid fa-envelope-open-text"></i>
-        </div>
-        <h2 style="font-size: 36px; font-weight: 800; margin-bottom: 12px;">Join the Stackly Adventurers Club</h2>
-        <p style="font-size: 15px; color: rgba(255,255,255,0.8); line-height: 1.6; margin-bottom: 32px;">
-          Get exclusive early access to limited seasonal gear drops, backcountry GPX maps, and 15% off your first equipment order.
-        </p>
-
-        <form onsubmit="handleSubscribeNewsletter(event)" style="display: flex; gap: 10px; max-width: 520px; margin: 0 auto; flex-wrap: wrap;">
-          <input type="email" id="newsletter-email" placeholder="Enter your email address" required style="flex: 1; min-width: 260px; padding: 14px 20px; border-radius: 999px; border: 1.5px solid rgba(255,255,255,0.25); background: rgba(255,255,255,0.1); color: #ffffff; font-size: 14px; outline: none; font-family: inherit;" />
-          <button type="submit" style="padding: 14px 28px; border-radius: 999px; border: none; background: #52b788; color: #0b1f14; font-weight: 800; font-size: 14px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; font-family: inherit;">
-            Subscribe <i class="fa-solid fa-arrow-right"></i>
-          </button>
-        </form>
+    <section class="prefooter-banner">
+      <div class="container">
+        <h2 class="prefooter-title">Ready to scale your team?</h2>
+        <p class="prefooter-desc">Connect with our industry experts to find top-tier talent and build a high-performing team that drives your business forward.</p>
+        <a href="contact.html" class="btn-prefooter-talk">Let's Talk</a>
       </div>
     </section>
 
   </main>
 
   <!-- ===== FOOTER ===== -->
-  <footer id="footer" class="footer" style="background: #050d08; color: #cbd5e1; padding: 70px 24px 30px; border-top: 1px solid rgba(255,255,255,0.08);">
-    <div style="max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 40px; margin-bottom: 50px;" class="footer-grid">
-      
-      <div>
-        <a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none; margin-bottom: 18px;">
-          <img src="assets/logo.webp" alt="Stackly Logo" style="height: 32px; width: auto;" />
-        </a>
-        <p style="font-size: 13.5px; color: #94a3b8; line-height: 1.6; max-width: 320px; margin-bottom: 20px;">
-          Premier outdoor &amp; camping equipment destination. Built for wilderness lovers, mountaineers, and all-weather explorers.
-        </p>
-        <div style="display: flex; gap: 14px; font-size: 18px; color: #52b788;">
-          <a href="#" style="color: inherit;" onclick="trigger404(event)"><i class="fa-brands fa-instagram"></i></a>
-          <a href="#" style="color: inherit;" onclick="trigger404(event)"><i class="fa-brands fa-youtube"></i></a>
-          <a href="#" style="color: inherit;" onclick="trigger404(event)"><i class="fa-brands fa-facebook"></i></a>
-          <a href="#" style="color: inherit;" onclick="trigger404(event)"><i class="fa-brands fa-x-twitter"></i></a>
+  <footer id="footer" class="footer">
+    <div class="footer-container">
+      <div class="footer-grid-layout">
+        
+        <!-- COL 1: BRAND & SOCIALS -->
+        <div>
+          <a href="index.html" class="footer-brand" style="text-decoration: none; display: inline-block;">
+            <img src="assets/logo.webp" alt="Stackly Logo" style="height: 32px; width: auto;" />
+          </a>
+          <p class="footer-brand-text">
+            Empowering companies and extraordinary talent with modern HR recruitment &amp; executive search solutions.
+          </p>
+          <div class="footer-social-list">
+            <a href="404.html" class="footer-social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="404.html" class="footer-social-btn" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="404.html" class="footer-social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="404.html" class="footer-social-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
         </div>
+
+        <!-- COL 2: QUICK LINKS -->
+        <div>
+          <h4 class="footer-col-heading">Quick Links</h4>
+          <ul class="footer-nav-list">
+            <li><a href="index.html" style="font-weight: 700; color: #ffffff;">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Service</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- COL 3: SOLUTIONS -->
+        <div>
+          <h4 class="footer-col-heading">Solutions</h4>
+          <ul class="footer-nav-list">
+            <li><a href="404.html">Executive Search</a></li>
+            <li><a href="404.html">Contract Staffing</a></li>
+            <li><a href="404.html">Direct Hire</a></li>
+            <li><a href="404.html">RPO Advisory</a></li>
+            <li><a href="404.html">Tech Sourcing</a></li>
+          </ul>
+        </div>
+
+        <!-- COL 4: STAY UPDATED -->
+        <div>
+          <h4 class="footer-col-heading">Stay Updated</h4>
+          <p style="font-size: 13.5px; color: #94a3b8; line-height: 1.6; margin-bottom: 18px;">
+            Get weekly tech talent insights &amp; market salary reports.
+          </p>
+          <form onsubmit="handleSubscribeNewsletter(event)" class="footer-newsletter-box">
+            <input type="email" placeholder="Enter your email" required class="footer-newsletter-input" />
+            <button type="submit" class="footer-newsletter-btn">Subscribe</button>
+          </form>
+        </div>
+
       </div>
 
-      <div>
-        <h4 style="color: #ffffff; font-size: 15px; font-weight: 700; margin-bottom: 16px;">Explore</h4>
-        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; font-size: 13.5px;">
-          <li><a href="index.html" style="color: #94a3b8; text-decoration: none;"><i class="fa-solid fa-chevron-right" style="font-size: 10px; margin-right: 6px; color: #52b788;"></i> Home</a></li>
-          <li><a href="about.html" style="color: #94a3b8; text-decoration: none;"><i class="fa-solid fa-chevron-right" style="font-size: 10px; margin-right: 6px; color: #52b788;"></i> About Us</a></li>
-          <li><a href="services.html" style="color: #94a3b8; text-decoration: none;"><i class="fa-solid fa-chevron-right" style="font-size: 10px; margin-right: 6px; color: #52b788;"></i> Expeditions</a></li>
-          <li><a href="blog.html" style="color: #94a3b8; text-decoration: none;"><i class="fa-solid fa-chevron-right" style="font-size: 10px; margin-right: 6px; color: #52b788;"></i> Field Notes</a></li>
-          <li><a href="contact.html" style="color: #94a3b8; text-decoration: none;"><i class="fa-solid fa-chevron-right" style="font-size: 10px; margin-right: 6px; color: #52b788;"></i> Basecamp Location</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h4 style="color: #ffffff; font-size: 15px; font-weight: 700; margin-bottom: 16px;">Dashboards</h4>
-        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; font-size: 13.5px;">
-          <li><a href="user-dashboard.html" style="color: #94a3b8; text-decoration: none;"><i class="fa-solid fa-user" style="font-size: 10px; margin-right: 6px; color: #52b788;"></i> User Dashboard</a></li>
-          <li><a href="dashboard.html" style="color: #94a3b8; text-decoration: none;"><i class="fa-solid fa-gear" style="font-size: 10px; margin-right: 6px; color: #52b788;"></i> Admin Dashboard</a></li>
-          <li><a href="login.html" style="color: #94a3b8; text-decoration: none;"><i class="fa-solid fa-arrow-right-to-bracket" style="font-size: 10px; margin-right: 6px; color: #52b788;"></i> Member Sign In</a></li>
-          <li><a href="signup.html" style="color: #94a3b8; text-decoration: none;"><i class="fa-solid fa-user-plus" style="font-size: 10px; margin-right: 6px; color: #52b788;"></i> Create Account</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h4 style="color: #ffffff; font-size: 15px; font-weight: 700; margin-bottom: 16px;">Flagship Basecamp</h4>
-        <p style="font-size: 13.5px; color: #94a3b8; line-height: 1.6; margin-bottom: 12px;">
-          <i class="fa-solid fa-location-dot" style="color: #52b788; margin-right: 8px;"></i> 1420 Alpine Vista Way, Boulder, CO 80302
-        </p>
-        <p style="font-size: 13.5px; color: #94a3b8; line-height: 1.6; margin-bottom: 12px;">
-          <i class="fa-solid fa-phone" style="color: #52b788; margin-right: 8px;"></i> +1 (800) 945-3272
-        </p>
-        <p style="font-size: 13.5px; color: #94a3b8; line-height: 1.6;">
-          <i class="fa-solid fa-envelope" style="color: #52b788; margin-right: 8px;"></i> hello@stackly.store
-        </p>
-      </div>
-
-    </div>
-
-    <div style="max-width: 1240px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px; display: flex; align-items: center; justify-content: space-between; font-size: 12.5px; color: #64748b; flex-wrap: wrap; gap: 12px;">
-      <div>&copy; 2026 Stackly Outdoor &amp; Camping Store. All rights reserved.</div>
-      <div style="display: flex; gap: 18px;">
-        <a href="#" style="color: inherit; text-decoration: none;" onclick="trigger404(event)">Privacy Policy</a>
-        <a href="#" style="color: inherit; text-decoration: none;" onclick="trigger404(event)">Terms &amp; Conditions</a>
-        <a href="#" style="color: inherit; text-decoration: none;" onclick="trigger404(event)">Lifetime Warranty</a>
+      <!-- FOOTER BOTTOM -->
+      <div class="footer-bottom-bar">
+        <div>&copy; 2026 Stackly Recruitment Agency. All rights reserved.</div>
+        <div class="footer-bottom-links">
+          <a href="404.html">Privacy Policy</a>
+          <a href="404.html">Terms of Service</a>
+          <a href="404.html">Security</a>
+        </div>
       </div>
     </div>
   </footer>
 
   <!-- ===== JAVASCRIPT ===== -->
-  <script src="script.js?v=134"></script>
+  <script src="script.js?v=140"></script>
 </body>
 </html>

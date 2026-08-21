@@ -804,6 +804,12 @@ function handleContactSubmit(e) {
   window.location.href = '404.html';
 }
 
+// ===== NEWSLETTER SUBSCRIBE =====
+function handleSubscribeNewsletter(e) {
+  if (e && typeof e.preventDefault === 'function') e.preventDefault();
+  window.location.href = '404.html';
+}
+
 // ===== NAVBAR SCROLL & MOBILE MENU =====
 const HAMBURGER_OPEN_SVG = `<svg class="hamburger-icon-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`;
 const HAMBURGER_CLOSED_SVG = `<svg class="hamburger-icon-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>`;
