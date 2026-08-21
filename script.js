@@ -134,6 +134,15 @@ window.addEventListener('DOMContentLoaded', () => {
       window.location.href = 'index.html';
     });
   });
+
+  // Dedicated listener for contact form submit to guarantee clean in-place success toast and no 404
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      handleContactSubmit(e);
+    });
+  }
 });
 
 window.addEventListener('hashchange', () => {
@@ -790,15 +799,46 @@ function handleSignup(e) {
 
 // ===== CONTACT FORM SUBMIT =====
 function handleContactSubmit(e) {
-  if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  showAppToast('Thank you! Your message has been sent to Stackly.', 'fa-solid fa-paper-plane');
-  const form = document.getElementById('contact-form') || (e && e.target ? e.target.closest('form') : null);
-  if (form) form.reset();
+  if (e) {
+    if (typeof e.preventDefault === 'function') e.preventDefault();
+    if (typeof e.stopPropagation === 'function') e.stopPropagation();
+  }
+
+  const nameInput = document.getElementById('c-name');
+  const emailInput = document.getElementById('c-email');
+  const phoneInput = document.getElementById('c-phone');
+  const msgInput = document.getElementById('c-msg');
+  const submitBtn = document.getElementById('c-submit-btn');
+
+  const senderName = (nameInput && nameInput.value.trim()) ? nameInput.value.trim() : 'Valued Explorer';
+  const senderEmail = (emailInput && emailInput.value.trim()) ? emailInput.value.trim() : '';
+
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = 'Sending message...';
+  }
+
+  setTimeout(() => {
+    showAppToast(`✨ Message Sent! Thank you, ${senderName}. Our outdoor guide team has received your message and will reply to ${senderEmail || 'your email'} shortly.`, 'fa-solid fa-paper-plane');
+    const form = document.getElementById('contact-form') || (e && e.target ? e.target.closest('form') : null);
+    if (form) form.reset();
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = 'Send message';
+    }
+  }, 450);
+
+  return false;
 }
 
 // ===== NEWSLETTER SUBSCRIBE =====
 function handleSubscribeNewsletter(e) {
-  trigger404(e);
+  if (e && typeof e.preventDefault === 'function') e.preventDefault();
+  const input = e && e.target ? e.target.querySelector('input[type="email"]') : null;
+  const emailVal = input ? input.value.trim() : '';
+  showAppToast(`📩 Subscribed! Thank you for joining the Stackly Adventurers Club (${emailVal || 'your email'}).`, 'fa-solid fa-envelope-circle-check');
+  if (input) input.value = '';
+  return false;
 }
 
 // ===== NAVBAR SCROLL & MOBILE MENU =====

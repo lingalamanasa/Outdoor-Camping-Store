@@ -86,25 +86,25 @@
         <div class="contact-split-grid">
           <!-- LEFT: DARK CARD FORM -->
           <div class="contact-form-container-box">
-            <form onsubmit="handleContactSubmit(event)">
+            <form id="contact-form" action="javascript:void(0);" onsubmit="handleContactSubmit(event); return false;">
               <div class="c-field-group">
                 <label class="c-field-label" for="c-name">Name</label>
-                <input type="text" id="c-name" class="c-field-input" placeholder="Enter your name" required />
+                <input type="text" id="c-name" name="name" class="c-field-input" placeholder="Enter your name" required />
               </div>
 
               <div class="c-field-group">
                 <label class="c-field-label" for="c-email">Email</label>
-                <input type="email" id="c-email" class="c-field-input" placeholder="Enter your email" required />
+                <input type="email" id="c-email" name="email" class="c-field-input" placeholder="Enter your email" required />
               </div>
 
               <div class="c-field-group">
                 <label class="c-field-label" for="c-phone">Phone</label>
-                <input type="tel" id="c-phone" class="c-field-input" placeholder="Enter your phone number" required />
+                <input type="tel" id="c-phone" name="phone" class="c-field-input" placeholder="Enter your phone number" required />
               </div>
 
               <div class="c-field-group">
                 <label class="c-field-label" for="c-msg">Message</label>
-                <textarea id="c-msg" rows="4" class="c-field-input c-field-textarea" placeholder="Enter your message" required></textarea>
+                <textarea id="c-msg" name="message" rows="4" class="c-field-input c-field-textarea" placeholder="Enter your message" required></textarea>
               </div>
 
               <div style="text-align: center;">
