@@ -338,7 +338,7 @@
               <input type="checkbox" checked />
               Remember me
             </label>
-            <a href="#" class="forgot-link" onclick="trigger404(event)">Forgot password?</a>
+            <a href="404.html" class="forgot-link">Forgot password?</a>
           </div>
 
           <button type="submit" class="btn-sign-in">Sign in</button>
@@ -379,7 +379,7 @@
     }
     function trigger404(e) {
       if (e && e.preventDefault) e.preventDefault();
-      alert('Password reset link sent to your registered email address!');
+      window.location.href = '404.html';
     }
   </script>
 </body>

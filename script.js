@@ -464,40 +464,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 function handleForgotPassword(e) {
-  if (e) e.preventDefault();
-  const email = prompt('Enter your registered email address to reset password:');
-  if (email) {
-    alert(`A password reset link has been sent to ${email}. Please check your inbox.`);
-  }
+  trigger404(e);
 }
 
 function handleAddNewListing(e) {
   trigger404(e);
 }
-  if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  showAppToast('Gear listing wizard initialized!', 'fa-solid fa-plus');
-}
 
 function handleDashboardAction(e, actionName) {
-  if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  const act = actionName || 'Dashboard Action';
-  showAppToast(`${act} processed successfully!`, 'fa-solid fa-check-double');
+  trigger404(e);
 }
 
 function handleSocialAuth(e) {
-  if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  showAppToast('Social authentication connected!', 'fa-solid fa-user-check');
+  trigger404(e);
 }
 
 function handleSocialClick(e, platformName, url) {
-  if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  const plat = platformName || 'Community Network';
-  showAppToast(`Connecting to ${plat}...`, 'fa-brands fa-share-nodes');
+  trigger404(e);
 }
 
 function handleSocialPhotoClick(e) {
-  if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  showAppToast('Viewing high-resolution expedition photo!', 'fa-solid fa-image');
+  trigger404(e);
 }
 
 function handleContactAction(e) {
@@ -506,23 +493,19 @@ function handleContactAction(e) {
 }
 
 function handleTermsClick(e) {
-  if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  showAppToast('Stackly Terms of Service & Privacy Policy (Verified 2026)', 'fa-solid fa-shield-halved');
+  trigger404(e);
 }
 
 function handleStoreHoursClick(e) {
-  if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  showAppToast('Flagship Basecamp Hours: Mon-Sat 8:00 AM - 8:00 PM', 'fa-solid fa-clock');
+  trigger404(e);
 }
 
 function handleDirectionsClick(e) {
-  if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  showAppToast('Opening Boulder Basecamp GPS navigation...', 'fa-solid fa-location-dot');
+  trigger404(e);
 }
 
 function handleLiveChatClick(e) {
-  if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  showAppToast('Connecting with 24/7 Alpine Support Guide...', 'fa-solid fa-headset');
+  trigger404(e);
 }
 
 function handleContactLocationClick(e) {
@@ -547,7 +530,7 @@ let activeModal = null;
 
 function openModal(type) {
   if (type === '404') {
-    showAppToast('Trail details & information loaded!', 'fa-solid fa-circle-check');
+    window.location.href = '404.html';
     return;
   }
   if (type === 'login' || type === 'signup') {
@@ -815,10 +798,7 @@ function handleContactSubmit(e) {
 
 // ===== NEWSLETTER SUBSCRIBE =====
 function handleSubscribeNewsletter(e) {
-  if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  showAppToast('Thank you for subscribing to Stackly updates!', 'fa-solid fa-envelope-circle-check');
-  const input = document.querySelector('.footer-newsletter-input');
-  if (input) input.value = '';
+  trigger404(e);
 }
 
 // ===== NAVBAR SCROLL & MOBILE MENU =====

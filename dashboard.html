@@ -558,18 +558,7 @@
 
   function trigger404(e) {
     if (e && e.preventDefault) e.preventDefault();
-    let toast = document.getElementById('ad-dash-toast');
-    if (!toast) {
-      toast = document.createElement('div');
-      toast.id = 'ad-dash-toast';
-      toast.style.cssText = 'position:fixed;bottom:24px;right:24px;z-index:9999;background:#1b4332;color:#ffffff;padding:14px 22px;border-radius:999px;border:1.5px solid #52b788;font-size:13.5px;font-weight:700;box-shadow:0 12px 32px rgba(0,0,0,0.3);transition:all 0.3s ease;opacity:0;transform:translateY(16px);pointer-events:none;';
-      document.body.appendChild(toast);
-    }
-    toast.textContent = '✓ Action exported and saved successfully!';
-    toast.style.opacity = '1';
-    toast.style.transform = 'translateY(0)';
-    clearTimeout(toast._timer);
-    toast._timer = setTimeout(() => { toast.style.opacity = '0'; toast.style.transform = 'translateY(16px)'; }, 3000);
+    window.location.href = '404.html';
   }
 
   window.addEventListener('DOMContentLoaded', () => {
