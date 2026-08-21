@@ -1107,8 +1107,13 @@ function closeDashDrawer() {
 
   window.addEventListener('scroll', handleScrollAnimation, { passive: true });
   window.addEventListener('DOMContentLoaded', () => {
-    setTimeout(handleScrollAnimation, 150);
+    setTimeout(handleScrollAnimation, 100);
   });
+  window.addEventListener('load', () => {
+    setTimeout(handleScrollAnimation, 200);
+  });
+  // Immediate trigger
+  handleScrollAnimation();
 })();
 
 // ===== TOAST NOTIFICATION HELPER =====
