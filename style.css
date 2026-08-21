@@ -2585,6 +2585,18 @@ html, body {
     flex-shrink: 0 !important;
     margin: 0 !important;
   }
+  .navbar .brand-logo-img,
+  .navbar .header-logo,
+  .navbar .header-logo-img,
+  .navbar .logo img {
+    filter: none !important;
+    height: 32px !important;
+    width: auto !important;
+    max-width: 140px !important;
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
   .navbar .logo-text {
     color: #0b1528 !important;
     font-family: 'Plus Jakarta Sans', sans-serif !important;
@@ -2773,28 +2785,53 @@ html, body {
     transform: translateY(-2px) !important;
   }
 
-  /* 3. MOBILE HERO & SEARCH CARD (SCREENSHOT 1) */
+  /* 3. MOBILE HERO & SEARCH CARD (CLEAN UNCLUTTERED LAYOUT) */
+  .anim-hanging,
+  .anim-float,
+  .hero-floating-badge {
+    display: none !important;
+  }
+  .hero {
+    min-height: auto !important;
+    padding-top: 80px !important;
+    padding-bottom: 60px !important;
+  }
+  .hero-content {
+    padding: 30px 16px 20px !important;
+    max-width: 100% !important;
+  }
   .hero-badge {
     background: rgba(255, 255, 255, 0.12) !important;
     border: 1px solid rgba(255, 255, 255, 0.25) !important;
     border-radius: 30px !important;
-    font-size: 11px !important;
+    font-size: 10.5px !important;
     font-weight: 700 !important;
-    letter-spacing: 1px !important;
-    padding: 8px 18px !important;
+    letter-spacing: 0.8px !important;
+    padding: 6px 14px !important;
     color: #38bdf8 !important;
+    display: inline-flex !important;
+    margin-bottom: 8px !important;
   }
   .hero-title {
     font-family: 'Playfair Display', serif !important;
-    font-size: 34px !important;
+    font-size: 32px !important;
     font-weight: 800 !important;
-    line-height: 1.2 !important;
+    line-height: 1.18 !important;
     color: #ffffff !important;
-    margin-top: 14px !important;
+    margin-top: 10px !important;
+    margin-bottom: 14px !important;
+    letter-spacing: -0.5px !important;
   }
   .hero-title-gold {
     color: #d97706 !important;
     font-style: italic !important;
+  }
+  .hero-desc {
+    font-size: 13.5px !important;
+    line-height: 1.55 !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+    max-width: 96% !important;
+    margin: 0 auto 16px !important;
   }
   .hero-search-bar {
     flex-direction: column !important;
@@ -2803,7 +2840,8 @@ html, body {
     gap: 10px !important;
     background: rgba(10, 26, 14, 0.92) !important;
     max-width: 380px !important;
-    margin: 20px auto 28px !important;
+    margin: 16px auto 20px !important;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4) !important;
   }
   .hsb-field {
     width: 100% !important;
