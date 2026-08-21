@@ -2557,14 +2557,16 @@ html, body {
 
   /* ===== EXACT STYLING FOR REFERENCE SCREENSHOTS 1, 2, AND 3 ===== */
   
-  /* 1. TOP NAVBAR (MOBILE OPTIMIZED WITH SAFE AREA GAP) */
+  /* ===== EXACT STYLING FOR MOBILE & SAMSUNG GALAXY S8+ / LAPTOP VERSIONS ===== */
+  
+  /* 1. TOP NAVBAR (SLEEK DARK MODERN AESTHETIC - HIGH CONTRAST & LEGIBLE) */
   .navbar {
     height: auto !important;
-    min-height: 74px !important;
-    padding: max(14px, env(safe-area-inset-top, 14px)) 20px 14px 20px !important;
-    background: #ffffff !important;
-    border-bottom: 1px solid #e5e7eb !important;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05) !important;
+    min-height: 72px !important;
+    padding: max(12px, env(safe-area-inset-top, 12px)) 20px 12px 20px !important;
+    background: #090e17 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35) !important;
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
@@ -2589,7 +2591,7 @@ html, body {
   .navbar .header-logo,
   .navbar .header-logo-img,
   .navbar .logo img {
-    filter: none !important;
+    filter: brightness(0) invert(1) !important;
     height: 32px !important;
     width: auto !important;
     max-width: 140px !important;
@@ -2598,14 +2600,14 @@ html, body {
     visibility: visible !important;
   }
   .navbar .logo-text {
-    color: #0b1528 !important;
+    color: #ffffff !important;
     font-family: 'Plus Jakarta Sans', sans-serif !important;
     font-weight: 800 !important;
     font-size: 21px !important;
     letter-spacing: 0.5px !important;
   }
   .navbar .logo-accent {
-    color: #2d6a4f !important;
+    color: #52b788 !important;
     font-weight: 800 !important;
   }
   .navbar .logo-mark {
@@ -2630,8 +2632,8 @@ html, body {
     width: 44px !important;
     height: 44px !important;
     border-radius: 12px !important;
-    background: #0b1528 !important;
-    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28) !important;
     padding: 0 !important;
     cursor: pointer !important;
@@ -2661,7 +2663,7 @@ html, body {
     height: 100vh !important;
     width: 100vw !important;
     max-width: 100vw !important;
-    background: linear-gradient(180deg, #070e17 0%, #0a1f14 60%, #070e17 100%) !important;
+    background: linear-gradient(180deg, #070e17 0%, #0c1a24 100%) !important;
     backdrop-filter: blur(28px) !important;
     -webkit-backdrop-filter: blur(28px) !important;
     z-index: 999999 !important;
@@ -2669,7 +2671,7 @@ html, body {
     align-items: center !important;
     justify-content: center !important;
     padding: 60px 24px !important;
-    gap: 16px !important;
+    gap: 14px !important;
     overflow-y: auto !important;
     -webkit-overflow-scrolling: touch !important;
     list-style: none !important;
@@ -2683,16 +2685,16 @@ html, body {
   }
   .nav-links li {
     width: 100% !important;
-    max-width: 260px !important;
+    max-width: 280px !important;
     display: flex !important;
     justify-content: center !important;
   }
   .nav-links .nav-link {
-    font-size: 20px !important;
+    font-size: 19px !important;
     font-weight: 700 !important;
     color: #ffffff !important;
-    padding: 12px 32px !important;
-    min-height: 48px !important;
+    padding: 10px 28px !important;
+    min-height: 46px !important;
     border-radius: 9999px !important;
     border: 1.5px solid transparent !important;
     background: transparent !important;
@@ -2713,75 +2715,60 @@ html, body {
     box-shadow: 0 0 24px rgba(82, 183, 136, 0.25) !important;
   }
 
-  .mobile-nav-actions,
-  .mobile-menu-actions {
-    display: none !important;
-  }
-
-  .mobile-nav-actions .btn-signup,
-  .mobile-menu-actions .btn-mobile-signup,
-  .btn-mobile-signup {
+  /* MOBILE MENU AUTH BUTTONS (PROMINENT & VISIBLE) */
+  .mobile-menu-auth-item {
     width: 100% !important;
-    height: 48px !important;
-    background: #2d6a4f !important;
-    color: #ffffff !important;
-    font-size: 15px !important;
-    font-weight: 700 !important;
-    padding: 0 20px !important;
+    max-width: 280px !important;
+    margin-top: 14px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+  .mobile-menu-auth-buttons {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    width: 100% !important;
+  }
+  .btn-mobile-auth-login {
+    width: 100% !important;
+    height: 44px !important;
     border-radius: 9999px !important;
-    border: 1px solid #40916c !important;
-    box-shadow: 0 4px 14px rgba(45, 106, 79, 0.35) !important;
-    cursor: pointer !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.3) !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    color: #ffffff !important;
+    font-size: 14.5px !important;
+    font-weight: 700 !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     gap: 8px !important;
-    letter-spacing: 0.3px !important;
-    transition: all 0.25s ease !important;
     text-decoration: none !important;
-    margin: 0 !important;
+    transition: all 0.2s ease !important;
   }
-  .mobile-nav-actions .btn-signup:hover,
-  .mobile-nav-actions .btn-signup:active,
-  .mobile-menu-actions .btn-mobile-signup:hover,
-  .btn-mobile-signup:hover {
-    background: #40916c !important;
-    transform: translateY(-2px) !important;
-    box-shadow: 0 6px 20px rgba(64, 145, 108, 0.5) !important;
-    color: #ffffff !important;
+  .btn-mobile-auth-login:hover {
+    background: rgba(255, 255, 255, 0.18) !important;
+    border-color: #ffffff !important;
   }
-
-  .mobile-nav-actions .btn-login,
-  .mobile-menu-actions .btn-mobile-login,
-  .btn-mobile-login {
+  .btn-mobile-auth-signup {
     width: 100% !important;
-    height: 48px !important;
-    background: rgba(255, 255, 255, 0.08) !important;
-    backdrop-filter: blur(12px) !important;
-    -webkit-backdrop-filter: blur(12px) !important;
-    color: #ffffff !important;
-    font-size: 15px !important;
-    font-weight: 600 !important;
-    padding: 0 20px !important;
+    height: 44px !important;
     border-radius: 9999px !important;
-    border: 1.5px solid rgba(255, 255, 255, 0.25) !important;
-    box-shadow: none !important;
-    cursor: pointer !important;
+    border: none !important;
+    background: linear-gradient(135deg, #881337 0%, #9f1239 100%) !important;
+    color: #ffffff !important;
+    font-size: 14.5px !important;
+    font-weight: 700 !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    letter-spacing: 0.3px !important;
-    transition: all 0.25s ease !important;
+    gap: 8px !important;
+    box-shadow: 0 4px 14px rgba(136, 19, 55, 0.4) !important;
     text-decoration: none !important;
-    margin: 0 !important;
+    transition: all 0.2s ease !important;
   }
-  .mobile-nav-actions .btn-login:hover,
-  .mobile-nav-actions .btn-login:active,
-  .mobile-menu-actions .btn-mobile-login:hover,
-  .btn-mobile-login:hover {
-    background: rgba(255, 255, 255, 0.16) !important;
-    border-color: rgba(255, 255, 255, 0.5) !important;
-    color: #ffffff !important;
+  .btn-mobile-auth-signup:hover {
+    background: linear-gradient(135deg, #9f1239 0%, #be185d 100%) !important;
     transform: translateY(-2px) !important;
   }
 
@@ -2793,11 +2780,11 @@ html, body {
   }
   .hero {
     min-height: auto !important;
-    padding-top: 80px !important;
-    padding-bottom: 60px !important;
+    padding-top: 105px !important;
+    padding-bottom: 50px !important;
   }
   .hero-content {
-    padding: 30px 16px 20px !important;
+    padding: 20px 16px 20px !important;
     max-width: 100% !important;
   }
   .hero-badge {
@@ -5222,5 +5209,121 @@ html, body {
   font-size: 13px;
   color: #cbd5e1 !important;
   font-weight: 600;
+}
+
+/* =====================================================
+   GLOBAL RESPONSIVE OVERFLOW PROTECTION & MOBILE POLISH
+===================================================== */
+html, body {
+  max-width: 100vw !important;
+  overflow-x: hidden !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+.footer .brand-logo-img,
+.footer .header-logo,
+.footer .logo img {
+  filter: brightness(0) invert(1) !important;
+  opacity: 1 !important;
+  display: block !important;
+  height: 32px !important;
+  width: auto !important;
+}
+
+@media (max-width: 900px) {
+  .footer-grid-layout {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 32px !important;
+    width: 100% !important;
+  }
+  .journey-floating-grid,
+  .timeline-wrapper {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+  }
+  .heritage-floating-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+  }
+  .expedition-bento-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 1. FOOTER SINGLE COLUMN (FIX OVERFLOWING) */
+  .footer {
+    padding: 50px 16px 24px !important;
+    overflow-x: hidden !important;
+  }
+  .footer-grid-layout {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+    width: 100% !important;
+  }
+  .footer-brand-text {
+    max-width: 100% !important;
+  }
+  .footer-newsletter-box {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .footer-bottom-bar {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 14px !important;
+    padding-top: 20px !important;
+  }
+  .footer-bottom-links {
+    flex-wrap: wrap !important;
+    gap: 12px 18px !important;
+  }
+
+  /* 2. JOURNEY TIMELINE CARDS (FIX OVERFLOWING) */
+  .journey-floating-grid,
+  .timeline-wrapper {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+    width: 100% !important;
+  }
+  .journey-float-card,
+  .tl-item {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 3. HERITAGE & EXPEDITION BENTO GRIDS (FIX OVERFLOWING) */
+  .heritage-floating-grid,
+  .expedition-bento-grid,
+  .grid-4,
+  .grid-3,
+  .grid-2,
+  .photo-grid-4 {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+    width: 100% !important;
+  }
+
+  /* 4. PREFOOTER BANNER */
+  .prefooter-banner {
+    padding: 48px 20px !important;
+    border-radius: 18px !important;
+  }
+  .prefooter-title {
+    font-size: 28px !important;
+  }
 }
 
