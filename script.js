@@ -257,38 +257,42 @@ function showAppToast(message, iconClass = 'fa-solid fa-circle-check') {
   }, 3500);
 }
 
-// ===== INTERACTIVE BUTTON HANDLERS (NO 404 REDIRECTS) =====
-function handleAddToCart(e, productName) {
+// ===== INTERACTIVE BUTTON HANDLERS (NAVIGATE TO 404 ERROR PAGE) =====
+function trigger404(e) {
   if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  const name = productName || 'Selected Equipment';
-  showAppToast(`<strong>${name}</strong> added to your adventure pack!`, 'fa-solid fa-cart-shopping');
+  window.location.href = '404.html';
+}
+
+function handleAddToCart(e, productName) {
+  trigger404(e);
 }
 
 function handleBookExpedition(e, tourTitle) {
-  if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  const title = tourTitle || 'Alpine Expedition';
-  showAppToast(`Slot reserved for <strong>${title}</strong>! Check your email for expedition briefing.`, 'fa-solid fa-mountain');
+  trigger404(e);
 }
 
 function handleCustomRoute(e) {
-  if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  showAppToast('Custom GPX trail map requested! An alpine guide will reply within 2 hours.', 'fa-solid fa-map-location-dot');
+  trigger404(e);
 }
 
 function handleReadGuide(e, title) {
-  if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  const guide = title || 'Field Guide';
-  showAppToast(`Opening <strong>${guide}</strong>...`, 'fa-solid fa-book-open');
+  trigger404(e);
 }
 
 function handleGuideDownload(e) {
-  if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  showAppToast('Downloading offline GPX topographical trail bundle...', 'fa-solid fa-file-arrow-down');
+  trigger404(e);
 }
 
 function handleMemberSignup(e) {
-  if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  window.location.href = 'signup.html';
+  trigger404(e);
+}
+
+function handlePillClick(e, name) {
+  trigger404(e);
+}
+
+function handleTermsClick(e) {
+  trigger404(e);
 }
 
 
@@ -443,17 +447,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-function handleMemberSignup(e) {
-  if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  showAppToast('Welcome to Stackly Adventurers Club! 15% discount applied.', 'fa-solid fa-crown');
-}
-
-function handlePillClick(e, name) {
-  if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  const label = name || 'Trail Information';
-  showAppToast(`${label} loaded successfully!`, 'fa-solid fa-map-location-dot');
-}
-
 function handleForgotPassword(e) {
   if (e) e.preventDefault();
   const email = prompt('Enter your registered email address to reset password:');
@@ -462,18 +455,9 @@ function handleForgotPassword(e) {
   }
 }
 
-function handleReadGuide(e, title) {
-  if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  const guideTitle = title || 'Wilderness Guide';
-  showAppToast(`Loading article: ${guideTitle}...`, 'fa-solid fa-book-open');
-}
-
-function handleGuideDownload(e) {
-  if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  showAppToast('Downloading offline field guide PDF (2.4MB)...', 'fa-solid fa-file-pdf');
-}
-
 function handleAddNewListing(e) {
+  trigger404(e);
+}
   if (e && typeof e.preventDefault === 'function') e.preventDefault();
   showAppToast('Gear listing wizard initialized!', 'fa-solid fa-plus');
 }
@@ -1200,25 +1184,5 @@ function showToast(message, type = 'success', duration = 3200) {
     toast.style.transform = 'translateY(16px)';
     setTimeout(() => toast.remove(), 400);
   });
-}
-
-// ===== HANDLE ADD TO CART (Gear / Product buttons) =====
-function handleAddToCart(event, productName) {
-  if (event) event.preventDefault();
-  const name = productName || 'Selected Gear';
-  showAppToast(`${name} added to your cart!`, 'fa-solid fa-cart-shopping');
-}
-
-// ===== HANDLE BOOK EXPEDITION (Expedition "Book Slot" buttons) =====
-function handleBookExpedition(event, expeditionName) {
-  if (event) event.preventDefault();
-  const name = expeditionName || 'Expedition Pass';
-  showAppToast(`Expedition reservation started for ${name}!`, 'fa-solid fa-mountain');
-}
-
-// ===== TRIGGER 404 / PLACEHOLDER ACTION HANDLER =====
-function trigger404(event) {
-  if (event) event.preventDefault();
-  showAppToast('Feature loaded successfully!', 'fa-solid fa-circle-check');
 }
 
