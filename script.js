@@ -72,6 +72,71 @@ window.addEventListener('DOMContentLoaded', () => {
   if (typeof initMobileMenu === 'function') initMobileMenu();
   if (typeof updateDashboardName === 'function') updateDashboardName();
 
+  // 1. Explicit event listener for Admin dashboard logo & brand area (always returns to Admin Dashboard Home)
+  const adminLogos = document.querySelectorAll('.ad-brand, .ad-mobile-brand, #ad-sidebar .ad-brand, .ad-mobile-topbar .ad-mobile-brand, #page-dashboard .dash-logo, #page-dashboard .dash-sidebar-brand, #page-dashboard .dash-mobile-header-brand, #host-dash-sidebar .dash-sidebar-brand');
+  adminLogos.forEach(el => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (typeof adSwitch === 'function') {
+        adSwitch('dashboard');
+        if (typeof adCloseSidebar === 'function') adCloseSidebar();
+      } else if (document.getElementById('page-dashboard')) {
+        switchPage('dashboard');
+        if (typeof switchHostTab === 'function') switchHostTab('overview');
+      } else {
+        window.location.href = 'dashboard.html';
+      }
+    });
+  });
+
+  // 2. Explicit event listener for User dashboard logo & brand area (always returns to User Dashboard Home)
+  const userLogos = document.querySelectorAll('.ud-brand, .ud-mobile-brand, #ud-sidebar .ud-brand, .ud-mobile-topbar .ud-mobile-brand, #page-user-dashboard .dash-logo, #page-user-dashboard .dash-sidebar-brand, #page-user-dashboard .dash-mobile-header-brand, #user-dash-sidebar .dash-sidebar-brand');
+  userLogos.forEach(el => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (typeof udSwitch === 'function') {
+        udSwitch('dashboard');
+        if (typeof udCloseSidebar === 'function') udCloseSidebar();
+      } else if (document.getElementById('page-user-dashboard')) {
+        switchPage('user-dashboard');
+        if (typeof switchTravelerTab === 'function') switchTravelerTab('overview');
+      } else {
+        window.location.href = 'user-dashboard.html';
+      }
+    });
+  });
+
+  // 3. Mountaineer & Gear dashboard logos
+  const mountLogos = document.querySelectorAll('#mount-dash-sidebar .dash-sidebar-brand, .dash-mobile-top-header .dash-mobile-header-brand');
+  mountLogos.forEach(el => {
+    el.addEventListener('click', (e) => {
+      if (typeof switchMountTab === 'function') {
+        e.preventDefault();
+        switchMountTab('overview', e);
+        if (typeof closeDashDrawer === 'function') closeDashDrawer();
+      }
+    });
+  });
+
+  const gearLogos = document.querySelectorAll('#gear-dash-sidebar .dash-sidebar-brand');
+  gearLogos.forEach(el => {
+    el.addEventListener('click', (e) => {
+      if (typeof switchGearTab === 'function') {
+        e.preventDefault();
+        switchGearTab('overview', e);
+        if (typeof closeDashDrawer === 'function') closeDashDrawer();
+      }
+    });
+  });
+
+  // 4. Explicit event listener for main public navbar & footer Stackly logo (returns to public home)
+  const mainSiteLogos = document.querySelectorAll('.navbar .logo, #logo-link, .footer-logo-link, .footer-brand');
+  mainSiteLogos.forEach(el => {
+    el.addEventListener('click', () => {
+      window.location.href = 'index.html';
+    });
+  });
+
   // Ensure home page container is immediately active and visible
   const homeEl = document.getElementById('page-home');
   if (homeEl) {
@@ -85,8 +150,17 @@ window.addEventListener('DOMContentLoaded', () => {
     el.classList.add('revealed');
   });
 
+  // Dedicated listener for contact form submit to guarantee clean in-place success toast and no 404
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      handleContactSubmit(e);
+    });
+  }
+
   // If we are on dedicated standalone pages, do not perform hash/SPA rerouting
-  if (path.endsWith('login.html') || path.endsWith('signup.html') || path.endsWith('dashboard.html') || path.endsWith('user-dashboard.html')) {
+  if (path.endsWith('login.html') || path.endsWith('signup.html') || path.endsWith('dashboard.html') || path.endsWith('user-dashboard.html') || path.endsWith('mountaineer-dashboard.html') || path.endsWith('gear-dashboard.html')) {
     return;
   }
 
@@ -102,51 +176,6 @@ window.addEventListener('DOMContentLoaded', () => {
         switchPage(pageId);
       }
     }
-  }
-
-  // Explicit event listener for host dashboard logo & brand area (returns to Host Dashboard)
-  const hostLogos = document.querySelectorAll('#page-dashboard .dash-logo, #page-dashboard .dash-sidebar-brand, #page-dashboard .dash-mobile-header-brand, #host-dash-sidebar .dash-sidebar-brand');
-  hostLogos.forEach(el => {
-    el.addEventListener('click', (e) => {
-      e.preventDefault();
-      if (document.getElementById('page-dashboard')) {
-        switchPage('dashboard');
-        if (typeof switchHostTab === 'function') switchHostTab('overview');
-      } else {
-        window.location.href = 'dashboard.html';
-      }
-    });
-  });
-
-  // Explicit event listener for traveler dashboard logo & brand area (returns to Traveler Dashboard)
-  const userLogos = document.querySelectorAll('#page-user-dashboard .dash-logo, #page-user-dashboard .dash-sidebar-brand, #page-user-dashboard .dash-mobile-header-brand, #user-dash-sidebar .dash-sidebar-brand');
-  userLogos.forEach(el => {
-    el.addEventListener('click', (e) => {
-      e.preventDefault();
-      if (document.getElementById('page-user-dashboard')) {
-        switchPage('user-dashboard');
-        if (typeof switchTravelerTab === 'function') switchTravelerTab('overview');
-      } else {
-        window.location.href = 'user-dashboard.html';
-      }
-    });
-  });
-
-  // Explicit event listener for main navbar & footer Stackly logo to ensure clean navigation to home
-  const mainSiteLogos = document.querySelectorAll('.navbar .logo, #logo-link, .footer-logo-link, .footer-brand');
-  mainSiteLogos.forEach(el => {
-    el.addEventListener('click', () => {
-      window.location.href = 'index.html';
-    });
-  });
-
-  // Dedicated listener for contact form submit to guarantee clean in-place success toast and no 404
-  const contactForm = document.getElementById('contact-form');
-  if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      handleContactSubmit(e);
-    });
   }
 });
 

@@ -137,6 +137,21 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
   transform: scale(1.04);
 }
 
+/* Dashboard Logo Interactivity & Hover Feedback */
+.ad-brand, .ud-brand, .ad-mobile-brand, .ud-mobile-brand, .dash-sidebar-brand, .dash-mobile-header-brand {
+  cursor: pointer !important;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  outline: none;
+}
+.ad-brand:hover, .ud-brand:hover, .ad-mobile-brand:hover, .ud-mobile-brand:hover, .dash-sidebar-brand:hover, .dash-mobile-header-brand:hover {
+  opacity: 0.9;
+  transform: scale(1.02);
+}
+.ad-brand:focus-visible, .ud-brand:focus-visible, .ad-mobile-brand:focus-visible, .ud-mobile-brand:focus-visible {
+  box-shadow: 0 0 0 2px #52b788;
+  border-radius: 8px;
+}
+
 /* =====================================================
    CUSTOM RESPONSIVE DROPDOWN COMPONENT (NO NATIVE SELECT)
 ===================================================== */
