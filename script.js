@@ -1079,11 +1079,12 @@ function closeDashDrawer() {
     // Stat counter animation
     document.querySelectorAll('.stat-counter-number[data-count]').forEach(counter => {
       const rect = counter.getBoundingClientRect();
-      if (rect.top <= windowHeight * 0.9 && !counter.dataset.animated) {
+      if (rect.top <= windowHeight * 0.95 && !counter.dataset.animated) {
         counter.dataset.animated = 'true';
-        const target = parseFloat(counter.dataset.count);
+        const target = parseFloat(counter.dataset.count) || 0;
         const prefix = counter.dataset.prefix || '';
         const suffix = counter.dataset.suffix || '';
+        const decimals = parseInt(counter.dataset.decimals || '0', 10);
         const duration = 2000;
         const start = performance.now();
 
@@ -1091,12 +1092,22 @@ function closeDashDrawer() {
           const elapsed = now - start;
           const progress = Math.min(elapsed / duration, 1);
           const eased = 1 - Math.pow(1 - progress, 3);
-          const current = Math.round(eased * target);
-          counter.textContent = prefix + current.toLocaleString() + suffix;
+          const current = eased * target;
+          
+          if (decimals > 0) {
+            counter.textContent = prefix + current.toFixed(decimals) + suffix;
+          } else {
+            counter.textContent = prefix + Math.round(current).toLocaleString() + suffix;
+          }
+          
           if (progress < 1) {
             requestAnimationFrame(updateCounter);
           } else {
-            counter.textContent = prefix + target.toLocaleString() + suffix;
+            if (decimals > 0) {
+              counter.textContent = prefix + target.toFixed(decimals) + suffix;
+            } else {
+              counter.textContent = prefix + target.toLocaleString() + suffix;
+            }
           }
         }
         requestAnimationFrame(updateCounter);
