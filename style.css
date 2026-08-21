@@ -5239,12 +5239,27 @@ html, body {
 
 .footer .brand-logo-img,
 .footer .header-logo,
+.footer .footer-logo-img,
+.footer .footer-brand img,
+.footer-brand img,
+.footer-logo-img,
 .footer .logo img {
-  filter: brightness(0) invert(1) !important;
+  filter: brightness(0) invert(1) drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4)) !important;
   opacity: 1 !important;
   display: block !important;
-  height: 32px !important;
+  height: 34px !important;
   width: auto !important;
+  max-width: 160px !important;
+  object-fit: contain !important;
+  visibility: visible !important;
+  transition: transform 0.25s ease, filter 0.25s ease !important;
+}
+
+.footer-brand:hover img,
+.footer-logo-link:hover .footer-logo-img,
+.footer .brand-logo-img:hover {
+  transform: scale(1.05) !important;
+  filter: brightness(0) invert(1) drop-shadow(0 4px 12px rgba(255, 255, 255, 0.35)) !important;
 }
 
 @media (max-width: 900px) {

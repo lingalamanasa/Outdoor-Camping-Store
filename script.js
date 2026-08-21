@@ -128,7 +128,7 @@ window.addEventListener('DOMContentLoaded', () => {
   });
 
   // Explicit event listener for main navbar & footer Stackly logo to ensure clean navigation to home
-  const mainSiteLogos = document.querySelectorAll('.navbar .logo, #logo-link, .footer-logo-link');
+  const mainSiteLogos = document.querySelectorAll('.navbar .logo, #logo-link, .footer-logo-link, .footer-brand');
   mainSiteLogos.forEach(el => {
     el.addEventListener('click', () => {
       window.location.href = 'index.html';
