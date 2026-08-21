@@ -2740,12 +2740,12 @@ html, body {
   }
   .btn-mobile-auth-login {
     width: 100% !important;
-    height: 44px !important;
+    height: 46px !important;
     border-radius: 9999px !important;
-    border: 1.5px solid rgba(255, 255, 255, 0.3) !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.35) !important;
     background: rgba(255, 255, 255, 0.08) !important;
     color: #ffffff !important;
-    font-size: 14.5px !important;
+    font-size: 15px !important;
     font-weight: 700 !important;
     display: flex !important;
     align-items: center !important;
@@ -2753,30 +2753,34 @@ html, body {
     gap: 8px !important;
     text-decoration: none !important;
     transition: all 0.2s ease !important;
+    -webkit-tap-highlight-color: transparent !important;
   }
-  .btn-mobile-auth-login:hover {
-    background: rgba(255, 255, 255, 0.18) !important;
+  .btn-mobile-auth-login:hover, .btn-mobile-auth-login:active {
+    background: rgba(255, 255, 255, 0.2) !important;
     border-color: #ffffff !important;
+    color: #ffffff !important;
   }
   .btn-mobile-auth-signup {
     width: 100% !important;
-    height: 44px !important;
+    height: 46px !important;
     border-radius: 9999px !important;
     border: none !important;
-    background: linear-gradient(135deg, #881337 0%, #9f1239 100%) !important;
-    color: #ffffff !important;
-    font-size: 14.5px !important;
-    font-weight: 700 !important;
+    background: #52b788 !important;
+    color: #081c15 !important;
+    font-size: 15px !important;
+    font-weight: 800 !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     gap: 8px !important;
-    box-shadow: 0 4px 14px rgba(136, 19, 55, 0.4) !important;
+    box-shadow: 0 4px 18px rgba(82, 183, 136, 0.45) !important;
     text-decoration: none !important;
     transition: all 0.2s ease !important;
+    -webkit-tap-highlight-color: transparent !important;
   }
-  .btn-mobile-auth-signup:hover {
-    background: linear-gradient(135deg, #9f1239 0%, #be185d 100%) !important;
+  .btn-mobile-auth-signup:hover, .btn-mobile-auth-signup:active {
+    background: #74c69d !important;
+    color: #081c15 !important;
     transform: translateY(-2px) !important;
   }
 
