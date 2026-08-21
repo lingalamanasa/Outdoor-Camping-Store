@@ -40,6 +40,7 @@ Welcome to **Stackly Outdoor & Camping Store**, a premier, responsive e-commerce
 - [`dashboard.html`](./dashboard.html) – Host control center for managing camp sites, listings, and equipment rental fleet.
 - [`user-dashboard.html`](./user-dashboard.html) – Traveler member dashboard for active rentals, trip itinerary, and wishlist.
 - [`login.html`](./login.html) & [`signup.html`](./signup.html) – Adventurer authentication views.
+- [`404.html`](./404.html) – Custom error page with recovery routing.
 - [`style.css`](./style.css) – Complete design system and mobile responsive stylesheet.
 - [`script.js`](./script.js) – Interactive handlers, mobile hamburger menu controllers, and page routing.
 
