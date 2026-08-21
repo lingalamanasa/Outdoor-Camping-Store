@@ -435,12 +435,6 @@ document.addEventListener('keydown', (e) => {
 
 window.initCustomDropdowns = initCustomDropdowns;
 
-// ===== GENERIC FALLBACK ACTION HANDLER (TOAST FEEDBACK, ZERO 404) =====
-function trigger404(e) {
-  if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  showAppToast('Action completed successfully!', 'fa-solid fa-circle-check');
-}
-
 // ===== UNIVERSAL APP TOAST NOTIFICATION HELPER =====
 function showAppToast(message, iconClass = 'fa-solid fa-circle-check') {
   let toast = document.getElementById('app-action-toast');
@@ -480,42 +474,50 @@ function showAppToast(message, iconClass = 'fa-solid fa-circle-check') {
   }, 3500);
 }
 
-// ===== INTERACTIVE BUTTON HANDLERS (NAVIGATE TO 404 ERROR PAGE) =====
+// ===== INTERACTIVE BUTTON HANDLERS (ZERO 404 ERROR REDIRECT) =====
 function trigger404(e) {
   if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  window.location.href = '404.html';
+  showAppToast('Action completed successfully!', 'fa-solid fa-circle-check');
 }
 
 function handleAddToCart(e, productName) {
-  trigger404(e);
+  if (e && typeof e.preventDefault === 'function') e.preventDefault();
+  showAppToast(`${productName || 'Item'} added to your cart!`, 'fa-solid fa-cart-shopping');
 }
 
 function handleBookExpedition(e, tourTitle) {
-  trigger404(e);
+  if (e && typeof e.preventDefault === 'function') e.preventDefault();
+  showAppToast(`Expedition booking requested for ${tourTitle || 'Trip'}!`, 'fa-solid fa-mountain');
 }
 
 function handleCustomRoute(e) {
-  trigger404(e);
+  if (e && typeof e.preventDefault === 'function') e.preventDefault();
+  showAppToast('Custom route planning requested! An expedition guide will contact you.', 'fa-solid fa-route');
 }
 
 function handleReadGuide(e, title) {
-  trigger404(e);
+  if (e && typeof e.preventDefault === 'function') e.preventDefault();
+  showAppToast(`Opening field guide: ${title || 'Expedition Handbook'}...`, 'fa-solid fa-book-open');
 }
 
 function handleGuideDownload(e) {
-  trigger404(e);
+  if (e && typeof e.preventDefault === 'function') e.preventDefault();
+  showAppToast('Field guide PDF download started!', 'fa-solid fa-file-arrow-down');
 }
 
 function handleMemberSignup(e) {
-  trigger404(e);
+  if (e && typeof e.preventDefault === 'function') e.preventDefault();
+  showAppToast('Welcome to Stackly Club! Check your inbox for your perk voucher.', 'fa-solid fa-envelope-circle-check');
 }
 
 function handlePillClick(e, name) {
-  trigger404(e);
+  if (e && typeof e.preventDefault === 'function') e.preventDefault();
+  showAppToast(`Filtered by ${name || 'category'}.`, 'fa-solid fa-filter');
 }
 
 function handleTermsClick(e) {
-  trigger404(e);
+  if (e && typeof e.preventDefault === 'function') e.preventDefault();
+  showAppToast('Stackly standard terms and guarantees applied.', 'fa-solid fa-shield-halved');
 }
 
 
@@ -601,10 +603,10 @@ function handleSearchGear(e) {
   const where    = (whereInput?.value || '').trim();
   const duration = (durationInput?.value || '').trim();
 
-  // If user clicks without entering input, show error matching reference image
+  // If user clicks without entering input, show error guidance
   if (!what && !where && !duration) {
     if (errorMsg) {
-      errorMsg.textContent = 'Please enter a valid destination.';
+      errorMsg.textContent = 'Please enter a search destination or gear item.';
       errorMsg.classList.add('visible');
     }
     if (searchBar) {
@@ -614,10 +616,11 @@ function handleSearchGear(e) {
     }
     if (fieldWhere) fieldWhere.classList.add('has-error');
     if (fieldWhat) fieldWhat.classList.add('has-error');
-    if (whereInput) {
-      whereInput.focus();
-    } else if (whatInput) {
+    showAppToast('Please enter a destination or gear keyword to search.', 'fa-solid fa-circle-exclamation');
+    if (whatInput) {
       whatInput.focus();
+    } else if (whereInput) {
+      whereInput.focus();
     }
     return;
   }
@@ -625,35 +628,22 @@ function handleSearchGear(e) {
   // Clear any active error state
   clearSearchError();
 
-  let cartToast = document.getElementById('cart-toast');
-  if (!cartToast) {
-    cartToast = document.createElement('div');
-    cartToast.id = 'cart-toast';
-    cartToast.className = 'cart-toast';
-    document.body.appendChild(cartToast);
-  }
-
-  // Clear any existing hide-timer so repeated clicks always re-trigger
-  if (_searchToastTimer) {
-    clearTimeout(_searchToastTimer);
-    _searchToastTimer = null;
-  }
-
   const parts = [];
-  if (what)     parts.push(`<em>${what}</em>`);
-  if (where)    parts.push(`near <em>${where}</em>`);
-  if (duration) parts.push(`for <em>${duration}</em>`);
-  const msg = `🔍 <strong>Search Applied!</strong> Showing results for ${parts.join(' ')}.`;
+  if (what)     parts.push(`"${what}"`);
+  if (where)    parts.push(`in "${where}"`);
+  if (duration) parts.push(`(${duration})`);
+  const querySummary = parts.join(' ');
 
-  cartToast.innerHTML = msg;
-  cartToast.classList.remove('show');
-  void cartToast.offsetWidth;
-  cartToast.classList.add('show');
+  // Display rich notification
+  showAppToast(`Search Applied! Showing results for ${querySummary}`, 'fa-solid fa-compass');
 
-  _searchToastTimer = setTimeout(() => {
-    cartToast.classList.remove('show');
-    _searchToastTimer = null;
-  }, 3200);
+  // Smooth scroll to gear fleet section
+  const targetSection = document.querySelector('.bento-grid') || document.querySelector('.section');
+  if (targetSection) {
+    const yOffset = -90;
+    const y = targetSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+    window.scrollTo({ top: y, behavior: 'smooth' });
+  }
 }
 
 // Auto-attach listeners to clear error only when user types
