@@ -66,6 +66,20 @@ function switchPage(pageId) {
 
 window.addEventListener('DOMContentLoaded', () => {
   const path = window.location.pathname.toLowerCase();
+
+  // Ensure home page container is immediately active and visible
+  const homeEl = document.getElementById('page-home');
+  if (homeEl) {
+    homeEl.classList.add('active');
+    homeEl.style.display = 'block';
+    homeEl.style.opacity = '1';
+  }
+
+  // Ensure all content and scroll elements are revealed
+  document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right, .reveal-init').forEach(el => {
+    el.classList.add('revealed');
+  });
+
   // If we are on dedicated standalone pages, do not perform hash/SPA rerouting
   if (path.endsWith('login.html') || path.endsWith('signup.html') || path.endsWith('dashboard.html') || path.endsWith('user-dashboard.html')) {
     return;
@@ -79,7 +93,9 @@ window.addEventListener('DOMContentLoaded', () => {
     if (currentPageView) {
       currentPageView.classList.add('active');
       const pageId = currentPageView.id.replace('page-', '');
-      switchPage(pageId);
+      if (pageId !== 'home') {
+        switchPage(pageId);
+      }
     }
   }
 

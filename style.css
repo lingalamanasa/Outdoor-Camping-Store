@@ -3804,31 +3804,31 @@ html, body {
 
 /* ===== SCROLL REVEAL (SIDE & UP ANIMATIONS) ===== */
 .reveal-init {
-  opacity: 0;
+  opacity: 1;
   transition: all 0.75s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform, opacity;
 }
 
 .reveal-up {
-  opacity: 0;
-  transform: translateY(40px);
+  opacity: 1;
+  transform: none;
   transition: all 0.75s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal-left {
-  opacity: 0;
-  transform: translateX(-50px);
+  opacity: 1;
+  transform: none;
   transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal-right {
-  opacity: 0;
-  transform: translateX(50px);
+  opacity: 1;
+  transform: none;
   transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .revealed {
   opacity: 1 !important;
+  transform: translate(0, 0) !important;
 }
 
 .reveal-up.revealed:not(.hang-card):not(.slide-card):not(.heritage-float-card):not(.journey-float-card),
