@@ -814,7 +814,10 @@ function initMobileMenu() {
 
   hamburgerBtns.forEach(hamburger => {
     hamburger.onclick = function(e) {
-      e.stopPropagation();
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
       if (!navLinksContainer) return;
       const isOpen = navLinksContainer.classList.toggle('open');
       hamburgerBtns.forEach(btn => {
@@ -827,9 +830,22 @@ function initMobileMenu() {
   });
 
   if (navLinksContainer) {
-    navLinksContainer.querySelectorAll('a, button').forEach(item => {
-      item.addEventListener('click', () => {
-        closeMobileMenu();
+    navLinksContainer.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href && href !== '#' && !href.startsWith('javascript:')) {
+          if (href.startsWith('#')) {
+            closeMobileMenu();
+            return;
+          }
+          e.preventDefault();
+          closeMobileMenu();
+          setTimeout(() => {
+            window.location.href = href;
+          }, 60);
+        } else {
+          closeMobileMenu();
+        }
       });
     });
   }

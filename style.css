@@ -2456,20 +2456,16 @@ html, body {
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28) !important;
     padding: 0 !important;
     cursor: pointer !important;
-    z-index: 1000000 !important;
+    z-index: 1000002 !important;
     flex-shrink: 0 !important;
     transition: all var(--t) !important;
-  }
-  .hamburger span {
-    display: block !important;
-    width: 20px !important;
-    height: 2.5px !important;
-    background: #ffffff !important;
-    border-radius: 4px !important;
   }
   .hamburger.open {
     background: #16243d !important;
     border-color: rgba(255, 255, 255, 0.3) !important;
+    position: fixed !important;
+    top: 18px !important;
+    right: 20px !important;
   }
 
   /* 2. FULLSCREEN NAV MENU OVERLAY */
@@ -2482,35 +2478,54 @@ html, body {
     bottom: 0 !important;
     height: 100vh !important;
     width: 100vw !important;
-    background: linear-gradient(180deg, #070e17 0%, #0c1c14 60%, #070e17 100%) !important;
+    max-width: 100vw !important;
+    background: linear-gradient(180deg, #070e17 0%, #0a1f14 60%, #070e17 100%) !important;
     backdrop-filter: blur(28px) !important;
     -webkit-backdrop-filter: blur(28px) !important;
     z-index: 999999 !important;
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
-    padding: calc(env(safe-area-inset-top, 20px) + 40px) 24px calc(env(safe-area-inset-bottom, 20px) + 30px) !important;
-    gap: 12px !important;
+    padding: 60px 24px !important;
+    gap: 16px !important;
     overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    list-style: none !important;
+    margin: 0 !important;
   }
   .nav-links.open {
     display: flex !important;
   }
+  .nav-links li {
+    width: 100% !important;
+    max-width: 260px !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
   .nav-links .nav-link {
     font-size: 20px !important;
     font-weight: 700 !important;
-    color: rgba(255, 255, 255, 0.88) !important;
-    padding: 10px 28px !important;
+    color: #ffffff !important;
+    padding: 12px 32px !important;
+    min-height: 48px !important;
     border-radius: 9999px !important;
-    border: 1px solid transparent !important;
+    border: 1.5px solid transparent !important;
     background: transparent !important;
     text-align: center !important;
-    transition: all 0.2s ease !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.22s ease !important;
+    width: 100% !important;
+    cursor: pointer !important;
+    -webkit-tap-highlight-color: transparent !important;
+    text-decoration: none !important;
   }
   .nav-links .nav-link:hover, .nav-links .nav-link.active {
     color: #52b788 !important;
-    background: rgba(82, 183, 136, 0.12) !important;
-    border-color: rgba(82, 183, 136, 0.3) !important;
+    background: rgba(82, 183, 136, 0.16) !important;
+    border-color: rgba(82, 183, 136, 0.45) !important;
+    box-shadow: 0 0 24px rgba(82, 183, 136, 0.25) !important;
   }
 
   .mobile-nav-actions,
