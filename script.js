@@ -219,21 +219,79 @@ function trigger404(e) {
   window.location.href = target;
 }
 
-// ===== INTERACTIVE BUTTON HANDLERS =====
+// ===== UNIVERSAL APP TOAST NOTIFICATION HELPER =====
+function showAppToast(message, iconClass = 'fa-solid fa-circle-check') {
+  let toast = document.getElementById('app-action-toast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'app-action-toast';
+    toast.style.position = 'fixed';
+    toast.style.bottom = '28px';
+    toast.style.right = '28px';
+    toast.style.zIndex = '9999';
+    toast.style.background = '#0b1f14';
+    toast.style.color = '#ffffff';
+    toast.style.padding = '14px 22px';
+    toast.style.borderRadius = '999px';
+    toast.style.border = '1.5px solid #52b788';
+    toast.style.boxShadow = '0 12px 36px rgba(0, 0, 0, 0.35)';
+    toast.style.fontSize = '14px';
+    toast.style.fontWeight = '600';
+    toast.style.display = 'flex';
+    toast.style.alignItems = 'center';
+    toast.style.gap = '10px';
+    toast.style.opacity = '0';
+    toast.style.transform = 'translateY(20px)';
+    toast.style.transition = 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)';
+    toast.style.pointerEvents = 'none';
+    document.body.appendChild(toast);
+  }
+
+  toast.innerHTML = `<i class="${iconClass}" style="color: #52b788; font-size: 16px;"></i> <span>${message}</span>`;
+  toast.style.opacity = '1';
+  toast.style.transform = 'translateY(0)';
+
+  clearTimeout(toast._timer);
+  toast._timer = setTimeout(() => {
+    toast.style.opacity = '0';
+    toast.style.transform = 'translateY(20px)';
+  }, 3500);
+}
+
+// ===== INTERACTIVE BUTTON HANDLERS (NO 404 REDIRECTS) =====
 function handleAddToCart(e, productName) {
   if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  trigger404(e);
+  const name = productName || 'Selected Equipment';
+  showAppToast(`<strong>${name}</strong> added to your adventure pack!`, 'fa-solid fa-cart-shopping');
 }
 
 function handleBookExpedition(e, tourTitle) {
   if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  trigger404(e);
+  const title = tourTitle || 'Alpine Expedition';
+  showAppToast(`Slot reserved for <strong>${title}</strong>! Check your email for expedition briefing.`, 'fa-solid fa-mountain');
 }
 
 function handleCustomRoute(e) {
   if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  trigger404(e);
+  showAppToast('Custom GPX trail map requested! An alpine guide will reply within 2 hours.', 'fa-solid fa-map-location-dot');
 }
+
+function handleReadGuide(e, title) {
+  if (e && typeof e.preventDefault === 'function') e.preventDefault();
+  const guide = title || 'Field Guide';
+  showAppToast(`Opening <strong>${guide}</strong>...`, 'fa-solid fa-book-open');
+}
+
+function handleGuideDownload(e) {
+  if (e && typeof e.preventDefault === 'function') e.preventDefault();
+  showAppToast('Downloading offline GPX topographical trail bundle...', 'fa-solid fa-file-arrow-down');
+}
+
+function handleMemberSignup(e) {
+  if (e && typeof e.preventDefault === 'function') e.preventDefault();
+  window.location.href = 'signup.html';
+}
+
 
 // ===== BLOG CATEGORY FILTER HANDLER =====
 function handleBlogFilter(e, category) {
@@ -288,13 +346,8 @@ function handleBlogFilter(e, category) {
     }
   });
 
-  // Smooth scroll to latest articles section header if triggered by user click
-  const targetHeader = document.querySelector('#page-blog .section-header-centered') || document.querySelector('.blog-card');
-  if (targetHeader && e) {
-    const yOffset = -90;
-    const y = targetHeader.getBoundingClientRect().top + window.pageYOffset + yOffset;
-    window.scrollTo({ top: y, behavior: 'smooth' });
-  }
+  const filterLabel = btn ? btn.textContent.trim() : filterVal;
+  showAppToast(`Filtered articles by <strong>"${filterLabel}"</strong>`, 'fa-solid fa-filter');
 }
 
 let _searchToastTimer = null;
@@ -478,19 +531,6 @@ function handleContactLocationClick(e) {
     }, 150);
   } else {
     window.location.href = 'contact.html';
-  }
-}
-
-function handleBlogFilter(e) {
-  if (e) e.preventDefault();
-  const btn = e.target;
-  document.querySelectorAll('.bf-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  const cartToast = document.getElementById('cart-toast');
-  if (cartToast) {
-    cartToast.innerHTML = `📚 Filtered stories by <strong>"${btn.textContent}"</strong>.`;
-    cartToast.classList.add('show');
-    setTimeout(() => cartToast.classList.remove('show'), 2500);
   }
 }
 
