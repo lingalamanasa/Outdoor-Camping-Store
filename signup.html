@@ -11,66 +11,84 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css?v=85" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
       background: #f1f5f9;
       min-height: 100vh;
       display: flex;
+      flex-direction: column;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    .auth-page-container {
+      flex: 1;
+      display: flex;
       align-items: center;
       justify-content: center;
-      padding: 24px;
+      padding: 100px 20px 40px;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     /* ===== CARD WRAPPER ===== */
     .auth-wrapper {
       width: 100%;
-      max-width: 1080px;
-      min-height: 700px;
+      max-width: 1040px;
+      min-height: 640px;
       display: flex;
-      border-radius: 22px;
+      background: #ffffff;
+      border-radius: 24px;
       overflow: hidden;
-      box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+      border: 1px solid #e2e8f0;
+      margin: 0 auto;
     }
 
     /* ===== LEFT HERO PANEL ===== */
     .auth-hero {
-      width: 45%;
+      width: 42%;
       flex-shrink: 0;
       position: relative;
       background-image:
-        linear-gradient(180deg, rgba(0,0,0,0.06) 0%, rgba(0,0,0,0.72) 100%),
+        linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.78) 100%),
         url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=900&auto=format&fit=crop&q=80');
       background-size: cover;
-      background-position: center top;
+      background-position: center;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
       padding: 44px 38px;
-      color: #fff;
+      color: #ffffff;
     }
     .auth-hero h2 {
       font-family: 'Playfair Display', serif;
       font-size: 28px;
       font-weight: 700;
-      line-height: 1.28;
+      line-height: 1.3;
       margin-bottom: 12px;
+      color: #ffffff;
     }
     .auth-hero p {
       font-size: 14px;
-      color: rgba(255,255,255,0.82);
+      color: rgba(255, 255, 255, 0.85);
       line-height: 1.6;
+      margin: 0;
     }
 
     /* ===== RIGHT FORM PANEL ===== */
     .auth-form-panel {
       flex: 1;
-      background: #fff;
+      background: #ffffff;
       display: flex;
       flex-direction: column;
-      padding: 36px 52px 40px;
-      overflow-y: auto;
+      padding: 38px 48px;
+      box-sizing: border-box;
+      width: 100%;
+      justify-content: center;
     }
 
     /* TOP ROW */
@@ -78,7 +96,9 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 32px;
+      margin-bottom: 24px;
+      gap: 12px;
+      flex-wrap: wrap;
     }
     .btn-back {
       display: inline-flex;
@@ -91,10 +111,10 @@
       font-weight: 600;
       color: #475569;
       text-decoration: none;
-      background: #fff;
-      transition: all 0.18s;
+      background: #ffffff;
+      transition: all 0.2s ease;
     }
-    .btn-back:hover { background: #f8fafc; border-color: #cbd5e1; color: #1e293b; }
+    .btn-back:hover { background: #f8fafc; border-color: #cbd5e1; color: #0f172a; }
     .auth-brand {
       display: flex;
       align-items: center;
@@ -102,37 +122,54 @@
       text-decoration: none;
     }
     .auth-brand img { height: 28px; width: auto; }
-    .auth-brand-name { font-size: 15px; font-weight: 800; color: #0f172a; letter-spacing: 0.4px; }
 
     /* FORM BODY */
-    .auth-form-body { flex: 1; }
+    .auth-form-body {
+      width: 100%;
+      max-width: 480px;
+      margin: 0 auto;
+    }
     .auth-form-body h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 28px;
+      font-size: 27px;
       font-weight: 700;
       color: #0f172a;
       text-align: center;
-      margin-bottom: 6px;
+      margin: 0 0 6px;
     }
     .auth-subtitle {
       font-size: 13.5px;
       color: #64748b;
       text-align: center;
-      margin-bottom: 26px;
+      margin: 0 0 24px;
+      line-height: 1.5;
     }
 
     /* FORM FIELDS */
-    .form-group { margin-bottom: 16px; }
+    .form-group {
+      margin-bottom: 16px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .form-row-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      width: 100%;
+      box-sizing: border-box;
+    }
     .form-group label {
       display: block;
       font-size: 13px;
       font-weight: 700;
       color: #1e293b;
-      margin-bottom: 7px;
+      margin-bottom: 6px;
     }
-    .required-star { color: #991b1b; margin-left: 2px; }
+    .required-star { color: #dc2626; margin-left: 2px; }
     .input-field {
       width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
       background: #f8fafc;
       border: 1.5px solid #e2e8f0;
       border-radius: 10px;
@@ -141,77 +178,104 @@
       font-family: 'Plus Jakarta Sans', sans-serif;
       color: #0f172a;
       outline: none;
-      transition: border-color 0.18s;
-      appearance: none;
+      transition: all 0.2s ease;
+      min-height: 48px;
     }
-    .input-field:focus { border-color: #1e293b; background: #fff; }
+    .input-field:focus {
+      border-color: #0f172a;
+      background: #ffffff;
+      box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.08);
+    }
     .input-field::placeholder { color: #94a3b8; }
-    .pw-wrap { position: relative; }
+    .pw-wrap {
+      position: relative;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .pw-wrap .input-field {
+      padding-right: 50px !important;
+    }
     .pw-toggle {
       position: absolute;
-      right: 14px;
+      right: 8px;
       top: 50%;
       transform: translateY(-50%);
-      background: none;
+      background: transparent;
       border: none;
       cursor: pointer;
-      color: #94a3b8;
-      font-size: 17px;
+      color: #64748b;
+      font-size: 16px;
+      width: 36px;
+      height: 36px;
       display: flex;
       align-items: center;
+      justify-content: center;
+      padding: 0;
+      z-index: 2;
+      border-radius: 6px;
+      transition: color 0.18s;
     }
-    .select-wrap { position: relative; }
-    .select-wrap::after {
-      content: '▾';
-      position: absolute;
-      right: 16px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: #64748b;
-      font-size: 12px;
-      pointer-events: none;
-    }
+    .pw-toggle:hover { color: #0f172a; }
 
     /* TERMS ROW */
     .terms-row {
       display: flex;
       align-items: flex-start;
       gap: 10px;
-      margin-bottom: 22px;
+      margin-bottom: 20px;
       margin-top: 4px;
-    }
-    .terms-row input[type="checkbox"] { accent-color: #991b1b; width: 15px; height: 15px; flex-shrink: 0; margin-top: 2px; }
-    .terms-row label {
       font-size: 13px;
+    }
+    .terms-row input[type="checkbox"] {
+      accent-color: #0f172a;
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      cursor: pointer;
+    }
+    .terms-row label {
       color: #475569;
       cursor: pointer;
       line-height: 1.5;
+      margin: 0;
+      font-weight: 500;
     }
-    .terms-row label a { color: #991b1b; text-decoration: none; font-weight: 600; }
+    .terms-row label a {
+      color: #991b1b;
+      text-decoration: none;
+      font-weight: 600;
+    }
     .terms-row label a:hover { text-decoration: underline; }
 
     /* SUBMIT BUTTON */
     .btn-create {
       width: 100%;
       background: #0f172a;
-      color: #fff;
+      color: #ffffff;
       border: none;
       border-radius: 10px;
-      padding: 14px;
+      padding: 13px;
       font-size: 15px;
       font-weight: 700;
       font-family: 'Plus Jakarta Sans', sans-serif;
       cursor: pointer;
-      transition: background 0.2s;
-      margin-bottom: 20px;
+      transition: background 0.2s, transform 0.15s;
+      margin-bottom: 18px;
+      min-height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.15);
     }
-    .btn-create:hover { background: #1e293b; }
+    .btn-create:hover { background: #1e293b; transform: translateY(-1px); }
 
     /* SWITCH LINK */
     .auth-switch {
       text-align: center;
       font-size: 13.5px;
       color: #64748b;
+      margin: 0;
     }
     .auth-switch a {
       font-weight: 700;
@@ -221,116 +285,185 @@
     }
     .auth-switch a:hover { text-decoration: underline; }
 
-    /* RESPONSIVE */
-    @media (max-width: 880px) {
+    /* ===== RESPONSIVE MEDIA QUERIES ===== */
+    @media (max-width: 900px) {
       .auth-hero { display: none; }
-      .auth-form-panel { padding: 30px 28px; }
+      .auth-wrapper { max-width: 540px; border-radius: 20px; }
+      .auth-form-panel { padding: 32px 30px; }
+      .auth-page-container { padding: 90px 16px 36px; }
     }
-    @media (max-width: 480px) {
-      body { padding: 0; }
-      .auth-wrapper { border-radius: 0; }
-      .auth-form-panel { padding: 24px 20px; }
+
+    @media (max-width: 580px) {
+      .form-row-2col { grid-template-columns: 1fr; gap: 0; }
+      .auth-page-container { padding: 80px 12px 28px; }
+      .auth-wrapper { border-radius: 18px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+      .auth-form-panel { padding: 24px 18px; }
+      .auth-form-body h3 { font-size: 23px; }
+      .auth-subtitle { font-size: 13px; margin-bottom: 18px; }
+      .auth-form-toprow { margin-bottom: 18px; }
+      .form-group { margin-bottom: 14px; }
+    }
+
+    @media (max-width: 360px) {
+      .auth-page-container { padding: 75px 8px 20px; }
+      .auth-form-panel { padding: 20px 14px; }
     }
   </style>
 </head>
 <body>
 
-  <div class="auth-wrapper">
+  <!-- ===== HEADER / NAVBAR ===== -->
+  <header id="navbar" class="navbar">
+    <div class="nav-container">
+      <!-- LOGO -->
+      <a href="index.html" class="logo header-logo-link" id="logo-link" onclick="window.location.href='index.html';" style="cursor:pointer; text-decoration:none;">
+        <img src="https://raw.githubusercontent.com/lingalamanasa/Outdoor-Camping-Store/main/assets/logo.webp" alt="Stackly Logo" class="brand-logo-img header-logo" id="nav-logo-img" onerror="this.onerror=null; this.src='assets/logo.webp';" />
+      </a>
 
-    <!-- LEFT HERO -->
-    <div class="auth-hero">
-      <h2>Start your journey<br />with Stackly.</h2>
-      <p>Build your outdoor adventure story or find the perfect gear for your team.</p>
+      <!-- NAV LINKS -->
+      <nav class="main-nav" id="main-nav">
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html" class="nav-link" id="nav-home">Home</a></li>
+          <li><a href="about.html" class="nav-link" id="nav-about">About</a></li>
+          <li><a href="services.html" class="nav-link" id="nav-services">Services</a></li>
+          <li><a href="blog.html" class="nav-link" id="nav-blog">Blog</a></li>
+          <li><a href="contact.html" class="nav-link" id="nav-contact">Contact</a></li>
+          <li class="mobile-menu-auth-item">
+            <div class="mobile-menu-auth-buttons">
+              <a href="signup.html" class="btn-mobile-auth-signup active" style="background:#52b788; color:#fff;">Sign up</a>
+              <a href="login.html" class="btn-mobile-auth-login">Login</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- RIGHT NAV ACTIONS -->
+      <div class="nav-actions">
+        <a href="signup.html" class="btn-signup active" style="background:#52b788; color:#fff;">Sign up</a>
+        <a href="login.html" class="btn-login">Login</a>
+        <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu">
+          <svg class="hamburger-icon-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
     </div>
+  </header>
 
-    <!-- RIGHT FORM -->
-    <div class="auth-form-panel">
+  <!-- ===== MAIN AUTH CONTENT ===== -->
+  <main class="auth-page-container">
+    <div class="auth-wrapper">
 
-      <!-- TOP ROW -->
-      <div class="auth-form-toprow">
-        <a href="index.html" class="btn-back">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
-          Back to Home
-        </a>
-        <a href="index.html" class="auth-brand" title="Stackly Home">
-          <img src="https://raw.githubusercontent.com/lingalamanasa/Outdoor-Camping-Store/main/assets/logo.webp" alt="Stackly" class="brand-logo-img" onerror="this.onerror=null; this.src='assets/logo.webp';" />
-        </a>
+      <!-- LEFT HERO -->
+      <div class="auth-hero">
+        <h2>Start your journey<br />with Stackly.</h2>
+        <p>Build your outdoor adventure story or find the perfect gear for your team.</p>
       </div>
 
-      <!-- FORM BODY -->
-      <div class="auth-form-body">
-        <h3>Create your own account</h3>
-        <p class="auth-subtitle">Stackly is here to support your outdoor needs every step of the way.</p>
+      <!-- RIGHT FORM -->
+      <div class="auth-form-panel">
 
-        <form onsubmit="handleSignup(event)">
+        <!-- TOP ROW -->
+        <div class="auth-form-toprow">
+          <a href="index.html" class="btn-back">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            Back to Home
+          </a>
+          <a href="index.html" class="auth-brand" title="Stackly Home">
+            <img src="https://raw.githubusercontent.com/lingalamanasa/Outdoor-Camping-Store/main/assets/logo.webp" alt="Stackly" class="brand-logo-img" onerror="this.onerror=null; this.src='assets/logo.webp';" />
+          </a>
+        </div>
 
-          <div class="form-group">
-            <label for="sup-fname">Name <span class="required-star">*</span></label>
-            <input type="text" id="sup-fname" class="input-field" placeholder="Enter your full name" required />
-          </div>
+        <!-- FORM BODY -->
+        <div class="auth-form-body">
+          <h3>Create your account</h3>
+          <p class="auth-subtitle">Stackly is here to support your outdoor needs every step of the way.</p>
 
-          <div class="form-group">
-            <label for="sup-email">Email <span class="required-star">*</span></label>
-            <input type="email" id="sup-email" class="input-field" placeholder="name@company.com" required />
-          </div>
+          <form onsubmit="handleSignup(event); return false;">
 
-          <div class="form-group">
-            <label for="sup-password">Password <span class="required-star">*</span></label>
-            <div class="pw-wrap">
-              <input type="password" id="sup-password" class="input-field" placeholder="••••••••" required style="padding-right: 46px;" />
-              <button type="button" class="pw-toggle" onclick="togglePw('sup-password', this)">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-              </button>
+            <div class="form-group">
+              <label for="sup-fname">Full Name <span class="required-star">*</span></label>
+              <input type="text" id="sup-fname" class="input-field" placeholder="Enter your full name" required autocomplete="name" />
             </div>
-          </div>
 
-          <div class="form-group">
-            <label for="sup-repassword">Re-enter password <span class="required-star">*</span></label>
-            <div class="pw-wrap">
-              <input type="password" id="sup-repassword" class="input-field" placeholder="••••••••" required style="padding-right: 46px;" />
-              <button type="button" class="pw-toggle" onclick="togglePw('sup-repassword', this)">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-              </button>
+            <div class="form-group">
+              <label for="sup-email">Email <span class="required-star">*</span></label>
+              <input type="email" id="sup-email" class="input-field" placeholder="name@company.com" required autocomplete="email" />
             </div>
-          </div>
 
-          <div class="form-group">
-            <label for="sup-role">Role <span class="required-star">*</span></label>
-            <div class="select-wrap">
-              <select id="sup-role" name="user_role" class="input-field" required style="padding-right: 38px;">
-                <option value="">Select your role</option>
-                <option value="user">User</option>
-                <option value="admin">Admin</option>
-              </select>
+            <div class="form-row-2col">
+              <div class="form-group">
+                <label for="sup-password">Password <span class="required-star">*</span></label>
+                <div class="pw-wrap">
+                  <input type="password" id="sup-password" class="input-field" placeholder="••••••••" required autocomplete="new-password" />
+                  <button type="button" class="pw-toggle" onclick="togglePw('sup-password', this)" aria-label="Toggle password visibility">
+                    <i class="fa-regular fa-eye"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="sup-repassword">Re-enter password <span class="required-star">*</span></label>
+                <div class="pw-wrap">
+                  <input type="password" id="sup-repassword" class="input-field" placeholder="••••••••" required autocomplete="new-password" />
+                  <button type="button" class="pw-toggle" onclick="togglePw('sup-repassword', this)" aria-label="Toggle password visibility">
+                    <i class="fa-regular fa-eye"></i>
+                  </button>
+                </div>
+              </div>
             </div>
-          </div>
 
-          <div class="terms-row">
-            <input type="checkbox" id="sup-terms" required />
-            <label for="sup-terms">I have read and agree to the <a href="404.html">Terms and conditions</a></label>
-          </div>
+            <!-- CUSTOM RESPONSIVE ROLE DROPDOWN (NO NATIVE SELECT) -->
+            <div class="form-group">
+              <label for="sup-role">Role <span class="required-star">*</span></label>
+              <div class="custom-dropdown" id="dropdown-sup-role">
+                <input type="hidden" id="sup-role" name="user_role" value="user" required />
+                <button type="button" class="custom-dropdown-trigger" id="sup-role-trigger" aria-haspopup="listbox" aria-expanded="false" aria-label="Select role">
+                  <span class="custom-dropdown-value" id="sup-role-value">User</span>
+                  <span class="custom-dropdown-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+                </button>
+                <div class="custom-dropdown-menu" role="listbox" id="sup-role-menu" aria-labelledby="sup-role-trigger">
+                  <div class="custom-dropdown-option is-selected" role="option" data-value="user" aria-selected="true" tabindex="0">
+                    <span>User</span>
+                    <i class="fa-solid fa-check option-check"></i>
+                  </div>
+                  <div class="custom-dropdown-option" role="option" data-value="admin" aria-selected="false" tabindex="0">
+                    <span>Admin</span>
+                    <i class="fa-solid fa-check option-check" style="display:none;"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-          <button type="submit" class="btn-create">Create account</button>
+            <div class="terms-row">
+              <input type="checkbox" id="sup-terms" required />
+              <label for="sup-terms">I have read and agree to the <a href="404.html">Terms and conditions</a></label>
+            </div>
 
-          <p class="auth-switch">Already have an account?<a href="login.html">Login</a></p>
+            <button type="submit" class="btn-create" id="signup-submit-btn">Create account</button>
 
-        </form>
+            <p class="auth-switch">Already have an account?<a href="login.html">Login</a></p>
+
+          </form>
+        </div>
+
       </div>
-
     </div>
-  </div>
+  </main>
 
-  <script src="script.js?v=80"></script>
+  <script src="script.js?v=85"></script>
   <script>
     function togglePw(id, btn) {
       const input = document.getElementById(id);
       if (!input) return;
       if (input.type === 'password') {
         input.type = 'text';
-        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>';
+        btn.innerHTML = '<i class="fa-regular fa-eye-slash"></i>';
       } else {
         input.type = 'password';
-        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>';
+        btn.innerHTML = '<i class="fa-regular fa-eye"></i>';
       }
     }
   </script>

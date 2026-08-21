@@ -11,27 +11,41 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css?v=85" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
       background: #f1f5f9;
       min-height: 100vh;
       display: flex;
+      flex-direction: column;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    .auth-page-container {
+      flex: 1;
+      display: flex;
       align-items: center;
       justify-content: center;
-      padding: 24px;
+      padding: 100px 20px 40px;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     /* ===== CARD WRAPPER ===== */
     .auth-wrapper {
       width: 100%;
-      max-width: 1080px;
-      min-height: 640px;
+      max-width: 1040px;
+      min-height: 600px;
       display: flex;
-      border-radius: 22px;
+      background: #ffffff;
+      border-radius: 24px;
       overflow: hidden;
-      box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+      border: 1px solid #e2e8f0;
+      margin: 0 auto;
     }
 
     /* ===== LEFT HERO PANEL ===== */
@@ -40,7 +54,7 @@
       flex-shrink: 0;
       position: relative;
       background-image:
-        linear-gradient(180deg, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.72) 100%),
+        linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.78) 100%),
         url('https://images.unsplash.com/photo-1470246973918-29a93221c455?w=900&auto=format&fit=crop&q=80');
       background-size: cover;
       background-position: center;
@@ -48,28 +62,33 @@
       flex-direction: column;
       justify-content: flex-end;
       padding: 44px 38px;
-      color: #fff;
+      color: #ffffff;
     }
     .auth-hero h2 {
       font-family: 'Playfair Display', serif;
       font-size: 28px;
       font-weight: 700;
-      line-height: 1.28;
+      line-height: 1.3;
       margin-bottom: 12px;
+      color: #ffffff;
     }
     .auth-hero p {
       font-size: 14px;
-      color: rgba(255,255,255,0.82);
+      color: rgba(255, 255, 255, 0.85);
       line-height: 1.6;
+      margin: 0;
     }
 
     /* ===== RIGHT FORM PANEL ===== */
     .auth-form-panel {
       flex: 1;
-      background: #fff;
+      background: #ffffff;
       display: flex;
       flex-direction: column;
-      padding: 36px 52px 40px;
+      padding: 40px 48px;
+      box-sizing: border-box;
+      width: 100%;
+      justify-content: center;
     }
 
     /* TOP ROW */
@@ -77,7 +96,9 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 36px;
+      margin-bottom: 28px;
+      gap: 12px;
+      flex-wrap: wrap;
     }
     .btn-back {
       display: inline-flex;
@@ -90,10 +111,10 @@
       font-weight: 600;
       color: #475569;
       text-decoration: none;
-      background: #fff;
-      transition: all 0.18s;
+      background: #ffffff;
+      transition: all 0.2s ease;
     }
-    .btn-back:hover { background: #f8fafc; border-color: #cbd5e1; color: #1e293b; }
+    .btn-back:hover { background: #f8fafc; border-color: #cbd5e1; color: #0f172a; }
     .auth-brand {
       display: flex;
       align-items: center;
@@ -101,27 +122,35 @@
       text-decoration: none;
     }
     .auth-brand img { height: 28px; width: auto; }
-    .auth-brand-name { font-size: 15px; font-weight: 800; color: #0f172a; letter-spacing: 0.4px; }
 
     /* FORM BODY */
-    .auth-form-body { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+    .auth-form-body {
+      width: 100%;
+      max-width: 440px;
+      margin: 0 auto;
+    }
     .auth-form-body h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 30px;
+      font-size: 28px;
       font-weight: 700;
       color: #0f172a;
       text-align: center;
-      margin-bottom: 6px;
+      margin: 0 0 6px;
     }
     .auth-subtitle {
       font-size: 13.5px;
       color: #64748b;
       text-align: center;
-      margin-bottom: 30px;
+      margin: 0 0 26px;
+      line-height: 1.5;
     }
 
     /* FORM FIELDS */
-    .form-group { margin-bottom: 18px; }
+    .form-group {
+      margin-bottom: 18px;
+      width: 100%;
+      box-sizing: border-box;
+    }
     .form-group label {
       display: block;
       font-size: 13px;
@@ -129,9 +158,11 @@
       color: #1e293b;
       margin-bottom: 7px;
     }
-    .required-star { color: #991b1b; margin-left: 2px; }
+    .required-star { color: #dc2626; margin-left: 2px; }
     .input-field {
       width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
       background: #f8fafc;
       border: 1.5px solid #e2e8f0;
       border-radius: 10px;
@@ -140,79 +171,101 @@
       font-family: 'Plus Jakarta Sans', sans-serif;
       color: #0f172a;
       outline: none;
-      transition: border-color 0.18s;
-      appearance: none;
+      transition: all 0.2s ease;
+      min-height: 48px;
     }
-    .input-field:focus { border-color: #1e293b; background: #fff; }
+    .input-field:focus {
+      border-color: #0f172a;
+      background: #ffffff;
+      box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.08);
+    }
     .input-field::placeholder { color: #94a3b8; }
-    .pw-wrap { position: relative; }
+    .pw-wrap {
+      position: relative;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .pw-wrap .input-field {
+      padding-right: 50px !important;
+    }
     .pw-toggle {
       position: absolute;
-      right: 14px;
+      right: 8px;
       top: 50%;
       transform: translateY(-50%);
-      background: none;
+      background: transparent;
       border: none;
       cursor: pointer;
-      color: #94a3b8;
-      font-size: 17px;
+      color: #64748b;
+      font-size: 16px;
+      width: 36px;
+      height: 36px;
       display: flex;
       align-items: center;
+      justify-content: center;
+      padding: 0;
+      z-index: 2;
+      border-radius: 6px;
+      transition: color 0.18s;
     }
-    .select-wrap { position: relative; }
-    .select-wrap::after {
-      content: '▾';
-      position: absolute;
-      right: 16px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: #64748b;
-      font-size: 12px;
-      pointer-events: none;
-    }
+    .pw-toggle:hover { color: #0f172a; }
 
     /* OPTIONS ROW */
     .auth-options-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
       margin-bottom: 22px;
       margin-top: 2px;
+      font-size: 13.5px;
     }
     .check-label {
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 8px;
-      font-size: 13.5px;
       color: #475569;
       cursor: pointer;
       font-weight: 500;
+      user-select: none;
     }
-    .check-label input[type="checkbox"] { accent-color: #991b1b; width: 15px; height: 15px; }
+    .check-label input[type="checkbox"] {
+      accent-color: #0f172a;
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+      margin: 0;
+    }
     .forgot-link {
-      font-size: 13.5px;
       font-weight: 700;
       color: #991b1b;
       text-decoration: none;
+      transition: color 0.18s;
     }
-    .forgot-link:hover { text-decoration: underline; }
+    .forgot-link:hover { text-decoration: underline; color: #b91c1c; }
 
     /* SUBMIT BUTTON */
     .btn-sign-in {
       width: 100%;
       background: #0f172a;
-      color: #fff;
+      color: #ffffff;
       border: none;
       border-radius: 10px;
-      padding: 14px;
+      padding: 13px;
       font-size: 15px;
       font-weight: 700;
       font-family: 'Plus Jakarta Sans', sans-serif;
       cursor: pointer;
-      transition: background 0.2s;
+      transition: background 0.2s, transform 0.15s;
       margin-bottom: 20px;
+      min-height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.15);
     }
-    .btn-sign-in:hover { background: #1e293b; }
+    .btn-sign-in:hover { background: #1e293b; transform: translateY(-1px); }
 
     /* DIVIDER */
     .divider-row {
@@ -230,23 +283,24 @@
     .divider-row span { font-size: 12px; color: #94a3b8; font-weight: 500; white-space: nowrap; }
 
     /* SOCIAL BUTTONS */
-    .social-row { display: flex; gap: 12px; margin-bottom: 24px; }
+    .social-row { display: flex; gap: 12px; margin-bottom: 22px; width: 100%; box-sizing: border-box; }
     .btn-social {
       flex: 1;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
-      background: #fff;
+      background: #ffffff;
       border: 1.5px solid #e2e8f0;
       border-radius: 10px;
-      padding: 12px 10px;
+      padding: 11px 10px;
       font-size: 13.5px;
       font-weight: 600;
       color: #1e293b;
       cursor: pointer;
       font-family: 'Plus Jakarta Sans', sans-serif;
       transition: all 0.18s;
+      min-height: 44px;
     }
     .btn-social:hover { background: #f8fafc; border-color: #cbd5e1; }
 
@@ -255,6 +309,7 @@
       text-align: center;
       font-size: 13.5px;
       color: #64748b;
+      margin: 0;
     }
     .auth-switch a {
       font-weight: 700;
@@ -264,122 +319,187 @@
     }
     .auth-switch a:hover { text-decoration: underline; }
 
-    /* RESPONSIVE */
-    @media (max-width: 880px) {
+    /* ===== RESPONSIVE MEDIA QUERIES ===== */
+    @media (max-width: 900px) {
       .auth-hero { display: none; }
-      .auth-form-panel { padding: 30px 28px; }
+      .auth-wrapper { max-width: 520px; border-radius: 20px; }
+      .auth-form-panel { padding: 32px 30px; }
+      .auth-page-container { padding: 90px 16px 36px; }
     }
+
     @media (max-width: 480px) {
-      body { padding: 0; }
-      .auth-wrapper { border-radius: 0; }
-      .auth-form-panel { padding: 24px 20px; }
+      .auth-page-container { padding: 80px 12px 28px; }
+      .auth-wrapper { border-radius: 18px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+      .auth-form-panel { padding: 24px 18px; }
+      .auth-form-body h3 { font-size: 24px; }
+      .auth-subtitle { font-size: 13px; margin-bottom: 20px; }
+      .auth-form-toprow { margin-bottom: 20px; }
+      .form-group { margin-bottom: 15px; }
+      .social-row { flex-direction: column; gap: 8px; }
+      .btn-social { width: 100%; }
+    }
+
+    @media (max-width: 360px) {
+      .auth-page-container { padding: 75px 8px 20px; }
+      .auth-form-panel { padding: 20px 14px; }
+      .auth-options-row { flex-direction: column; align-items: flex-start; gap: 8px; }
     }
   </style>
 </head>
 <body>
 
-  <div class="auth-wrapper">
+  <!-- ===== HEADER / NAVBAR ===== -->
+  <header id="navbar" class="navbar">
+    <div class="nav-container">
+      <!-- LOGO -->
+      <a href="index.html" class="logo header-logo-link" id="logo-link" onclick="window.location.href='index.html';" style="cursor:pointer; text-decoration:none;">
+        <img src="https://raw.githubusercontent.com/lingalamanasa/Outdoor-Camping-Store/main/assets/logo.webp" alt="Stackly Logo" class="brand-logo-img header-logo" id="nav-logo-img" onerror="this.onerror=null; this.src='assets/logo.webp';" />
+      </a>
 
-    <!-- LEFT HERO -->
-    <div class="auth-hero">
-      <h2>Find your next outdoor<br />adventure with confidence.</h2>
-      <p>Join thousands of adventurers and outdoor enthusiasts already exploring with Stackly.</p>
+      <!-- NAV LINKS -->
+      <nav class="main-nav" id="main-nav">
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html" class="nav-link" id="nav-home">Home</a></li>
+          <li><a href="about.html" class="nav-link" id="nav-about">About</a></li>
+          <li><a href="services.html" class="nav-link" id="nav-services">Services</a></li>
+          <li><a href="blog.html" class="nav-link" id="nav-blog">Blog</a></li>
+          <li><a href="contact.html" class="nav-link" id="nav-contact">Contact</a></li>
+          <li class="mobile-menu-auth-item">
+            <div class="mobile-menu-auth-buttons">
+              <a href="signup.html" class="btn-mobile-auth-signup">Sign up</a>
+              <a href="login.html" class="btn-mobile-auth-login active" style="background:#52b788; color:#fff;">Login</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- RIGHT NAV ACTIONS -->
+      <div class="nav-actions">
+        <a href="signup.html" class="btn-signup">Sign up</a>
+        <a href="login.html" class="btn-login active" style="background:#52b788; color:#fff;">Login</a>
+        <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu">
+          <svg class="hamburger-icon-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
     </div>
+  </header>
 
-    <!-- RIGHT FORM -->
-    <div class="auth-form-panel">
+  <!-- ===== MAIN AUTH CONTENT ===== -->
+  <main class="auth-page-container">
+    <div class="auth-wrapper">
 
-      <!-- TOP ROW -->
-      <div class="auth-form-toprow">
-        <a href="index.html" class="btn-back">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
-          Back to Home
-        </a>
-        <a href="index.html" class="auth-brand" title="Stackly Home">
-          <img src="https://raw.githubusercontent.com/lingalamanasa/Outdoor-Camping-Store/main/assets/logo.webp" alt="Stackly" class="brand-logo-img" onerror="this.onerror=null; this.src='assets/logo.webp';" />
-        </a>
+      <!-- LEFT HERO -->
+      <div class="auth-hero">
+        <h2>Find your next outdoor<br />adventure with confidence.</h2>
+        <p>Join thousands of adventurers and outdoor enthusiasts already exploring with Stackly.</p>
       </div>
 
-      <!-- FORM BODY -->
-      <div class="auth-form-body">
-        <h3>Welcome back</h3>
-        <p class="auth-subtitle">Enter your credentials to access your dashboard.</p>
+      <!-- RIGHT FORM -->
+      <div class="auth-form-panel">
 
-        <form onsubmit="handleLogin(event)">
+        <!-- TOP ROW -->
+        <div class="auth-form-toprow">
+          <a href="index.html" class="btn-back">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            Back to Home
+          </a>
+          <a href="index.html" class="auth-brand" title="Stackly Home">
+            <img src="https://raw.githubusercontent.com/lingalamanasa/Outdoor-Camping-Store/main/assets/logo.webp" alt="Stackly" class="brand-logo-img" onerror="this.onerror=null; this.src='assets/logo.webp';" />
+          </a>
+        </div>
 
-          <div class="form-group">
-            <label for="lin-email">Email <span class="required-star">*</span></label>
-            <input type="email" id="lin-email" class="input-field" placeholder="you@stackly.store" required />
-          </div>
+        <!-- FORM BODY -->
+        <div class="auth-form-body">
+          <h3>Welcome back</h3>
+          <p class="auth-subtitle">Enter your credentials to access your dashboard.</p>
 
-          <div class="form-group">
-            <label for="lin-password">Password <span class="required-star">*</span></label>
-            <div class="pw-wrap">
-              <input type="password" id="lin-password" class="input-field" placeholder="••••••••" required style="padding-right: 46px;" />
-              <button type="button" class="pw-toggle" onclick="togglePw('lin-password', this)">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          <form onsubmit="handleLogin(event); return false;">
+
+            <div class="form-group">
+              <label for="lin-email">Email <span class="required-star">*</span></label>
+              <input type="email" id="lin-email" class="input-field" placeholder="you@stackly.store" required autocomplete="email" />
+            </div>
+
+            <div class="form-group">
+              <label for="lin-password">Password <span class="required-star">*</span></label>
+              <div class="pw-wrap">
+                <input type="password" id="lin-password" class="input-field" placeholder="••••••••" required autocomplete="current-password" />
+                <button type="button" class="pw-toggle" onclick="togglePw('lin-password', this)" aria-label="Toggle password visibility">
+                  <i class="fa-regular fa-eye"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- CUSTOM RESPONSIVE ROLE DROPDOWN (NO NATIVE SELECT) -->
+            <div class="form-group">
+              <label for="lin-role">Role <span class="required-star">*</span></label>
+              <div class="custom-dropdown" id="dropdown-lin-role">
+                <input type="hidden" id="lin-role" name="role" value="user" required />
+                <button type="button" class="custom-dropdown-trigger" id="lin-role-trigger" aria-haspopup="listbox" aria-expanded="false" aria-label="Select role">
+                  <span class="custom-dropdown-value" id="lin-role-value">User</span>
+                  <span class="custom-dropdown-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+                </button>
+                <div class="custom-dropdown-menu" role="listbox" id="lin-role-menu" aria-labelledby="lin-role-trigger">
+                  <div class="custom-dropdown-option is-selected" role="option" data-value="user" aria-selected="true" tabindex="0">
+                    <span>User</span>
+                    <i class="fa-solid fa-check option-check"></i>
+                  </div>
+                  <div class="custom-dropdown-option" role="option" data-value="admin" aria-selected="false" tabindex="0">
+                    <span>Admin</span>
+                    <i class="fa-solid fa-check option-check" style="display:none;"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="auth-options-row">
+              <label class="check-label">
+                <input type="checkbox" checked />
+                <span>Remember me</span>
+              </label>
+              <a href="404.html" class="forgot-link">Forgot password?</a>
+            </div>
+
+            <button type="submit" class="btn-sign-in" id="login-submit-btn">Sign in</button>
+
+            <div class="divider-row"><span>Or continue with</span></div>
+
+            <div class="social-row">
+              <button type="button" class="btn-social" onclick="trigger404(event)">
+                <i class="fa-brands fa-apple" style="font-size:16px;"></i>
+                Apple
+              </button>
+              <button type="button" class="btn-social" onclick="trigger404(event)">
+                <svg width="15" height="15" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                Google
               </button>
             </div>
-          </div>
 
-          <div class="form-group">
-            <label for="lin-role">Role <span class="required-star">*</span></label>
-            <div class="select-wrap">
-              <select id="lin-role" class="input-field" required style="padding-right: 38px;">
-                <option value="">Select your role</option>
-                <option value="user">User</option>
-                <option value="admin">Admin</option>
-              </select>
-            </div>
-          </div>
+            <p class="auth-switch">Don't have an account?<a href="signup.html">Create account</a></p>
 
-          <div class="auth-options-row">
-            <label class="check-label">
-              <input type="checkbox" checked />
-              Remember me
-            </label>
-            <a href="404.html" class="forgot-link">Forgot password?</a>
-          </div>
+          </form>
+        </div>
 
-          <button type="submit" class="btn-sign-in">Sign in</button>
-
-          <div class="divider-row"><span>Or continue with</span></div>
-
-          <div class="social-row">
-            <button type="button" class="btn-social" onclick="trigger404(event)">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 16 3.01 11.53 4.8 8.41c.88-1.54 2.48-2.51 4.21-2.54 1.3-.02 2.53.88 3.33.88.8 0 2.27-1.07 3.82-.91 1.63.07 3.1.66 4.05 1.98-3.44 2.05-2.89 6.72.63 8.16-.69 1.74-1.57 3.47-2.3 4.57zM15.47 6.38c.68-.83 1.14-1.99.98-3.18-1.01.04-2.24.67-2.96 1.51-.62.72-1.16 1.89-.99 3.06 1.13.09 2.28-.55 2.97-1.39z"/></svg>
-              Apple
-            </button>
-            <button type="button" class="btn-social" onclick="trigger404(event)">
-              <svg width="16" height="16" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
-              Google
-            </button>
-          </div>
-
-          <p class="auth-switch">Don't have an account?<a href="signup.html">Create account</a></p>
-
-        </form>
       </div>
-
     </div>
-  </div>
+  </main>
 
-  <script src="script.js?v=80"></script>
+  <script src="script.js?v=85"></script>
   <script>
     function togglePw(id, btn) {
       const input = document.getElementById(id);
       if (!input) return;
       if (input.type === 'password') {
         input.type = 'text';
-        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>';
+        btn.innerHTML = '<i class="fa-regular fa-eye-slash"></i>';
       } else {
         input.type = 'password';
-        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>';
+        btn.innerHTML = '<i class="fa-regular fa-eye"></i>';
       }
-    }
-    function trigger404(e) {
-      if (e && e.preventDefault) e.preventDefault();
-      window.location.href = '404.html';
     }
   </script>
 </body>

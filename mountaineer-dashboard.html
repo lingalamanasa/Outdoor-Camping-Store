@@ -147,10 +147,17 @@
           <div class="dash-box-card">
             <div class="dbc-header">
               <h3 class="dbc-serif-title">Climbing &amp; Altitude Activity</h3>
-              <select class="dash-select-pill">
-                <option>2026 Alpine Season</option>
-                <option>2025 Season</option>
-              </select>
+              <div class="custom-dropdown pill-variant" id="dd-mount-season">
+                <input type="hidden" value="2026 Alpine Season" />
+                <button type="button" class="custom-dropdown-trigger" aria-haspopup="listbox" aria-expanded="false" aria-label="Select alpine season">
+                  <span class="custom-dropdown-value">2026 Alpine Season</span>
+                  <span class="custom-dropdown-arrow">▾</span>
+                </button>
+                <div class="custom-dropdown-menu" role="listbox">
+                  <div class="custom-dropdown-option is-selected" role="option" data-value="2026 Alpine Season" aria-selected="true" tabindex="0"><span>2026 Alpine Season</span><span class="option-check">✓</span></div>
+                  <div class="custom-dropdown-option" role="option" data-value="2025 Season" aria-selected="false" tabindex="0"><span>2025 Season</span><span class="option-check" style="display:none;">✓</span></div>
+                </div>
+              </div>
             </div>
             <div class="chart-wrapper">
               <svg viewBox="0 0 700 240" class="revenue-svg-chart" style="width:100%; height:auto; overflow:visible;">

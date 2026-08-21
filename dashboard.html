@@ -165,7 +165,7 @@
     svg.line-chart { width: 100%; overflow: visible; }
 
     /* TABLES */
-    .tbl-wrap { background: #fff; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 28px; }
+    .tbl-wrap { background: #fff; border: 1px solid var(--border); border-radius: 12px; overflow-x: auto; -webkit-overflow-scrolling: touch; width: 100%; max-width: 100%; box-sizing: border-box; margin-bottom: 28px; }
     .tbl-head { display: flex; align-items: center; justify-content: space-between; padding: 18px 22px; border-bottom: 1px solid var(--border); }
     .tbl-head h2 { font-size: 15px; font-weight: 700; }
     table.dtbl { width: 100%; border-collapse: collapse; }
@@ -500,7 +500,40 @@
         <div class="settings-card">
           <h3>General Settings</h3>
           <div class="form-row"><div class="fg"><label>Store Name</label><input type="text" value="Stackly Outdoor Store" /></div><div class="fg"><label>Store Email</label><input type="email" value="hello@stackly.store" /></div></div>
-          <div class="form-row"><div class="fg"><label>Currency</label><select><option>USD ($)</option><option>EUR (€)</option></select></div><div class="fg"><label>Timezone</label><select><option>America/Denver (MST)</option><option>America/New_York (EST)</option></select></div></div>
+          <div class="form-row">
+            <div class="fg">
+              <label>Currency</label>
+              <div class="custom-dropdown" id="dd-dash-currency">
+                <input type="hidden" value="USD ($)" />
+                <button type="button" class="custom-dropdown-trigger" aria-haspopup="listbox" aria-expanded="false" aria-label="Select currency">
+                  <span class="custom-dropdown-value">USD ($)</span>
+                  <span class="custom-dropdown-arrow">▾</span>
+                </button>
+                <div class="custom-dropdown-menu" role="listbox">
+                  <div class="custom-dropdown-option is-selected" role="option" data-value="USD ($)" aria-selected="true" tabindex="0"><span>USD ($)</span><span class="option-check">✓</span></div>
+                  <div class="custom-dropdown-option" role="option" data-value="EUR (€)" aria-selected="false" tabindex="0"><span>EUR (€)</span><span class="option-check" style="display:none;">✓</span></div>
+                  <div class="custom-dropdown-option" role="option" data-value="GBP (£)" aria-selected="false" tabindex="0"><span>GBP (£)</span><span class="option-check" style="display:none;">✓</span></div>
+                  <div class="custom-dropdown-option" role="option" data-value="CAD ($)" aria-selected="false" tabindex="0"><span>CAD ($)</span><span class="option-check" style="display:none;">✓</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="fg">
+              <label>Timezone</label>
+              <div class="custom-dropdown" id="dd-dash-timezone">
+                <input type="hidden" value="America/Denver (MST)" />
+                <button type="button" class="custom-dropdown-trigger" aria-haspopup="listbox" aria-expanded="false" aria-label="Select timezone">
+                  <span class="custom-dropdown-value">America/Denver (MST)</span>
+                  <span class="custom-dropdown-arrow">▾</span>
+                </button>
+                <div class="custom-dropdown-menu" role="listbox">
+                  <div class="custom-dropdown-option is-selected" role="option" data-value="America/Denver (MST)" aria-selected="true" tabindex="0"><span>America/Denver (MST)</span><span class="option-check">✓</span></div>
+                  <div class="custom-dropdown-option" role="option" data-value="America/New_York (EST)" aria-selected="false" tabindex="0"><span>America/New_York (EST)</span><span class="option-check" style="display:none;">✓</span></div>
+                  <div class="custom-dropdown-option" role="option" data-value="America/Los_Angeles (PST)" aria-selected="false" tabindex="0"><span>America/Los_Angeles (PST)</span><span class="option-check" style="display:none;">✓</span></div>
+                  <div class="custom-dropdown-option" role="option" data-value="Europe/London (GMT)" aria-selected="false" tabindex="0"><span>Europe/London (GMT)</span><span class="option-check" style="display:none;">✓</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
           <button class="btn-indigo" onclick="trigger404(event)">Save Settings</button>
         </div>
         <div class="settings-card">
@@ -568,5 +601,6 @@
     animateCounter(document.getElementById('adkpi-sales'), 312, 1100);
   });
 </script>
+<script src="script.js?v=85"></script>
 </body>
 </html>

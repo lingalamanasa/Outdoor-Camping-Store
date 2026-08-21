@@ -147,10 +147,17 @@
           <div class="dash-box-card">
             <div class="dbc-header">
               <h3 class="dbc-serif-title">Gear Rental Revenue &amp; Demand</h3>
-              <select class="dash-select-pill">
-                <option>This Season (2026)</option>
-                <option>All Time</option>
-              </select>
+              <div class="custom-dropdown pill-variant" id="dd-gear-season">
+                <input type="hidden" value="This Season (2026)" />
+                <button type="button" class="custom-dropdown-trigger" aria-haspopup="listbox" aria-expanded="false" aria-label="Select season">
+                  <span class="custom-dropdown-value">This Season (2026)</span>
+                  <span class="custom-dropdown-arrow">▾</span>
+                </button>
+                <div class="custom-dropdown-menu" role="listbox">
+                  <div class="custom-dropdown-option is-selected" role="option" data-value="This Season (2026)" aria-selected="true" tabindex="0"><span>This Season (2026)</span><span class="option-check">✓</span></div>
+                  <div class="custom-dropdown-option" role="option" data-value="All Time" aria-selected="false" tabindex="0"><span>All Time</span><span class="option-check" style="display:none;">✓</span></div>
+                </div>
+              </div>
             </div>
             <div class="chart-wrapper">
               <svg viewBox="0 0 700 240" class="revenue-svg-chart" style="width:100%; height:auto; overflow:visible;">

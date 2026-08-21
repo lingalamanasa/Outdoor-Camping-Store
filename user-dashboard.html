@@ -229,7 +229,7 @@
     .activity-time { font-size: 12px; color: var(--text3); white-space: nowrap; }
 
     /* TABLE */
-    .tbl-wrap { background: #fff; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 28px; }
+    .tbl-wrap { background: #fff; border: 1px solid var(--border); border-radius: 12px; overflow-x: auto; -webkit-overflow-scrolling: touch; width: 100%; max-width: 100%; box-sizing: border-box; margin-bottom: 28px; }
     .tbl-head { display: flex; align-items: center; justify-content: space-between; padding: 18px 22px; border-bottom: 1px solid var(--border); }
     .tbl-head h2 { font-size: 15px; font-weight: 700; }
     table.dtbl { width: 100%; border-collapse: collapse; }
@@ -594,7 +594,56 @@
         </div>
         <div class="settings-card">
           <h3>Preferences</h3>
-          <div class="form-row"><div class="fg"><label>Preferred Activity</label><select><option>Hiking</option><option>Camping</option><option>Mountaineering</option></select></div><div class="fg"><label>Notifications</label><select><option>Email + SMS</option><option>Email Only</option><option>None</option></select></div></div>
+          <div class="form-row">
+            <div class="fg">
+              <label>Preferred Activity</label>
+              <div class="custom-dropdown" id="dd-user-activity">
+                <input type="hidden" value="Hiking" />
+                <button type="button" class="custom-dropdown-trigger" aria-haspopup="listbox" aria-expanded="false" aria-label="Select preferred activity">
+                  <span class="custom-dropdown-value">Hiking</span>
+                  <span class="custom-dropdown-arrow">▾</span>
+                </button>
+                <div class="custom-dropdown-menu" role="listbox">
+                  <div class="custom-dropdown-option is-selected" role="option" data-value="Hiking" aria-selected="true" tabindex="0">
+                    <span>Hiking</span>
+                    <span class="option-check">✓</span>
+                  </div>
+                  <div class="custom-dropdown-option" role="option" data-value="Camping" aria-selected="false" tabindex="0">
+                    <span>Camping</span>
+                    <span class="option-check" style="display:none;">✓</span>
+                  </div>
+                  <div class="custom-dropdown-option" role="option" data-value="Mountaineering" aria-selected="false" tabindex="0">
+                    <span>Mountaineering</span>
+                    <span class="option-check" style="display:none;">✓</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="fg">
+              <label>Notifications</label>
+              <div class="custom-dropdown" id="dd-user-notifications">
+                <input type="hidden" value="Email + SMS" />
+                <button type="button" class="custom-dropdown-trigger" aria-haspopup="listbox" aria-expanded="false" aria-label="Select notifications">
+                  <span class="custom-dropdown-value">Email + SMS</span>
+                  <span class="custom-dropdown-arrow">▾</span>
+                </button>
+                <div class="custom-dropdown-menu" role="listbox">
+                  <div class="custom-dropdown-option is-selected" role="option" data-value="Email + SMS" aria-selected="true" tabindex="0">
+                    <span>Email + SMS</span>
+                    <span class="option-check">✓</span>
+                  </div>
+                  <div class="custom-dropdown-option" role="option" data-value="Email Only" aria-selected="false" tabindex="0">
+                    <span>Email Only</span>
+                    <span class="option-check" style="display:none;">✓</span>
+                  </div>
+                  <div class="custom-dropdown-option" role="option" data-value="None" aria-selected="false" tabindex="0">
+                    <span>None</span>
+                    <span class="option-check" style="display:none;">✓</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           <button class="btn-rose" onclick="trigger404(event)">Save Preferences</button>
         </div>
       </div>
@@ -659,5 +708,6 @@
     animateCounter(document.getElementById('udkpi-del'), 14, 900);
   });
 </script>
+<script src="script.js?v=85"></script>
 </body>
 </html>

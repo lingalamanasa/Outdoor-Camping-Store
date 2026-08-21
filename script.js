@@ -67,6 +67,10 @@ function switchPage(pageId) {
 window.addEventListener('DOMContentLoaded', () => {
   const path = window.location.pathname.toLowerCase();
 
+  // Initialize custom dropdowns and mobile menu across all pages
+  if (typeof initCustomDropdowns === 'function') initCustomDropdowns();
+  if (typeof initMobileMenu === 'function') initMobileMenu();
+
   // Ensure home page container is immediately active and visible
   const homeEl = document.getElementById('page-home');
   if (homeEl) {
@@ -236,6 +240,172 @@ function switchDashTab(tabId) {
   const targetPanel = document.getElementById(`dash-panel-${tabId}`);
   if (targetPanel) targetPanel.classList.add('active');
 }
+
+// =====================================================
+// CUSTOM RESPONSIVE DROPDOWN ENGINE (ACCESSIBLE + RESPONSIVE)
+// =====================================================
+function initCustomDropdowns() {
+  const dropdowns = document.querySelectorAll('.custom-dropdown');
+  dropdowns.forEach(dropdown => {
+    if (dropdown._initialized) return;
+    dropdown._initialized = true;
+
+    const trigger = dropdown.querySelector('.custom-dropdown-trigger');
+    const valueSpan = dropdown.querySelector('.custom-dropdown-value');
+    const hiddenInput = dropdown.querySelector('input[type="hidden"]');
+    const menu = dropdown.querySelector('.custom-dropdown-menu');
+    const options = dropdown.querySelectorAll('.custom-dropdown-option');
+
+    if (!trigger || !menu) return;
+
+    // Toggle dropdown on trigger click
+    trigger.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const isOpen = dropdown.classList.contains('is-open');
+
+      // Close all other open dropdowns first
+      closeAllDropdowns(dropdown);
+
+      if (isOpen) {
+        closeDropdown(dropdown);
+      } else {
+        openDropdown(dropdown);
+      }
+    });
+
+    // Option selection
+    options.forEach(opt => {
+      opt.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        selectOption(dropdown, opt);
+      });
+
+      // Keyboard support on option
+      opt.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          selectOption(dropdown, opt);
+        } else if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          const next = opt.nextElementSibling;
+          if (next && next.classList.contains('custom-dropdown-option')) next.focus();
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          const prev = opt.previousElementSibling;
+          if (prev && prev.classList.contains('custom-dropdown-option')) {
+            prev.focus();
+          } else {
+            trigger.focus();
+          }
+        } else if (e.key === 'Escape') {
+          e.preventDefault();
+          closeDropdown(dropdown);
+          trigger.focus();
+        }
+      });
+    });
+
+    // Keyboard navigation on trigger button
+    trigger.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowDown' || e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        if (!dropdown.classList.contains('is-open')) {
+          openDropdown(dropdown);
+        }
+        const selected = dropdown.querySelector('.custom-dropdown-option.is-selected') || options[0];
+        if (selected) selected.focus();
+      } else if (e.key === 'Escape' && dropdown.classList.contains('is-open')) {
+        e.preventDefault();
+        closeDropdown(dropdown);
+      }
+    });
+  });
+}
+
+function openDropdown(dropdown) {
+  const trigger = dropdown.querySelector('.custom-dropdown-trigger');
+  const menu = dropdown.querySelector('.custom-dropdown-menu');
+  if (!trigger || !menu) return;
+
+  // Viewport boundary collision detection (open upward if cramped below)
+  const rect = trigger.getBoundingClientRect();
+  const spaceBelow = window.innerHeight - rect.bottom;
+  const menuHeight = menu.scrollHeight || 200;
+
+  if (spaceBelow < menuHeight + 20 && rect.top > menuHeight) {
+    dropdown.classList.add('open-upward');
+  } else {
+    dropdown.classList.remove('open-upward');
+  }
+
+  dropdown.classList.add('is-open');
+  trigger.setAttribute('aria-expanded', 'true');
+}
+
+function closeDropdown(dropdown) {
+  const trigger = dropdown.querySelector('.custom-dropdown-trigger');
+  dropdown.classList.remove('is-open');
+  dropdown.classList.remove('open-upward');
+  if (trigger) trigger.setAttribute('aria-expanded', 'false');
+}
+
+function closeAllDropdowns(exceptDropdown = null) {
+  document.querySelectorAll('.custom-dropdown.is-open').forEach(dd => {
+    if (dd !== exceptDropdown) closeDropdown(dd);
+  });
+}
+
+function selectOption(dropdown, opt) {
+  const valueSpan = dropdown.querySelector('.custom-dropdown-value');
+  const hiddenInput = dropdown.querySelector('input[type="hidden"]');
+  const trigger = dropdown.querySelector('.custom-dropdown-trigger');
+  const val = opt.getAttribute('data-value') || opt.textContent.trim();
+  const label = opt.querySelector('span') ? opt.querySelector('span').textContent.trim() : opt.textContent.trim();
+
+  if (hiddenInput) {
+    hiddenInput.value = val;
+    hiddenInput.dispatchEvent(new Event('change', { bubbles: true }));
+    hiddenInput.dispatchEvent(new Event('input', { bubbles: true }));
+  }
+
+  if (valueSpan) {
+    valueSpan.textContent = label;
+    valueSpan.classList.remove('custom-dropdown-placeholder');
+  }
+
+  dropdown.querySelectorAll('.custom-dropdown-option').forEach(o => {
+    o.classList.remove('is-selected');
+    o.setAttribute('aria-selected', 'false');
+    const checkIcon = o.querySelector('.option-check');
+    if (checkIcon) checkIcon.style.display = 'none';
+  });
+
+  opt.classList.add('is-selected');
+  opt.setAttribute('aria-selected', 'true');
+  const check = opt.querySelector('.option-check');
+  if (check) check.style.display = 'inline-block';
+
+  closeDropdown(dropdown);
+  if (trigger) trigger.focus();
+}
+
+// Global document click to close dropdowns
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.custom-dropdown')) {
+    closeAllDropdowns();
+  }
+});
+
+// Global escape key to close dropdowns
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    closeAllDropdowns();
+  }
+});
+
+window.initCustomDropdowns = initCustomDropdowns;
 
 // ===== GENERIC FALLBACK ACTION HANDLER (TOAST FEEDBACK, ZERO 404) =====
 function trigger404(e) {
