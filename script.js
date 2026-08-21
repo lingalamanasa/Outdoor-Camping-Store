@@ -74,44 +74,16 @@ function navigateDashboardHome(role, evt) {
   }
 
   if (role === 'admin') {
-    if (typeof adSwitch === 'function') {
-      adSwitch('dashboard');
-      if (typeof adCloseSidebar === 'function') adCloseSidebar();
-    } else if (document.getElementById('page-dashboard')) {
-      switchPage('dashboard');
-      if (typeof switchHostTab === 'function') switchHostTab('overview');
-    } else {
-      window.location.href = 'dashboard.html';
-    }
+    window.location.href = 'dashboard.html';
   } else if (role === 'user') {
-    if (typeof udSwitch === 'function') {
-      udSwitch('dashboard');
-      if (typeof udCloseSidebar === 'function') udCloseSidebar();
-    } else if (document.getElementById('page-user-dashboard')) {
-      switchPage('user-dashboard');
-      if (typeof switchTravelerTab === 'function') switchTravelerTab('overview');
-    } else {
-      window.location.href = 'user-dashboard.html';
-    }
+    window.location.href = 'user-dashboard.html';
   } else if (role === 'mountaineer') {
-    if (typeof switchMountTab === 'function') {
-      switchMountTab('overview', evt);
-      if (typeof closeDashDrawer === 'function') closeDashDrawer();
-    } else {
-      window.location.href = 'mountaineer-dashboard.html';
-    }
+    window.location.href = 'mountaineer-dashboard.html';
   } else if (role === 'gear') {
-    if (typeof switchGearTab === 'function') {
-      switchGearTab('overview', evt);
-      if (typeof closeDashDrawer === 'function') closeDashDrawer();
-    } else {
-      window.location.href = 'gear-dashboard.html';
-    }
+    window.location.href = 'gear-dashboard.html';
+  } else {
+    window.location.href = 'index.html';
   }
-
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-  const mainContent = document.querySelector('.dash-main-content, .ud-main, .ad-main');
-  if (mainContent) mainContent.scrollTop = 0;
   return false;
 }
 window.navigateDashboardHome = navigateDashboardHome;

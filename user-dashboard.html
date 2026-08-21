@@ -686,7 +686,7 @@
       if (typeof evt.preventDefault === 'function') evt.preventDefault();
       if (typeof evt.stopPropagation === 'function') evt.stopPropagation();
     }
-    udSwitch('dashboard');
+    window.location.href = 'user-dashboard.html';
     return false;
   }
   window.navigateDashboardHome = navigateDashboardHome;

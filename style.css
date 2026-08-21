@@ -110,8 +110,9 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
   z-index: 1000 !important;
   outline: none;
 }
-.logo *, #logo-link *, .ad-brand *, .ud-brand *, .ad-mobile-brand *, .ud-mobile-brand *, .dash-sidebar-brand *, .dash-mobile-header-brand * {
-  pointer-events: none !important;
+.logo img, #logo-link img, .ad-brand img, .ud-brand img, .ad-mobile-brand img, .ud-mobile-brand img, .dash-sidebar-brand img, .dash-mobile-header-brand img, .footer-logo-link img, .header-logo-link img {
+  cursor: pointer !important;
+  pointer-events: auto !important;
 }
 .brand-logo-img, .header-logo, .header-logo-img {
   height: 38px;

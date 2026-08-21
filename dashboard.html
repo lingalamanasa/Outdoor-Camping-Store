@@ -580,7 +580,7 @@
       if (typeof evt.preventDefault === 'function') evt.preventDefault();
       if (typeof evt.stopPropagation === 'function') evt.stopPropagation();
     }
-    adSwitch('dashboard');
+    window.location.href = 'dashboard.html';
     return false;
   }
   window.navigateDashboardHome = navigateDashboardHome;
