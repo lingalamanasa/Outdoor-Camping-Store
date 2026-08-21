@@ -181,6 +181,9 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
   display: inline-flex;
   align-items: center;
 }
+.mobile-menu-auth-item {
+  display: none !important;
+}
 .nav-link, .nav-links a, .main-nav a {
   color: rgba(255, 255, 255, 0.85);
   font-size: 15px;
@@ -2715,8 +2718,13 @@ html, body {
     box-shadow: 0 0 24px rgba(82, 183, 136, 0.25) !important;
   }
 
-  /* MOBILE MENU AUTH BUTTONS (PROMINENT & VISIBLE) */
+  /* MOBILE MENU AUTH BUTTONS (PROMINENT & VISIBLE ONLY WHEN MENU IS OPEN) */
   .mobile-menu-auth-item {
+    display: none !important;
+  }
+  .nav-links.open .mobile-menu-auth-item,
+  .main-nav .nav-links.open .mobile-menu-auth-item,
+  #nav-links.open .mobile-menu-auth-item {
     width: 100% !important;
     max-width: 280px !important;
     margin-top: 14px !important;
