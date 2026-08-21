@@ -801,7 +801,7 @@ function handleSignup(e) {
 // ===== CONTACT FORM SUBMIT =====
 function handleContactSubmit(e) {
   if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  openModal('404');
+  window.location.href = '404.html';
 }
 
 // ===== NAVBAR SCROLL & MOBILE MENU =====
