@@ -1095,3 +1095,102 @@ function closeDashDrawer() {
   });
 })();
 
+// ===== TOAST NOTIFICATION HELPER =====
+function showToast(message, type = 'success', duration = 3200) {
+  // Remove any existing toast
+  const existing = document.getElementById('stackly-toast');
+  if (existing) existing.remove();
+
+  const icons = {
+    success: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg>',
+    info:    '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>',
+    warning: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>'
+  };
+  const colors = {
+    success: '#52b788',
+    info:    '#60a5fa',
+    warning: '#fbbf24'
+  };
+
+  const toast = document.createElement('div');
+  toast.id = 'stackly-toast';
+  toast.innerHTML = `<span style="color:${colors[type] || colors.success}; display:flex; align-items:center;">${icons[type] || icons.success}</span><span>${message}</span>`;
+  Object.assign(toast.style, {
+    position: 'fixed',
+    bottom: '28px',
+    right: '28px',
+    zIndex: '99999',
+    background: '#0f2218',
+    border: `1.5px solid ${colors[type] || colors.success}`,
+    borderRadius: '14px',
+    padding: '14px 20px',
+    display: 'flex',
+    alignItems: 'center',
+    gap: '12px',
+    color: '#e2e8f0',
+    fontSize: '14px',
+    fontWeight: '600',
+    fontFamily: 'Plus Jakarta Sans, sans-serif',
+    boxShadow: '0 8px 32px rgba(0,0,0,0.45)',
+    transition: 'opacity 0.35s ease, transform 0.35s ease',
+    opacity: '0',
+    transform: 'translateY(16px)',
+    maxWidth: '360px'
+  });
+
+  document.body.appendChild(toast);
+
+  // Animate in
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      toast.style.opacity = '1';
+      toast.style.transform = 'translateY(0)';
+    });
+  });
+
+  // Animate out and remove
+  const timer = setTimeout(() => {
+    toast.style.opacity = '0';
+    toast.style.transform = 'translateY(16px)';
+    setTimeout(() => toast.remove(), 400);
+  }, duration);
+
+  // Click to dismiss
+  toast.addEventListener('click', () => {
+    clearTimeout(timer);
+    toast.style.opacity = '0';
+    toast.style.transform = 'translateY(16px)';
+    setTimeout(() => toast.remove(), 400);
+  });
+}
+
+// ===== HANDLE ADD TO CART (Gear / Product buttons) =====
+// Shows a success toast and redirects to signup to complete the rental/purchase.
+function handleAddToCart(event, productName) {
+  if (event) event.preventDefault();
+
+  showToast(`"${productName}" added! Sign in to complete your order.`, 'success');
+
+  setTimeout(() => {
+    window.location.href = 'signup.html';
+  }, 1800);
+}
+
+// ===== HANDLE BOOK EXPEDITION (Expedition "Book Slot" buttons) =====
+// Shows a success toast and redirects to signup to finalise the booking.
+function handleBookExpedition(event, expeditionName) {
+  if (event) event.preventDefault();
+
+  showToast(`Slot reserved for "${expeditionName}"! Create an account to confirm.`, 'success');
+
+  setTimeout(() => {
+    window.location.href = 'signup.html';
+  }, 1800);
+}
+
+// ===== TRIGGER 404 (Placeholder footer / coming-soon links) =====
+function trigger404(event) {
+  if (event) event.preventDefault();
+  window.location.href = '404.html';
+}
+
