@@ -340,7 +340,7 @@
     <div class="ud-sidebar-bottom">
       <div class="ud-email">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        lingalamanasa123@gmail.com
+        <span class="dash-user-email-disp">lingalamanasa123@gmail.com</span>
       </div>
       <a href="index.html" class="ud-logout">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
@@ -368,7 +368,7 @@
       <div class="ud-topbar">
         <div>
           <h1>Dashboard</h1>
-          <p class="ud-topbar-sub">Welcome back, <strong>Lingalamanasa123</strong> — here's your overview</p>
+          <p class="ud-topbar-sub">Welcome back, <strong class="dash-user-disp-name">Lingalamanasa123</strong> — here's your overview</p>
         </div>
         <div class="ud-date" id="ud-date">Fri, Aug 21, 2026</div>
       </div>
@@ -588,7 +588,7 @@
       <div class="ud-content">
         <div class="settings-card">
           <h3>Personal Information</h3>
-          <div class="form-row"><div class="fg"><label>Full Name</label><input type="text" value="Lingalamanasa123" /></div><div class="fg"><label>Email</label><input type="email" value="lingalamanasa123@gmail.com" /></div></div>
+          <div class="form-row"><div class="fg"><label>Full Name</label><input type="text" class="dash-user-name-input" value="Lingalamanasa123" /></div><div class="fg"><label>Email</label><input type="email" id="user-settings-email" class="dash-user-email-input" value="lingalamanasa123@gmail.com" /></div></div>
           <div class="form-row"><div class="fg"><label>Phone</label><input type="tel" value="+1 (720) 555-0194" /></div><div class="fg"><label>Location</label><input type="text" value="Boulder, CO" /></div></div>
           <button class="btn-rose" onclick="trigger404(event)">Save Changes</button>
         </div>
@@ -702,6 +702,7 @@
   }
 
   window.addEventListener('DOMContentLoaded', () => {
+    if (typeof updateDashboardName === 'function') updateDashboardName();
     animateCounter(document.getElementById('udkpi-orders'), 24, 1000);
     animateCounter(document.getElementById('udkpi-wish'), 12, 800);
     animateCounter(document.getElementById('udkpi-pts'), 3840, 1600);

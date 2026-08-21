@@ -275,7 +275,7 @@
     <div class="ad-sidebar-bottom">
       <div class="ad-email">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        lingalamanasa123@gmail.com
+        <span class="dash-user-email-disp">lingalamanasa123@gmail.com</span>
       </div>
       <a href="index.html" class="ad-logout">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
@@ -301,7 +301,7 @@
       <div class="ad-topbar">
         <div>
           <h1>Dashboard</h1>
-          <p class="ad-topbar-sub">Welcome back, <strong>Lingalamanasa123</strong> — here's your overview</p>
+          <p class="ad-topbar-sub">Welcome back, <strong class="dash-user-disp-name">Lingalamanasa123</strong> — here's your overview</p>
         </div>
         <div class="ad-date" id="ad-date"></div>
       </div>
@@ -499,7 +499,7 @@
       <div class="ad-content">
         <div class="settings-card">
           <h3>General Settings</h3>
-          <div class="form-row"><div class="fg"><label>Store Name</label><input type="text" value="Stackly Outdoor Store" /></div><div class="fg"><label>Store Email</label><input type="email" value="hello@stackly.store" /></div></div>
+          <div class="form-row"><div class="fg"><label>Store Name</label><input type="text" class="dash-user-name-input" value="Stackly Outdoor Store" /></div><div class="fg"><label>Store Email</label><input type="email" id="dash-settings-email" class="dash-user-email-input" value="lingalamanasa123@gmail.com" /></div></div>
           <div class="form-row">
             <div class="fg">
               <label>Currency</label>
@@ -595,6 +595,7 @@
   }
 
   window.addEventListener('DOMContentLoaded', () => {
+    if (typeof updateDashboardName === 'function') updateDashboardName();
     animateCounter(document.getElementById('adkpi-rev'), 99800, 1800);
     animateCounter(document.getElementById('adkpi-orders'), 47, 900);
     animateCounter(document.getElementById('adkpi-users'), 2847, 1600);

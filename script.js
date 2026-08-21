@@ -70,6 +70,7 @@ window.addEventListener('DOMContentLoaded', () => {
   // Initialize custom dropdowns and mobile menu across all pages
   if (typeof initCustomDropdowns === 'function') initCustomDropdowns();
   if (typeof initMobileMenu === 'function') initMobileMenu();
+  if (typeof updateDashboardName === 'function') updateDashboardName();
 
   // Ensure home page container is immediately active and visible
   const homeEl = document.getElementById('page-home');
@@ -774,22 +775,78 @@ if (signupPw) {
 }
 
 function updateDashboardName(name, userEmail, userRole) {
-  let cleanName = (name && name.trim()) ? name.trim() : 'Manasasrinivas_Lingala';
-  if (cleanName.toLowerCase().includes('lingalamanasa') || cleanName.toLowerCase().includes('lingala')) {
-    cleanName = 'Manasasrinivas_Lingala';
+  // 1. Retrieve or persist email
+  let finalEmail = userEmail;
+  if (!finalEmail) {
+    finalEmail = localStorage.getItem('stackly_user_email') || 'lingalamanasa123@gmail.com';
+  } else {
+    localStorage.setItem('stackly_user_email', finalEmail.trim());
   }
-  const cleanUname = cleanName.replace(/\s+/g, '_').toUpperCase();
+  finalEmail = finalEmail.trim();
 
-  const nameEls = document.querySelectorAll('.dash-user-disp-name');
-  nameEls.forEach(el => el.textContent = cleanName);
+  // 2. Retrieve or persist user name
+  let finalName = name;
+  if (!finalName) {
+    finalName = localStorage.getItem('stackly_user_name');
+    if (!finalName) {
+      const raw = finalEmail.split('@')[0] || 'Lingalamanasa123';
+      finalName = raw.charAt(0).toUpperCase() + raw.slice(1);
+    }
+  } else {
+    localStorage.setItem('stackly_user_name', finalName.trim());
+  }
+  finalName = finalName.trim();
+
+  // 3. Persist user role
+  if (userRole) {
+    localStorage.setItem('stackly_user_role', userRole.trim());
+  }
+
+  const cleanUname = finalName.replace(/\s+/g, '_').toUpperCase();
+
+  // 4. Update all user name displays across pages and dashboards
+  const nameEls = document.querySelectorAll('.dash-user-disp-name, .ad-topbar-sub strong, .ud-topbar-sub strong, .dash-username-disp');
+  nameEls.forEach(el => {
+    el.textContent = finalName;
+  });
 
   const unameEls = document.querySelectorAll('.dash-user-uname-disp');
-  unameEls.forEach(el => el.textContent = cleanUname);
+  unameEls.forEach(el => {
+    el.textContent = cleanUname;
+  });
 
-  if (userEmail && userEmail.trim()) {
-    const emailEls = document.querySelectorAll('.dash-user-email-disp');
-    emailEls.forEach(el => el.textContent = userEmail.trim());
-  }
+  // 5. Update all email displays across sidebars, headers, and profiles
+  const emailEls = document.querySelectorAll('.dash-user-email-disp, .dash-email-disp');
+  emailEls.forEach(el => {
+    el.textContent = finalEmail;
+  });
+
+  // 6. Update sidebar email badges (.ad-email, .ud-email)
+  const sidebarEmails = document.querySelectorAll('.ad-email, .ud-email');
+  sidebarEmails.forEach(el => {
+    const existingIcon = el.querySelector('svg') || el.querySelector('i');
+    if (existingIcon) {
+      el.innerHTML = '';
+      el.appendChild(existingIcon);
+      const span = document.createElement('span');
+      span.className = 'dash-user-email-disp';
+      span.textContent = ' ' + finalEmail;
+      el.appendChild(span);
+    } else {
+      el.textContent = finalEmail;
+    }
+  });
+
+  // 7. Update dashboard settings form input fields
+  const emailInputs = document.querySelectorAll('.dash-user-email-input, #dash-settings-email, #user-settings-email');
+  emailInputs.forEach(input => {
+    input.value = finalEmail;
+  });
+
+  const nameInputs = document.querySelectorAll('.dash-user-name-input');
+  nameInputs.forEach(input => {
+    input.value = finalName;
+  });
 }
 
 function switchDashTab(tabName, evt) {
@@ -821,24 +878,41 @@ function switchDashTab(tabName, evt) {
     }
   });
 
-  // 4. Hide ALL subpanels
-  document.querySelectorAll('.host-subpanel, .user-subpanel').forEach(panel => {
+  // 4. Hide all panels
+  document.querySelectorAll('.dash-panel').forEach(panel => {
     panel.classList.remove('active');
     panel.style.display = 'none';
   });
 
-  // 5. Show the matching panels
-  targetPanels.forEach(id => {
-    const el = document.getElementById(id);
-    if (el) {
-      el.classList.add('active');
-      el.style.display = 'block';
+  // 5. Show matching target panels
+  let found = false;
+  targetPanels.forEach(panelId => {
+    const panel = document.getElementById(panelId);
+    if (panel) {
+      panel.classList.add('active');
+      panel.style.display = 'block';
+      found = true;
     }
   });
 
-  // 6. Scroll to top
-  const mc = document.querySelector('.page-view.active .dash-main-content') || document.querySelector('.dash-main-content');
-  if (mc) { mc.scrollTop = 0; }
+  // Fallback: if nothing matched by ID, try index-based matching
+  if (!found) {
+    const allPanels = document.querySelectorAll('.dash-panel');
+    const tabOrder = ['overview', 'trips', 'saved', 'payments', 'settings'];
+    const idx = tabOrder.indexOf(tabName);
+    if (idx >= 0 && allPanels[idx]) {
+      allPanels[idx].classList.add('active');
+      allPanels[idx].style.display = 'block';
+    }
+  }
+
+  // Scroll to top of dashboard content smoothly
+  const dashContainer = document.querySelector('.dash-main-content') || window;
+  if (dashContainer === window) {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  } else {
+    dashContainer.scrollTop = 0;
+  }
 }
 
 function switchHostTab(tabName, evt) {
@@ -850,27 +924,36 @@ function switchTravelerTab(tabName, evt) {
 }
 
 function handleLogin(e) {
-  e.preventDefault();
-  const btn = e.target.querySelector('button[type="submit"]') || document.getElementById('login-submit-btn');
-  const emailInput = e.target.querySelector('input[type="email"]');
+  if (e && typeof e.preventDefault === 'function') e.preventDefault();
+  const form = (e && e.target) ? (e.target.closest('form') || e.target) : document.querySelector('form');
+  const btn = (form && form.querySelector('button[type="submit"]')) || document.getElementById('login-submit-btn');
+  const emailInput = document.getElementById('lin-email') || (form ? form.querySelector('input[type="email"]') : null);
   const unameInput = document.getElementById('lin-uname');
-  const roleInput = document.getElementById('lin-role') || e.target.querySelector('select');
+  const roleInput = document.getElementById('lin-role') || (form ? form.querySelector('input[name="role"], select') : null);
   
+  let userEmail = emailInput && emailInput.value ? emailInput.value.trim() : 'lingalamanasa123@gmail.com';
   let userName = '';
   if (unameInput && unameInput.value) {
-    userName = unameInput.value;
-  } else if (emailInput && emailInput.value) {
-    userName = emailInput.value.split('@')[0];
-    userName = userName.charAt(0).toUpperCase() + userName.slice(1);
+    userName = unameInput.value.trim();
+  } else if (userEmail) {
+    const raw = userEmail.split('@')[0];
+    userName = raw.charAt(0).toUpperCase() + raw.slice(1);
   }
 
-  const selectedRole = roleInput ? roleInput.value.toLowerCase() : '';
+  const selectedRole = roleInput ? (roleInput.value || '').toLowerCase() : 'user';
   let targetUrl = 'user-dashboard.html';
   if (selectedRole === 'admin') {
     targetUrl = 'dashboard.html';
   } else {
     targetUrl = 'user-dashboard.html';
   }
+
+  // Persist user credentials to localStorage
+  localStorage.setItem('stackly_user_email', userEmail);
+  localStorage.setItem('stackly_user_name', userName);
+  localStorage.setItem('stackly_user_role', selectedRole);
+
+  updateDashboardName(userName, userEmail, selectedRole);
 
   if (btn) {
     const origText = btn.textContent;
@@ -885,17 +968,15 @@ function handleLogin(e) {
         btn.style.background = '';
         btn.style.color = '';
         btn.disabled = false;
-        if (userName) updateDashboardName(userName, emailInput ? emailInput.value : '', selectedRole);
         closeModal();
         if (targetUrl.includes('.html') && !targetUrl.startsWith('index.html')) {
           window.location.href = targetUrl;
         } else {
           switchPage('dashboard');
         }
-      }, 800);
-    }, 800);
+      }, 500);
+    }, 500);
   } else {
-    if (userName) updateDashboardName(userName, emailInput ? emailInput.value : '', selectedRole);
     closeModal();
     if (targetUrl.includes('.html') && !targetUrl.startsWith('index.html')) {
       window.location.href = targetUrl;
@@ -903,6 +984,7 @@ function handleLogin(e) {
       switchPage('dashboard');
     }
   }
+  return false;
 }
 
 function selectRoleRadio(labelEl) {
@@ -915,24 +997,36 @@ function selectRoleRadio(labelEl) {
 }
 
 function handleSignup(e) {
-  e.preventDefault();
-  const btn = e.target.querySelector('button[type="submit"]') || document.getElementById('signup-submit-btn');
-  const fnameInput = document.getElementById('sup-fname') || e.target.querySelector('input[type="text"]');
-  const emailInput = document.getElementById('sup-email') || e.target.querySelector('input[type="email"]');
-  const roleInput = document.getElementById('sup-role') || e.target.querySelector('select');
+  if (e && typeof e.preventDefault === 'function') e.preventDefault();
+  const form = (e && e.target) ? (e.target.closest('form') || e.target) : document.querySelector('form');
+  const btn = (form && form.querySelector('button[type="submit"]')) || document.getElementById('signup-submit-btn');
+  const fnameInput = document.getElementById('sup-fname') || (form ? form.querySelector('input[type="text"]') : null);
+  const emailInput = document.getElementById('sup-email') || (form ? form.querySelector('input[type="email"]') : null);
+  const roleInput = document.getElementById('sup-role') || (form ? form.querySelector('input[name="user_role"], select') : null);
   
+  let userEmail = emailInput && emailInput.value ? emailInput.value.trim() : 'lingalamanasa123@gmail.com';
   let fullName = '';
   if (fnameInput && fnameInput.value) {
-    fullName = fnameInput.value;
+    fullName = fnameInput.value.trim();
+  } else if (userEmail) {
+    const raw = userEmail.split('@')[0];
+    fullName = raw.charAt(0).toUpperCase() + raw.slice(1);
   }
 
-  const selectedRole = roleInput ? (roleInput.value || '').toLowerCase() : '';
+  const selectedRole = roleInput ? (roleInput.value || '').toLowerCase() : 'user';
   let targetUrl = 'user-dashboard.html';
   if (selectedRole === 'admin') {
     targetUrl = 'dashboard.html';
   } else {
     targetUrl = 'user-dashboard.html';
   }
+
+  // Persist user credentials to localStorage
+  localStorage.setItem('stackly_user_email', userEmail);
+  localStorage.setItem('stackly_user_name', fullName);
+  localStorage.setItem('stackly_user_role', selectedRole);
+
+  updateDashboardName(fullName, userEmail, selectedRole);
 
   if (btn) {
     const origText = btn.textContent;
@@ -947,17 +1041,15 @@ function handleSignup(e) {
         btn.style.background = '';
         btn.style.color = '';
         btn.disabled = false;
-        if (fullName) updateDashboardName(fullName, emailInput ? emailInput.value : '', selectedRole);
         closeModal();
         if (targetUrl.includes('.html') && !targetUrl.startsWith('index.html')) {
           window.location.href = targetUrl;
         } else {
           switchPage('dashboard');
         }
-      }, 800);
-    }, 800);
+      }, 500);
+    }, 500);
   } else {
-    if (fullName) updateDashboardName(fullName, emailInput ? emailInput.value : '', selectedRole);
     closeModal();
     if (targetUrl.includes('.html') && !targetUrl.startsWith('index.html')) {
       window.location.href = targetUrl;
@@ -965,6 +1057,7 @@ function handleSignup(e) {
       switchPage('dashboard');
     }
   }
+  return false;
 }
 
 // ===== CONTACT FORM SUBMIT =====
