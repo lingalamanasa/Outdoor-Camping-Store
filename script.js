@@ -645,8 +645,9 @@ function handleSearchGear(e) {
     window.scrollTo({ top: y, behavior: 'smooth' });
   }
 }
+window.handleSearchGear = handleSearchGear;
 
-// Auto-attach listeners to clear error only when user types
+// Auto-attach listeners to clear error only when user types and submit on Enter key
 document.addEventListener('DOMContentLoaded', () => {
   ['hsb-what', 'hsb-where', 'hsb-duration'].forEach(id => {
     const el = document.getElementById(id);
@@ -654,6 +655,12 @@ document.addEventListener('DOMContentLoaded', () => {
       el.addEventListener('input', () => {
         const val = el.value.trim();
         if (val) clearSearchError();
+      });
+      el.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          handleSearchGear(e);
+        }
       });
     }
   });
