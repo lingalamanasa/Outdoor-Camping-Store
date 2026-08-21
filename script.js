@@ -1165,27 +1165,17 @@ function showToast(message, type = 'success', duration = 3200) {
 }
 
 // ===== HANDLE ADD TO CART (Gear / Product buttons) =====
-// Shows a success toast and redirects to signup to complete the rental/purchase.
+// Directly opens 404.html
 function handleAddToCart(event, productName) {
   if (event) event.preventDefault();
-
-  showToast(`"${productName}" added! Sign in to complete your order.`, 'success');
-
-  setTimeout(() => {
-    window.location.href = 'signup.html';
-  }, 1800);
+  window.location.href = '404.html';
 }
 
 // ===== HANDLE BOOK EXPEDITION (Expedition "Book Slot" buttons) =====
-// Shows a success toast and redirects to signup to finalise the booking.
+// Directly opens 404.html
 function handleBookExpedition(event, expeditionName) {
   if (event) event.preventDefault();
-
-  showToast(`Slot reserved for "${expeditionName}"! Create an account to confirm.`, 'success');
-
-  setTimeout(() => {
-    window.location.href = 'signup.html';
-  }, 1800);
+  window.location.href = '404.html';
 }
 
 // ===== TRIGGER 404 (Placeholder footer / coming-soon links) =====
