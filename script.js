@@ -64,6 +64,58 @@ function switchPage(pageId) {
   document.getElementById('nav-links')?.classList.remove('open');
 }
 
+// =====================================================
+// GLOBAL DASHBOARD LOGO ROUTING FUNCTION
+// =====================================================
+function navigateDashboardHome(role, evt) {
+  if (evt) {
+    if (typeof evt.preventDefault === 'function') evt.preventDefault();
+    if (typeof evt.stopPropagation === 'function') evt.stopPropagation();
+  }
+
+  if (role === 'admin') {
+    if (typeof adSwitch === 'function') {
+      adSwitch('dashboard');
+      if (typeof adCloseSidebar === 'function') adCloseSidebar();
+    } else if (document.getElementById('page-dashboard')) {
+      switchPage('dashboard');
+      if (typeof switchHostTab === 'function') switchHostTab('overview');
+    } else {
+      window.location.href = 'dashboard.html';
+    }
+  } else if (role === 'user') {
+    if (typeof udSwitch === 'function') {
+      udSwitch('dashboard');
+      if (typeof udCloseSidebar === 'function') udCloseSidebar();
+    } else if (document.getElementById('page-user-dashboard')) {
+      switchPage('user-dashboard');
+      if (typeof switchTravelerTab === 'function') switchTravelerTab('overview');
+    } else {
+      window.location.href = 'user-dashboard.html';
+    }
+  } else if (role === 'mountaineer') {
+    if (typeof switchMountTab === 'function') {
+      switchMountTab('overview', evt);
+      if (typeof closeDashDrawer === 'function') closeDashDrawer();
+    } else {
+      window.location.href = 'mountaineer-dashboard.html';
+    }
+  } else if (role === 'gear') {
+    if (typeof switchGearTab === 'function') {
+      switchGearTab('overview', evt);
+      if (typeof closeDashDrawer === 'function') closeDashDrawer();
+    } else {
+      window.location.href = 'gear-dashboard.html';
+    }
+  }
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  const mainContent = document.querySelector('.dash-main-content, .ud-main, .ad-main');
+  if (mainContent) mainContent.scrollTop = 0;
+  return false;
+}
+window.navigateDashboardHome = navigateDashboardHome;
+
 window.addEventListener('DOMContentLoaded', () => {
   const path = window.location.pathname.toLowerCase();
 
@@ -76,16 +128,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const adminLogos = document.querySelectorAll('.ad-brand, .ad-mobile-brand, #ad-sidebar .ad-brand, .ad-mobile-topbar .ad-mobile-brand, #page-dashboard .dash-logo, #page-dashboard .dash-sidebar-brand, #page-dashboard .dash-mobile-header-brand, #host-dash-sidebar .dash-sidebar-brand');
   adminLogos.forEach(el => {
     el.addEventListener('click', (e) => {
-      e.preventDefault();
-      if (typeof adSwitch === 'function') {
-        adSwitch('dashboard');
-        if (typeof adCloseSidebar === 'function') adCloseSidebar();
-      } else if (document.getElementById('page-dashboard')) {
-        switchPage('dashboard');
-        if (typeof switchHostTab === 'function') switchHostTab('overview');
-      } else {
-        window.location.href = 'dashboard.html';
-      }
+      navigateDashboardHome('admin', e);
     });
   });
 
@@ -93,16 +136,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const userLogos = document.querySelectorAll('.ud-brand, .ud-mobile-brand, #ud-sidebar .ud-brand, .ud-mobile-topbar .ud-mobile-brand, #page-user-dashboard .dash-logo, #page-user-dashboard .dash-sidebar-brand, #page-user-dashboard .dash-mobile-header-brand, #user-dash-sidebar .dash-sidebar-brand');
   userLogos.forEach(el => {
     el.addEventListener('click', (e) => {
-      e.preventDefault();
-      if (typeof udSwitch === 'function') {
-        udSwitch('dashboard');
-        if (typeof udCloseSidebar === 'function') udCloseSidebar();
-      } else if (document.getElementById('page-user-dashboard')) {
-        switchPage('user-dashboard');
-        if (typeof switchTravelerTab === 'function') switchTravelerTab('overview');
-      } else {
-        window.location.href = 'user-dashboard.html';
-      }
+      navigateDashboardHome('user', e);
     });
   });
 
@@ -110,22 +144,14 @@ window.addEventListener('DOMContentLoaded', () => {
   const mountLogos = document.querySelectorAll('#mount-dash-sidebar .dash-sidebar-brand, .dash-mobile-top-header .dash-mobile-header-brand');
   mountLogos.forEach(el => {
     el.addEventListener('click', (e) => {
-      if (typeof switchMountTab === 'function') {
-        e.preventDefault();
-        switchMountTab('overview', e);
-        if (typeof closeDashDrawer === 'function') closeDashDrawer();
-      }
+      navigateDashboardHome('mountaineer', e);
     });
   });
 
   const gearLogos = document.querySelectorAll('#gear-dash-sidebar .dash-sidebar-brand');
   gearLogos.forEach(el => {
     el.addEventListener('click', (e) => {
-      if (typeof switchGearTab === 'function') {
-        e.preventDefault();
-        switchGearTab('overview', e);
-        if (typeof closeDashDrawer === 'function') closeDashDrawer();
-      }
+      navigateDashboardHome('gear', e);
     });
   });
 

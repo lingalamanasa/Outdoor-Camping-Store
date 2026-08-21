@@ -305,8 +305,8 @@
 
   <!-- ===== SIDEBAR ===== -->
   <aside class="ud-sidebar" id="ud-sidebar">
-    <a href="user-dashboard.html" onclick="udSwitch('dashboard'); if(window.innerWidth<=780){udCloseSidebar();} return false;" class="ud-brand" title="User Dashboard Home">
-      <img src="https://raw.githubusercontent.com/lingalamanasa/Outdoor-Camping-Store/main/assets/logo.webp" alt="Stackly" class="brand-logo-img" onerror="this.onerror=null; this.src='assets/logo.webp';" />
+    <a href="user-dashboard.html" onclick="navigateDashboardHome('user', event); return false;" class="ud-brand" id="ud-brand-logo" title="User Dashboard Home" aria-label="User Dashboard Home">
+      <img src="https://raw.githubusercontent.com/lingalamanasa/Outdoor-Camping-Store/main/assets/logo.webp" alt="Stackly" class="brand-logo-img dark-version" onerror="this.onerror=null; this.src='assets/logo.webp';" />
     </a>
     <div class="ud-role-badge">USER</div>
 
@@ -357,8 +357,8 @@
       <button class="ud-hamburger" onclick="udOpenSidebar()" aria-label="Open navigation menu">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
-      <a href="user-dashboard.html" onclick="udSwitch('dashboard'); if(window.innerWidth<=780){udCloseSidebar();} return false;" class="ud-mobile-brand" title="User Dashboard Home" aria-label="User Dashboard Home" style="display:flex; align-items:center; gap:8px; text-decoration:none; cursor:pointer;">
-        <img src="https://raw.githubusercontent.com/lingalamanasa/Outdoor-Camping-Store/main/assets/logo.webp" alt="Stackly Logo" class="brand-logo-img" style="height:24px; width:auto;" onerror="this.onerror=null; this.src='assets/logo.webp';" />
+      <a href="user-dashboard.html" onclick="navigateDashboardHome('user', event); return false;" class="ud-mobile-brand" title="User Dashboard Home" aria-label="User Dashboard Home" style="display:flex; align-items:center; gap:8px; text-decoration:none; cursor:pointer;">
+        <img src="https://raw.githubusercontent.com/lingalamanasa/Outdoor-Camping-Store/main/assets/logo.webp" alt="Stackly Logo" class="brand-logo-img dark-version" onerror="this.onerror=null; this.src='assets/logo.webp';" />
         <span style="font-weight:700;font-size:14px;color:#111827;">User Dashboard</span>
       </a>
       <div style="width:36px;"></div>
@@ -672,11 +672,24 @@
     document.getElementById('ud-tab-'+tab)?.classList.add('active');
     document.getElementById('udnav-'+tab)?.classList.add('active');
     udCloseSidebar();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    const mainEl = document.querySelector('.ud-main');
+    if (mainEl) mainEl.scrollTop = 0;
     if (tab === 'analytics') {
       animateCounter(document.getElementById('udkpi-spent'), 1890, 1200, '$');
       animateCounter(document.getElementById('udkpi-aov'), 252, 1000, '$');
     }
   }
+
+  function navigateDashboardHome(role, evt) {
+    if (evt) {
+      if (typeof evt.preventDefault === 'function') evt.preventDefault();
+      if (typeof evt.stopPropagation === 'function') evt.stopPropagation();
+    }
+    udSwitch('dashboard');
+    return false;
+  }
+  window.navigateDashboardHome = navigateDashboardHome;
 
   // SIDEBAR
   function udOpenSidebar() {

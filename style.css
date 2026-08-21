@@ -98,7 +98,7 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
   gap: 20px;
 }
 
-.logo, #logo-link, .dash-sidebar-brand, .dash-mobile-header-brand, .footer-logo-link, .header-logo-link {
+.logo, #logo-link, .ad-brand, .ud-brand, .ad-mobile-brand, .ud-mobile-brand, .dash-sidebar-brand, .dash-mobile-header-brand, .footer-logo-link, .header-logo-link {
   display: flex !important;
   align-items: center !important;
   gap: 10px !important;
@@ -107,9 +107,10 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
   pointer-events: auto !important;
   text-decoration: none !important;
   position: relative !important;
-  z-index: 99999 !important;
+  z-index: 1000 !important;
+  outline: none;
 }
-.logo *, #logo-link *, .dash-sidebar-brand *, .dash-mobile-header-brand * {
+.logo *, #logo-link *, .ad-brand *, .ud-brand *, .ad-mobile-brand *, .ud-mobile-brand *, .dash-sidebar-brand *, .dash-mobile-header-brand * {
   pointer-events: none !important;
 }
 .brand-logo-img, .header-logo, .header-logo-img {
@@ -121,8 +122,11 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
   transition: transform var(--t), filter var(--t);
   display: block;
 }
-.brand-logo-img.dark-version, .dash-sidebar-brand .brand-logo-img.dark-version {
-  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.1));
+.brand-logo-img.dark-version, .ud-brand img, .ud-mobile-brand img {
+  filter: none !important;
+}
+.ad-brand img, .ad-mobile-brand img, .dash-sidebar-brand img, .dash-mobile-header-brand img {
+  filter: brightness(0) invert(1) drop-shadow(0 2px 8px rgba(0,0,0,0.4)) !important;
 }
 .footer-logo-img {
   height: 36px;
@@ -133,7 +137,7 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
   transition: transform var(--t);
   display: block;
 }
-.logo:hover .brand-logo-img, .header-logo-link:hover .brand-logo-img, .footer-logo-link:hover .footer-logo-img {
+.logo:hover .brand-logo-img, .header-logo-link:hover .brand-logo-img, .footer-logo-link:hover .footer-logo-img, .ad-brand:hover img, .ud-brand:hover img, .dash-sidebar-brand:hover img {
   transform: scale(1.04);
 }
 

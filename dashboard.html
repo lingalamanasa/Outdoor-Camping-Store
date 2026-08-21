@@ -236,7 +236,7 @@
 
   <!-- ===== SIDEBAR ===== -->
   <aside class="ad-sidebar" id="ad-sidebar">
-    <a href="dashboard.html" onclick="adSwitch('dashboard'); if(window.innerWidth<=780){adCloseSidebar();} return false;" class="ad-brand" title="Admin Dashboard Home">
+    <a href="dashboard.html" onclick="navigateDashboardHome('admin', event); return false;" class="ad-brand" id="ad-brand-logo" title="Admin Dashboard Home" aria-label="Admin Dashboard Home">
       <img src="https://raw.githubusercontent.com/lingalamanasa/Outdoor-Camping-Store/main/assets/logo.webp" alt="Stackly" class="brand-logo-img" onerror="this.onerror=null; this.src='assets/logo.webp';" />
     </a>
     <div class="ad-role-badge">ADMIN</div>
@@ -292,7 +292,7 @@
       <button class="ad-hamburger" onclick="adOpenSidebar()" aria-label="Open navigation menu">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
-      <a href="dashboard.html" onclick="adSwitch('dashboard'); if(window.innerWidth<=780){adCloseSidebar();} return false;" class="ad-mobile-brand" title="Admin Dashboard Home" aria-label="Admin Dashboard Home" style="display:flex; align-items:center; gap:8px; text-decoration:none; cursor:pointer;">
+      <a href="dashboard.html" onclick="navigateDashboardHome('admin', event); return false;" class="ad-mobile-brand" title="Admin Dashboard Home" aria-label="Admin Dashboard Home" style="display:flex; align-items:center; gap:8px; text-decoration:none; cursor:pointer;">
         <img src="https://raw.githubusercontent.com/lingalamanasa/Outdoor-Camping-Store/main/assets/logo.webp" alt="Stackly Logo" class="brand-logo-img" style="height:24px; width:auto; filter: brightness(0) invert(1);" onerror="this.onerror=null; this.src='assets/logo.webp';" />
         <span style="font-weight:700;font-size:14px;color:#fff;">Admin Dashboard</span>
       </a>
@@ -565,12 +565,25 @@
     document.getElementById('ad-tab-'+tab)?.classList.add('active');
     document.getElementById('adnav-'+tab)?.classList.add('active');
     adCloseSidebar();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    const mainEl = document.querySelector('.ad-main');
+    if (mainEl) mainEl.scrollTop = 0;
     if (tab === 'analytics') {
       animateCounter(document.getElementById('adkpi-conv'), 5.77, 1200, '', 2);
       animateCounter(document.getElementById('adkpi-aov'), 282, 1000);
       animateCounter(document.getElementById('adkpi-newusers'), 234, 1200);
     }
   }
+
+  function navigateDashboardHome(role, evt) {
+    if (evt) {
+      if (typeof evt.preventDefault === 'function') evt.preventDefault();
+      if (typeof evt.stopPropagation === 'function') evt.stopPropagation();
+    }
+    adSwitch('dashboard');
+    return false;
+  }
+  window.navigateDashboardHome = navigateDashboardHome;
 
   function adOpenSidebar() {
     document.getElementById('ad-sidebar').classList.add('open');
