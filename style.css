@@ -5348,6 +5348,10 @@ html, body {
   box-shadow: 0 4px 14px rgba(27, 67, 50, 0.28) !important;
 }
 
+#latest-trail-articles {
+  scroll-margin-top: 90px;
+}
+
 .featured-blog-card {
   display: grid;
   grid-template-columns: 1fr 1fr;

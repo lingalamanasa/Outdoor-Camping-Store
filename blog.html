@@ -99,7 +99,7 @@
     <section class="page-section bg-alt" style="padding: 40px 0;">
       <div class="container">
         <div class="blog-filter-bar">
-          <button class="bf-btn active" onclick="handleBlogFilter(event)">All Stories</button>
+          <a href="#latest-trail-articles" class="bf-btn active" id="btn-all-stories" onclick="handleBlogFilter(event, 'all')">All Stories</a>
           <a href="404.html" class="bf-btn" title="Camping Tips">Camping Tips</a>
           <a href="404.html" class="bf-btn" title="Gear Reviews">Gear Reviews</a>
           <a href="404.html" class="bf-btn" title="Survival Skills">Survival Skills</a>
@@ -109,7 +109,7 @@
     </section>
 
     <!-- SECTION 3: RECENT JOURNAL ARTICLES GRID -->
-    <section class="page-section">
+    <section class="page-section" id="latest-trail-articles">
       <div class="container">
         <div class="section-header-centered">
           <h2 class="section-title">Latest <span class="accent">Trail Articles</span></h2>

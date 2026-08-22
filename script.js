@@ -574,6 +574,11 @@ function handleBlogFilter(e, category) {
     }
   });
 
+  const targetSection = document.getElementById('latest-trail-articles');
+  if (targetSection) {
+    targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
   const filterLabel = btn ? btn.textContent.trim() : filterVal;
   showAppToast(`Filtered articles by <strong>"${filterLabel}"</strong>`, 'fa-solid fa-filter');
 }
