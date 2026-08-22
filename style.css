@@ -801,6 +801,54 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
 .hero-title-accent{background:linear-gradient(135deg,var(--green-300),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .hero-desc{color:rgba(255,255,255,.85);font-size:clamp(15px,2vw,18px);max-width:640px;margin:0 auto 28px;line-height:1.6}
 
+/* ===== HERO VALUE HIGHLIGHTS & TRUST PILLS ===== */
+.hero-trust-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  max-width: 820px;
+  margin: 28px auto 34px;
+  position: relative;
+  z-index: 5;
+}
+.hero-trust-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background: rgba(10, 26, 14, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(82, 183, 136, 0.32);
+  border-radius: 9999px;
+  padding: 10px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(82, 183, 136, 0.12);
+  transition: all var(--t);
+  cursor: default;
+}
+.hero-trust-pill i {
+  color: #52b788;
+  font-size: 15px;
+  transition: transform var(--t);
+}
+.hero-trust-pill:nth-child(2) i,
+.hero-trust-pill:nth-child(4) i {
+  color: #e9c46a;
+}
+.hero-trust-pill:hover {
+  background: rgba(15, 38, 22, 0.9);
+  border-color: #52b788;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(82, 183, 136, 0.25), 0 0 0 1px rgba(82, 183, 136, 0.35);
+}
+.hero-trust-pill:hover i {
+  transform: scale(1.18);
+}
+
 /* ===== HERO EXPEDITION SEARCH BAR ===== */
 .hero-search-bar {
   display: flex;
