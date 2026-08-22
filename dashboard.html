@@ -216,16 +216,57 @@
     .fade-up { animation: fadeUp 0.4s ease both; }
     .fade-up:nth-child(1){animation-delay:0s} .fade-up:nth-child(2){animation-delay:.07s} .fade-up:nth-child(3){animation-delay:.14s} .fade-up:nth-child(4){animation-delay:.21s}
 
-    @media (max-width: 1100px) { .kpi-row { grid-template-columns: repeat(2,1fr); } }
-    @media (max-width: 780px) {
-      .ad-sidebar { position: fixed; left:0; top:0; z-index:100; transform:translateX(-100%); transition:transform 0.28s; height:100vh; }
-      .ad-sidebar.open { transform:translateX(0); }
-      .ad-mobile-topbar { display: flex; }
-      .ad-content { padding: 0 18px 24px; }
-      .ad-topbar { padding: 18px 18px 0; flex-wrap: wrap; gap: 10px; }
-      .form-row { grid-template-columns: 1fr; }
+    @media (max-width: 1024px) {
+      .kpi-row { grid-template-columns: repeat(2, 1fr); gap: 14px; margin-bottom: 24px; }
+      .ad-topbar { padding: 22px 24px 0; }
+      .ad-content { padding: 0 24px 24px; }
     }
-    @media (max-width: 500px) { .kpi-row { grid-template-columns: 1fr; } }
+
+    @media (max-width: 780px) {
+      .ad-layout { width: 100%; max-width: 100%; overflow-x: hidden; }
+      .ad-main { width: 100%; max-width: 100%; min-width: 0; overflow-x: hidden; }
+      .ad-sidebar { position: fixed; left: 0; top: 0; z-index: 100; transform: translateX(-100%); transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1); height: 100vh; width: 260px; max-width: 80vw; box-shadow: 0 0 24px rgba(0, 0, 0, 0.35); }
+      .ad-sidebar.open { transform: translateX(0); }
+      .ad-mobile-topbar { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; background: #ffffff; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 40; }
+      .ad-topbar { padding: 16px 16px 0; flex-direction: column; align-items: flex-start; gap: 10px; width: 100%; box-sizing: border-box; }
+      .ad-topbar h1 { font-size: 22px; }
+      .ad-topbar-sub { font-size: 13px; line-height: 1.4; word-break: break-word; }
+      .ad-date { width: 100%; box-sizing: border-box; text-align: center; font-size: 12px; padding: 7px 12px; margin-top: 0; }
+      .ad-content { padding: 0 16px 24px; width: 100%; max-width: 100%; box-sizing: border-box; overflow-x: hidden; }
+      
+      /* Activity Overview Card & Chart */
+      .chart-section { padding: 18px 14px; width: 100%; max-width: 100%; box-sizing: border-box; overflow: hidden; margin-bottom: 20px; }
+      .chart-section-title { font-size: 15px; margin-bottom: 8px; }
+      .chart-label { font-size: 12px; }
+      .chart-legend { justify-content: flex-start; flex-wrap: wrap; gap: 8px 14px; margin-bottom: 10px; font-size: 11.5px; }
+      svg.line-chart { display: block; width: 100% !important; max-width: 100% !important; height: auto !important; overflow: hidden; }
+      
+      /* Tables */
+      .tbl-wrap { width: 100% !important; max-width: 100% !important; box-sizing: border-box; overflow-x: auto !important; -webkit-overflow-scrolling: touch; margin-bottom: 20px; }
+      .tbl-head { padding: 14px 16px; }
+      table.dtbl th, table.dtbl td { padding: 10px 14px; font-size: 12.5px; white-space: nowrap; }
+
+      /* Activity Section */
+      .activity-section { padding: 18px 14px; width: 100%; max-width: 100%; box-sizing: border-box; margin-bottom: 20px; }
+      .activity-item { flex-direction: column; align-items: flex-start; gap: 4px; padding: 12px 0; width: 100%; box-sizing: border-box; }
+      .activity-time { font-size: 11px; margin-left: 18px; }
+
+      /* Settings */
+      .settings-card { padding: 20px 14px; width: 100%; max-width: 100%; box-sizing: border-box; }
+      .form-row { grid-template-columns: 1fr; gap: 12px; width: 100%; box-sizing: border-box; }
+      .fg input, .fg select, .fg textarea { width: 100%; box-sizing: border-box; }
+    }
+
+    @media (max-width: 640px) {
+      .kpi-row { grid-template-columns: 1fr !important; gap: 12px; margin-bottom: 20px; }
+      .kpi-card { padding: 16px 18px; width: 100%; max-width: 100%; box-sizing: border-box; }
+      .kpi-val { font-size: 28px; }
+      .ad-content { padding: 0 12px 20px; }
+      .ad-topbar { padding: 14px 12px 0; }
+      .chart-section { padding: 14px 12px; }
+      .activity-section { padding: 14px 12px; }
+      .settings-card { padding: 16px 12px; }
+    }
   </style>
 </head>
 <body>
