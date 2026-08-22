@@ -1440,6 +1440,21 @@ function closeDashDrawer() {
     }
   }
 
+  // Intersection Observer for instant and smooth trigger
+  if ('IntersectionObserver' in window) {
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          handleScrollAnimation();
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px 40px 0px' });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.stat-counter-number[data-count]').forEach(el => counterObserver.observe(el));
+    });
+  }
+
   window.addEventListener('scroll', handleScrollAnimation, { passive: true });
   window.addEventListener('DOMContentLoaded', () => {
     setTimeout(handleScrollAnimation, 100);
