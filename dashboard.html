@@ -216,8 +216,17 @@
     .fade-up { animation: fadeUp 0.4s ease both; }
     .fade-up:nth-child(1){animation-delay:0s} .fade-up:nth-child(2){animation-delay:.07s} .fade-up:nth-child(3){animation-delay:.14s} .fade-up:nth-child(4){animation-delay:.21s}
 
+    .reports-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
     @media (max-width: 1024px) {
       .kpi-row { grid-template-columns: repeat(2, 1fr); gap: 14px; margin-bottom: 24px; }
+      .reports-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
       .ad-topbar { padding: 22px 24px 0; }
       .ad-content { padding: 0 24px 24px; }
     }
@@ -259,6 +268,8 @@
 
     @media (max-width: 640px) {
       .kpi-row { grid-template-columns: 1fr !important; gap: 12px; margin-bottom: 20px; }
+      .reports-grid { grid-template-columns: 1fr !important; gap: 14px; }
+      .reports-grid .activity-section { width: 100% !important; max-width: 100% !important; box-sizing: border-box !important; }
       .kpi-card { padding: 16px 18px; width: 100%; max-width: 100%; box-sizing: border-box; }
       .kpi-val { font-size: 28px; }
       .ad-content { padding: 0 12px 20px; }
@@ -511,7 +522,7 @@
     <div class="ad-tab-panel" id="ad-tab-reports">
       <div class="ad-topbar"><div><h1>Reports</h1><p class="ad-topbar-sub">Download analytics and data exports</p></div></div>
       <div class="ad-content">
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
+        <div class="reports-grid">
           <div class="activity-section" style="text-align:center;padding:32px 20px;"><div style="font-size:36px;margin-bottom:14px;">📊</div><div style="font-size:15px;font-weight:700;margin-bottom:8px;">Sales Report</div><div style="font-size:13px;color:var(--text2);margin-bottom:20px;">Monthly revenue, orders and AOV</div><button class="btn-indigo" onclick="trigger404(event)" style="width:100%;padding:11px;">Download PDF</button></div>
           <div class="activity-section" style="text-align:center;padding:32px 20px;"><div style="font-size:36px;margin-bottom:14px;">📦</div><div style="font-size:15px;font-weight:700;margin-bottom:8px;">Inventory Report</div><div style="font-size:13px;color:var(--text2);margin-bottom:20px;">Stock levels, alerts, and turnover</div><button class="btn-indigo" onclick="trigger404(event)" style="width:100%;padding:11px;">Download CSV</button></div>
           <div class="activity-section" style="text-align:center;padding:32px 20px;"><div style="font-size:36px;margin-bottom:14px;">👥</div><div style="font-size:15px;font-weight:700;margin-bottom:8px;">Customer Report</div><div style="font-size:13px;color:var(--text2);margin-bottom:20px;">Registrations, retention and LTV</div><button class="btn-indigo" onclick="trigger404(event)" style="width:100%;padding:11px;">Download CSV</button></div>
