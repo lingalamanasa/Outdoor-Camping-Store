@@ -1464,10 +1464,10 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
   display:block;
   margin:0 auto;
 }
-/* ===== PRE-FOOTER BANNER & FOOTER (MATCHING USER SCREENSHOT) ===== */
+/* ===== PRE-FOOTER BANNER & FOOTER ===== */
 .prefooter-banner {
   position: relative;
-  background: linear-gradient(rgba(136, 19, 55, 0.72), rgba(76, 5, 25, 0.84)), url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=1600&q=80');
+  background: linear-gradient(rgba(10, 26, 13, 0.84), rgba(19, 42, 28, 0.92)), url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1600&q=80');
   background-size: cover;
   background-position: center;
   padding: 85px 24px;
@@ -1491,7 +1491,7 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
 .btn-prefooter-talk {
   display: inline-block !important;
   background: #ffffff !important;
-  color: #111827 !important;
+  color: #0a1a0d !important;
   font-family: 'Playfair Display', serif !important;
   font-size: 18px !important;
   font-weight: 700 !important;
@@ -1502,17 +1502,18 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
   transition: all 0.25s ease !important;
 }
 .btn-prefooter-talk:hover {
-  background: #f8fafc !important;
+  background: #52b788 !important;
+  color: #0a1a0d !important;
   transform: translateY(-3px) !important;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35) !important;
+  box-shadow: 0 12px 32px rgba(82, 183, 136, 0.35) !important;
 }
 
 /* FOOTER WRAPPER */
 .footer {
-  background: #0d121c !important;
-  color: #94a3b8 !important;
+  background: #0a1a0d !important;
+  color: #cbd5e1 !important;
   padding: 70px 24px 30px !important;
-  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-top: 1px solid rgba(82, 183, 136, 0.2) !important;
 }
 .footer-container {
   max-width: 1240px;
@@ -1526,7 +1527,7 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
 }
 .footer-brand-text {
   font-size: 13.5px;
-  color: #94a3b8;
+  color: #cbd5e1;
   line-height: 1.6;
   margin: 18px 0 22px;
   max-width: 280px;
@@ -1539,20 +1540,20 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
   width: 36px;
   height: 36px;
   border-radius: 8px;
-  background: #171f2c;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(19, 42, 28, 0.8);
+  border: 1px solid rgba(82, 183, 136, 0.25);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: #cbd5e1;
+  color: #ffffff;
   font-size: 14px;
   text-decoration: none;
   transition: all 0.25s ease;
 }
 .footer-social-btn:hover {
-  background: #9f1239;
-  border-color: #be185d;
-  color: #ffffff;
+  background: #52b788;
+  border-color: #52b788;
+  color: #0a1a0d;
   transform: translateY(-2px);
 }
 .footer-col-heading {
@@ -1570,19 +1571,19 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
   gap: 12px;
 }
 .footer-nav-list li a {
-  color: #94a3b8;
+  color: #cbd5e1;
   text-decoration: none;
   font-size: 14px;
   transition: all 0.2s ease;
 }
 .footer-nav-list li a:hover {
-  color: #ffffff;
+  color: #52b788;
 }
 .footer-newsletter-box {
   display: flex;
   align-items: center;
-  background: #171f2c;
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(19, 42, 28, 0.8);
+  border: 1px solid rgba(82, 183, 136, 0.3);
   border-radius: 9999px;
   padding: 5px 6px 5px 18px;
   max-width: 380px;
@@ -1597,12 +1598,12 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
   font-family: inherit;
 }
 .footer-newsletter-input::placeholder {
-  color: #64748b;
+  color: #829a8a;
 }
 .footer-newsletter-btn {
-  background: linear-gradient(135deg, #881337 0%, #9f1239 100%);
-  color: #ffffff;
-  border: 1px solid #be185d;
+  background: #52b788;
+  color: #0a1a0d;
+  border: 1px solid #52b788;
   border-radius: 9999px;
   padding: 10px 24px;
   font-size: 14px;
@@ -1611,7 +1612,9 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
   transition: all 0.25s ease;
 }
 .footer-newsletter-btn:hover {
-  background: linear-gradient(135deg, #9f1239 0%, #be185d 100%);
+  background: #74c69d;
+  border-color: #74c69d;
+  color: #0a1a0d;
   transform: scale(1.02);
 }
 .footer-bottom-bar {
