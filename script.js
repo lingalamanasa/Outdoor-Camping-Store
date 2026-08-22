@@ -1091,35 +1091,47 @@ function handleSignup(e) {
 
 // ===== CONTACT FORM SUBMIT =====
 function handleContactSubmit(e) {
-  if (e) {
-    if (typeof e.preventDefault === 'function') e.preventDefault();
-    if (typeof e.stopPropagation === 'function') e.stopPropagation();
+  if (e && typeof e.preventDefault === 'function') {
+    e.preventDefault();
+  }
+
+  const form = document.getElementById('contact-form') || (e && e.target ? (e.target.tagName === 'FORM' ? e.target : e.target.closest('form')) : null);
+
+  if (form) {
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return false;
+    }
   }
 
   const nameInput = document.getElementById('c-name');
   const emailInput = document.getElementById('c-email');
   const phoneInput = document.getElementById('c-phone');
   const msgInput = document.getElementById('c-msg');
-  const submitBtn = document.getElementById('c-submit-btn');
 
-  const senderName = (nameInput && nameInput.value.trim()) ? nameInput.value.trim() : 'Valued Explorer';
-  const senderEmail = (emailInput && emailInput.value.trim()) ? emailInput.value.trim() : '';
-
-  if (submitBtn) {
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = 'Sending message...';
+  if (nameInput && !nameInput.value.trim()) {
+    nameInput.focus();
+    if (typeof nameInput.reportValidity === 'function') nameInput.reportValidity();
+    return false;
+  }
+  if (emailInput && (!emailInput.value.trim() || !emailInput.checkValidity())) {
+    emailInput.focus();
+    if (typeof emailInput.reportValidity === 'function') emailInput.reportValidity();
+    return false;
+  }
+  if (phoneInput && !phoneInput.value.trim()) {
+    phoneInput.focus();
+    if (typeof phoneInput.reportValidity === 'function') phoneInput.reportValidity();
+    return false;
+  }
+  if (msgInput && !msgInput.value.trim()) {
+    msgInput.focus();
+    if (typeof msgInput.reportValidity === 'function') msgInput.reportValidity();
+    return false;
   }
 
-  setTimeout(() => {
-    showAppToast(`✨ Message Sent! Thank you, ${senderName}. Our outdoor guide team has received your message and will reply to ${senderEmail || 'your email'} shortly.`, 'fa-solid fa-paper-plane');
-    const form = document.getElementById('contact-form') || (e && e.target ? e.target.closest('form') : null);
-    if (form) form.reset();
-    if (submitBtn) {
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = 'Send message';
-    }
-  }, 450);
-
+  // All fields valid -> Open existing 404.html
+  window.location.href = '404.html';
   return false;
 }
 
