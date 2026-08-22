@@ -277,6 +277,17 @@
       .chart-section { padding: 14px 12px; }
       .activity-section { padding: 14px 12px; }
       .settings-card { padding: 16px 12px; }
+
+      /* Responsive Table Cards on Mobile */
+      .tbl-wrap { background: transparent !important; border: none !important; box-shadow: none !important; overflow: visible !important; width: 100% !important; margin-bottom: 20px; }
+      .tbl-head { background: #ffffff; border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; margin-bottom: 12px; }
+      table.dtbl, table.dtbl thead, table.dtbl tbody, table.dtbl th, table.dtbl td, table.dtbl tr { display: block; width: 100% !important; box-sizing: border-box; }
+      table.dtbl thead { display: none; }
+      table.dtbl tbody { display: flex; flex-direction: column; gap: 12px; }
+      table.dtbl tr { background: #ffffff; border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; box-shadow: 0 2px 8px rgba(10, 26, 13, 0.04); }
+      table.dtbl td { padding: 7px 0 !important; border-bottom: 1px dashed rgba(82, 183, 136, 0.18) !important; display: flex; justify-content: space-between; align-items: center; font-size: 13px; text-align: right; white-space: normal !important; }
+      table.dtbl td:last-child { border-bottom: none !important; padding-bottom: 0 !important; }
+      table.dtbl td::before { content: attr(data-label); font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text3); margin-right: 12px; text-align: left; flex-shrink: 0; }
     }
   </style>
 </head>
@@ -486,12 +497,12 @@
           <table class="dtbl">
             <thead><tr><th>Order ID</th><th>Customer</th><th>Product</th><th>Date</th><th>Amount</th><th>Status</th></tr></thead>
             <tbody>
-              <tr><td style="font-weight:700;color:var(--text);">#4821</td><td>Alex Hiker</td><td>Osprey Atmos 65</td><td>Aug 18, 2026</td><td style="font-weight:700;color:#059669;">$289.00</td><td><span class="sbadge shipped"><span class="sdot"></span>Shipped</span></td></tr>
-              <tr><td style="font-weight:700;color:var(--text);">#4820</td><td>Sarah Palmer</td><td>MSR Hubba Tent</td><td>Aug 18, 2026</td><td style="font-weight:700;color:#059669;">$499.99</td><td><span class="sbadge active"><span class="sdot"></span>Delivered</span></td></tr>
-              <tr><td style="font-weight:700;color:var(--text);">#4819</td><td>Mark Torres</td><td>Patagonia Nano Puff</td><td>Aug 17, 2026</td><td style="font-weight:700;color:#059669;">$249.00</td><td><span class="sbadge pending"><span class="sdot"></span>Pending</span></td></tr>
-              <tr><td style="font-weight:700;color:var(--text);">#4818</td><td>Jamie Lee</td><td>Salomon X Ultra 4</td><td>Aug 17, 2026</td><td style="font-weight:700;color:#059669;">$189.00</td><td><span class="sbadge active"><span class="sdot"></span>Delivered</span></td></tr>
-              <tr><td style="font-weight:700;color:var(--text);">#4817</td><td>Nina Reeves</td><td>Black Diamond Lamp</td><td>Aug 16, 2026</td><td style="font-weight:700;color:#059669;">$59.95</td><td><span class="sbadge shipped"><span class="sdot"></span>Shipped</span></td></tr>
-              <tr><td style="font-weight:700;color:var(--text);">#4815</td><td>Aria Jensen</td><td>Arc'teryx Beta Shell</td><td>Aug 14, 2026</td><td style="font-weight:700;color:#059669;">$599.00</td><td><span class="sbadge cancelled"><span class="sdot"></span>Cancelled</span></td></tr>
+              <tr><td data-label="Order ID" style="font-weight:700;color:var(--text);">#4821</td><td data-label="Customer">Alex Hiker</td><td data-label="Product">Osprey Atmos 65</td><td data-label="Date">Aug 18, 2026</td><td data-label="Amount" style="font-weight:700;color:#059669;">$289.00</td><td data-label="Status"><span class="sbadge shipped"><span class="sdot"></span>Shipped</span></td></tr>
+              <tr><td data-label="Order ID" style="font-weight:700;color:var(--text);">#4820</td><td data-label="Customer">Sarah Palmer</td><td data-label="Product">MSR Hubba Tent</td><td data-label="Date">Aug 18, 2026</td><td data-label="Amount" style="font-weight:700;color:#059669;">$499.99</td><td data-label="Status"><span class="sbadge active"><span class="sdot"></span>Delivered</span></td></tr>
+              <tr><td data-label="Order ID" style="font-weight:700;color:var(--text);">#4819</td><td data-label="Customer">Mark Torres</td><td data-label="Product">Patagonia Nano Puff</td><td data-label="Date">Aug 17, 2026</td><td data-label="Amount" style="font-weight:700;color:#059669;">$249.00</td><td data-label="Status"><span class="sbadge pending"><span class="sdot"></span>Pending</span></td></tr>
+              <tr><td data-label="Order ID" style="font-weight:700;color:var(--text);">#4818</td><td data-label="Customer">Jamie Lee</td><td data-label="Product">Salomon X Ultra 4</td><td data-label="Date">Aug 17, 2026</td><td data-label="Amount" style="font-weight:700;color:#059669;">$189.00</td><td data-label="Status"><span class="sbadge active"><span class="sdot"></span>Delivered</span></td></tr>
+              <tr><td data-label="Order ID" style="font-weight:700;color:var(--text);">#4817</td><td data-label="Customer">Nina Reeves</td><td data-label="Product">Black Diamond Lamp</td><td data-label="Date">Aug 16, 2026</td><td data-label="Amount" style="font-weight:700;color:#059669;">$59.95</td><td data-label="Status"><span class="sbadge shipped"><span class="sdot"></span>Shipped</span></td></tr>
+              <tr><td data-label="Order ID" style="font-weight:700;color:var(--text);">#4815</td><td data-label="Customer">Aria Jensen</td><td data-label="Product">Arc'teryx Beta Shell</td><td data-label="Date">Aug 14, 2026</td><td data-label="Amount" style="font-weight:700;color:#059669;">$599.00</td><td data-label="Status"><span class="sbadge cancelled"><span class="sdot"></span>Cancelled</span></td></tr>
             </tbody>
           </table>
         </div>
@@ -507,11 +518,11 @@
           <table class="dtbl">
             <thead><tr><th>Product</th><th>Category</th><th>Price</th><th>Stock</th><th>Sales</th><th>Status</th></tr></thead>
             <tbody>
-              <tr><td style="font-weight:600;color:var(--text);">Osprey Atmos 65</td><td>Backpacks</td><td style="font-weight:700;color:#059669;">$289.00</td><td>48</td><td>156</td><td><span class="sbadge active"><span class="sdot"></span>Active</span></td></tr>
-              <tr><td style="font-weight:600;color:var(--text);">MSR Hubba Hubba Tent</td><td>Tents</td><td style="font-weight:700;color:#059669;">$499.99</td><td>12</td><td>132</td><td><span class="sbadge active"><span class="sdot"></span>Active</span></td></tr>
-              <tr><td style="font-weight:600;color:var(--text);">Patagonia Nano Puff</td><td>Apparel</td><td style="font-weight:700;color:#059669;">$249.00</td><td>3</td><td>109</td><td><span class="sbadge low"><span class="sdot"></span>Low Stock</span></td></tr>
-              <tr><td style="font-weight:600;color:var(--text);">Salomon X Ultra 4 GTX</td><td>Footwear</td><td style="font-weight:700;color:#059669;">$189.00</td><td>0</td><td>91</td><td><span class="sbadge cancelled"><span class="sdot"></span>Out of Stock</span></td></tr>
-              <tr><td style="font-weight:600;color:var(--text);">Black Diamond Headlamp</td><td>Tools</td><td style="font-weight:700;color:#059669;">$59.95</td><td>82</td><td>73</td><td><span class="sbadge active"><span class="sdot"></span>Active</span></td></tr>
+              <tr><td data-label="Product" style="font-weight:600;color:var(--text);">Osprey Atmos 65</td><td data-label="Category">Backpacks</td><td data-label="Price" style="font-weight:700;color:#059669;">$289.00</td><td data-label="Stock">48</td><td data-label="Sales">156</td><td data-label="Status"><span class="sbadge active"><span class="sdot"></span>Active</span></td></tr>
+              <tr><td data-label="Product" style="font-weight:600;color:var(--text);">MSR Hubba Hubba Tent</td><td data-label="Category">Tents</td><td data-label="Price" style="font-weight:700;color:#059669;">$499.99</td><td data-label="Stock">12</td><td data-label="Sales">132</td><td data-label="Status"><span class="sbadge active"><span class="sdot"></span>Active</span></td></tr>
+              <tr><td data-label="Product" style="font-weight:600;color:var(--text);">Patagonia Nano Puff</td><td data-label="Category">Apparel</td><td data-label="Price" style="font-weight:700;color:#059669;">$249.00</td><td data-label="Stock">3</td><td data-label="Sales">109</td><td data-label="Status"><span class="sbadge low"><span class="sdot"></span>Low Stock</span></td></tr>
+              <tr><td data-label="Product" style="font-weight:600;color:var(--text);">Salomon X Ultra 4 GTX</td><td data-label="Category">Footwear</td><td data-label="Price" style="font-weight:700;color:#059669;">$189.00</td><td data-label="Stock">0</td><td data-label="Sales">91</td><td data-label="Status"><span class="sbadge cancelled"><span class="sdot"></span>Out of Stock</span></td></tr>
+              <tr><td data-label="Product" style="font-weight:600;color:var(--text);">Black Diamond Headlamp</td><td data-label="Category">Tools</td><td data-label="Price" style="font-weight:700;color:#059669;">$59.95</td><td data-label="Stock">82</td><td data-label="Sales">73</td><td data-label="Status"><span class="sbadge active"><span class="sdot"></span>Active</span></td></tr>
             </tbody>
           </table>
         </div>
