@@ -808,7 +808,8 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
   overflow:hidden;
 }
 .page-hero-content{position:relative;z-index:2;max-width:800px;margin:0 auto}
-.page-badge{display:inline-block;background:rgba(255,255,255,.14);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.25);color:#fff;font-size:13px;font-weight:700;padding:8px 22px;border-radius:var(--r-pill);margin-bottom:20px;letter-spacing:.5px}
+.page-badge{display:inline-block;background:rgba(255,255,255,.14);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.25);color:#fff;font-size:13px;font-weight:700;padding:8px 22px;border-radius:var(--r-pill);margin-bottom:20px;letter-spacing:.5px;text-decoration:none;cursor:pointer;transition:all .2s ease}
+.page-badge:hover{background:rgba(255,255,255,.22);border-color:rgba(255,255,255,.45);transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.2);color:#fff}
 .page-title{font-size:clamp(36px,6vw,68px);font-weight:800;line-height:1.1;margin-bottom:18px;letter-spacing:-1.5px;color:#fff}
 .page-subtitle{font-size:clamp(15px,2vw,19px);color:rgba(255,255,255,.85);max-width:640px;margin:0 auto 36px;line-height:1.6}
 
@@ -831,7 +832,8 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
 .hero-slide.active{opacity:1}
 .hero-content{position:relative;z-index:2;text-align:center;padding:0 24px;animation:heroFadeIn 1s ease forwards}
 @keyframes heroFadeIn{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
-.hero-badge{display:inline-block;background:rgba(255,255,255,.12);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.2);color:#fff;font-size:13px;font-weight:600;padding:8px 20px;border-radius:var(--r-pill);margin-bottom:20px;letter-spacing:.5px}
+.hero-badge{display:inline-block;background:rgba(255,255,255,.12);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.2);color:#fff;font-size:13px;font-weight:600;padding:8px 20px;border-radius:var(--r-pill);margin-bottom:20px;letter-spacing:.5px;text-decoration:none;cursor:pointer;transition:all .2s ease}
+.hero-badge:hover{background:rgba(255,255,255,.22);border-color:rgba(255,255,255,.45);transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.2);color:#fff}
 .hero-title{font-size:clamp(42px,8vw,90px);font-weight:800;color:#fff;line-height:1.05;letter-spacing:-2px;margin-bottom:20px}
 .hero-title-accent{background:linear-gradient(135deg,var(--green-300),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .hero-desc{color:rgba(255,255,255,.85);font-size:clamp(15px,2vw,18px);max-width:640px;margin:0 auto 28px;line-height:1.6}
