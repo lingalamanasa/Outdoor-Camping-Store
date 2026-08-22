@@ -826,9 +826,15 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
   font-size: 14px;
   font-weight: 600;
   color: #ffffff;
+  text-decoration: none;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(82, 183, 136, 0.12);
   transition: all var(--t);
-  cursor: default;
+  cursor: pointer;
+  user-select: none;
+}
+.hero-trust-pill i,
+.hero-trust-pill span {
+  pointer-events: none;
 }
 .hero-trust-pill i {
   color: #52b788;
@@ -842,6 +848,7 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
 .hero-trust-pill:hover {
   background: rgba(15, 38, 22, 0.9);
   border-color: #52b788;
+  color: #ffffff;
   transform: translateY(-3px);
   box-shadow: 0 12px 32px rgba(82, 183, 136, 0.25), 0 0 0 1px rgba(82, 183, 136, 0.35);
 }
