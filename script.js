@@ -474,50 +474,50 @@ function showAppToast(message, iconClass = 'fa-solid fa-circle-check') {
   }, 3500);
 }
 
-// ===== INTERACTIVE BUTTON HANDLERS (ZERO 404 ERROR REDIRECT) =====
-function trigger404(e) {
+// ===== 404 NAVIGATION REDIRECT HELPER =====
+function redirectTo404(e) {
   if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  showAppToast('Action completed successfully!', 'fa-solid fa-circle-check');
+  if (e && typeof e.stopPropagation === 'function') e.stopPropagation();
+  const path = window.location.pathname;
+  if (path.includes('/html/')) {
+    window.location.href = '../404.html';
+  } else {
+    window.location.href = '404.html';
+  }
 }
+window.redirectTo404 = redirectTo404;
+window.trigger404 = redirectTo404;
 
 function handleAddToCart(e, productName) {
-  if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  showAppToast(`${productName || 'Item'} added to your cart!`, 'fa-solid fa-cart-shopping');
+  redirectTo404(e);
 }
 
 function handleBookExpedition(e, tourTitle) {
-  if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  showAppToast(`Expedition booking requested for ${tourTitle || 'Trip'}!`, 'fa-solid fa-mountain');
+  redirectTo404(e);
 }
 
 function handleCustomRoute(e) {
-  if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  showAppToast('Custom route planning requested! An expedition guide will contact you.', 'fa-solid fa-route');
+  redirectTo404(e);
 }
 
 function handleReadGuide(e, title) {
-  if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  showAppToast(`Opening field guide: ${title || 'Expedition Handbook'}...`, 'fa-solid fa-book-open');
+  redirectTo404(e);
 }
 
 function handleGuideDownload(e) {
-  if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  showAppToast('Field guide PDF download started!', 'fa-solid fa-file-arrow-down');
+  redirectTo404(e);
 }
 
 function handleMemberSignup(e) {
-  if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  showAppToast('Welcome to Stackly Club! Check your inbox for your perk voucher.', 'fa-solid fa-envelope-circle-check');
+  redirectTo404(e);
 }
 
 function handlePillClick(e, name) {
-  if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  showAppToast(`Filtered by ${name || 'category'}.`, 'fa-solid fa-filter');
+  redirectTo404(e);
 }
 
 function handleTermsClick(e) {
-  if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  showAppToast('Stackly standard terms and guarantees applied.', 'fa-solid fa-shield-halved');
+  redirectTo404(e);
 }
 
 
@@ -1121,10 +1121,7 @@ function handleContactSubmit(e) {
 // ===== NEWSLETTER SUBSCRIBE =====
 function handleSubscribeNewsletter(e) {
   if (e && typeof e.preventDefault === 'function') e.preventDefault();
-  const input = e && e.target ? e.target.querySelector('input[type="email"]') : null;
-  const emailVal = input ? input.value.trim() : '';
-  showAppToast(`📩 Subscribed! Thank you for joining the Stackly Adventurers Club (${emailVal || 'your email'}).`, 'fa-solid fa-envelope-circle-check');
-  if (input) input.value = '';
+  redirectTo404(e);
   return false;
 }
 
