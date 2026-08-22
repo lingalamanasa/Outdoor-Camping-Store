@@ -1389,8 +1389,11 @@ function closeDashDrawer() {
         const prefix = counter.dataset.prefix || '';
         const suffix = counter.dataset.suffix || '';
         const decimals = parseInt(counter.dataset.decimals || '0', 10);
-        const duration = 2000;
+        const duration = 1800;
         const start = performance.now();
+
+        // Start from zero for a clear visual counting effect
+        counter.textContent = prefix + (decimals > 0 ? (0).toFixed(decimals) : '0') + suffix;
 
         function updateCounter(now) {
           const elapsed = now - start;
