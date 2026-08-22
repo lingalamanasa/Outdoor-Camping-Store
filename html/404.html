@@ -13,10 +13,10 @@
   
   <style>
     :root {
-      --color-burgundy: #8B0F3A;
-      --color-charcoal: #151722;
+      --color-forest: #0B1F14;
+      --color-accent: #52B788;
       --color-white: #FFFFFF;
-      --color-cream: #FDFBF7;
+      --color-bg: #F5F8F6;
       --font-serif: "Playfair Display", serif;
       --font-sans: "Open Sans", sans-serif;
     }
@@ -29,8 +29,8 @@
 
     body {
       font-family: var(--font-sans);
-      background-color: var(--color-cream);
-      color: var(--color-charcoal);
+      background-color: var(--color-bg);
+      color: var(--color-forest);
       height: 100vh;
       min-height: 100dvh;
       display: flex;
@@ -62,7 +62,7 @@
       font-family: var(--font-serif);
       font-size: clamp(96px, 15vw, 150px);
       line-height: 1;
-      color: var(--color-burgundy);
+      color: var(--color-accent);
       font-weight: 700;
       margin-bottom: 12px;
       letter-spacing: -2px;
@@ -74,13 +74,13 @@
       line-height: 1.25;
       font-weight: 400;
       margin-bottom: 16px;
-      color: var(--color-charcoal);
+      color: var(--color-forest);
     }
 
     .error-desc {
       font-size: 15px;
       line-height: 1.6;
-      color: rgba(21, 23, 34, 0.7);
+      color: rgba(11, 31, 20, 0.75);
       margin-bottom: 36px;
       max-width: 460px;
       margin-left: auto;
@@ -111,29 +111,30 @@
     }
 
     .btn-primary {
-      background-color: var(--color-charcoal);
+      background-color: var(--color-forest);
       color: var(--color-white);
-      border: 1.5px solid var(--color-charcoal);
+      border: 1.5px solid var(--color-forest);
     }
 
     .btn-primary:hover {
-      background-color: var(--color-burgundy);
-      border-color: var(--color-burgundy);
+      background-color: var(--color-accent);
+      border-color: var(--color-accent);
+      color: var(--color-forest);
       transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(139, 15, 58, 0.15);
+      box-shadow: 0 8px 24px rgba(82, 183, 136, 0.25);
     }
 
     .btn-secondary {
       background-color: transparent;
-      color: var(--color-charcoal);
-      border: 1.5px solid rgba(21, 23, 34, 0.2);
+      color: var(--color-forest);
+      border: 1.5px solid rgba(11, 31, 20, 0.25);
     }
 
     .btn-secondary:hover {
       background-color: var(--color-white);
-      border-color: var(--color-charcoal);
+      border-color: var(--color-forest);
       transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(21, 23, 34, 0.05);
+      box-shadow: 0 8px 24px rgba(11, 31, 20, 0.08);
     }
 
     /* Responsive */

@@ -1,13 +1,48 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap');
 
-/* ===== VARIABLES ===== */
+/* ===== 3-COLOR PALETTE SYSTEM =====
+   Color 1: Deep Forest Green (#0a1a0d, #0b1f14, #132a1c, #1b4332, #2d6a4f)
+   Color 2: Natural Light Green (#52b788, #74c69d, #40916c, #95d5b2, #b7e4c7)
+   Color 3: White (#ffffff and transparent rgba white variations)
+*/
 :root {
-  --green-900:#0a1a0d; --green-800:#1a3d1f; --green-700:#1a4731;
-  --green-600:#2d6a4f; --green-500:#40916c; --green-400:#52b788;
-  --green-300:#74c69d; --green-200:#b7e4c7;
-  --gold:#e8a838; --gold-l:#f4c26a; --earth:#c8a96e;
-  --bg:#f5f2ec; --bg-dark:#0f1f12; --white:#fff;
-  --text:#1a1a1a; --muted:#5a6a5c;
+  --forest-dark: #0a1a0d;
+  --forest-green: #0b1f14;
+  --forest-mid: #132a1c;
+  --forest-card: #1b4332;
+  --forest-border: #2d6a4f;
+
+  --natural-green: #52b788;
+  --natural-light: #74c69d;
+  --natural-accent: #40916c;
+  --natural-glow: #95d5b2;
+  --natural-subtle: #b7e4c7;
+
+  --white: #ffffff;
+  --white-90: rgba(255, 255, 255, 0.9);
+  --white-75: rgba(255, 255, 255, 0.75);
+  --white-50: rgba(255, 255, 255, 0.5);
+  --white-20: rgba(255, 255, 255, 0.2);
+  --white-10: rgba(255, 255, 255, 0.1);
+  --white-05: rgba(255, 255, 255, 0.05);
+
+  --green-900: #0a1a0d;
+  --green-800: #0b1f14;
+  --green-700: #132a1c;
+  --green-600: #1b4332;
+  --green-500: #2d6a4f;
+  --green-400: #52b788;
+  --green-300: #74c69d;
+  --green-200: #b7e4c7;
+
+  --gold: #52b788;
+  --gold-l: #74c69d;
+  --earth: #95d5b2;
+
+  --bg: #f4f8f5;
+  --bg-dark: #0a1a0d;
+  --text: #0a1a0d;
+  --muted: #405a48;
   --r-sm:8px; --r-md:14px; --r-lg:22px; --r-xl:32px; --r-pill:999px;
   --sh-sm:0 2px 8px rgba(0,0,0,.08); --sh-md:0 4px 24px rgba(0,0,0,.13); --sh-lg:0 16px 56px rgba(0,0,0,.2);
   --t:.32s cubic-bezier(.4,0,.2,1);
@@ -15,14 +50,14 @@
 }
 
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;font-size:16px;background-color:#070e17 !important}
-body{font-family:var(--font);background:#070e17 !important;color:var(--text);overflow-x:hidden;line-height:1.65;min-height:100vh;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px;background-color:#0a1a0d !important}
+body{font-family:var(--font);background:#0a1a0d !important;color:#ffffff;overflow-x:hidden;line-height:1.65;min-height:100vh;margin:0;padding:0}
 a{text-decoration:none;color:inherit}
 ul{list-style:none}
 img{display:block;max-width:100%}
 button{cursor:pointer;font-family:inherit;border:none;background:none}
 ::-webkit-scrollbar{width:6px}
-::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-track{background:var(--bg-dark)}
 ::-webkit-scrollbar-thumb{background:var(--green-400);border-radius:3px}
 
 .container{max-width:1180px;margin:0 auto;padding:0 24px}
@@ -56,7 +91,7 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
 }
 .section-header-centered{text-align:center;margin-bottom:56px}
 .section-header-centered .section-desc{margin:12px auto 0;max-width:560px}
-.accent{color:var(--green-300)} .accent-light{color:var(--gold-l)}
+.accent{color:var(--green-300)} .accent-light{color:var(--green-300)}
 
 /* BUTTONS */
 .btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--green-500);color:#fff;font-size:15px;font-weight:700;padding:14px 30px;border-radius:var(--r-pill);transition:all var(--t);box-shadow:0 4px 20px rgba(64,145,108,.4)}
@@ -843,7 +878,7 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
 }
 .hero-trust-pill:nth-child(2) i,
 .hero-trust-pill:nth-child(4) i {
-  color: #e9c46a;
+  color: #74c69d;
 }
 .hero-trust-pill:hover {
   background: rgba(15, 38, 22, 0.9);
@@ -1221,7 +1256,7 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
   color: #ffffff;
 }
 .imp-stat:nth-child(3) .imp-num {
-  color: #e9c46a;
+  color: #74c69d;
 }
 .imp-lbl {
   font-size: 12.5px;
