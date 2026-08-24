@@ -122,7 +122,14 @@
       gap: 9px;
       text-decoration: none;
     }
-    .auth-brand img { height: 28px; width: auto; }
+    .auth-brand img, .auth-brand .brand-logo-img {
+      height: 32px;
+      width: auto;
+      max-width: 140px;
+      filter: none !important;
+      object-fit: contain;
+      display: block;
+    }
 
     /* FORM BODY */
     .auth-form-body {
@@ -333,7 +340,7 @@
             Back to Home
           </a>
           <a href="index.html" class="auth-brand" title="Stackly Home">
-            <img src="https://raw.githubusercontent.com/lingalamanasa/Outdoor-Camping-Store/main/assets/logo.webp" alt="Stackly" class="brand-logo-img" onerror="this.onerror=null; this.src='assets/logo.webp';" />
+            <img src="https://raw.githubusercontent.com/lingalamanasa/Outdoor-Camping-Store/main/assets/logo.webp" alt="Stackly" class="brand-logo-img dark-version" onerror="this.onerror=null; this.src='assets/logo.webp';" />
           </a>
         </div>
 

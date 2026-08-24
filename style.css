@@ -158,7 +158,7 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
   transition: transform var(--t), filter var(--t);
   display: block;
 }
-.brand-logo-img.dark-version, .ud-brand img, .ud-mobile-brand img {
+.brand-logo-img.dark-version, .ud-brand img, .ud-mobile-brand img, .auth-brand img, .auth-brand .brand-logo-img {
   filter: none !important;
 }
 .ad-brand img, .ad-mobile-brand img, .dash-sidebar-brand img, .dash-mobile-header-brand img {
