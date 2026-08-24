@@ -710,7 +710,32 @@ function handleStoreHoursClick(e) {
 }
 
 function handleDirectionsClick(e) {
-  trigger404(e);
+  if (e && typeof e.preventDefault === 'function') e.preventDefault();
+  window.open('https://www.google.com/maps/dir/?api=1&destination=Stackly,+MMR+Complex,+Periyakollappatty,+Chinna+Thirupathi,+Salem,+Tamil+Nadu+636008', '_blank', 'noopener,noreferrer');
+}
+
+function handleSaveLocation(e) {
+  showAppToast('Opening Google Maps to bookmark Stackly!', 'fa-regular fa-bookmark');
+}
+
+function handleShareLocation(e) {
+  if (e && typeof e.preventDefault === 'function') e.preventDefault();
+  const shareData = {
+    title: 'Stackly - Salem',
+    text: 'Stackly, MMR Complex, Periyakollappatty, Chinna Thirupathi, Salem, Tamil Nadu 636008',
+    url: 'https://maps.google.com/?q=Stackly,+MMR+Complex,+Periyakollappatty,+Chinna+Thirupathi,+Salem,+Tamil+Nadu+636008'
+  };
+  if (navigator.share) {
+    navigator.share(shareData).catch(() => {});
+  } else if (navigator.clipboard) {
+    navigator.clipboard.writeText(shareData.url).then(() => {
+      showAppToast('Location link copied to clipboard!', 'fa-solid fa-share-nodes');
+    }).catch(() => {
+      window.open(shareData.url, '_blank', 'noopener,noreferrer');
+    });
+  } else {
+    window.open(shareData.url, '_blank', 'noopener,noreferrer');
+  }
 }
 
 function handleLiveChatClick(e) {
